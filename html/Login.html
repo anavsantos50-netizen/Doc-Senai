@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DOC SENAI - Login</title>
+
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+>
+<body>
+
+    <main class="login-page">
+
+        <div class="login-content">
+
+            <section class="login-info">
+
+                <div class="logo">
+                    <img 
+                        src="../img/logo.png" 
+                        alt="Logo DOC SENAI">
+                </div>
+
+                <h2 class="login-title">
+                    Suas evidências<br>
+                    pedagógicas,<br>
+
+                    <span class="orange">
+                        de forma simples<br>
+                        e organizada.
+                    </span>
+                </h2>
+
+                <p class="login-description">
+                    Registre atividades, envie<br>
+                    fotografias e gere relatórios de<br>
+                    forma prática e segura.
+                </p>
+
+            </section>
+
+            <section class="login-card">
+
+                <div class="login-card-header">
+
+                    <h1>
+                        Bem-vindo!
+                    </h1>
+
+                    <p>
+                        Entre para continuar
+                    </p>
+
+                </div>
+
+                <form id="loginForm">
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            E-mail
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <span class="input-icon">
+                                ✉
+                            </span>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="Digite seu e-mail"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+                
+                    <div class="form-group">
+    <label for="senha">Senha</label>
+
+    <div class="input-wrapper">
+
+       
+        <span class="input-icon">
+            <i class="fa-solid fa-key"></i>
+        </span>
+
+        <input
+            type="password"
+            id="senha"
+            name="senha"
+            placeholder="Digite sua senha"
+        >
+
+        
+        <button
+            type="button"
+            class="password-toggle"
+            id="toggleSenha"
+            aria-label="Mostrar senha"
+        >
+            <i class="fa-solid fa-eye"></i>
+        </button>
+
+    </div>
+</div>
+              
+                    <div class="login-options">
+
+                        <label class="remember-me">
+
+                            <input
+                                type="checkbox"
+                                id="lembrar"
+                            >
+
+                            <span>
+                                Lembrar-me
+                            </span>
+
+                        </label>
+
+
+                        <a
+                            href="#"
+                            class="forgot-password"
+                        >
+                            Esqueci minha senha
+                        </a>
+
+                    </div>
+
+
+               
+               <button
+    type="submit"
+    class="btn-primary"
+>
+    Entrar
+</button>
+
+<div class="divider">
+    <span>ou</span>
+</div>
+
+<button
+    type="button"
+    class="btn-secondary"
+    id="btnCadastro"
+>
+    Criar uma conta
+</button>
+
+</form>
+
+
+            
+                <p class="support">
+
+                    Precisa de ajuda?
+
+                    <a href="#">
+                        Fale com o suporte
+                    </a>
+
+                </p>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+
+    <script src="../js/login.js"></script>
+
+</body>
+
+</html>

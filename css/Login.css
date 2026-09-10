@@ -1,9 +1,4 @@
-/* =========================================================
-   FONTE
-========================================================= */
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-
 
 /* =========================================================
    RESET
@@ -15,19 +10,15 @@
     box-sizing: border-box;
 }
 
-
 html,
 body {
     width: 100%;
     min-height: 100%;
 }
 
-
 body {
     font-family: 'Poppins', sans-serif;
-
     background: #ffffff;
-
     color: #192E75;
 }
 
@@ -36,18 +27,14 @@ body {
    PÁGINA
 ========================================================= */
 
-.cadastro-page {
-
+.login-page {
     width: 100%;
-
     min-height: 100vh;
 
     position: relative;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
     background: #ffffff;
@@ -57,11 +44,10 @@ body {
 
 
 /* =========================================================
-   CÍRCULO LARANJA
+   DECORAÇÃO LARANJA
 ========================================================= */
 
-.cadastro-page::before {
-
+.login-page::before {
     content: "";
 
     position: absolute;
@@ -70,7 +56,6 @@ body {
     height: 500px;
 
     top: -330px;
-
     right: -30px;
 
     background: #EA632C;
@@ -84,11 +69,10 @@ body {
 
 
 /* =========================================================
-   CÍRCULO AZUL
+   DECORAÇÃO AZUL
 ========================================================= */
 
-.cadastro-page::after {
-
+.login-page::after {
     content: "";
 
     position: absolute;
@@ -97,7 +81,6 @@ body {
     height: 500px;
 
     bottom: -350px;
-
     left: -80px;
 
     background: #D5E0F2;
@@ -114,10 +97,8 @@ body {
    CONTEÚDO PRINCIPAL
 ========================================================= */
 
-.cadastro-content {
-
+.login-content {
     width: 92vw;
-
     max-width: 1600px;
 
     min-height: 90vh;
@@ -135,11 +116,10 @@ body {
 
 
 /* =========================================================
-   LADO ESQUERDO
+   ÁREA ESQUERDA
 ========================================================= */
 
-.cadastro-info {
-
+.login-info {
     width: 52%;
 
     height: 90vh;
@@ -157,19 +137,16 @@ body {
 ========================================================= */
 
 .logo {
-
     width: 270px;
 
     margin-top: 25px;
 
+    /* LOGO MAIS PRÓXIMA DA FRASE */
     margin-bottom: 70px;
 }
 
-
 .logo img {
-
     width: 100%;
-
     height: auto;
 
     display: block;
@@ -180,8 +157,7 @@ body {
    TÍTULO
 ========================================================= */
 
-.cadastro-title {
-
+.login-title {
     width: 600px;
 
     font-size: 48px;
@@ -196,8 +172,11 @@ body {
 }
 
 
-.cadastro-title span {
+/* =========================================================
+   PARTE LARANJA DO TÍTULO
+========================================================= */
 
+.login-title .orange {
     color: #EA632C;
 }
 
@@ -206,8 +185,7 @@ body {
    DESCRIÇÃO
 ========================================================= */
 
-.cadastro-description {
-
+.login-description {
     width: 440px;
 
     font-size: 15px;
@@ -224,13 +202,12 @@ body {
    CARD
 ========================================================= */
 
-.cadastro-card {
-
+.login-card {
     width: 520px;
 
     min-height: 650px;
 
-    padding: 42px 40px 30px;
+    padding: 48px 40px 35px;
 
     background: #ffffff;
 
@@ -244,6 +221,7 @@ body {
 
     position: relative;
 
+    /* CARD MAIS PARA A ESQUERDA */
     transform: translateX(-45px);
 
     z-index: 3;
@@ -254,16 +232,13 @@ body {
    CABEÇALHO DO CARD
 ========================================================= */
 
-.cadastro-card-header {
-
+.login-card-header {
     text-align: center;
 
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 
-
-.cadastro-card-header h2 {
-
+.login-card-header h1 {
     font-size: 31px;
 
     line-height: 1.1;
@@ -272,12 +247,10 @@ body {
 
     color: #192E75;
 
-    margin-bottom: 7px;
+    margin-bottom: 8px;
 }
 
-
-.cadastro-card-header p {
-
+.login-card-header p {
     font-size: 13px;
 
     font-weight: 500;
@@ -287,17 +260,14 @@ body {
 
 
 /* =========================================================
-   FORMULÁRIO
+   GRUPOS DO FORMULÁRIO
 ========================================================= */
 
 .form-group {
-
-    margin-bottom: 17px;
+    margin-bottom: 23px;
 }
 
-
 .form-group label {
-
     display: block;
 
     font-size: 12px;
@@ -306,7 +276,7 @@ body {
 
     color: #192E75;
 
-    margin-bottom: 7px;
+    margin-bottom: 8px;
 }
 
 
@@ -315,7 +285,6 @@ body {
 ========================================================= */
 
 .input-wrapper {
-
     width: 100%;
 
     position: relative;
@@ -323,17 +292,16 @@ body {
 
 
 /* =========================================================
-   INPUT E SELECT
+   INPUTS
 ========================================================= */
 
 .input-wrapper input,
 .input-wrapper select {
-
     width: 100%;
 
-    height: 48px;
+    height: 52px;
 
-    padding: 0 43px;
+    padding: 0 48px 0 43px;
 
     border: 1px solid #CCD4E3;
 
@@ -347,6 +315,7 @@ body {
 
     font-family: 'Poppins', sans-serif;
 
+    /* TEXTO MAIOR */
     font-size: 12px;
 
     transition: all 0.2s ease;
@@ -358,7 +327,6 @@ body {
 ========================================================= */
 
 .input-wrapper input::placeholder {
-
     color: #A2AABC;
 
     font-size: 11px;
@@ -366,38 +334,11 @@ body {
 
 
 /* =========================================================
-   SELECT
-========================================================= */
-
-.input-wrapper select {
-
-    appearance: none;
-
-    -webkit-appearance: none;
-
-    -moz-appearance: none;
-
-    padding-right: 45px;
-
-    cursor: pointer;
-
-    color: #A2AABC;
-}
-
-
-.input-wrapper select:valid {
-
-    color: #192E75;
-}
-
-
-/* =========================================================
-   FOCO
+   FOCUS
 ========================================================= */
 
 .input-wrapper input:focus,
 .input-wrapper select:focus {
-
     border-color: #192E75;
 
     box-shadow:
@@ -406,11 +347,10 @@ body {
 
 
 /* =========================================================
-   ÍCONE
+   ÍCONES DOS INPUTS
 ========================================================= */
 
 .input-icon {
-
     position: absolute;
 
     left: 15px;
@@ -428,13 +368,11 @@ body {
     z-index: 2;
 }
 
-
 /* =========================================================
-   SETA DO SELECT
+   BOTÃO OLHINHO DA SENHA
 ========================================================= */
 
-.select-arrow {
-
+.password-toggle {
     position: absolute;
 
     right: 14px;
@@ -443,36 +381,12 @@ body {
 
     transform: translateY(-50%);
 
-    color: #192E75;
-
-    font-size: 10px;
-
-    pointer-events: none;
-}
-
-
-/* =========================================================
-   OLHINHO DA SENHA
-========================================================= */
-
-.password-toggle {
-
-    position: absolute;
-
-    right: 12px;
-
-    top: 50%;
-
-    transform: translateY(-50%);
-
     width: 25px;
-
     height: 25px;
 
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
     border: none;
@@ -490,24 +404,110 @@ body {
     z-index: 3;
 }
 
-
 .password-toggle:hover {
-
     color: #EA632C;
+}
+/* =========================================================
+   MOSTRAR SENHA
+========================================================= */
+
+.password-toggle {
+    position: absolute;
+
+    right: 13px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    border: none;
+
+    background: transparent;
+
+    color: #192E75;
+
+    font-size: 14px;
+
+    padding: 3px;
+
+    cursor: pointer;
 }
 
 
 /* =========================================================
-   BOTÃO CADASTRAR
+   OPÇÕES DO LOGIN
+========================================================= */
+
+.login-options {
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-top: 5px;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================================================
+   LEMBRAR-ME
+========================================================= */
+
+.remember-me {
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    color: #192E75;
+
+    font-size: 11px;
+
+    cursor: pointer;
+}
+
+.remember-me input {
+    width: 14px;
+    height: 14px;
+
+    accent-color: #192E75;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   ESQUECI MINHA SENHA
+========================================================= */
+
+.forgot-password {
+    color: #EA632C;
+
+    font-size: 11px;
+
+    font-weight: 500;
+
+    text-decoration: none;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   BOTÃO PRINCIPAL
 ========================================================= */
 
 .btn-primary {
-
     width: 100%;
 
-    height: 50px;
-
-    margin-top: 4px;
+    height: 52px;
 
     border: none;
 
@@ -528,9 +528,7 @@ body {
     transition: all 0.2s ease;
 }
 
-
 .btn-primary:hover {
-
     background: #D95622;
 
     transform: translateY(-1px);
@@ -538,47 +536,77 @@ body {
 
 
 /* =========================================================
-   LINK PARA LOGIN
+   DIVISOR
 ========================================================= */
 
-.login-link {
-
+.divider {
     width: 100%;
 
-    text-align: center;
+    display: flex;
 
-    margin-top: 22px;
+    align-items: center;
+
+    gap: 13px;
+
+    margin: 19px 0;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+
+    flex: 1;
+
+    height: 1px;
+
+    background: #D5DBE7;
+}
+
+.divider span {
+    font-size: 11px;
 
     color: #777777;
-
-    font-size: 11px;
-}
-
-
-.login-link a {
-
-    color: #EA632C;
-
-    font-weight: 600;
-
-    text-decoration: none;
-
-    margin-left: 3px;
-}
-
-
-.login-link a:hover {
-
-    text-decoration: underline;
 }
 
 
 /* =========================================================
-   SUPORTE
+   BOTÃO SECUNDÁRIO
+========================================================= */
+
+.btn-secondary {
+    width: 100%;
+
+    height: 52px;
+
+    border: 1px solid #C8D1E2;
+
+    border-radius: 7px;
+
+    background: #ffffff;
+
+    color: #192E75;
+
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+    background: #F7F8FB;
+}
+
+
+/* =========================================================
+   TEXTO DE SUPORTE
 ========================================================= */
 
 .support {
-
     position: absolute;
 
     width: 100%;
@@ -589,68 +617,13 @@ body {
 
     text-align: center;
 
+    /* TEXTO MAIOR */
     font-size: 12px;
 
     color: #777777;
 }
 
-/* =========================================================
-   LINK DE CADASTRO
-========================================================= */
-
-.cadastro-link {
-    width: 100%;
-
-    text-align: center;
-
-    margin-top: 20px;
-
-    color: #777777;
-
-    font-size: 12px;
-
-    font-weight: 400;
-}
-
-.cadastro-link a {
-    color: #EA632C;
-
-    font-size: 12px;
-
-    font-weight: 600;
-
-    text-decoration: none;
-
-    margin-left: 4px;
-
-    transition: 0.2s ease;
-}
-
-.cadastro-link a:hover {
-    text-decoration: underline;
-
-    color: #D95622;
-}
-
-
-/* =========================================================
-   RESPONSIVIDADE
-========================================================= */
-
-@media (max-width: 600px) {
-
-    .cadastro-link {
-        font-size: 8px;
-
-        margin-top: 16px;
-    }
-
-    .cadastro-link a {
-        font-size: 8px;
-    }
-}
 .support a {
-
     color: #EA632C;
 
     font-weight: 600;
@@ -659,10 +632,8 @@ body {
 
     text-decoration: none;
 }
-
 
 .support a:hover {
-
     text-decoration: underline;
 }
 
@@ -673,100 +644,77 @@ body {
 
 @media (min-width: 1600px) {
 
-    .cadastro-content {
-
+    .login-content {
         width: 92vw;
 
         max-width: 1700px;
     }
 
-
     .logo {
-
         width: 290px;
 
         margin-bottom: 70px;
     }
 
-
-    .cadastro-title {
-
+    .login-title {
         font-size: 52px;
 
         width: 650px;
     }
 
-
-    .cadastro-description {
-
+    .login-description {
         font-size: 16px;
 
         width: 470px;
     }
 
-
-    .cadastro-card {
-
+    .login-card {
         width: 560px;
 
         min-height: 680px;
 
-        padding: 48px 43px 35px;
+        padding: 52px 43px 38px;
 
         transform: translateX(-55px);
     }
 
-
-    .cadastro-card-header h2 {
-
+    .login-card-header h1 {
         font-size: 33px;
     }
 
-
-    .cadastro-card-header p {
-
+    .login-card-header p {
         font-size: 14px;
     }
 
-
     .form-group label {
-
         font-size: 13px;
     }
-
 
     .input-wrapper input,
     .input-wrapper select {
-
-        height: 52px;
+        height: 55px;
 
         font-size: 13px;
     }
 
-
     .input-wrapper input::placeholder {
+        font-size: 12px;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        height: 55px;
 
         font-size: 12px;
     }
 
-
-    .btn-primary {
-
-        height: 54px;
-
+    .remember-me,
+    .forgot-password {
         font-size: 12px;
     }
-
-
-    .login-link {
-
-        font-size: 12px;
-    }
-
 
     .support,
     .support a {
-
         font-size: 12px;
     }
 }
@@ -778,80 +726,58 @@ body {
 
 @media (max-width: 1200px) {
 
-    .cadastro-content {
-
+    .login-content {
         width: 94vw;
-    }
 
+        min-height: 90vh;
+    }
 
     .logo {
-
         width: 230px;
 
-        margin-bottom: 60px;
+        margin-bottom: 75px;
     }
 
-
-    .cadastro-title {
-
+    .login-title {
         width: 500px;
 
         font-size: 40px;
     }
 
-
-    .cadastro-description {
-
+    .login-description {
         width: 370px;
 
         font-size: 12px;
     }
 
-
-    .cadastro-card {
-
+    .login-card {
         width: 440px;
 
-        min-height: 550px;
+        min-height: 560px;
 
-        padding: 36px 32px 28px;
+        padding: 40px 32px 30px;
 
         transform: translateX(-25px);
     }
 
-
-    .cadastro-card-header h2 {
-
+    .login-card-header h1 {
         font-size: 27px;
     }
 
-
-    .form-group {
-
-        margin-bottom: 14px;
-    }
-
-
     .form-group label {
-
         font-size: 11px;
-
-        margin-bottom: 6px;
     }
-
 
     .input-wrapper input,
     .input-wrapper select {
-
-        height: 45px;
+        height: 48px;
 
         font-size: 11px;
     }
 
-
-    .btn-primary {
-
-        height: 47px;
+    .btn-primary,
+    .btn-secondary {
+        height: 48px;
 
         font-size: 11px;
     }
@@ -864,19 +790,16 @@ body {
 
 @media (max-width: 900px) {
 
-    .cadastro-page {
-
+    .login-page {
         overflow-y: auto;
     }
 
-
-    .cadastro-content {
-
+    .login-content {
         width: 100%;
 
         min-height: 100vh;
 
-        padding: 45px 30px;
+        padding: 50px 30px;
 
         flex-direction: column;
 
@@ -884,12 +807,10 @@ body {
 
         align-items: center;
 
-        gap: 40px;
+        gap: 45px;
     }
 
-
-    .cadastro-info {
-
+    .login-info {
         width: 100%;
 
         height: auto;
@@ -899,17 +820,13 @@ body {
         text-align: center;
     }
 
-
     .logo {
-
         width: 200px;
 
-        margin: 0 0 30px;
+        margin: 0 0 35px;
     }
 
-
-    .cadastro-title {
-
+    .login-title {
         width: 100%;
 
         max-width: 550px;
@@ -917,9 +834,7 @@ body {
         font-size: 36px;
     }
 
-
-    .cadastro-description {
-
+    .login-description {
         width: 100%;
 
         max-width: 370px;
@@ -927,23 +842,19 @@ body {
         font-size: 11px;
     }
 
-
-    .cadastro-card {
-
+    .login-card {
         width: 100%;
 
         max-width: 450px;
 
         min-height: auto;
 
-        padding: 35px 30px 28px;
+        padding: 40px 30px 30px;
 
         transform: none;
     }
 
-
     .support {
-
         position: static;
 
         margin-top: 18px;
@@ -957,23 +868,20 @@ body {
 
 @media (max-width: 600px) {
 
-    .cadastro-page {
-
+    .login-page {
         min-height: 100vh;
 
         overflow-y: auto;
     }
 
-
-    .cadastro-content {
-
+    .login-content {
         width: 100%;
 
         min-height: 100vh;
 
         padding: 30px 20px 45px;
 
-        gap: 28px;
+        gap: 30px;
 
         justify-content: flex-start;
     }
@@ -982,17 +890,15 @@ body {
     /* LOGO */
 
     .logo {
-
         width: 165px;
 
-        margin: 0 0 20px;
+        margin: 0 0 22px;
     }
 
 
     /* TÍTULO */
 
-    .cadastro-title {
-
+    .login-title {
         width: 100%;
 
         max-width: 360px;
@@ -1001,14 +907,13 @@ body {
 
         line-height: 1.08;
 
-        margin-bottom: 13px;
+        margin-bottom: 14px;
     }
 
 
     /* DESCRIÇÃO */
 
-    .cadastro-description {
-
+    .login-description {
         width: 100%;
 
         max-width: 300px;
@@ -1021,15 +926,14 @@ body {
 
     /* CARD */
 
-    .cadastro-card {
-
+    .login-card {
         width: 100%;
 
         max-width: 370px;
 
         min-height: auto;
 
-        padding: 28px 21px 23px;
+        padding: 30px 21px 25px;
 
         border-radius: 9px;
 
@@ -1039,20 +943,15 @@ body {
 
     /* CABEÇALHO */
 
-    .cadastro-card-header {
-
-        margin-bottom: 23px;
+    .login-card-header {
+        margin-bottom: 25px;
     }
 
-
-    .cadastro-card-header h2 {
-
+    .login-card-header h1 {
         font-size: 21px;
     }
 
-
-    .cadastro-card-header p {
-
+    .login-card-header p {
         font-size: 9px;
     }
 
@@ -1060,76 +959,53 @@ body {
     /* CAMPOS */
 
     .form-group {
-
-        margin-bottom: 14px;
+        margin-bottom: 16px;
     }
 
-
     .form-group label {
-
         font-size: 9px;
 
         margin-bottom: 5px;
     }
 
-
     .input-wrapper input,
     .input-wrapper select {
-
-        height: 41px;
+        height: 42px;
 
         font-size: 9px;
 
-        padding-left: 36px;
+        padding-left: 37px;
     }
-
 
     .input-wrapper input::placeholder {
-
         font-size: 9px;
     }
 
 
-    .input-icon {
+    /* OPÇÕES */
 
-        left: 13px;
-
-        font-size: 11px;
+    .remember-me {
+        font-size: 8px;
     }
 
-
-    .password-toggle {
-
-        right: 10px;
-
-        font-size: 11px;
-    }
-
-
-    .select-arrow {
-
-        right: 11px;
-
+    .forgot-password {
         font-size: 8px;
     }
 
 
-    /* BOTÃO */
+    /* BOTÕES */
 
-    .btn-primary {
-
+    .btn-primary,
+    .btn-secondary {
         height: 42px;
 
         font-size: 9px;
     }
 
 
-    /* LOGIN */
+    /* DIVISOR */
 
-    .login-link {
-
-        margin-top: 17px;
-
+    .divider span {
         font-size: 8px;
     }
 
@@ -1137,27 +1013,23 @@ body {
     /* SUPORTE */
 
     .support {
-
         position: static;
 
         width: 100%;
 
-        margin-top: 14px;
+        margin-top: 16px;
 
         font-size: 8px;
     }
 
-
     .support a {
-
         font-size: 8px;
     }
 
 
     /* DECORAÇÕES */
 
-    .cadastro-page::before {
-
+    .login-page::before {
         width: 260px;
 
         height: 260px;
@@ -1167,9 +1039,7 @@ body {
         right: -105px;
     }
 
-
-    .cadastro-page::after {
-
+    .login-page::after {
         width: 270px;
 
         height: 270px;
@@ -1187,84 +1057,63 @@ body {
 
 @media (max-width: 380px) {
 
-    .cadastro-content {
-
+    .login-content {
         padding: 24px 15px 35px;
 
-        gap: 23px;
+        gap: 25px;
     }
-
 
     .logo {
-
         width: 145px;
 
-        margin-bottom: 17px;
+        margin-bottom: 18px;
     }
 
-
-    .cadastro-title {
-
+    .login-title {
         font-size: 23px;
     }
 
-
-    .cadastro-description {
-
+    .login-description {
         font-size: 8px;
     }
 
-
-    .cadastro-card {
-
-        padding: 24px 17px 20px;
+    .login-card {
+        padding: 25px 17px 22px;
     }
 
-
-    .cadastro-card-header h2 {
-
+    .login-card-header h1 {
         font-size: 19px;
     }
 
-
-    .cadastro-card-header p {
-
+    .login-card-header p {
         font-size: 8px;
     }
-
 
     .input-wrapper input,
     .input-wrapper select {
-
         height: 39px;
 
         font-size: 8px;
     }
-
 
     .input-wrapper input::placeholder {
-
         font-size: 8px;
     }
 
-
-    .btn-primary {
-
+    .btn-primary,
+    .btn-secondary {
         height: 39px;
 
         font-size: 8px;
     }
 
-
-    .login-link {
-
+    .remember-me,
+    .forgot-password {
         font-size: 7px;
     }
 
-
     .support,
     .support a {
-
         font-size: 7px;
     }
 }

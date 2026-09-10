@@ -1,7 +1,3 @@
-/* =========================================================
-   FONTE
-========================================================= */
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 
@@ -25,9 +21,7 @@ body {
 
 body {
     font-family: 'Poppins', sans-serif;
-
     background: #ffffff;
-
     color: #192E75;
 }
 
@@ -36,18 +30,15 @@ body {
    PÁGINA
 ========================================================= */
 
-.cadastro-page {
+.recuperacao-page {
 
     width: 100%;
-
     min-height: 100vh;
 
     position: relative;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
     background: #ffffff;
@@ -57,10 +48,10 @@ body {
 
 
 /* =========================================================
-   CÍRCULO LARANJA
+   CÍRCULOS DECORATIVOS
 ========================================================= */
 
-.cadastro-page::before {
+.recuperacao-page::before {
 
     content: "";
 
@@ -70,7 +61,6 @@ body {
     height: 500px;
 
     top: -330px;
-
     right: -30px;
 
     background: #EA632C;
@@ -83,11 +73,7 @@ body {
 }
 
 
-/* =========================================================
-   CÍRCULO AZUL
-========================================================= */
-
-.cadastro-page::after {
+.recuperacao-page::after {
 
     content: "";
 
@@ -97,7 +83,6 @@ body {
     height: 500px;
 
     bottom: -350px;
-
     left: -80px;
 
     background: #D5E0F2;
@@ -111,13 +96,12 @@ body {
 
 
 /* =========================================================
-   CONTEÚDO PRINCIPAL
+   CONTEÚDO
 ========================================================= */
 
-.cadastro-content {
+.recuperacao-content {
 
     width: 92vw;
-
     max-width: 1600px;
 
     min-height: 90vh;
@@ -125,7 +109,6 @@ body {
     display: flex;
 
     align-items: center;
-
     justify-content: space-between;
 
     position: relative;
@@ -138,14 +121,12 @@ body {
    LADO ESQUERDO
 ========================================================= */
 
-.cadastro-info {
+.recuperacao-info {
 
     width: 52%;
-
     height: 90vh;
 
     display: flex;
-
     flex-direction: column;
 
     justify-content: flex-start;
@@ -161,7 +142,6 @@ body {
     width: 270px;
 
     margin-top: 25px;
-
     margin-bottom: 70px;
 }
 
@@ -169,7 +149,6 @@ body {
 .logo img {
 
     width: 100%;
-
     height: auto;
 
     display: block;
@@ -180,7 +159,7 @@ body {
    TÍTULO
 ========================================================= */
 
-.cadastro-title {
+.recuperacao-title {
 
     width: 600px;
 
@@ -196,7 +175,7 @@ body {
 }
 
 
-.cadastro-title span {
+.recuperacao-title span {
 
     color: #EA632C;
 }
@@ -206,7 +185,7 @@ body {
    DESCRIÇÃO
 ========================================================= */
 
-.cadastro-description {
+.recuperacao-description {
 
     width: 440px;
 
@@ -224,11 +203,11 @@ body {
    CARD
 ========================================================= */
 
-.cadastro-card {
+.recuperacao-card {
 
     width: 520px;
 
-    min-height: 650px;
+    min-height: 500px;
 
     padding: 42px 40px 30px;
 
@@ -254,7 +233,7 @@ body {
    CABEÇALHO DO CARD
 ========================================================= */
 
-.cadastro-card-header {
+.recuperacao-card-header {
 
     text-align: center;
 
@@ -262,7 +241,37 @@ body {
 }
 
 
-.cadastro-card-header h2 {
+/* =========================================================
+   ÍCONE
+========================================================= */
+
+.recovery-icon {
+
+    width: 52px;
+    height: 52px;
+
+    margin: 0 auto 15px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #FFF1EC;
+
+    color: #EA632C;
+
+    font-size: 21px;
+}
+
+
+/* =========================================================
+   TÍTULO DO CARD
+========================================================= */
+
+.recuperacao-card-header h2 {
 
     font-size: 31px;
 
@@ -276,7 +285,7 @@ body {
 }
 
 
-.cadastro-card-header p {
+.recuperacao-card-header p {
 
     font-size: 13px;
 
@@ -292,7 +301,7 @@ body {
 
 .form-group {
 
-    margin-bottom: 17px;
+    margin-bottom: 22px;
 }
 
 
@@ -311,7 +320,7 @@ body {
 
 
 /* =========================================================
-   INPUT WRAPPER
+   INPUT
 ========================================================= */
 
 .input-wrapper {
@@ -322,12 +331,7 @@ body {
 }
 
 
-/* =========================================================
-   INPUT E SELECT
-========================================================= */
-
-.input-wrapper input,
-.input-wrapper select {
+.input-wrapper input {
 
     width: 100%;
 
@@ -353,10 +357,6 @@ body {
 }
 
 
-/* =========================================================
-   PLACEHOLDER
-========================================================= */
-
 .input-wrapper input::placeholder {
 
     color: #A2AABC;
@@ -365,38 +365,7 @@ body {
 }
 
 
-/* =========================================================
-   SELECT
-========================================================= */
-
-.input-wrapper select {
-
-    appearance: none;
-
-    -webkit-appearance: none;
-
-    -moz-appearance: none;
-
-    padding-right: 45px;
-
-    cursor: pointer;
-
-    color: #A2AABC;
-}
-
-
-.input-wrapper select:valid {
-
-    color: #192E75;
-}
-
-
-/* =========================================================
-   FOCO
-========================================================= */
-
-.input-wrapper input:focus,
-.input-wrapper select:focus {
+.input-wrapper input:focus {
 
     border-color: #192E75;
 
@@ -406,7 +375,7 @@ body {
 
 
 /* =========================================================
-   ÍCONE
+   ÍCONE DO INPUT
 ========================================================= */
 
 .input-icon {
@@ -414,7 +383,6 @@ body {
     position: absolute;
 
     left: 15px;
-
     top: 50%;
 
     transform: translateY(-50%);
@@ -430,75 +398,7 @@ body {
 
 
 /* =========================================================
-   SETA DO SELECT
-========================================================= */
-
-.select-arrow {
-
-    position: absolute;
-
-    right: 14px;
-
-    top: 50%;
-
-    transform: translateY(-50%);
-
-    color: #192E75;
-
-    font-size: 10px;
-
-    pointer-events: none;
-}
-
-
-/* =========================================================
-   OLHINHO DA SENHA
-========================================================= */
-
-.password-toggle {
-
-    position: absolute;
-
-    right: 12px;
-
-    top: 50%;
-
-    transform: translateY(-50%);
-
-    width: 25px;
-
-    height: 25px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    border: none;
-
-    background: transparent;
-
-    color: #192E75;
-
-    font-size: 13px;
-
-    cursor: pointer;
-
-    padding: 0;
-
-    z-index: 3;
-}
-
-
-.password-toggle:hover {
-
-    color: #EA632C;
-}
-
-
-/* =========================================================
-   BOTÃO CADASTRAR
+   BOTÃO PRINCIPAL
 ========================================================= */
 
 .btn-primary {
@@ -507,7 +407,7 @@ body {
 
     height: 50px;
 
-    margin-top: 4px;
+    margin-top: 5px;
 
     border: none;
 
@@ -547,9 +447,7 @@ body {
 
     text-align: center;
 
-    margin-top: 22px;
-
-    color: #777777;
+    margin-top: 25px;
 
     font-size: 11px;
 }
@@ -563,13 +461,23 @@ body {
 
     text-decoration: none;
 
-    margin-left: 3px;
+    transition: 0.2s ease;
 }
 
 
 .login-link a:hover {
 
     text-decoration: underline;
+
+    color: #D95622;
+}
+
+
+.login-link i {
+
+    margin-right: 5px;
+
+    font-size: 10px;
 }
 
 
@@ -594,61 +502,7 @@ body {
     color: #777777;
 }
 
-/* =========================================================
-   LINK DE CADASTRO
-========================================================= */
 
-.cadastro-link {
-    width: 100%;
-
-    text-align: center;
-
-    margin-top: 20px;
-
-    color: #777777;
-
-    font-size: 12px;
-
-    font-weight: 400;
-}
-
-.cadastro-link a {
-    color: #EA632C;
-
-    font-size: 12px;
-
-    font-weight: 600;
-
-    text-decoration: none;
-
-    margin-left: 4px;
-
-    transition: 0.2s ease;
-}
-
-.cadastro-link a:hover {
-    text-decoration: underline;
-
-    color: #D95622;
-}
-
-
-/* =========================================================
-   RESPONSIVIDADE
-========================================================= */
-
-@media (max-width: 600px) {
-
-    .cadastro-link {
-        font-size: 8px;
-
-        margin-top: 16px;
-    }
-
-    .cadastro-link a {
-        font-size: 8px;
-    }
-}
 .support a {
 
     color: #EA632C;
@@ -673,7 +527,7 @@ body {
 
 @media (min-width: 1600px) {
 
-    .cadastro-content {
+    .recuperacao-content {
 
         width: 92vw;
 
@@ -689,7 +543,7 @@ body {
     }
 
 
-    .cadastro-title {
+    .recuperacao-title {
 
         font-size: 52px;
 
@@ -697,7 +551,7 @@ body {
     }
 
 
-    .cadastro-description {
+    .recuperacao-description {
 
         font-size: 16px;
 
@@ -705,11 +559,11 @@ body {
     }
 
 
-    .cadastro-card {
+    .recuperacao-card {
 
         width: 560px;
 
-        min-height: 680px;
+        min-height: 520px;
 
         padding: 48px 43px 35px;
 
@@ -717,13 +571,13 @@ body {
     }
 
 
-    .cadastro-card-header h2 {
+    .recuperacao-card-header h2 {
 
         font-size: 33px;
     }
 
 
-    .cadastro-card-header p {
+    .recuperacao-card-header p {
 
         font-size: 14px;
     }
@@ -735,8 +589,7 @@ body {
     }
 
 
-    .input-wrapper input,
-    .input-wrapper select {
+    .input-wrapper input {
 
         height: 52px;
 
@@ -773,12 +626,12 @@ body {
 
 
 /* =========================================================
-   NOTEBOOK
+   TABLET / NOTEBOOK
 ========================================================= */
 
 @media (max-width: 1200px) {
 
-    .cadastro-content {
+    .recuperacao-content {
 
         width: 94vw;
     }
@@ -792,7 +645,7 @@ body {
     }
 
 
-    .cadastro-title {
+    .recuperacao-title {
 
         width: 500px;
 
@@ -800,7 +653,7 @@ body {
     }
 
 
-    .cadastro-description {
+    .recuperacao-description {
 
         width: 370px;
 
@@ -808,11 +661,11 @@ body {
     }
 
 
-    .cadastro-card {
+    .recuperacao-card {
 
         width: 440px;
 
-        min-height: 550px;
+        min-height: 480px;
 
         padding: 36px 32px 28px;
 
@@ -820,7 +673,7 @@ body {
     }
 
 
-    .cadastro-card-header h2 {
+    .recuperacao-card-header h2 {
 
         font-size: 27px;
     }
@@ -828,7 +681,7 @@ body {
 
     .form-group {
 
-        margin-bottom: 14px;
+        margin-bottom: 18px;
     }
 
 
@@ -840,8 +693,7 @@ body {
     }
 
 
-    .input-wrapper input,
-    .input-wrapper select {
+    .input-wrapper input {
 
         height: 45px;
 
@@ -864,13 +716,13 @@ body {
 
 @media (max-width: 900px) {
 
-    .cadastro-page {
+    .recuperacao-page {
 
         overflow-y: auto;
     }
 
 
-    .cadastro-content {
+    .recuperacao-content {
 
         width: 100%;
 
@@ -888,7 +740,7 @@ body {
     }
 
 
-    .cadastro-info {
+    .recuperacao-info {
 
         width: 100%;
 
@@ -908,7 +760,7 @@ body {
     }
 
 
-    .cadastro-title {
+    .recuperacao-title {
 
         width: 100%;
 
@@ -918,7 +770,7 @@ body {
     }
 
 
-    .cadastro-description {
+    .recuperacao-description {
 
         width: 100%;
 
@@ -928,7 +780,7 @@ body {
     }
 
 
-    .cadastro-card {
+    .recuperacao-card {
 
         width: 100%;
 
@@ -957,7 +809,7 @@ body {
 
 @media (max-width: 600px) {
 
-    .cadastro-page {
+    .recuperacao-page {
 
         min-height: 100vh;
 
@@ -965,7 +817,7 @@ body {
     }
 
 
-    .cadastro-content {
+    .recuperacao-content {
 
         width: 100%;
 
@@ -979,8 +831,6 @@ body {
     }
 
 
-    /* LOGO */
-
     .logo {
 
         width: 165px;
@@ -989,9 +839,7 @@ body {
     }
 
 
-    /* TÍTULO */
-
-    .cadastro-title {
+    .recuperacao-title {
 
         width: 100%;
 
@@ -1005,9 +853,7 @@ body {
     }
 
 
-    /* DESCRIÇÃO */
-
-    .cadastro-description {
+    .recuperacao-description {
 
         width: 100%;
 
@@ -1019,9 +865,7 @@ body {
     }
 
 
-    /* CARD */
-
-    .cadastro-card {
+    .recuperacao-card {
 
         width: 100%;
 
@@ -1037,31 +881,39 @@ body {
     }
 
 
-    /* CABEÇALHO */
-
-    .cadastro-card-header {
+    .recuperacao-card-header {
 
         margin-bottom: 23px;
     }
 
 
-    .cadastro-card-header h2 {
+    .recovery-icon {
+
+        width: 43px;
+
+        height: 43px;
+
+        margin-bottom: 12px;
+
+        font-size: 17px;
+    }
+
+
+    .recuperacao-card-header h2 {
 
         font-size: 21px;
     }
 
 
-    .cadastro-card-header p {
+    .recuperacao-card-header p {
 
         font-size: 9px;
     }
 
 
-    /* CAMPOS */
-
     .form-group {
 
-        margin-bottom: 14px;
+        margin-bottom: 16px;
     }
 
 
@@ -1073,8 +925,7 @@ body {
     }
 
 
-    .input-wrapper input,
-    .input-wrapper select {
+    .input-wrapper input {
 
         height: 41px;
 
@@ -1098,24 +949,6 @@ body {
     }
 
 
-    .password-toggle {
-
-        right: 10px;
-
-        font-size: 11px;
-    }
-
-
-    .select-arrow {
-
-        right: 11px;
-
-        font-size: 8px;
-    }
-
-
-    /* BOTÃO */
-
     .btn-primary {
 
         height: 42px;
@@ -1123,8 +956,6 @@ body {
         font-size: 9px;
     }
 
-
-    /* LOGIN */
 
     .login-link {
 
@@ -1134,7 +965,11 @@ body {
     }
 
 
-    /* SUPORTE */
+    .login-link i {
+
+        font-size: 8px;
+    }
+
 
     .support {
 
@@ -1154,9 +989,7 @@ body {
     }
 
 
-    /* DECORAÇÕES */
-
-    .cadastro-page::before {
+    .recuperacao-page::before {
 
         width: 260px;
 
@@ -1168,7 +1001,7 @@ body {
     }
 
 
-    .cadastro-page::after {
+    .recuperacao-page::after {
 
         width: 270px;
 
@@ -1182,12 +1015,12 @@ body {
 
 
 /* =========================================================
-   CELULAR PEQUENO
+   CELULARES PEQUENOS
 ========================================================= */
 
 @media (max-width: 380px) {
 
-    .cadastro-content {
+    .recuperacao-content {
 
         padding: 24px 15px 35px;
 
@@ -1203,38 +1036,37 @@ body {
     }
 
 
-    .cadastro-title {
+    .recuperacao-title {
 
         font-size: 23px;
     }
 
 
-    .cadastro-description {
+    .recuperacao-description {
 
         font-size: 8px;
     }
 
 
-    .cadastro-card {
+    .recuperacao-card {
 
         padding: 24px 17px 20px;
     }
 
 
-    .cadastro-card-header h2 {
+    .recuperacao-card-header h2 {
 
         font-size: 19px;
     }
 
 
-    .cadastro-card-header p {
+    .recuperacao-card-header p {
 
         font-size: 8px;
     }
 
 
-    .input-wrapper input,
-    .input-wrapper select {
+    .input-wrapper input {
 
         height: 39px;
 
