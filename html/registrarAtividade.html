@@ -3,9 +3,589 @@
                       <head>
                         <meta charset="UTF-8">
                         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                        <title>Document</title>
-                      </head>
-                      <body>
-                           <script src="js/registrarAtividade.js"></script>
+                       
+    <title>Registrar atividade - DOCSENAI</title>
+
+    <!-- Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/registrarAtividade.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         TOPBAR
+    ====================================================== -->
+
+    <header class="topbar">
+
+        <div class="topbar-container">
+
+            <!-- LOGO -->
+            <a href="inicio-professor.html" class="logo">
+                <img
+                    src="../img/logo.png"
+                    alt="Logo DOCSENAI">
+            </a>
+
+
+            <!-- MENU -->
+            <nav class="main-nav" id="mainNav">
+
+                <a href="telaInicialProfessor.html" class="nav-link">
+                    <i class="fa-solid fa-house"></i>
+                    Início
+                </a>
+
+                <a
+                    href="registrar-atividade.html"
+                    class="nav-link active">
+                    <i class="fa-solid fa-plus"></i>
+                    Registrar atividade
+                </a>
+
+                <a href="historico.html" class="nav-link">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    Histórico
+                </a>
+
+            </nav>
+
+
+            <!-- PERFIL -->
+            <div class="profile-area">
+
+    <a href="perfilProfessor.html" class="profile-link">
+
+        <div class="profile-info">
+
+            <strong>
+                Professor
+            </strong>
+
+            <span>
+                DocSenai
+            </span>
+
+        </div>
+
+        <div class="profile-icon">
+
+            <i class="fa-solid fa-user"></i>
+
+        </div>
+
+    </a>
+
+    <button
+        type="button"
+        class="logout-btn"
+        id="btnLogout"
+        title="Sair">
+
+        <i class="fa-solid fa-right-from-bracket"></i>
+
+    </button>
+
+</div>
+
+
+            <!-- MENU MOBILE -->
+            <button
+                type="button"
+                class="menu-mobile"
+                id="menuMobile"
+                aria-label="Abrir menu">
+
+                <i class="fa-solid fa-bars"></i>
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main class="main-content">
+
+        <div class="content-container">
+
+
+            <!-- VOLTAR -->
+            <a
+                href="inicio-professor.html"
+                class="back-link">
+
+                <i class="fa-solid fa-arrow-left"></i>
+
+                Voltar para o início
+
+            </a>
+
+
+
+            <!-- CABEÇALHO -->
+            <section class="page-header">
+
+                <div>
+
+                    <span class="page-label">
+                        NOVA ATIVIDADE
+                    </span>
+
+                    <h1>
+                        Registrar atividade
+                    </h1>
+
+                    <p>
+                        Registre a atividade realizada e adicione
+                        as evidências pedagógicas.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 FORMULÁRIO
+            ================================================== -->
+
+            <form id="atividadeForm">
+
+
+                <!-- =================================================
+                     DADOS DA ATIVIDADE
+                ================================================== -->
+
+                <section class="form-card">
+
+                    <div class="card-header">
+
+                        <div class="card-icon blue">
+                            <i class="fa-solid fa-clipboard-list"></i>
+                        </div>
+
+                        <div>
+
+                            <span>
+                                INFORMAÇÕES
+                            </span>
+
+                            <h2>
+                                Dados da atividade
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="form-grid">
+
+
+                        <!-- TURMA -->
+                        <div class="form-group">
+
+                            <label for="turma">
+                                Turma
+                                <span>*</span>
+                            </label>
+
+                            <div class="input-wrapper">
+
+                                <i class="fa-solid fa-users input-icon"></i>
+
+                                <select
+                                    id="turma"
+                                    name="turma"
+                                    required>
+
+                                    <option
+                                        value=""
+                                        disabled
+                                        selected>
+
+                                        Selecione a turma
+
+                                    </option>
+
+                                    <option value="Desenvolvimento de Sistemas - 2026.1">
+                                        Desenvolvimento de Sistemas - 2026.1
+                                    </option>
+
+                                    <option value="Informática para Internet - 2026.1">
+                                        Informática para Internet - 2026.1
+                                    </option>
+
+                                    <option value="Administração - 2026.1">
+                                        Administração - 2026.1
+                                    </option>
+
+                                    <option value="Eletrotécnica - 2026.1">
+                                        Eletrotécnica - 2026.1
+                                    </option>
+
+                                </select>
+
+                                <i class="fa-solid fa-chevron-down select-arrow"></i>
+
+                            </div>
+
+                            <small>
+                                Selecione a turma relacionada à atividade.
+                            </small>
+
+                        </div>
+
+
+
+                        <!-- DATA -->
+                        <div class="form-group">
+
+                            <label for="data">
+                                Data da atividade
+                                <span>*</span>
+                            </label>
+
+                            <div class="input-wrapper">
+
+                                <i class="fa-regular fa-calendar input-icon"></i>
+
+                                <input
+                                    type="date"
+                                    id="data"
+                                    name="data"
+                                    required>
+
+                            </div>
+
+                            <small>
+                                Informe a data em que a atividade foi realizada.
+                            </small>
+
+                        </div>
+
+
+
+                        <!-- DESCRIÇÃO -->
+                        <div class="form-group full">
+
+                            <label for="descricao">
+                                Descrição da atividade
+                                <span>*</span>
+                            </label>
+
+                            <div class="textarea-wrapper">
+
+                                <textarea
+                                    id="descricao"
+                                    name="descricao"
+                                    rows="5"
+                                    maxlength="1000"
+                                    placeholder="Descreva a atividade realizada com a turma..."
+                                    required></textarea>
+
+                            </div>
+
+                            <div class="textarea-footer">
+
+                                <small>
+                                    Descreva de forma clara o que foi realizado.
+                                </small>
+
+                                <span id="contadorDescricao">
+                                    0 / 1000
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- OBSERVAÇÃO -->
+                        <div class="form-group full">
+
+                            <label for="observacao">
+                                Observação
+                                <em>Opcional</em>
+                            </label>
+
+                            <div class="textarea-wrapper">
+
+                                <textarea
+                                    id="observacao"
+                                    name="observacao"
+                                    rows="3"
+                                    maxlength="500"
+                                    placeholder="Adicione alguma observação, se necessário..."></textarea>
+
+                            </div>
+
+                            <div class="textarea-footer">
+
+                                <small>
+                                    Este campo pode ser utilizado para informações complementares.
+                                </small>
+
+                                <span id="contadorObservacao">
+                                    0 / 500
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =================================================
+                     FOTOS
+                ================================================== -->
+
+                <section class="form-card photos-card">
+
+                    <div class="card-header">
+
+                        <div class="card-icon orange">
+                            <i class="fa-solid fa-camera"></i>
+                        </div>
+
+                        <div>
+
+                            <span>
+                                EVIDÊNCIAS
+                            </span>
+
+                            <h2>
+                                Fotografias da atividade
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <p class="photos-description">
+                        Adicione as fotografias que comprovam a realização
+                        da atividade com a turma.
+                    </p>
+
+
+
+                    <!-- ÁREA DE UPLOAD -->
+
+                    <div
+                        class="upload-area"
+                        id="uploadArea">
+
+                        <input
+                            type="file"
+                            id="fotos"
+                            name="fotos"
+                            accept="image/png,image/jpeg,image/jpg"
+                            multiple
+                            hidden>
+
+
+                        <div class="upload-icon">
+
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+
+                        </div>
+
+
+                        <h3>
+                            Adicione as fotos da atividade
+                        </h3>
+
+
+                        <p>
+                            Arraste as imagens para esta área ou
+                            selecione os arquivos no seu dispositivo.
+                        </p>
+
+
+                        <button
+                            type="button"
+                            class="upload-button"
+                            id="btnFotos">
+
+                            <i class="fa-solid fa-plus"></i>
+
+                            Adicionar fotos
+
+                        </button>
+
+
+                        <span class="upload-info">
+                            JPG, JPEG ou PNG • Máximo de 10 MB por imagem
+                        </span>
+
+                    </div>
+
+
+
+                    <!-- PREVIEW -->
+
+                    <div
+                        class="preview-section"
+                        id="previewSection"
+                        style="display: none;">
+
+                        <div class="preview-header">
+
+                            <div>
+
+                                <h3>
+                                    Fotos selecionadas
+                                </h3>
+
+                                <span id="contadorFotos">
+                                    0 fotos
+                                </span>
+
+                            </div>
+
+                            <button
+                                type="button"
+                                id="adicionarMaisFotos"
+                                class="add-more-button">
+
+                                <i class="fa-solid fa-plus"></i>
+
+                                Adicionar mais
+
+                            </button>
+
+                        </div>
+
+
+                        <div
+                            class="preview-grid"
+                            id="previewGrid">
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =================================================
+                     AVISO
+                ================================================== -->
+
+                <div class="form-notice">
+
+                    <i class="fa-solid fa-circle-info"></i>
+
+                    <p>
+                        Confira as informações e as fotografias antes
+                        de registrar a atividade. Após o registro,
+                        a atividade ficará disponível no seu histórico.
+                    </p>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     BOTÕES
+                ================================================== -->
+
+                <div class="form-actions">
+
+                    <a
+                        href="inicio-professor.html"
+                        class="cancel-button">
+
+                        Cancelar
+
+                    </a>
+
+
+                    <button
+                        type="submit"
+                        class="submit-button"
+                        id="submitButton">
+
+                        <i class="fa-solid fa-check"></i>
+
+                        Registrar atividade
+
+                    </button>
+
+                </div>
+
+
+            </form>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         MODAL DE SUCESSO
+    ====================================================== -->
+
+    <div
+        class="success-overlay"
+        id="successOverlay">
+
+        <div class="success-modal">
+
+            <div class="success-icon">
+
+                <i class="fa-solid fa-check"></i>
+
+            </div>
+
+            <h2>
+                Atividade registrada!
+            </h2>
+
+            <p>
+                A atividade e suas evidências foram registradas
+                com sucesso.
+            </p>
+
+            <button
+                type="button"
+                id="successButton">
+
+                Voltar para o início
+
+            </button>
+
+        </div>
+
+    </div>
+                           <script src="../js/registrarAtividade.js"></script>
                       </body>
                       </html>

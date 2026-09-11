@@ -3,9 +3,493 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-  </head>
-  <body>
-        <script src="js/visualizarAtividade.js"></script>
+    <title>Meus Registros - DOCSENAI</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="../css/visualizarAtividades.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         CABEÇALHO
+    ========================== -->
+    <header class="topbar">
+
+        <div class="topbar-container">
+
+            <a href="inicio-professor.html" class="logo">
+                <img src="../img/logo.png" alt="DOCSENAI">
+            </a>
+
+            <nav class="main-nav">
+
+                <a href="telaInicialProfessor.html">
+                    Início
+                </a>
+
+                <a href="registrarAtividade.html">
+                    Registrar atividade
+                </a>
+
+                <a href="visualizarAtividade.html" class="active">
+                    Histórico
+                </a>
+
+            </nav>
+
+            <div class="profile-area">
+
+    <a href="perfilProfessor.html" class="profile-link">
+
+        <div class="profile-info">
+
+            <strong>
+                Professor
+            </strong>
+
+            <span>
+                DocSenai
+            </span>
+
+        </div>
+
+        <div class="profile-icon">
+
+            <i class="fa-solid fa-user"></i>
+
+        </div>
+
+    </a>
+
+    <button
+        type="button"
+        class="logout-btn"
+        id="btnLogout"
+        title="Sair">
+
+        <i class="fa-solid fa-right-from-bracket"></i>
+
+    </button>
+
+</div>
+
+        <!-- MENU MOBILE -->
+        <nav class="mobile-nav" id="mobileNav">
+
+            <a href="inicio-professor.html">
+                <i class="fa-solid fa-house"></i>
+                Início
+            </a>
+
+            <a href="registrar-atividade.html">
+                <i class="fa-solid fa-plus"></i>
+                Registrar atividade
+            </a>
+
+            <a href="historico.html" class="active">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+                Histórico
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =========================
+         CONTEÚDO PRINCIPAL
+    ========================== -->
+
+    <main class="main-content">
+
+        <a href="inicio-professor.html" class="back-link">
+            <i class="fa-solid fa-arrow-left"></i>
+            Voltar para o início
+        </a>
+
+
+        <!-- CABEÇALHO DA PÁGINA -->
+
+        <section class="page-header">
+
+            <div>
+
+                <span class="section-label">
+                    MEUS REGISTROS
+                </span>
+
+                <h1>
+                    Histórico de atividades
+                </h1>
+
+                <p>
+                    Consulte as atividades e evidências pedagógicas
+                    que você registrou.
+                </p>
+
+            </div>
+
+            <a
+                href="registrar-atividade.html"
+                class="new-activity-btn">
+
+                <i class="fa-solid fa-plus"></i>
+
+                Nova atividade
+
+            </a>
+
+        </section>
+
+
+        <!-- =========================
+             BUSCA E FILTROS
+        ========================== -->
+
+        <section class="filters-card">
+
+            <div class="search-box">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Buscar atividade..."
+                    autocomplete="off">
+
+            </div>
+
+
+            <div class="filter-group">
+
+                <div class="filter-item">
+
+                    <label for="turmaFilter">
+                        Turma
+                    </label>
+
+                    <select id="turmaFilter">
+
+                        <option value="todas">
+                            Todas as turmas
+                        </option>
+
+                        <option value="info2026">
+                            Informática 2026
+                        </option>
+
+                        <option value="adm2026">
+                            Administração 2026
+                        </option>
+
+                        <option value="mec2026">
+                            Mecânica 2026
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="filter-item">
+
+                    <label for="periodoFilter">
+                        Período
+                    </label>
+
+                    <select id="periodoFilter">
+
+                        <option value="todos">
+                            Todos os períodos
+                        </option>
+
+                        <option value="2026-09">
+                            Setembro de 2026
+                        </option>
+
+                        <option value="2026-08">
+                            Agosto de 2026
+                        </option>
+
+                        <option value="2026-07">
+                            Julho de 2026
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="clear-filter"
+                    id="clearFilters">
+
+                    <i class="fa-solid fa-filter-circle-xmark"></i>
+
+                    Limpar filtros
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             RESUMO
+        ========================== -->
+
+        <div class="results-header">
+
+            <div>
+
+                <strong id="resultsCount">
+                    6 registros encontrados
+                </strong>
+
+                <span>
+                    Atividades registradas por você
+                </span>
+
+            </div>
+
+            <div class="sort-box">
+
+                <label for="sortSelect">
+                    Ordenar:
+                </label>
+
+                <select id="sortSelect">
+
+                    <option value="recent">
+                        Mais recentes
+                    </option>
+
+                    <option value="oldest">
+                        Mais antigas
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             LISTA DE REGISTROS
+        ========================== -->
+
+        <section
+            class="records-list"
+            id="recordsList">
+
+            <!-- Os registros serão inseridos pelo JavaScript -->
+
+        </section>
+
+
+        <!-- ESTADO SEM RESULTADOS -->
+
+        <section
+            class="empty-state"
+            id="emptyState"
+            style="display: none;">
+
+            <div class="empty-icon">
+
+                <i class="fa-solid fa-folder-open"></i>
+
+            </div>
+
+            <h2>
+                Nenhum registro encontrado
+            </h2>
+
+            <p>
+                Não encontramos atividades com os filtros
+                selecionados.
+            </p>
+
+            <button
+                type="button"
+                id="emptyClearBtn">
+
+                Limpar filtros
+
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         MODAL DE DETALHES
+    ========================== -->
+
+    <div
+        class="modal-overlay"
+        id="detailsModal">
+
+        <div class="details-modal">
+
+            <button
+                type="button"
+                class="modal-close"
+                id="modalClose"
+                aria-label="Fechar">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+
+            <div class="modal-header">
+
+                <span class="modal-label">
+                    DETALHES DO REGISTRO
+                </span>
+
+                <h2 id="modalTitle">
+                    -
+                </h2>
+
+                <div class="modal-date">
+
+                    <i class="fa-regular fa-calendar"></i>
+
+                    <span id="modalDate">
+                        -
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="modal-content">
+
+                <div class="detail-grid">
+
+                    <div class="detail-item">
+
+                        <span>
+                            Turma
+                        </span>
+
+                        <strong id="modalTurma">
+                            -
+                        </strong>
+
+                    </div>
+
+
+                    <div class="detail-item">
+
+                        <span>
+                            Professor
+                        </span>
+
+                        <strong>
+                            Professor
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="detail-section">
+
+                    <h3>
+                        <i class="fa-solid fa-file-lines"></i>
+                        Descrição da atividade
+                    </h3>
+
+                    <p id="modalDescription">
+                        -
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="detail-section"
+                    id="observationSection">
+
+                    <h3>
+                        <i class="fa-regular fa-note-sticky"></i>
+                        Observação
+                    </h3>
+
+                    <p id="modalObservation">
+                        -
+                    </p>
+
+                </div>
+
+
+                <div class="detail-section">
+
+                    <div class="evidence-title">
+
+                        <h3>
+                            <i class="fa-regular fa-images"></i>
+                            Evidências pedagógicas
+                        </h3>
+
+                        <span id="modalPhotoCount">
+                            0 fotos
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        class="photo-gallery"
+                        id="modalGallery">
+
+                        <!-- Fotos inseridas pelo JS -->
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="modal-footer">
+
+                <button
+                    type="button"
+                    class="modal-close-btn"
+                    id="modalCloseBottom">
+
+                    Fechar
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+        <script src="../js/visualizarAtividade.js"></script>
   </body>
   </html>

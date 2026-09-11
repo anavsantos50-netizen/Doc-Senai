@@ -3,9 +3,739 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+       <title>Meu Perfil | DocSenai</title>
+
+    <!-- Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/Perfil.css">
 </head>
+
 <body>
-     <script src="js/Perfil.js"></script>
+
+    <!-- =====================================================
+         CABEÇALHO
+    ====================================================== -->
+
+    <header class="topbar">
+
+        <div class="topbar-container">
+
+            <!-- LOGO -->
+
+            <a
+                href="telaInicialProfessor.html"
+                class="logo">
+
+                <img
+                    src="../img/logo.png"
+                    alt="DocSenai">
+
+            </a>
+
+
+            <!-- MENU -->
+
+            <nav
+                class="main-nav"
+                id="mainNav">
+
+                <a
+                    href="telaInicialProfessor.html"
+                    class="nav-link">
+
+                    Início
+
+                </a>
+
+                <a
+                    href="minhasAtividades.html"
+                    class="nav-link">
+
+                    Minhas Atividades
+
+                </a>
+
+                <a
+                    href="minhasTurmas.html"
+                    class="nav-link">
+
+                    Turmas
+
+                </a>
+
+                <a
+                    href="perfil.html"
+                    class="nav-link active">
+
+                    Meu perfil
+
+                </a>
+
+            </nav>
+
+
+            <!-- PERFIL -->
+
+            <div class="profile-area">
+
+                <a
+                    href="perfilProfessor.html"
+                    class="profile-link">
+
+                    <div class="profile-info">
+
+                        <strong>
+                            Professor
+                        </strong>
+
+                        <span>
+                            Minha conta
+                        </span>
+
+                    </div>
+
+
+                    <div class="profile-icon">
+
+                        <i class="fa-regular fa-user"></i>
+
+                    </div>
+
+                </a>
+
+
+                <!-- SAIR -->
+
+                <button
+                    type="button"
+                    class="logout-btn"
+                    id="btnLogout"
+                    title="Sair">
+
+                    <i class="fa-solid fa-right-from-bracket"></i>
+
+                </button>
+
+            </div>
+
+
+            <!-- MENU MOBILE -->
+
+            <button
+                type="button"
+                class="menu-mobile"
+                id="menuMobile"
+                aria-label="Abrir menu">
+
+                <i class="fa-solid fa-bars"></i>
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main class="main-content">
+
+        <div class="content-container">
+
+
+            <!-- VOLTAR -->
+
+            <a
+                href="telaInicialProfessor.html"
+                class="back-link">
+
+                <i class="fa-solid fa-arrow-left"></i>
+
+                Voltar para o início
+
+            </a>
+
+
+            <!-- =================================================
+                 CABEÇALHO DA PÁGINA
+            ================================================== -->
+
+            <section class="page-header">
+
+                <span class="section-label">
+                    MINHA CONTA
+                </span>
+
+                <h1>
+                    Meu perfil
+                </h1>
+
+                <p>
+                    Consulte e atualize suas informações pessoais
+                    e dados de acesso ao DocSenai.
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 PERFIL PRINCIPAL
+            ================================================== -->
+
+            <section class="profile-card">
+
+
+                <!-- CABEÇALHO DO PERFIL -->
+
+                <div class="profile-card-header">
+
+                    <div class="profile-avatar">
+
+                        <i class="fa-regular fa-user"></i>
+
+                    </div>
+
+
+                    <div class="profile-main-info">
+
+                        <span class="profile-role">
+                            PROFESSOR
+                        </span>
+
+                        <h2 id="profileName">
+                            Professor
+                        </h2>
+
+                        <p id="profileEmail">
+                            professor@senai.br
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="edit-profile-btn"
+                        id="btnEditar">
+
+                        <i class="fa-solid fa-pen"></i>
+
+                        Editar perfil
+
+                    </button>
+
+                </div>
+
+
+                <!-- =================================================
+                     DADOS PESSOAIS
+                ================================================== -->
+
+                <div class="profile-section">
+
+                    <div class="section-title">
+
+                        <div class="section-title-icon">
+
+                            <i class="fa-regular fa-user"></i>
+
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Dados pessoais
+                            </h3>
+
+                            <p>
+                                Informações utilizadas no sistema
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="info-grid">
+
+
+                        <!-- NOME -->
+
+                        <div class="info-item">
+
+                            <span>
+                                Nome completo
+                            </span>
+
+                            <strong id="infoNome">
+                                Professor
+                            </strong>
+
+                        </div>
+
+
+                        <!-- EMAIL -->
+
+                        <div class="info-item">
+
+                            <span>
+                                E-mail
+                            </span>
+
+                            <strong id="infoEmail">
+                                professor@senai.br
+                            </strong>
+
+                        </div>
+
+
+                        <!-- CARGO -->
+
+                        <div class="info-item">
+
+                            <span>
+                                Cargo
+                            </span>
+
+                            <strong id="infoCargo">
+                                Professor
+                            </strong>
+
+                        </div>
+
+
+                        <!-- ACESSO -->
+
+                        <div class="info-item">
+
+                            <span>
+                                Tipo de acesso
+                            </span>
+
+                            <strong>
+                                Professor
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     SEGURANÇA
+                ================================================== -->
+
+                <div class="profile-section security-section">
+
+                    <div class="section-title">
+
+                        <div class="section-title-icon">
+
+                            <i class="fa-solid fa-shield-halved"></i>
+
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Segurança
+                            </h3>
+
+                            <p>
+                                Gerencie sua senha e acesso à conta
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="security-card">
+
+                        <div class="security-icon">
+
+                            <i class="fa-solid fa-lock"></i>
+
+                        </div>
+
+
+                        <div class="security-info">
+
+                            <strong>
+                                Senha
+                            </strong>
+
+                            <span>
+                                Sua senha é utilizada para acessar
+                                o sistema com segurança.
+                            </span>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            class="change-password-btn"
+                            id="btnAlterarSenha">
+
+                            Alterar senha
+
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     AÇÕES
+                ================================================== -->
+
+                <div class="profile-actions">
+
+                    <button
+                        type="button"
+                        class="logout-profile-btn"
+                        id="btnLogoutPerfil">
+
+                        <i class="fa-solid fa-right-from-bracket"></i>
+
+                        Sair da conta
+
+                    </button>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         MODAL - EDITAR PERFIL
+    ====================================================== -->
+
+    <div
+        class="modal-overlay"
+        id="editModal">
+
+        <div class="profile-modal">
+
+
+            <!-- FECHAR -->
+
+            <button
+                type="button"
+                class="modal-close"
+                id="modalClose"
+                aria-label="Fechar">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+
+            <!-- CABEÇALHO -->
+
+            <div class="modal-header">
+
+                <span>
+                    MEU PERFIL
+                </span>
+
+                <h2>
+                    Editar informações
+                </h2>
+
+                <p>
+                    Atualize os dados da sua conta.
+                </p>
+
+            </div>
+
+
+            <!-- FORMULÁRIO -->
+
+            <form id="profileForm">
+
+                <div class="form-content">
+
+
+                    <!-- NOME -->
+
+                    <div class="form-group">
+
+                        <label for="nome">
+                            Nome completo
+                        </label>
+
+                        <div class="input-box">
+
+                            <i class="fa-regular fa-user"></i>
+
+                            <input
+                                type="text"
+                                id="nome"
+                                name="nome"
+                                placeholder="Digite seu nome"
+                                required>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- EMAIL -->
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            E-mail
+                        </label>
+
+                        <div class="input-box">
+
+                            <i class="fa-regular fa-envelope"></i>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="Digite seu e-mail"
+                                required>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CARGO -->
+
+                    <div class="form-group">
+
+                        <label for="cargo">
+                            Cargo
+                        </label>
+
+                        <div class="input-box">
+
+                            <i class="fa-solid fa-briefcase"></i>
+
+                            <input
+                                type="text"
+                                id="cargo"
+                                name="cargo"
+                                value="Professor"
+                                readonly>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- BOTÕES -->
+
+                <div class="modal-footer">
+
+                    <button
+                        type="button"
+                        class="cancel-btn"
+                        id="btnCancelar">
+
+                        Cancelar
+
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="save-btn">
+
+                        <i class="fa-solid fa-check"></i>
+
+                        Salvar alterações
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         MODAL - ALTERAR SENHA
+    ====================================================== -->
+
+    <div
+        class="modal-overlay"
+        id="passwordModal">
+
+        <div class="profile-modal password-modal">
+
+
+            <!-- FECHAR -->
+
+            <button
+                type="button"
+                class="modal-close"
+                id="passwordModalClose"
+                aria-label="Fechar">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+
+            <!-- CABEÇALHO -->
+
+            <div class="modal-header">
+
+                <span>
+                    SEGURANÇA
+                </span>
+
+                <h2>
+                    Alterar senha
+                </h2>
+
+                <p>
+                    Crie uma nova senha para sua conta.
+                </p>
+
+            </div>
+
+
+            <!-- FORMULÁRIO -->
+
+            <form id="passwordForm">
+
+                <div class="form-content">
+
+
+                    <!-- SENHA ATUAL -->
+
+                    <div class="form-group">
+
+                        <label for="senhaAtual">
+                            Senha atual
+                        </label>
+
+                        <div class="input-box">
+
+                            <i class="fa-solid fa-lock"></i>
+
+                            <input
+                                type="password"
+                                id="senhaAtual"
+                                placeholder="Digite sua senha atual"
+                                required>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- NOVA SENHA -->
+
+                    <div class="form-group">
+
+                        <label for="novaSenha">
+                            Nova senha
+                        </label>
+
+                        <div class="input-box">
+
+                            <i class="fa-solid fa-key"></i>
+
+                            <input
+                                type="password"
+                                id="novaSenha"
+                                placeholder="Digite a nova senha"
+                                required>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CONFIRMAR -->
+
+                    <div class="form-group">
+
+                        <label for="confirmarSenha">
+                            Confirmar nova senha
+                        </label>
+
+                        <div class="input-box">
+
+                            <i class="fa-solid fa-key"></i>
+
+                            <input
+                                type="password"
+                                id="confirmarSenha"
+                                placeholder="Confirme sua nova senha"
+                                required>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="modal-footer">
+
+                    <button
+                        type="button"
+                        class="cancel-btn"
+                        id="btnCancelarSenha">
+
+                        Cancelar
+
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="save-btn">
+
+                        <i class="fa-solid fa-check"></i>
+
+                        Alterar senha
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+     <script src="../js/perfilProfessor.js"></script>
 </body>
 </html>

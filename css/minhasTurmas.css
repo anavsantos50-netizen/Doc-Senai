@@ -1,0 +1,1667 @@
+/* =====================================================
+   CONFIGURAÇÕES GERAIS
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+
+    font-family: 'Poppins', sans-serif;
+
+    background: #F6F7FB;
+
+    color: #192E75;
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+}
+
+button,
+a,
+select {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* =====================================================
+   TOPBAR
+   PADRÃO DA TELA INICIAL
+===================================================== */
+
+.topbar {
+    width: 100%;
+    height: 82px;
+
+    background: #FFFFFF;
+
+    border-bottom: 1px solid #E9ECF2;
+
+    position: sticky;
+    top: 0;
+
+    z-index: 100;
+}
+
+.topbar-container {
+    width: 92%;
+    max-width: 1450px;
+
+    height: 100%;
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+
+    position: relative;
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logo {
+    width: 165px;
+
+    display: block;
+
+    flex-shrink: 0;
+
+    text-decoration: none;
+}
+
+.logo img {
+    width: 100%;
+    height: auto;
+
+    display: block;
+}
+
+
+/* =====================================================
+   MENU
+===================================================== */
+
+.main-nav {
+    position: absolute;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+
+    gap: 4px;
+
+    padding: 5px;
+
+    background: #F5F6FA;
+
+    border: 1px solid #E8EAF0;
+
+    border-radius: 12px;
+}
+
+.nav-link {
+    height: 44px;
+
+    padding: 0 21px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+
+    color: #727B91;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    white-space: nowrap;
+
+    transition: 0.25s ease;
+}
+
+.nav-link:hover {
+    color: #192E75;
+}
+
+.nav-link.active {
+    color: #FFFFFF;
+
+    background: #192E75;
+
+    font-weight: 600;
+
+    box-shadow: 0 4px 10px rgba(25, 46, 117, .15);
+}
+
+
+/* =====================================================
+   PERFIL
+   PADRÃO DA TELA INICIAL
+===================================================== */
+
+.profile-area {
+    margin-left: auto;
+
+    display: flex;
+    align-items: center;
+
+    gap: 16px;
+}
+
+.profile-link {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    text-decoration: none;
+
+    cursor: pointer;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-end;
+
+    line-height: 1.25;
+}
+
+.profile-info strong {
+    color: #192E75;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    transition: .2s ease;
+}
+
+.profile-info span {
+    color: #777777;
+
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.profile-icon {
+    width: 43px;
+    height: 43px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #EEF1F8;
+
+    color: #192E75;
+
+    transition: .2s ease;
+}
+
+.profile-icon i {
+    font-size: 17px;
+}
+
+.profile-link:hover .profile-info strong {
+    color: #192E75;
+}
+
+.profile-link:hover .profile-icon {
+    background: #E5E9F7;
+}
+
+
+/* =====================================================
+   BOTÃO SAIR
+===================================================== */
+
+.logout-btn {
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0;
+
+    border: 1px solid #DDDDDD;
+
+    border-radius: 10px;
+
+    background: #FFFFFF;
+
+    color: #192E75;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition: .2s ease;
+}
+
+.logout-btn:hover {
+    color: #EA632C;
+
+    border-color: #F0C5B7;
+
+    background: #FFF8F5;
+}
+
+
+/* =====================================================
+   BOTÃO MENU MOBILE
+===================================================== */
+
+.menu-mobile {
+    display: none;
+
+    width: 40px;
+    height: 40px;
+
+    margin-left: 10px;
+
+    border: 1px solid #E5E7ED;
+
+    border-radius: 9px;
+
+    background: #FFFFFF;
+
+    color: #192E75;
+
+    font-size: 17px;
+
+    cursor: pointer;
+
+    align-items: center;
+    justify-content: center;
+
+    transition: .2s ease;
+}
+
+.menu-mobile:hover {
+    background: #F5F6FA;
+}
+
+
+/* =====================================================
+   CONTEÚDO PRINCIPAL
+===================================================== */
+
+.main-content {
+    width: 100%;
+
+    padding: 48px 0 70px;
+}
+
+.content-container {
+    width: 90%;
+    max-width: 1300px;
+
+    margin: 0 auto;
+}
+
+
+/* =====================================================
+   VOLTAR
+===================================================== */
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 25px;
+
+    color: #192E75;
+
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    transition: .2s ease;
+}
+
+.back-link:hover {
+    color: #EA632C;
+}
+
+
+/* =====================================================
+   CABEÇALHO DA PÁGINA
+===================================================== */
+
+.page-header {
+    margin-bottom: 32px;
+}
+
+.section-label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #EA632C;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 1.4px;
+}
+
+.page-header h1 {
+    margin-bottom: 8px;
+
+    color: #192E75;
+
+    font-size: 38px;
+    font-weight: 700;
+
+    line-height: 1.2;
+
+    letter-spacing: -.7px;
+}
+
+.page-header p {
+    max-width: 760px;
+
+    color: #777F91;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+   CARD DE FILTROS
+===================================================== */
+
+.filters-card {
+    margin-bottom: 28px;
+
+    padding: 22px;
+
+    background: #FFFFFF;
+
+    border: 1px solid #E4E6ED;
+
+    border-radius: 16px;
+
+    box-shadow: 0 8px 25px rgba(25, 46, 117, .07);
+}
+
+
+/* =====================================================
+   BUSCA
+===================================================== */
+
+.search-box {
+    width: 100%;
+    height: 50px;
+
+    margin-bottom: 18px;
+
+    padding: 0 15px;
+
+    display: flex;
+    align-items: center;
+
+    border: 1px solid #E4E6ED;
+
+    border-radius: 10px;
+
+    transition: .2s ease;
+}
+
+.search-box:focus-within {
+    border-color: #192E75;
+
+    box-shadow:
+        0 0 0 3px rgba(25, 46, 117, .08);
+}
+
+.search-box i {
+    margin-right: 11px;
+
+    color: #8C8C8C;
+
+    font-size: 15px;
+}
+
+.search-box input {
+    width: 100%;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: #202020;
+
+    font-size: 13px;
+}
+
+.search-box input::placeholder {
+    color: #999999;
+}
+
+
+/* =====================================================
+   LINHA DOS FILTROS
+===================================================== */
+
+.filter-row {
+    display: flex;
+    align-items: flex-end;
+
+    gap: 15px;
+}
+
+.filter-item {
+    width: 260px;
+}
+
+.filter-item label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #555555;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.filter-item select {
+    width: 100%;
+    height: 46px;
+
+    padding: 0 12px;
+
+    border: 1px solid #E4E6ED;
+
+    border-radius: 9px;
+
+    outline: none;
+
+    background: #FFFFFF;
+
+    color: #444444;
+
+    font-size: 12px;
+
+    cursor: pointer;
+}
+
+.filter-item select:focus {
+    border-color: #192E75;
+}
+
+
+/* =====================================================
+   LIMPAR FILTROS
+===================================================== */
+
+.clear-filter {
+    height: 46px;
+
+    padding: 0 15px;
+
+    border: 1px solid #E4E6ED;
+
+    border-radius: 9px;
+
+    background: #F5F6FA;
+
+    color: #666666;
+
+    font-size: 12px;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition: .2s ease;
+}
+
+.clear-filter:hover {
+    color: #EA632C;
+
+    border-color: #F1B7A0;
+
+    background: #FFF7F3;
+}
+
+
+/* =====================================================
+   RESULTADOS
+===================================================== */
+
+.results-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 18px;
+}
+
+.results-info {
+    display: flex;
+    flex-direction: column;
+
+    gap: 2px;
+}
+
+.results-info strong {
+    color: #192E75;
+
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.results-info span {
+    color: #888888;
+
+    font-size: 12px;
+}
+
+
+/* =====================================================
+   GRID DAS TURMAS
+===================================================== */
+
+.classes-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+
+/* =====================================================
+   CARD DA TURMA
+===================================================== */
+
+.class-card {
+    min-height: 270px;
+
+    padding: 25px;
+
+    display: flex;
+    flex-direction: column;
+
+    background: #FFFFFF;
+
+    border: 1px solid #E4E6ED;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 5px 18px rgba(25, 46, 117, .045);
+
+    transition: .2s ease;
+}
+
+.class-card:hover {
+    border-color: #D4D9E8;
+
+    box-shadow:
+        0 9px 28px rgba(25, 46, 117, .09);
+
+    transform: translateY(-2px);
+}
+
+
+/* =====================================================
+   ÍCONE DA TURMA
+===================================================== */
+
+.class-icon {
+    width: 54px;
+    height: 54px;
+
+    margin-bottom: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 13px;
+
+    background: #EEF1FB;
+
+    color: #192E75;
+
+    font-size: 21px;
+}
+
+
+/* =====================================================
+   NOME DA TURMA
+===================================================== */
+
+.class-card h2 {
+    margin-bottom: 6px;
+
+    color: #192E75;
+
+    font-size: 18px;
+    font-weight: 600;
+
+    line-height: 1.35;
+}
+
+.class-course {
+    margin-bottom: 18px;
+
+    color: #777777;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
+
+/* =====================================================
+   INFORMAÇÕES DA TURMA
+===================================================== */
+
+.class-details {
+    margin-bottom: 18px;
+    padding-top: 15px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+
+    border-top: 1px solid #EEEEEE;
+}
+
+.class-detail {
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    color: #666666;
+
+    font-size: 12px;
+}
+
+.class-detail i {
+    width: 16px;
+
+    color: #EA632C;
+
+    text-align: center;
+}
+
+
+/* =====================================================
+   RODAPÉ DO CARD
+===================================================== */
+
+.class-card-footer {
+    margin-top: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+}
+
+.activity-badge {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 5px;
+
+    padding: 7px 10px;
+
+    border-radius: 7px;
+
+    background: #F3F4F8;
+
+    color: #666666;
+
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.activity-badge i {
+    color: #192E75;
+}
+
+.view-class-btn {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 6px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #192E75;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .2s ease;
+}
+
+.view-class-btn:hover {
+    color: #EA632C;
+}
+
+
+/* =====================================================
+   ESTADO VAZIO
+===================================================== */
+
+.empty-state {
+    padding: 60px 20px;
+
+    text-align: center;
+
+    background: #FFFFFF;
+
+    border: 1px solid #E4E6ED;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 5px 18px rgba(25, 46, 117, .035);
+}
+
+.empty-icon {
+    width: 68px;
+    height: 68px;
+
+    margin: 0 auto 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #F0F2FA;
+
+    color: #192E75;
+
+    font-size: 25px;
+}
+
+.empty-state h2 {
+    margin-bottom: 7px;
+
+    color: #192E75;
+
+    font-size: 19px;
+}
+
+.empty-state p {
+    margin-bottom: 18px;
+
+    color: #777777;
+
+    font-size: 13px;
+}
+
+.empty-state button {
+    padding: 11px 19px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #192E75;
+
+    color: #FFFFFF;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+/* =====================================================
+   MODAL
+===================================================== */
+
+.modal-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    padding: 25px;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    overflow-y: auto;
+
+    background: rgba(13, 25, 65, .58);
+
+    z-index: 2000;
+}
+
+.modal-overlay.show {
+    display: flex;
+}
+
+.class-modal {
+    width: 100%;
+    max-width: 760px;
+    max-height: 90vh;
+
+    position: relative;
+
+    overflow-y: auto;
+
+    background: #FFFFFF;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, .18);
+}
+
+
+/* =====================================================
+   BOTÃO FECHAR MODAL
+===================================================== */
+
+.modal-close {
+    width: 36px;
+    height: 36px;
+
+    position: absolute;
+
+    top: 18px;
+    right: 18px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #F2F3F7;
+
+    color: #666666;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition: .2s ease;
+}
+
+.modal-close:hover {
+    background: #FFF0EB;
+
+    color: #EA632C;
+}
+
+
+/* =====================================================
+   CABEÇALHO DO MODAL
+===================================================== */
+
+.modal-header {
+    padding: 30px 32px 23px;
+
+    border-bottom: 1px solid #EEEEEE;
+}
+
+.modal-label {
+    color: #EA632C;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1.2px;
+}
+
+.modal-header h2 {
+    margin: 7px 45px 5px 0;
+
+    color: #192E75;
+
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.modal-header p {
+    color: #777777;
+
+    font-size: 12px;
+}
+
+
+/* =====================================================
+   CONTEÚDO DO MODAL
+===================================================== */
+
+.modal-content {
+    padding: 26px 32px;
+}
+
+
+/* =====================================================
+   INFORMAÇÕES DA TURMA
+===================================================== */
+
+.class-info-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 13px;
+
+    margin-bottom: 28px;
+}
+
+.class-info-item {
+    padding: 14px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    border-radius: 11px;
+
+    background: #F7F8FB;
+}
+
+.info-icon {
+    width: 38px;
+    height: 38px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background: #EEF1FB;
+
+    color: #192E75;
+}
+
+.class-info-item span {
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: #888888;
+
+    font-size: 9px;
+}
+
+.class-info-item strong {
+    color: #333333;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+/* =====================================================
+   ATIVIDADES
+===================================================== */
+
+.activities-section {
+    margin-top: 5px;
+}
+
+.activities-header {
+    margin-bottom: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.activities-header h3 {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    color: #192E75;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.activities-header h3 i {
+    color: #EA632C;
+
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   LISTA DE ATIVIDADES
+===================================================== */
+
+.activities-list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 9px;
+}
+
+.modal-activity {
+    padding: 12px 13px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    border: 1px solid #EEEEEE;
+
+    border-radius: 10px;
+}
+
+.modal-activity-date {
+    width: 44px;
+    height: 44px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background: #EEF1FB;
+
+    color: #192E75;
+}
+
+.modal-activity-date strong {
+    font-size: 15px;
+
+    line-height: 1;
+}
+
+.modal-activity-date span {
+    margin-top: 3px;
+
+    font-size: 7px;
+    font-weight: 600;
+}
+
+.modal-activity-info {
+    min-width: 0;
+
+    flex: 1;
+}
+
+.modal-activity-info strong {
+    display: block;
+
+    margin-bottom: 3px;
+
+    overflow: hidden;
+
+    color: #333333;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    text-overflow: ellipsis;
+}
+
+.modal-activity-info span {
+    color: #888888;
+
+    font-size: 9px;
+}
+
+
+/* =====================================================
+   RODAPÉ DO MODAL
+===================================================== */
+
+.modal-footer {
+    padding: 17px 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    border-top: 1px solid #EEEEEE;
+}
+
+.modal-register-btn {
+    padding: 10px 16px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    border-radius: 9px;
+
+    background: #EA632C;
+
+    color: #FFFFFF;
+
+    text-decoration: none;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    transition: .2s ease;
+}
+
+.modal-register-btn:hover {
+    background: #D95522;
+}
+
+.modal-close-btn {
+    padding: 10px 18px;
+
+    border: 1px solid #E4E6ED;
+
+    border-radius: 9px;
+
+    background: #FFFFFF;
+
+    color: #666666;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.modal-close-btn:hover {
+    border-color: #192E75;
+
+    color: #192E75;
+}
+
+
+/* =====================================================
+   DESKTOP GRANDE
+   PADRÃO DA TELA INICIAL
+===================================================== */
+
+@media (min-width: 1500px) {
+
+    .topbar {
+        height: 88px;
+    }
+
+    .logo {
+        width: 180px;
+    }
+
+    .nav-link {
+        height: 45px;
+
+        padding: 0 22px;
+
+        font-size: 14px;
+    }
+
+    .main-content {
+        padding-top: 58px;
+    }
+
+    .content-container {
+        max-width: 1400px;
+    }
+
+    .page-header h1 {
+        font-size: 42px;
+    }
+
+    .class-card {
+        min-height: 280px;
+    }
+}
+
+
+/* =====================================================
+   TABLET
+   PADRÃO DA TELA INICIAL
+===================================================== */
+
+@media (max-width: 1050px) {
+
+    .main-nav {
+        gap: 2px;
+    }
+
+    .nav-link {
+        padding: 0 13px;
+
+        font-size: 11px;
+    }
+
+    .profile-info {
+        display: none;
+    }
+
+    .classes-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .page-header h1 {
+        font-size: 34px;
+    }
+
+    .page-header p {
+        font-size: 13px;
+    }
+}
+
+
+/* =====================================================
+   TABLET / MOBILE
+===================================================== */
+
+@media (max-width: 800px) {
+
+    .topbar {
+        height: 70px;
+    }
+
+    .topbar-container {
+        width: 90%;
+    }
+
+    .logo {
+        width: 140px;
+    }
+
+    .profile-area {
+        margin-left: auto;
+
+        gap: 10px;
+    }
+
+    .profile-info {
+        display: none;
+    }
+
+    .profile-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .profile-icon i {
+        font-size: 16px;
+    }
+
+    .logout-btn {
+        display: none;
+    }
+
+
+    /* ==========================================
+       BOTÃO MENU
+    ========================================== */
+
+    .menu-mobile {
+        display: flex;
+    }
+
+
+    /* ==========================================
+       MENU MOBILE
+    ========================================== */
+
+    .main-nav {
+        display: none;
+    }
+
+    .main-nav.open {
+        display: flex;
+
+        position: absolute;
+
+        top: 70px;
+
+        left: 0;
+        right: 0;
+
+        width: 100%;
+        max-width: none;
+
+        transform: none;
+
+        padding: 12px 5%;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 5px;
+
+        background: #FFFFFF;
+
+        border: none;
+
+        border-bottom: 1px solid #E9ECF2;
+
+        border-radius: 0;
+
+        box-shadow:
+            0 12px 25px rgba(0, 0, 0, .07);
+
+        z-index: 999;
+    }
+
+    .main-nav.open .nav-link {
+        width: 100%;
+        height: 48px;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: flex-start;
+
+        padding: 0 15px;
+
+        border-radius: 8px;
+
+        color: #727B91;
+
+        font-size: 14px;
+    }
+
+    .main-nav.open .nav-link:hover {
+        color: #192E75;
+
+        background: #F5F6FA;
+    }
+
+    .main-nav.open .nav-link.active {
+        color: #FFFFFF;
+
+        background: #192E75;
+
+        box-shadow: none;
+    }
+
+
+    /* ==========================================
+       CONTEÚDO
+    ========================================== */
+
+    .main-content {
+        padding: 35px 0 55px;
+    }
+
+    .content-container {
+        width: 90%;
+    }
+
+
+    /* ==========================================
+       TURMAS
+    ========================================== */
+
+    .classes-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* ==========================================
+       FILTROS
+    ========================================== */
+
+    .filter-row {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .filter-item {
+        width: 100%;
+    }
+
+    .clear-filter {
+        width: 100%;
+    }
+}
+
+
+/* =====================================================
+   CELULAR
+===================================================== */
+
+@media (max-width: 550px) {
+
+    .topbar {
+        height: 66px;
+    }
+
+    .topbar-container {
+        width: 92%;
+    }
+
+    .logo {
+        width: 125px;
+    }
+
+    .menu-mobile {
+        width: 38px;
+        height: 38px;
+    }
+
+    .main-nav.open {
+        top: 66px;
+    }
+
+    .main-content {
+        padding: 30px 0 45px;
+    }
+
+    .content-container {
+        width: 92%;
+    }
+
+
+    /* ==========================================
+       VOLTAR
+    ========================================== */
+
+    .back-link {
+        margin-bottom: 20px;
+
+        font-size: 12px;
+    }
+
+
+    /* ==========================================
+       CABEÇALHO
+    ========================================== */
+
+    .page-header {
+        margin-bottom: 25px;
+    }
+
+    .section-label {
+        font-size: 10px;
+    }
+
+    .page-header h1 {
+        font-size: 29px;
+    }
+
+    .page-header p {
+        font-size: 13px;
+    }
+
+
+    /* ==========================================
+       FILTROS
+    ========================================== */
+
+    .filters-card {
+        padding: 17px;
+    }
+
+    .search-box {
+        height: 47px;
+    }
+
+    .filter-item select,
+    .clear-filter {
+        height: 44px;
+    }
+
+
+    /* ==========================================
+       CARDS
+    ========================================== */
+
+    .class-card {
+        min-height: 250px;
+
+        padding: 21px;
+    }
+
+    .class-card h2 {
+        font-size: 17px;
+    }
+
+    .class-course {
+        font-size: 11px;
+    }
+
+    .class-detail {
+        font-size: 11px;
+    }
+
+
+    /* ==========================================
+       MODAL
+    ========================================== */
+
+    .modal-overlay {
+        padding: 12px;
+    }
+
+    .class-modal {
+        max-height: 94vh;
+    }
+
+    .modal-header {
+        padding: 24px 20px 20px;
+    }
+
+    .modal-content {
+        padding: 20px;
+    }
+
+    .modal-header h2 {
+        font-size: 21px;
+    }
+
+    .class-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-footer {
+        padding: 15px 20px;
+
+        flex-direction: column;
+    }
+
+    .modal-register-btn,
+    .modal-close-btn {
+        width: 100%;
+    }
+}
+
+
+/* =====================================================
+   CELULAR PEQUENO
+===================================================== */
+
+@media (max-width: 380px) {
+
+    .logo {
+        width: 115px;
+    }
+
+    .page-header h1 {
+        font-size: 25px;
+    }
+
+    .page-header p {
+        font-size: 12px;
+    }
+
+    .class-card {
+        padding: 17px;
+    }
+
+    .class-card h2 {
+        font-size: 15px;
+    }
+
+    .modal-header h2 {
+        font-size: 19px;
+    }
+}

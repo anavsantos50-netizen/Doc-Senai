@@ -1,11 +1,630 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <title>Minhas Atividades | DOCSENAI</title>
+
+    <!-- Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/minhasAtividades.css">
 </head>
+
 <body>
-     <script src="js/minhasAtividades"></script>
+
+    <!-- =====================================================
+         TOPBAR
+    ====================================================== -->
+
+    <header class="topbar">
+
+        <div class="topbar-container">
+
+            <!-- LOGO -->
+            <a href="telaInicialProfessor.html" class="logo">
+                <img src="../img/logo.png" alt="DocSenai">
+            </a>
+
+
+            <!-- =================================================
+                 MENU DESKTOP
+            ================================================== -->
+
+            <nav class="main-nav" id="mainNav">
+
+                <a
+                    href="telaInicialProfessor.html"
+                    class="nav-link"
+                >
+                    Início
+                </a>
+
+                <a
+                    href="minhasAtividades.html"
+                    class="nav-link active"
+                >
+                    Minhas Atividades
+                </a>
+
+                <a
+                    href="minhasTurmas.html"
+                    class="nav-link"
+                >
+                    Turmas
+                </a>
+
+                <a
+                    href="perfil.html"
+                    class="nav-link"
+                >
+                    Meu perfil
+                </a>
+            
+
+            </nav>
+
+
+            <!-- =================================================
+                 PERFIL + SAIR
+            ================================================== -->
+
+            <div class="profile-area">
+
+                <a href="perfilProfessor.html" class="profile-link">
+
+                    <div class="profile-info">
+                        <strong>Professor</strong>
+                        <span>Minha conta</span>
+                    </div>
+
+                    <div class="profile-icon">
+                        <i class="fa-regular fa-user"></i>
+                    </div>
+
+                </a>
+
+
+                <button
+                    type="button"
+                    class="logout-btn"
+                    id="btnLogout"
+                    title="Sair"
+                >
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                </button>
+
+            </div>
+
+
+            <!-- =================================================
+                 BOTÃO MENU MOBILE
+            ================================================== -->
+
+            <button
+                type="button"
+                class="mobile-menu-btn"
+                id="mobileMenuBtn"
+                aria-label="Abrir menu"
+                aria-expanded="false"
+            >
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+        </div>
+
+
+        <!-- =====================================================
+             MENU MOBILE
+        ====================================================== -->
+
+        <nav class="mobile-nav" id="mobileNav">
+
+            <a
+                href="telaInicialProfessor.html"
+            >
+                <i class="fa-solid fa-house"></i>
+                <span>Início</span>
+            </a>
+
+            <a
+                href="minhasAtividades.html"
+                class="active"
+            >
+                <i class="fa-solid fa-clipboard-list"></i>
+                <span>Minhas Atividades</span>
+            </a>
+
+            <a
+                href="minhasTurmas.html"
+            >
+                <i class="fa-solid fa-users"></i>
+                <span>Turmas</span>
+            </a>
+
+            <a
+                href="perfil.html"
+            >
+                <i class="fa-regular fa-user"></i>
+                <span>Meu perfil</span>
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO PRINCIPAL
+    ====================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- =================================================
+             CABEÇALHO
+        ================================================== -->
+
+        <section class="page-header">
+
+            <div class="page-header-text">
+
+                <span class="section-label">
+                    MEUS REGISTROS
+                </span>
+
+                <h1>
+                    Minhas atividades
+                </h1>
+
+                <p>
+                    Consulte e gerencie todas as atividades pedagógicas
+                    que você registrou.
+                </p>
+
+            </div>
+
+
+            <!-- NOVA ATIVIDADE -->
+
+            <a
+                href="registrar-atividade.html"
+                class="new-activity-btn"
+            >
+                <i class="fa-solid fa-plus"></i>
+                Nova atividade
+            </a>
+
+        </section>
+
+
+        <!-- =================================================
+             FILTROS
+        ================================================== -->
+
+        <section class="filters-card">
+
+
+            <!-- BUSCA -->
+
+            <div class="search-box">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Buscar atividade..."
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+            <!-- FILTROS -->
+
+            <div class="filters-row">
+
+
+                <!-- TURMA -->
+
+                <div class="filter-group">
+
+                    <label for="turmaFilter">
+                        Turma
+                    </label>
+
+                    <select id="turmaFilter">
+
+                        <option value="">
+                            Todas as turmas
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- PERÍODO -->
+
+                <div class="filter-group">
+
+                    <label for="periodoFilter">
+                        Período
+                    </label>
+
+                    <select id="periodoFilter">
+
+                        <option value="">
+                            Todos os períodos
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- LIMPAR -->
+
+                <button
+                    type="button"
+                    class="clear-filters-btn"
+                    id="clearFilters"
+                >
+                    <i class="fa-solid fa-rotate-left"></i>
+                    Limpar filtros
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             RESULTADOS
+        ================================================== -->
+
+        <section class="results-bar">
+
+            <div class="results-count">
+
+                <strong id="resultsCount">
+                    0
+                </strong>
+
+                <span>
+                    atividades encontradas
+                </span>
+
+            </div>
+
+
+            <!-- ORDENAÇÃO -->
+
+            <div class="sort-box">
+
+                <label for="sortFilter">
+                    Ordenar:
+                </label>
+
+                <select id="sortFilter">
+
+                    <option value="recent">
+                        Mais recentes
+                    </option>
+
+                    <option value="oldest">
+                        Mais antigas
+                    </option>
+
+                    <option value="title">
+                        Título
+                    </option>
+
+                </select>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             LISTA DE ATIVIDADES
+        ================================================== -->
+
+        <section
+            class="activities-list"
+            id="activitiesList"
+        >
+        </section>
+
+
+        <!-- =================================================
+             ESTADO VAZIO
+        ================================================== -->
+
+        <section
+            class="empty-state"
+            id="emptyState"
+        >
+
+            <div class="empty-icon">
+                <i class="fa-regular fa-folder-open"></i>
+            </div>
+
+            <h2>
+                Nenhuma atividade encontrada
+            </h2>
+
+            <p>
+                Não encontramos atividades com os filtros selecionados.
+            </p>
+
+            <button
+                type="button"
+                class="empty-btn"
+                id="emptyClearFilters"
+            >
+                Limpar filtros
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         MODAL — VISUALIZAR ATIVIDADE
+    ====================================================== -->
+
+    <div
+        class="modal-overlay"
+        id="activityModal"
+    >
+
+        <div
+            class="activity-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modalTitle"
+        >
+
+
+            <!-- FECHAR -->
+
+            <button
+                type="button"
+                class="modal-close"
+                id="modalClose"
+                aria-label="Fechar"
+            >
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+
+            <!-- HEADER -->
+
+            <div class="modal-header">
+
+                <span class="modal-label">
+                    ATIVIDADE PEDAGÓGICA
+                </span>
+
+                <h2 id="modalTitle">
+                    Atividade
+                </h2>
+
+                <div class="modal-date">
+
+                    <i class="fa-regular fa-calendar"></i>
+
+                    <span id="modalDate">
+                        —
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- INFORMAÇÕES -->
+
+            <div class="modal-info-grid">
+
+                <div class="modal-info-item">
+
+                    <span>
+                        Turma
+                    </span>
+
+                    <strong id="modalTurma">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="modal-info-item">
+
+                    <span>
+                        Período
+                    </span>
+
+                    <strong id="modalPeriodo">
+                        —
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- DESCRIÇÃO -->
+
+            <div class="modal-section">
+
+                <h3>
+                    <i class="fa-solid fa-align-left"></i>
+                    Descrição da atividade
+                </h3>
+
+                <p id="modalDescription">
+                    —
+                </p>
+
+            </div>
+
+
+            <!-- OBSERVAÇÃO -->
+
+            <div
+                class="modal-section"
+                id="modalObservationSection"
+            >
+
+                <h3>
+                    <i class="fa-regular fa-note-sticky"></i>
+                    Observações
+                </h3>
+
+                <p id="modalObservation">
+                    —
+                </p>
+
+            </div>
+
+
+            <!-- EVIDÊNCIAS -->
+
+            <div class="modal-section">
+
+                <div class="evidence-title">
+
+                    <h3>
+                        <i class="fa-regular fa-images"></i>
+                        Evidências
+                    </h3>
+
+                    <span id="evidenceCount">
+                        0 fotos
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="modal-gallery"
+                    id="modalGallery"
+                >
+                </div>
+
+            </div>
+
+
+            <!-- FOOTER -->
+
+            <div class="modal-footer">
+
+                <button
+                    type="button"
+                    class="modal-secondary-btn"
+                    id="modalCloseBottom"
+                >
+                    Fechar
+                </button>
+
+                <button
+                    type="button"
+                    class="modal-primary-btn"
+                    id="modalEdit"
+                >
+                    <i class="fa-solid fa-pen"></i>
+                    Editar atividade
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         MODAL — CONFIRMAR EXCLUSÃO
+    ====================================================== -->
+
+    <div
+        class="confirm-overlay"
+        id="confirmModal"
+    >
+
+        <div
+            class="confirm-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="confirmTitle"
+        >
+
+            <div class="confirm-icon">
+
+                <i class="fa-solid fa-trash"></i>
+
+            </div>
+
+            <h2 id="confirmTitle">
+                Excluir atividade?
+            </h2>
+
+            <p>
+                Essa ação não poderá ser desfeita.
+                Deseja realmente excluir esta atividade?
+            </p>
+
+            <div class="confirm-actions">
+
+                <button
+                    type="button"
+                    class="cancel-delete-btn"
+                    id="cancelDelete"
+                >
+                    Cancelar
+                </button>
+
+                <button
+                    type="button"
+                    class="confirm-delete-btn"
+                    id="confirmDelete"
+                >
+                    Excluir
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="../js/minhasAtividades.js"></script>
+
 </body>
+
 </html>
