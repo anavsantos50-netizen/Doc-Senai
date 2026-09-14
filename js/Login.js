@@ -1,59 +1,49 @@
-const loginForm = document.getElementById("loginForm");
-
-loginForm.addEventListener("submit", function (event) {
-
+function login(event){
     event.preventDefault();
+
+    console.log("A função login foi chamada!");
 
     const email = document.getElementById("email").value;
     const senha = document.getElementById("senha").value;
 
-    if (email === "" || senha === "") {
-        alert("Preencha todos os campos.");
-        return;
-    }
+    fetch("https://localhost:7082/Usuario/login", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        credentials: "include",
 
-    console.log("E-mail:", email);
-    console.log("Senha:", senha);
+        body: JSON.stringify({
+            email: email,
+            senha: senha,
+            nome: "",
+            cargo: ""
+        })
+    })
+    .then(response => {
+        console.log("Status:", response.status);
 
-    alert("Login realizado com sucesso!");
+        if (!response.ok) {
+            throw new Error("Email ou senha incorretos!");
+        }
 
-});
-const btnCadastro = document.getElementById("btnCadastro");
+        return response.text();
+    })
+    .then(cargo => {
+        console.log("Cargo recebido:", cargo);
 
-if (btnCadastro) {
-    btnCadastro.addEventListener("click", function () {
-        window.location.href = "cadastro.html";
+        if (cargo === "Professor") {
+            window.location.href = "telaInicialProfessor.html";
+
+        } else if (cargo === "Supervisão") {
+            window.location.href = "telaInicialSupervisor.html";
+
+        } else {
+            alert("Cargo não reconhecido: " + cargo);
+        }
+    })
+    .catch(error => {
+        console.error(error);
+        alert(error.message);
     });
 }
-
-
-const senha = document.getElementById("senha");
-const toggleSenha = document.getElementById("toggleSenha");
-
-toggleSenha.addEventListener("click", function () {
-
-    if (senha.type === "password") {
-
-        senha.type = "text";
-
-        toggleSenha.innerHTML =
-            '<i class="fa-solid fa-eye-slash"></i>';
-
-        toggleSenha.setAttribute(
-            "aria-label",
-            "Ocultar senha"
-        );
-
-    } else {
-
-        senha.type = "password";
-
-        toggleSenha.innerHTML =
-            '<i class="fa-solid fa-eye"></i>';
-
-        toggleSenha.setAttribute(
-            "aria-label",
-            "Mostrar senha"
-        );
-    }
-});

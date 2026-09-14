@@ -1,118 +1,43 @@
+function cadastrar() {
 
-const senha = document.getElementById("senha");
-const toggleSenha = document.getElementById("toggleSenha");
+    const nome = document.getElementById("nome").value;
+    const email = document.getElementById("email").value;
+    const senha = document.getElementById("senha").value;
+    const cargo = document.getElementById("cargo").value;
 
-toggleSenha.addEventListener("click", function () {
+    fetch("https://localhost:7082/Usuario", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
 
-    if (senha.type === "password") {
+         credentials: "include",
+         
+        body: JSON.stringify({
+            nome: nome,
+            email: email,
+            senha: senha,
+            cargo: cargo
+        })
+    })
+    .then(response => {
 
-        senha.type = "text";
+        if (!response.ok) {
+            throw new Error("Não foi possível realizar o cadastro.");
+        }
 
-        toggleSenha.innerHTML =
-            '<i class="fa-solid fa-eye-slash"></i>';
+        return response.json();
+    })
+    .then(usuario => {
 
-        toggleSenha.setAttribute(
-            "aria-label",
-            "Ocultar senha"
-        );
+        alert("Usuário cadastrado com sucesso!");
 
-    } else {
+        console.log(usuario);
 
-        senha.type = "password";
+    })
+    .catch(error => {
 
-        toggleSenha.innerHTML =
-            '<i class="fa-solid fa-eye"></i>';
+        alert(error.message);
 
-        toggleSenha.setAttribute(
-            "aria-label",
-            "Mostrar senha"
-        );
-    }
-});
-
-const cadastroForm = document.getElementById("cadastroForm");
-
-cadastroForm.addEventListener("submit", function (event) {
-
-    event.preventDefault();
-
-
-    const nome =
-        document.getElementById("nome").value.trim();
-
-    const email =
-        document.getElementById("email").value.trim();
-
-    const senhaValue =
-        document.getElementById("senha").value;
-
-    const cargo =
-        document.getElementById("cargo").value;
-
-
-    if (nome === "") {
-
-        alert("Digite seu nome.");
-
-        return;
-    }
-
-
-    if (email === "") {
-
-        alert("Digite seu e-mail.");
-
-        return;
-    }
-
-
-    if (senhaValue === "") {
-
-        alert("Digite sua senha.");
-
-        return;
-    }
-
-
-    if (senhaValue.length < 6) {
-
-        alert("A senha deve possuir pelo menos 6 caracteres.");
-
-        return;
-    }
-
-
-    if (cargo === "") {
-
-        alert("Selecione seu cargo.");
-
-        return;
-    }
-
-
-  
-    const usuario = {
-
-        nome: nome,
-
-        email: email,
-
-        senha: senhaValue,
-
-        cargo: cargo
-    };
-
-
-    console.log("Dados do cadastro:");
-
-    console.log(usuario);
-
-
-  
-    alert("Cadastro realizado com sucesso!");
-
-
-  
-
-
-});
+    });
+}

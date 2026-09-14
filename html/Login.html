@@ -8,11 +8,13 @@
     <title>DOC SENAI - Login</title>
 
     <link rel="stylesheet" href="../css/login.css">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
 </head>
-<link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
->
+
 <body>
 
     <main class="login-page">
@@ -45,6 +47,7 @@
 
             </section>
 
+
             <section class="login-card">
 
                 <div class="login-card-header">
@@ -59,7 +62,8 @@
 
                 </div>
 
-                <form id="loginForm">
+
+                <form id="loginForm" onsubmit="login(event)">
 
                     <div class="form-group">
 
@@ -85,37 +89,41 @@
 
                     </div>
 
-                
+
                     <div class="form-group">
-    <label for="senha">Senha</label>
 
-    <div class="input-wrapper">
+                        <label for="senha">
+                            Senha
+                        </label>
 
-       
-        <span class="input-icon">
-            <i class="fa-solid fa-key"></i>
-        </span>
+                        <div class="input-wrapper">
 
-        <input
-            type="password"
-            id="senha"
-            name="senha"
-            placeholder="Digite sua senha"
-        >
+                            <span class="input-icon">
+                                <i class="fa-solid fa-key"></i>
+                            </span>
 
-        
-        <button
-            type="button"
-            class="password-toggle"
-            id="toggleSenha"
-            aria-label="Mostrar senha"
-        >
-            <i class="fa-solid fa-eye"></i>
-        </button>
+                            <input
+                                type="password"
+                                id="senha"
+                                name="senha"
+                                placeholder="Digite sua senha"
+                                required
+                            >
 
-    </div>
-</div>
-              
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                id="toggleSenha"
+                                aria-label="Mostrar senha"
+                            >
+                                <i class="fa-solid fa-eye"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
                     <div class="login-options">
 
                         <label class="remember-me">
@@ -142,30 +150,30 @@
                     </div>
 
 
-               
-               <button
-    type="submit"
-    class="btn-primary"
->
-    Entrar
-</button>
-
-<div class="divider">
-    <span>ou</span>
-</div>
-
-<button
-    type="button"
-    class="btn-secondary"
-    id="btnCadastro"
->
-    Criar uma conta
-</button>
-
-</form>
+                    <button
+                        type="submit"
+                        class="btn-primary"
+                    >
+                        Entrar
+                    </button>
 
 
-            
+                    <div class="divider">
+                        <span>ou</span>
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="btn-secondary"
+                        id="btnCadastro"
+                    >
+                        Criar uma conta
+                    </button>
+
+                </form>
+
+
                 <p class="support">
 
                     Precisa de ajuda?
@@ -181,7 +189,6 @@
         </div>
 
     </main>
-
 
 
     <script src="../js/login.js"></script>

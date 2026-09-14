@@ -4,7 +4,7 @@ GO
 USE DOCSenai;
 GO
 
-CREATE TABLE Usuario (
+CREATE TABLE Usuarios (
     id_usuario INTEGER IDENTITY PRIMARY KEY,
     nome VARCHAR(100),
     email VARCHAR(50),
@@ -12,7 +12,7 @@ CREATE TABLE Usuario (
     cargo VARCHAR(50)
 );
 
-CREATE TABLE Turma (
+CREATE TABLE Turmas (
     id_turma INTEGER IDENTITY PRIMARY KEY,
     nome_turma VARCHAR(50),
     curso VARCHAR(100),
@@ -20,7 +20,7 @@ CREATE TABLE Turma (
     turno VARCHAR(50)
 );
 
-CREATE TABLE Atividade (
+CREATE TABLE Atividades (
     id_atividade INTEGER IDENTITY PRIMARY KEY,
     descricao_atividade VARCHAR(1000),
     observacao VARCHAR(1000),
@@ -36,7 +36,7 @@ CREATE TABLE Fotos (
     fk_Atividade_id_atividade INTEGER
 );
 
-CREATE TABLE Relatorio (
+CREATE TABLE Relatorios (
     id_relatorio INTEGER IDENTITY PRIMARY KEY,
     titulo_pdf VARCHAR(100),
     periodo_inicio DATE,
@@ -46,7 +46,7 @@ CREATE TABLE Relatorio (
     fk_Usuario_id_usuario INTEGER
 );
 
-CREATE TABLE Relatorio_Atividade (
+CREATE TABLE Relatorios_Atividades (
     fk_Atividade_id_atividade INTEGER,
     fk_Relatorio_id_relatorio INTEGER
 );
@@ -57,18 +57,18 @@ CREATE TABLE Relatorio_Atividade (
     ON DELETE NO ACTION;
 
 
-ALTER TABLE Relatorio ADD CONSTRAINT FK_Relatorio_2
+ALTER TABLE Relatorios ADD CONSTRAINT FK_Relatorio_2
     FOREIGN KEY (fk_Usuario_id_usuario)
     REFERENCES Usuario (id_usuario);
 
 
-ALTER TABLE Relatorio_Atividade ADD CONSTRAINT FK_Relatorio_Atividade_1
+ALTER TABLE Relatorios_Atividades ADD CONSTRAINT FK_Relatorio_Atividade_1
     FOREIGN KEY (fk_Atividade_id_atividade)
     REFERENCES Atividade (id_atividade)
     ON DELETE NO ACTION;
 
 
-ALTER TABLE Relatorio_Atividade ADD CONSTRAINT FK_Relatorio_Atividade_2
+ALTER TABLE Relatorios_Atividades ADD CONSTRAINT FK_Relatorio_Atividade_2
     FOREIGN KEY (fk_Relatorio_id_relatorio)
     REFERENCES Relatorio (id_relatorio)
     ON DELETE NO ACTION;
@@ -83,7 +83,7 @@ ALTER TABLE Relatorio_Atividade ADD CONSTRAINT FK_Relatorio_Atividade_2
    USUÁRIOS
    ========================= */
 
-INSERT INTO Usuario (nome, email, senha, cargo)
+INSERT INTO Usuarios (nome, email, senha, cargo)
 VALUES
 ('Ana Paula Souza', 'ana.souza@senai.br', '123456', 'Professora'),
 ('Carlos Eduardo Lima', 'carlos.lima@senai.br', '123456', 'Professor'),
@@ -96,7 +96,7 @@ VALUES
    TURMAS
    ========================= */
 
-INSERT INTO Turma (nome_turma, curso, periodo, turno)
+INSERT INTO Turmas (nome_turma, curso, periodo, turno)
 VALUES
 ('Técnico em Informática 2026.1', 'Técnico em Informática para Internet', '2026-01-01', 'Matutino'),
 ('Técnico em Administração 2026.1', 'Técnico em Administração', '2026-01-01', 'Vespertino'),
@@ -109,7 +109,7 @@ VALUES
    ATIVIDADES
    ========================= */
 
-INSERT INTO Atividade 
+INSERT INTO Atividades 
 (descricao_atividade, observacao, data_atividade, fk_Usuario_id_usuario, fk_Turma_id_turma)
 VALUES
 
@@ -223,7 +223,7 @@ VALUES
    RELATÓRIOS
    ========================= */
 
-INSERT INTO Relatorio 
+INSERT INTO Relatorios 
 (titulo_pdf, periodo_inicio, periodo_fim, data_criacao, descricao, fk_Usuario_id_usuario)
 VALUES
 
@@ -260,7 +260,7 @@ VALUES
    RELATÓRIO_ATIVIDADE
    ========================= */
 
-INSERT INTO Relatorio_Atividade 
+INSERT INTO Relatorios_Atividades 
 (fk_Atividade_id_atividade, fk_Relatorio_id_relatorio)
 VALUES
 

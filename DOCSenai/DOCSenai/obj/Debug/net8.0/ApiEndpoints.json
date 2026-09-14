@@ -1,0 +1,34 @@
+[
+  {
+    "ContainingType": "DOCSenai.Controllers.UsuarioController",
+    "Method": "CadastraUsuario",
+    "RelativePath": "Usuario",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "usuario",
+        "Type": "DOCSenai.Models.Usuario",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DOCSenai.Controllers.UsuarioController",
+    "Method": "Login",
+    "RelativePath": "Usuario/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "usuario",
+        "Type": "DOCSenai.Models.Usuario",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
