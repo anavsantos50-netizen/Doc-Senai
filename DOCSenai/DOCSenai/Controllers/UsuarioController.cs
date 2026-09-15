@@ -43,12 +43,38 @@ namespace DOCSenai.Controllers
         [HttpPost]
         public IActionResult CadastraUsuario(Usuario usuario)
         {
+           
+            if (string.IsNullOrWhiteSpace(usuario.Nome) ||
+                string.IsNullOrWhiteSpace(usuario.Email) ||
+                string.IsNullOrWhiteSpace(usuario.Senha) ||
+                string.IsNullOrWhiteSpace(usuario.Cargo))
+            {
+                return BadRequest("Todos os campos devem ser preenchidos.");
+            }
+
+           
+            if (usuario.Senha.Length != 8)
+            {
+                return BadRequest("A senha deve ter exatamente 8 caracteres.");
+            }
+
+            if (!new System.ComponentModel.DataAnnotations.EmailAddressAttribute()
+                .IsValid(usuario.Email))
+            {
+                return BadRequest("Digite um e-mail válido.");
+            }
+            var emailExistente = _context.Usuarios
+            .Any(u => u.Email.ToLower() == usuario.Email.ToLower());
+
+            if (emailExistente)
+            {
+                return BadRequest("Este e-mail já está cadastrado.");
+            }
+
             _context.Add(usuario);
             _context.SaveChanges();
 
             return Created("", usuario);
         }
-
     }
 }
-   

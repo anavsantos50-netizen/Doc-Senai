@@ -98,28 +98,29 @@
 
                         <div class="input-wrapper">
 
-                            <span class="input-icon">
-                                <i class="fa-solid fa-key"></i>
-                            </span>
+    <span class="input-icon">
+        <i class="fa-solid fa-lock"></i>
+    </span>
 
-                            <input
-                                type="password"
-                                id="senha"
-                                name="senha"
-                                placeholder="Digite sua senha"
-                                required
-                            >
+    <input
+        type="password"
+        id="senha"
+        name="senha"
+        placeholder="Digite sua senha"
+        autocomplete="current-password"
+        maxlength="8"
+        required
+    >
 
-                            <button
-                                type="button"
-                                class="password-toggle"
-                                id="toggleSenha"
-                                aria-label="Mostrar senha"
-                            >
-                                <i class="fa-solid fa-eye"></i>
-                            </button>
+    <button
+        type="button"
+        class="toggle-password"
+        aria-label="Mostrar senha"
+    >
+        <i class="fa-regular fa-eye" id="toggleSenha"></i>
+    </button>
 
-                        </div>
+</div>
 
                     </div>
 

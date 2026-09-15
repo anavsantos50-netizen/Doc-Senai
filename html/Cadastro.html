@@ -130,23 +130,30 @@
                             Senha
                         </label>
 
-                        <div class="input-wrapper">
+                       <div class="input-wrapper">
 
-                            <span class="input-icon">
-                                <i class="fa-solid fa-key"></i>
-                            </span>
+    <span class="input-icon">
+        <i class="fa-solid fa-lock"></i>
+    </span>
 
-                            <input type="password" id="senha" name="senha" placeholder="Digite sua senha"
-                                autocomplete="new-password" required>
+    <input
+        type="password"
+        id="senha"
+        name="senha"
+        placeholder="Digite sua senha"
+        autocomplete="current-password"
+        required
+    >
 
-                            <button type="button" class="password-toggle" id="toggleSenha" aria-label="Mostrar senha">
+    <button
+        type="button"
+        class="toggle-password"
+        aria-label="Mostrar senha"
+    >
+        <i class="fa-regular fa-eye" id="toggleSenha"></i>
+    </button>
 
-                                <i class="fa-solid fa-eye"></i>
-
-                            </button>
-
-                        </div>
-
+</div>
                     </div>
 
 
@@ -190,7 +197,7 @@
 
 
 
-                    <button type="submit" class="btn-primary" onclick="cadastrar()">
+                    <button type="button" class="btn-primary" onclick="cadastrar()">
 
                         Cadastrar-se
 
@@ -232,7 +239,56 @@
     </main>
 
 
+<div id="modalSucesso" class="modal-overlay">
 
+    <div class="modal-sucesso">
+
+        <div class="modal-icon">
+            <i class="fa-solid fa-check"></i>
+        </div>
+
+        <h2>
+            Cadastro realizado!
+        </h2>
+
+        <p>
+            Seu e-mail foi cadastrado com sucesso.
+        </p>
+
+        <button
+            type="button"
+            id="btnContinuar"
+            class="btn-modal"
+        >
+            Continuar
+        </button>
+
+    </div>
+
+</div>
+<div id="modalErro" class="modal-overlay">
+    <div class="modal-sucesso">
+
+        <div class="modal-icon modal-icon-erro">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+
+        <h2 id="tituloErro">Não foi possível realizar o cadastro</h2>
+
+        <p id="mensagemErro">
+            Verifique os dados informados e tente novamente.
+        </p>
+
+        <button
+            type="button"
+            id="btnFecharErro"
+            class="btn-modal"
+        >
+            Entendi
+        </button>
+
+    </div>
+</div>
     <script src="../js/Cadastro.js"></script>
 </body>
 

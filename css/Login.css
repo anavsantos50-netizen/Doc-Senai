@@ -369,43 +369,49 @@ body {
 }
 
 /* =========================================================
-   BOTÃO OLHINHO DA SENHA
+   OLHINHO DA SENHA
 ========================================================= */
 
-.password-toggle {
+.input-wrapper {
+    position: relative;
+}
+
+.toggle-password {
     position: absolute;
-
-    right: 14px;
-
+    right: 15px;
     top: 50%;
-
     transform: translateY(-50%);
 
-    width: 25px;
-    height: 25px;
+    width: 35px;
+    height: 35px;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
     border: none;
-
+    outline: none;
     background: transparent;
 
     color: #192E75;
-
-    font-size: 13px;
+    font-size: 15px;
 
     cursor: pointer;
 
     padding: 0;
-
-    z-index: 3;
 }
 
-.password-toggle:hover {
+.toggle-password:hover {
     color: #EA632C;
+}
+
+.toggle-password:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.input-wrapper input {
+    padding-right: 50px;
 }
 /* =========================================================
    MOSTRAR SENHA
