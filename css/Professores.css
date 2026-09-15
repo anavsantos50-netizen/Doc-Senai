@@ -23,15 +23,9 @@ body {
     color: #192E75;
 }
 
-button,
-input,
-select {
-    font-family: inherit;
-}
-
 
 /* =========================================================
-   TOPBAR — PADRÃO SUPERVISOR
+   TOPBAR
 ========================================================= */
 
 .topbar {
@@ -51,7 +45,6 @@ select {
 .topbar-container {
     width: 92%;
     max-width: 1450px;
-
     height: 100%;
 
     margin: 0 auto;
@@ -67,17 +60,20 @@ select {
    LOGO
 ========================================================= */
 
-.logo {
+.logo,
+.logo-area {
     width: 165px;
 
-    display: block;
-
-    flex-shrink: 0;
+    display: flex;
+    align-items: center;
 
     text-decoration: none;
+
+    flex-shrink: 0;
 }
 
-.logo img {
+.logo img,
+.logo-area img {
     width: 100%;
     height: auto;
 
@@ -126,7 +122,6 @@ select {
     text-decoration: none;
 
     font-size: 13px;
-
     font-weight: 500;
 
     white-space: nowrap;
@@ -145,8 +140,7 @@ select {
 
     font-weight: 600;
 
-    box-shadow:
-        0 4px 10px rgba(25, 46, 117, .15);
+    box-shadow: 0 4px 10px rgba(25, 46, 117, .15);
 }
 
 
@@ -179,7 +173,6 @@ select {
 .profile-info {
     display: flex;
     flex-direction: column;
-
     align-items: flex-end;
 
     text-align: right;
@@ -191,15 +184,13 @@ select {
     color: #192E75;
 
     font-size: 14px;
-
     font-weight: 700;
 }
 
 .profile-info span {
-    color: #777777;
+    color: #777;
 
     font-size: 12px;
-
     font-weight: 500;
 }
 
@@ -218,16 +209,10 @@ select {
     background: #EEF1F8;
 
     color: #192E75;
-
-    transition: .2s ease;
 }
 
 .profile-icon i {
     font-size: 17px;
-}
-
-.profile-link:hover .profile-icon {
-    background: #E5E9F7;
 }
 
 
@@ -265,11 +250,9 @@ select {
 
 .logout-btn:hover,
 .btn-sair:hover {
-    color: #EA632C;
+    background: #F5F6FA;
 
-    border-color: #F0C5B7;
-
-    background: #FFF8F5;
+    border-color: #192E75;
 }
 
 
@@ -307,7 +290,7 @@ select {
 
 
 /* =========================================================
-   CONTEÚDO — PADRÃO SUPERVISOR
+   CONTEÚDO
 ========================================================= */
 
 .main-content {
@@ -340,7 +323,6 @@ select {
     color: #EA632C;
 
     font-size: 11px;
-
     font-weight: 700;
 
     letter-spacing: 1.2px;
@@ -350,7 +332,6 @@ select {
     color: #192E75;
 
     font-size: 38px;
-
     font-weight: 700;
 
     line-height: 1.2;
@@ -361,61 +342,14 @@ select {
 .page-header p {
     margin-top: 9px;
 
+    max-width: 700px;
+
     color: #777F91;
 
     font-size: 15px;
-
     font-weight: 400;
 
     line-height: 1.6;
-}
-
-
-/* =========================================================
-   BOTÃO NOVO RELATÓRIO
-========================================================= */
-
-.new-report-btn {
-    min-width: 175px;
-
-    height: 45px;
-
-    padding: 0 18px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    gap: 8px;
-
-    flex-shrink: 0;
-
-    border-radius: 9px;
-
-    background: #EA632C;
-
-    color: #FFFFFF;
-
-    text-decoration: none;
-
-    font-size: 12px;
-
-    font-weight: 600;
-
-    transition: .2s ease;
-}
-
-.new-report-btn:hover {
-    background: #D95521;
-
-    transform: translateY(-1px);
-
-    box-shadow:
-        0 5px 12px rgba(234, 99, 44, .18);
-}
-
-.new-report-btn i {
-    font-size: 13px;
 }
 
 
@@ -426,10 +360,7 @@ select {
 .summary-grid {
     display: grid;
 
-    grid-template-columns:
-        1fr
-        1fr
-        1fr;
+    grid-template-columns: repeat(4, 1fr);
 
     gap: 18px;
 
@@ -437,82 +368,98 @@ select {
 }
 
 .summary-card {
-    min-height: 105px;
+    min-height: 125px;
 
-    padding: 20px;
+    padding: 22px;
 
     display: flex;
-
     align-items: center;
 
-    gap: 14px;
+    gap: 16px;
 
     background: #FFFFFF;
 
-    border: 1px solid #E7EAF1;
+    border: 1px solid #E6E9F0;
 
-    border-radius: 15px;
+    border-radius: 12px;
 
-    box-shadow:
-        0 5px 20px rgba(25, 46, 117, .035);
+    transition: .2s ease;
+}
+
+.summary-card:hover {
+    border-color: #D8DDEA;
+
+    transform: translateY(-2px);
 }
 
 .summary-icon {
-    width: 46px;
-    height: 46px;
+    width: 48px;
+    height: 48px;
 
     flex-shrink: 0;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
-    border-radius: 12px;
+    border-radius: 50%;
 
-    font-size: 17px;
+    font-size: 18px;
 }
 
 .summary-icon.blue {
-    background: #EEF1F8;
-
-    color: #192E75;
-}
-
-.summary-icon.orange {
-    background: #FFF1EB;
-
-    color: #EA632C;
+    background: #EEF3FF;
+    color: #315CCF;
 }
 
 .summary-icon.green {
-    background: #EDF7F1;
-
-    color: #3D8A61;
+    background: #EAF9F1;
+    color: #16A765;
 }
 
-.summary-card span {
-    display: block;
+.summary-icon.orange {
+    background: #FFF3E9;
+    color: #EA632C;
+}
 
-    color: #858DA0;
+.summary-icon.purple {
+    background: #F1EEFF;
+    color: #7059D9;
+}
+
+.summary-info {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.summary-info span {
+    color: #727B91;
 
     font-size: 11px;
-
     font-weight: 500;
+
+    line-height: 1.4;
 }
 
-.summary-card strong {
-    display: block;
-
-    margin-top: 2px;
+.summary-info strong {
+    margin-top: 3px;
 
     color: #192E75;
 
-    font-size: 24px;
+    font-size: 26px;
+    font-weight: 700;
 
     line-height: 1.2;
+}
 
-    font-weight: 700;
+.summary-info small {
+    margin-top: 2px;
+
+    color: #8B93A5;
+
+    font-size: 10px;
 }
 
 
@@ -521,120 +468,111 @@ select {
 ========================================================= */
 
 .filters-card {
+    width: 100%;
+
     padding: 20px;
 
     display: grid;
 
-    grid-template-columns:
-        minmax(260px, 1.5fr)
-        1fr
-        1fr
-        auto;
+    grid-template-columns: minmax(250px, 1.7fr) minmax(150px, .8fr) minmax(150px, .8fr) auto;
 
     align-items: end;
 
-    gap: 15px;
-
-    margin-bottom: 25px;
+    gap: 16px;
 
     background: #FFFFFF;
 
-    border: 1px solid #E7EAF1;
+    border: 1px solid #E6E9F0;
 
-    border-radius: 15px;
+    border-radius: 12px;
 
-    box-shadow:
-        0 5px 20px rgba(25, 46, 117, .035);
+    margin-bottom: 28px;
 }
-
-
-/* =========================================================
-   BUSCA
-========================================================= */
 
 .search-wrapper {
-    height: 45px;
+    height: 46px;
 
-    position: relative;
-}
+    display: flex;
+    align-items: center;
 
-.search-wrapper i {
-    position: absolute;
+    gap: 10px;
 
-    left: 14px;
-    top: 50%;
+    padding: 0 14px;
 
-    transform: translateY(-50%);
-
-    color: #8A92A3;
-
-    font-size: 13px;
-
-    pointer-events: none;
-}
-
-.search-wrapper input {
-    width: 100%;
-    height: 100%;
-
-    padding: 0 14px 0 39px;
-
-    border: 1px solid #D9DFEB;
+    border: 1px solid #DDE2EC;
 
     border-radius: 9px;
 
-    outline: none;
-
     background: #FFFFFF;
-
-    color: #26345A;
-
-    font-size: 12px;
 
     transition: .2s ease;
 }
 
-.search-wrapper input::placeholder {
-    color: #A1A8B7;
-}
-
-.search-wrapper input:focus {
+.search-wrapper:focus-within {
     border-color: #192E75;
 
-    box-shadow:
-        0 0 0 3px rgba(25, 46, 117, .06);
+    box-shadow: 0 0 0 3px rgba(25, 46, 117, .06);
+}
+
+.search-wrapper i {
+    color: #8190AE;
+
+    font-size: 14px;
+}
+
+.search-wrapper input {
+    width: 100%;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: #192E75;
+
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 12px;
+}
+
+.search-wrapper input::placeholder {
+    color: #98A1B4;
 }
 
 
 /* =========================================================
-   GRUPO DOS FILTROS
+   FILTROS SELECT
 ========================================================= */
 
+.filter-group {
+    display: flex;
+    flex-direction: column;
+
+    gap: 6px;
+}
+
 .filter-group label {
-    display: block;
+    color: #626C82;
 
-    margin-bottom: 7px;
-
-    color: #26345A;
-
-    font-size: 11px;
-
+    font-size: 10px;
     font-weight: 600;
 }
 
 .select-wrapper {
+    height: 46px;
+
     position: relative;
 }
 
 .select-wrapper select {
     width: 100%;
-    height: 45px;
+    height: 100%;
 
-    padding: 0 38px 0 13px;
+    padding: 0 36px 0 13px;
 
     appearance: none;
 
-    border: 1px solid #D9DFEB;
+    border: 1px solid #DDE2EC;
 
     border-radius: 9px;
 
@@ -642,65 +580,58 @@ select {
 
     background: #FFFFFF;
 
-    color: #26345A;
+    color: #192E75;
+
+    font-family: 'Poppins', sans-serif;
 
     font-size: 12px;
 
     cursor: pointer;
-
-    transition: .2s ease;
-}
-
-.select-wrapper select:focus {
-    border-color: #192E75;
-
-    box-shadow:
-        0 0 0 3px rgba(25, 46, 117, .06);
 }
 
 .select-wrapper i {
     position: absolute;
 
-    right: 14px;
+    right: 13px;
     top: 50%;
 
     transform: translateY(-50%);
 
-    color: #6F7890;
+    pointer-events: none;
+
+    color: #7C87A0;
 
     font-size: 10px;
-
-    pointer-events: none;
 }
 
 
 /* =========================================================
-   LIMPAR
+   LIMPAR FILTROS
 ========================================================= */
 
 .clear-btn {
-    height: 45px;
+    height: 46px;
 
-    padding: 0 15px;
+    padding: 0 16px;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
-    gap: 7px;
+    gap: 8px;
 
-    border: 1px solid #D9DFEB;
+    border: 1px solid #DDE2EC;
 
     border-radius: 9px;
 
     background: #FFFFFF;
 
-    color: #69738A;
+    color: #66728B;
+
+    font-family: 'Poppins', sans-serif;
 
     font-size: 11px;
-
-    font-weight: 600;
+    font-weight: 500;
 
     cursor: pointer;
 
@@ -710,72 +641,56 @@ select {
 }
 
 .clear-btn:hover {
-    color: #EA632C;
+    color: #192E75;
 
-    border-color: #F0C5B7;
+    border-color: #192E75;
 
-    background: #FFF8F5;
+    background: #F8F9FC;
+}
+
+.clear-btn i {
+    font-size: 12px;
 }
 
 
 /* =========================================================
-   SEÇÃO DOS RELATÓRIOS
+   SEÇÃO PROFESSORES
 ========================================================= */
 
-.reports-section {
-    background: #FFFFFF;
-
-    border: 1px solid #E7EAF1;
-
-    border-radius: 17px;
-
-    overflow: hidden;
-
-    box-shadow:
-        0 5px 20px rgba(25, 46, 117, .035);
+.professors-section {
+    width: 100%;
 }
-
-
-/* =========================================================
-   CABEÇALHO DOS RESULTADOS
-========================================================= */
 
 .results-header {
-    min-height: 75px;
-
-    padding: 17px 25px;
+    margin-bottom: 14px;
 
     display: flex;
-
-    align-items: center;
-
+    align-items: flex-end;
     justify-content: space-between;
 
     gap: 20px;
-
-    border-bottom: 1px solid #EEF0F5;
 }
 
 .results-header h2 {
     color: #192E75;
 
-    font-size: 16px;
-
+    font-size: 18px;
     font-weight: 700;
+}
+
+.results-header h2 span {
+    color: #7D879B;
+
+    font-size: 14px;
+    font-weight: 500;
 }
 
 .results-header p {
-    margin-top: 2px;
+    margin-top: 4px;
 
-    color: #858DA0;
+    color: #8991A2;
 
     font-size: 11px;
-}
-
-.results-header p strong {
-    color: #EA632C;
-
-    font-weight: 700;
 }
 
 
@@ -785,34 +700,35 @@ select {
 
 .sort-wrapper {
     display: flex;
-
     align-items: center;
 
-    gap: 7px;
+    gap: 9px;
 }
 
 .sort-wrapper label {
-    color: #858DA0;
+    color: #7A8397;
 
     font-size: 10px;
 }
 
 .sort-wrapper select {
-    height: 35px;
+    height: 38px;
 
-    padding: 0 30px 0 10px;
+    padding: 0 32px 0 12px;
 
-    border: 1px solid #D9DFEB;
+    border: 1px solid #DDE2EC;
 
-    border-radius: 7px;
+    border-radius: 8px;
 
     outline: none;
 
     background: #FFFFFF;
 
-    color: #4B5672;
+    color: #192E75;
 
-    font-size: 10px;
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 11px;
 
     cursor: pointer;
 }
@@ -822,183 +738,223 @@ select {
    LISTA
 ========================================================= */
 
-.reports-list {
-    width: 100%;
+.professors-list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
 }
 
 
 /* =========================================================
-   CARD DO RELATÓRIO
+   ITEM PROFESSOR
 ========================================================= */
 
-.report-item {
-    min-height: 105px;
+.professor-item {
+    min-height: 108px;
 
-    padding: 18px 25px;
+    padding: 18px 16px;
 
-    display: flex;
+    display: grid;
+
+    grid-template-columns: 52px minmax(190px, 1.5fr) minmax(120px, .8fr) minmax(120px, .8fr) minmax(120px, .8fr) auto 30px;
 
     align-items: center;
 
-    gap: 17px;
+    gap: 16px;
 
-    border-bottom: 1px solid #EEF0F5;
+    background: #FFFFFF;
+
+    border: 1px solid #E6E9F0;
+
+    border-radius: 12px;
 
     transition: .2s ease;
 }
 
-.report-item:last-child {
-    border-bottom: none;
-}
+.professor-item:hover {
+    border-color: #D7DCE7;
 
-.report-item:hover {
-    background: #FBFCFE;
+    box-shadow: 0 5px 18px rgba(25, 46, 117, .04);
 }
 
 
 /* =========================================================
-   ÍCONE PDF
+   AVATAR
 ========================================================= */
 
-.report-file-icon {
-    width: 48px;
-    height: 48px;
-
-    flex-shrink: 0;
+.professor-avatar {
+    width: 52px;
+    height: 52px;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
-    border-radius: 12px;
+    border-radius: 50%;
 
-    background: #FFF1EB;
+    background: #E9F0FF;
 
+    color: #315CCF;
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.avatar-blue {
+    background: #E6F0FF;
+    color: #3974CE;
+}
+
+.avatar-orange {
+    background: #FFF0E5;
     color: #EA632C;
+}
 
-    font-size: 19px;
+.avatar-purple {
+    background: #F0ECFF;
+    color: #7358D7;
+}
+
+.avatar-green {
+    background: #E8F8F0;
+    color: #17995D;
 }
 
 
 /* =========================================================
-   INFORMAÇÕES
+   INFORMAÇÕES PRINCIPAIS
 ========================================================= */
 
-.report-info {
+.professor-main {
     min-width: 0;
-
-    flex: 1;
 }
 
-.report-info h3 {
-    color: #26345A;
-
-    font-size: 13px;
-
-    font-weight: 700;
-
-    line-height: 1.4;
-}
-
-.report-info p {
-    margin-top: 4px;
-
-    color: #858DA0;
-
-    font-size: 10px;
-
-    line-height: 1.5;
-}
-
-.report-meta {
-    margin-top: 7px;
-
+.professor-name {
     display: flex;
-
     align-items: center;
 
     flex-wrap: wrap;
 
-    gap: 6px;
+    gap: 8px;
 }
 
-.report-tag {
-    padding: 3px 8px;
-
-    border-radius: 5px;
-
-    background: #EEF1F8;
-
+.professor-name h3 {
     color: #192E75;
 
-    font-size: 9px;
-
-    font-weight: 600;
-}
-
-.report-date {
-    color: #8B93A5;
-
-    font-size: 9px;
-}
-
-
-/* =========================================================
-   QUANTIDADE DE ATIVIDADES
-========================================================= */
-
-.report-activities {
-    min-width: 100px;
-
-    text-align: center;
-}
-
-.report-activities strong {
-    display: block;
-
-    color: #192E75;
-
-    font-size: 17px;
-
+    font-size: 14px;
     font-weight: 700;
 }
 
-.report-activities span {
-    display: block;
+.professor-email {
+    margin-top: 6px;
 
-    margin-top: 1px;
+    display: flex;
+    align-items: center;
 
-    color: #8B93A5;
+    gap: 7px;
 
-    font-size: 9px;
+    color: #8992A5;
+
+    font-size: 10px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.professor-email i {
+    color: #8190AA;
+
+    font-size: 10px;
 }
 
 
 /* =========================================================
-   AÇÕES
+   STATUS
 ========================================================= */
 
-.report-actions {
-    display: flex;
+.status-tag {
+    min-height: 22px;
 
+    padding: 3px 9px;
+
+    display: inline-flex;
     align-items: center;
 
-    gap: 7px;
+    gap: 5px;
+
+    border-radius: 20px;
+
+    font-size: 9px;
+    font-weight: 600;
 }
 
-.report-action-btn {
-    width: 37px;
-    height: 37px;
+.status-tag i {
+    font-size: 6px;
+}
+
+.status-tag.active {
+    background: #E8F8F0;
+    color: #15945A;
+}
+
+.status-tag.inactive {
+    background: #F3F4F6;
+    color: #7A8290;
+}
+
+
+/* =========================================================
+   DADOS
+========================================================= */
+
+.professor-data,
+.professor-date {
+    min-width: 0;
 
     display: flex;
+    flex-direction: column;
 
+    gap: 5px;
+}
+
+.data-label {
+    color: #929AAA;
+
+    font-size: 9px;
+    font-weight: 500;
+}
+
+.professor-data strong,
+.professor-date strong {
+    color: #27365F;
+
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.professor-date strong {
+    color: #4C5871;
+}
+
+
+/* =========================================================
+   BOTÃO VER REGISTROS
+========================================================= */
+
+.view-btn {
+    height: 38px;
+
+    padding: 0 13px;
+
+    display: flex;
     align-items: center;
     justify-content: center;
 
-    flex-shrink: 0;
+    gap: 7px;
 
-    border: 1px solid #DDE2EB;
+    border: 1px solid #CCD5E8;
 
     border-radius: 8px;
 
@@ -1006,33 +962,60 @@ select {
 
     color: #192E75;
 
-    font-size: 12px;
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 10px;
+    font-weight: 600;
+
+    white-space: nowrap;
 
     cursor: pointer;
 
     transition: .2s ease;
 }
 
-.report-action-btn:hover {
-    border-color: #C9D1E1;
+.view-btn:hover {
+    background: #192E75;
 
-    background: #F5F7FB;
+    border-color: #192E75;
+
+    color: #FFFFFF;
 }
 
-.report-action-btn.download:hover {
-    color: #EA632C;
-
-    border-color: #F0C5B7;
-
-    background: #FFF8F5;
+.view-btn i {
+    font-size: 11px;
 }
 
-.report-action-btn.delete:hover {
-    color: #D9534F;
 
-    border-color: #F1C5C3;
+/* =========================================================
+   MAIS OPÇÕES
+========================================================= */
 
-    background: #FFF7F7;
+.more-btn {
+    width: 30px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+
+    background: transparent;
+
+    color: #8290AA;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    border-radius: 7px;
+}
+
+.more-btn:hover {
+    background: #F2F4F8;
+
+    color: #192E75;
 }
 
 
@@ -1041,90 +1024,50 @@ select {
 ========================================================= */
 
 .empty-state {
-    min-height: 300px;
-
-    padding: 45px 20px;
-
     display: none;
 
-    align-items: center;
-    justify-content: center;
-
-    flex-direction: column;
+    padding: 55px 20px;
 
     text-align: center;
-}
-
-.empty-state.visible {
-    display: flex;
-}
-
-.empty-icon {
-    width: 55px;
-    height: 55px;
-
-    margin-bottom: 13px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 14px;
-
-    background: #F1F3F7;
-
-    color: #929AAA;
-
-    font-size: 19px;
-}
-
-.empty-state h2 {
-    color: #4A5570;
-
-    font-size: 15px;
-
-    font-weight: 700;
-}
-
-.empty-state p {
-    max-width: 400px;
-
-    margin-top: 5px;
-
-    color: #858DA0;
-
-    font-size: 11px;
-
-    line-height: 1.5;
-}
-
-.empty-btn {
-    margin-top: 15px;
-
-    height: 38px;
-
-    padding: 0 16px;
-
-    border: 1px solid #D9DFEB;
-
-    border-radius: 8px;
 
     background: #FFFFFF;
 
-    color: #192E75;
+    border: 1px solid #E6E9F0;
 
-    font-size: 11px;
-
-    font-weight: 600;
-
-    cursor: pointer;
-
-    transition: .2s ease;
+    border-radius: 12px;
 }
 
-.empty-btn:hover {
-    background: #F5F6FA;
+.empty-icon {
+    width: 58px;
+    height: 58px;
+
+    margin: 0 auto 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #F0F2F7;
+
+    color: #8791A6;
+
+    font-size: 20px;
+}
+
+.empty-state h3 {
+    color: #192E75;
+
+    font-size: 16px;
+}
+
+.empty-state p {
+    margin-top: 6px;
+
+    color: #8A93A4;
+
+    font-size: 11px;
 }
 
 
@@ -1137,28 +1080,24 @@ select {
 
     inset: 0;
 
-    z-index: 500;
-
-    display: none;
-
-    align-items: center;
-    justify-content: center;
+    z-index: 2000;
 
     padding: 25px;
 
-    background: rgba(15, 24, 50, .45);
+    display: none;
+    align-items: center;
+    justify-content: center;
 
-    backdrop-filter: blur(3px);
+    background: rgba(20, 29, 55, .42);
 }
 
-.modal-overlay.show {
+.modal-overlay.open {
     display: flex;
 }
 
-.report-modal {
+.professor-modal {
     width: 100%;
-    max-width: 620px;
-
+    max-width: 650px;
     max-height: 90vh;
 
     overflow-y: auto;
@@ -1169,15 +1108,19 @@ select {
 
     background: #FFFFFF;
 
-    border-radius: 17px;
+    border-radius: 16px;
 
-    box-shadow:
-        0 20px 50px rgba(0, 0, 0, .15);
+    box-shadow: 0 20px 50px rgba(20, 30, 60, .18);
 }
 
+
+/* =========================================================
+   FECHAR MODAL
+========================================================= */
+
 .modal-close {
-    width: 35px;
-    height: 35px;
+    width: 38px;
+    height: 38px;
 
     position: absolute;
 
@@ -1185,17 +1128,16 @@ select {
     right: 18px;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
-    border: 1px solid #E1E4EA;
+    border: none;
 
     border-radius: 8px;
 
-    background: #FFFFFF;
+    background: #F4F5F8;
 
-    color: #69738A;
+    color: #6F788C;
 
     cursor: pointer;
 
@@ -1203,58 +1145,64 @@ select {
 }
 
 .modal-close:hover {
-    color: #EA632C;
+    background: #EA632C;
 
-    background: #FFF8F5;
+    color: #FFFFFF;
 }
 
 
 /* =========================================================
-   CABEÇALHO MODAL
+   PERFIL DO MODAL
 ========================================================= */
 
-.modal-label {
-    display: block;
+.modal-profile {
+    display: flex;
+    align-items: center;
 
-    margin-bottom: 6px;
+    gap: 16px;
 
-    color: #969DAC;
+    padding-right: 45px;
 
-    font-size: 9px;
-
-    font-weight: 600;
-
-    letter-spacing: 1.1px;
+    margin-bottom: 28px;
 }
 
-.modal-header h2 {
-    max-width: 500px;
+.modal-avatar {
+    width: 62px;
+    height: 62px;
 
-    color: #192E75;
+    flex-shrink: 0;
 
-    font-size: 23px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    line-height: 1.35;
+    border-radius: 50%;
 
+    background: #E9F0FF;
+
+    color: #315CCF;
+
+    font-size: 17px;
     font-weight: 700;
 }
 
-.modal-date {
-    margin-top: 8px;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 7px;
-
-    color: #858DA0;
-
-    font-size: 11px;
+.modal-profile .section-label {
+    margin-bottom: 4px;
 }
 
-.modal-date i {
+.modal-profile h2 {
     color: #192E75;
+
+    font-size: 23px;
+    font-weight: 700;
+}
+
+.modal-profile p {
+    margin-top: 3px;
+
+    color: #858EA1;
+
+    font-size: 11px;
 }
 
 
@@ -1263,118 +1211,180 @@ select {
 ========================================================= */
 
 .modal-info-grid {
-    margin-top: 25px;
-
     display: grid;
 
-    grid-template-columns:
-        1fr
-        1fr;
+    grid-template-columns: repeat(4, 1fr);
 
     gap: 10px;
+
+    margin-bottom: 28px;
 }
 
 .modal-info-item {
-    padding: 13px;
+    padding: 14px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 6px;
+
+    background: #F8F9FC;
+
+    border: 1px solid #E9ECF2;
 
     border-radius: 9px;
-
-    background: #F7F8FB;
 }
 
 .modal-info-item span {
-    display: block;
-
-    color: #8B93A5;
+    color: #8A93A5;
 
     font-size: 9px;
 }
 
 .modal-info-item strong {
-    display: block;
-
-    margin-top: 3px;
-
-    color: #26345A;
+    color: #263760;
 
     font-size: 11px;
-
     font-weight: 600;
 }
 
+.modal-status {
+    color: #15945A !important;
+}
+
+.modal-status i {
+    margin-right: 4px;
+
+    font-size: 6px;
+}
+
 
 /* =========================================================
-   SEÇÃO MODAL
+   SEÇÃO DO MODAL
 ========================================================= */
 
 .modal-section {
-    margin-top: 22px;
+    padding-top: 22px;
+
+    border-top: 1px solid #E9ECF2;
 }
 
-.modal-section h3 {
-    display: flex;
+.modal-section-header h3 {
+    color: #192E75;
 
-    align-items: center;
-
-    gap: 8px;
-
-    color: #26345A;
-
-    font-size: 12px;
-
+    font-size: 15px;
     font-weight: 700;
 }
 
-.modal-section h3 i {
-    color: #192E75;
-}
+.modal-section-header p {
+    margin-top: 4px;
 
-.modal-section p {
-    margin-top: 7px;
+    color: #8992A5;
 
-    color: #777F91;
-
-    font-size: 11px;
-
-    line-height: 1.6;
+    font-size: 10px;
 }
 
 
 /* =========================================================
-   RODAPÉ MODAL
+   ATIVIDADES
+========================================================= */
+
+.activity-list {
+    margin-top: 15px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.activity-item {
+    padding: 12px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+
+    background: #FAFBFD;
+
+    border: 1px solid #ECEEF3;
+
+    border-radius: 8px;
+}
+
+.activity-icon {
+    width: 35px;
+    height: 35px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+
+    background: #EEF2FB;
+
+    color: #192E75;
+
+    font-size: 12px;
+}
+
+.activity-item div:last-child {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+.activity-item strong {
+    color: #354264;
+
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.activity-item span {
+    color: #9098A8;
+
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   FOOTER MODAL
 ========================================================= */
 
 .modal-footer {
     margin-top: 25px;
 
-    padding-top: 20px;
-
     display: flex;
-
     justify-content: flex-end;
 
-    gap: 9px;
-
-    border-top: 1px solid #EEF0F5;
+    gap: 10px;
 }
 
 .modal-secondary-btn,
 .modal-primary-btn {
     height: 42px;
 
-    padding: 0 17px;
+    padding: 0 16px;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
-    gap: 8px;
+    gap: 7px;
 
     border-radius: 8px;
 
-    font-size: 11px;
+    font-family: 'Poppins', sans-serif;
 
+    font-size: 10px;
     font-weight: 600;
 
     cursor: pointer;
@@ -1383,32 +1393,36 @@ select {
 }
 
 .modal-secondary-btn {
-    border: 1px solid #D9DFEB;
+    border: 1px solid #DDE2EC;
 
     background: #FFFFFF;
 
-    color: #69738A;
+    color: #68748C;
 }
 
 .modal-secondary-btn:hover {
-    background: #F7F8FB;
+    border-color: #192E75;
+
+    color: #192E75;
 }
 
 .modal-primary-btn {
-    border: none;
+    border: 1px solid #192E75;
 
-    background: #EA632C;
+    background: #192E75;
 
     color: #FFFFFF;
 }
 
 .modal-primary-btn:hover {
-    background: #D95521;
+    background: #14245F;
+
+    border-color: #14245F;
 }
 
 
 /* =========================================================
-   DESKTOP GRANDE — PADRÃO PERFIL SUPERVISOR
+   DESKTOP GRANDE
 ========================================================= */
 
 @media (min-width: 1500px) {
@@ -1417,7 +1431,8 @@ select {
         height: 88px;
     }
 
-    .logo {
+    .logo,
+    .logo-area {
         width: 180px;
     }
 
@@ -1440,11 +1455,12 @@ select {
     .page-header h1 {
         font-size: 42px;
     }
+
 }
 
 
 /* =========================================================
-   TABLET — PADRÃO PERFIL SUPERVISOR
+   TABLET
 ========================================================= */
 
 @media (max-width: 1100px) {
@@ -1468,19 +1484,11 @@ select {
     }
 
     .summary-grid {
-        grid-template-columns:
-            1fr
-            1fr;
-    }
-
-    .summary-card:last-child {
-        grid-column: 1 / -1;
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .filters-card {
-        grid-template-columns:
-            1fr
-            1fr;
+        grid-template-columns: 1fr 1fr;
     }
 
     .search-wrapper {
@@ -1488,41 +1496,28 @@ select {
     }
 
     .clear-btn {
-        width: 100%;
+        justify-self: start;
     }
+
+    .professor-item {
+        grid-template-columns:
+            52px
+            minmax(170px, 1.5fr)
+            minmax(110px, .8fr)
+            minmax(110px, .8fr)
+            auto
+            30px;
+    }
+
+    .professor-date {
+        display: none;
+    }
+
 }
 
 
 /* =========================================================
-   850 PX
-========================================================= */
-
-@media (max-width: 850px) {
-
-    .report-item {
-        align-items: flex-start;
-
-        flex-wrap: wrap;
-    }
-
-    .report-info {
-        min-width: calc(100% - 65px);
-    }
-
-    .report-activities {
-        margin-left: 65px;
-
-        text-align: left;
-    }
-
-    .report-actions {
-        margin-left: auto;
-    }
-}
-
-
-/* =========================================================
-   800 PX — MOBILE
+   MOBILE
 ========================================================= */
 
 @media (max-width: 800px) {
@@ -1535,11 +1530,12 @@ select {
         width: 90%;
     }
 
-    .logo {
+    .logo,
+    .logo-area {
         width: 140px;
     }
 
-    .main-nav {
+    #mainNav {
         display: none;
     }
 
@@ -1567,22 +1563,18 @@ select {
         display: flex;
     }
 
+    .mobile-nav.open {
+        display: flex;
 
-    /* MENU MOBILE PADRÃO */
-
-    .mobile-nav {
         position: absolute;
 
         top: 70px;
-
         left: 0;
         right: 0;
 
         width: 100%;
 
         padding: 12px 5%;
-
-        display: none;
 
         flex-direction: column;
 
@@ -1592,25 +1584,18 @@ select {
 
         border-top: 1px solid #E9ECF2;
 
-        box-shadow:
-            0 12px 25px rgba(0, 0, 0, .07);
+        box-shadow: 0 12px 25px rgba(0, 0, 0, .07);
 
         z-index: 999;
     }
 
-    .mobile-nav.show {
-        display: flex;
-    }
-
-    .mobile-nav a {
+    .mobile-nav-link {
         width: 100%;
-
         min-height: 48px;
 
         padding: 0 15px;
 
         display: flex;
-
         align-items: center;
 
         gap: 12px;
@@ -1622,11 +1607,10 @@ select {
         text-decoration: none;
 
         font-size: 13px;
-
         font-weight: 500;
     }
 
-    .mobile-nav a i {
+    .mobile-nav-link i {
         width: 18px;
 
         color: #192E75;
@@ -1636,13 +1620,7 @@ select {
         font-size: 14px;
     }
 
-    .mobile-nav a:hover {
-        background: #F5F6FA;
-
-        color: #192E75;
-    }
-
-    .mobile-nav a.active {
+    .mobile-nav-link.active {
         background: #192E75;
 
         color: #FFFFFF;
@@ -1650,55 +1628,38 @@ select {
         font-weight: 600;
     }
 
-    .mobile-nav a.active i {
+    .mobile-nav-link.active i {
         color: #FFFFFF;
     }
-
-
-    /* CONTEÚDO */
 
     .main-content {
         padding-top: 35px;
     }
 
-    .page-header {
-        align-items: flex-start;
-
-        flex-direction: column;
+    .page-header h1 {
+        font-size: 34px;
     }
 
-    .new-report-btn {
-        width: 100%;
+    .page-header p {
+        font-size: 13px;
     }
-
-    .report-summary {
-        align-items: stretch;
-
-        flex-direction: column;
-    }
-}
-
-
-/* =========================================================
-   650 PX
-========================================================= */
-
-@media (max-width: 650px) {
 
     .summary-grid {
         grid-template-columns: 1fr;
     }
 
-    .summary-card:last-child {
-        grid-column: auto;
-    }
-
     .filters-card {
         grid-template-columns: 1fr;
+
+        padding: 16px;
     }
 
     .search-wrapper {
         grid-column: auto;
+    }
+
+    .clear-btn {
+        width: 100%;
     }
 
     .results-header {
@@ -1709,36 +1670,68 @@ select {
 
     .sort-wrapper {
         width: 100%;
-
-        justify-content: space-between;
     }
 
     .sort-wrapper select {
         flex: 1;
     }
 
-    .report-item {
-        padding: 17px 18px;
+    .professor-item {
+        grid-template-columns: 48px 1fr auto;
+
+        gap: 12px;
+
+        padding: 16px;
     }
 
-    .report-activities {
-        margin-left: 0;
+    .professor-avatar {
+        width: 48px;
+        height: 48px;
     }
 
-    .report-actions {
-        width: 100%;
-
-        margin-left: 0;
+    .professor-data,
+    .professor-date {
+        display: none;
     }
 
-    .report-action-btn {
-        flex: 1;
+    .view-btn {
+        grid-column: 2 / 3;
+
+        width: fit-content;
     }
+
+    .more-btn {
+        grid-column: 3;
+        grid-row: 1;
+    }
+
+    .professor-name h3 {
+        font-size: 13px;
+    }
+
+    .professor-email {
+        font-size: 9px;
+    }
+
+    .modal-overlay {
+        padding: 15px;
+    }
+
+    .professor-modal {
+        padding: 23px;
+
+        max-height: 92vh;
+    }
+
+    .modal-info-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
 }
 
 
 /* =========================================================
-   550 PX
+   MOBILE PEQUENO
 ========================================================= */
 
 @media (max-width: 550px) {
@@ -1751,7 +1744,8 @@ select {
         width: 92%;
     }
 
-    .logo {
+    .logo,
+    .logo-area {
         width: 125px;
     }
 
@@ -1760,7 +1754,7 @@ select {
         height: 38px;
     }
 
-    .mobile-nav {
+    .mobile-nav.open {
         top: 66px;
     }
 
@@ -1772,6 +1766,10 @@ select {
         width: 92%;
     }
 
+    .page-header {
+        margin-bottom: 25px;
+    }
+
     .page-header h1 {
         font-size: 30px;
     }
@@ -1781,55 +1779,48 @@ select {
     }
 
     .summary-card {
-        min-height: 95px;
+        min-height: 105px;
 
-        padding: 17px;
+        padding: 18px;
     }
 
-    .summary-icon {
-        width: 42px;
-        height: 42px;
+    .summary-info strong {
+        font-size: 23px;
     }
 
-    .summary-card strong {
-        font-size: 21px;
+    .professor-item {
+        grid-template-columns: 44px 1fr 28px;
     }
 
-    .filters-card {
-        padding: 17px;
+    .professor-avatar {
+        width: 44px;
+        height: 44px;
 
-        border-radius: 14px;
-    }
-
-    .results-header {
-        padding: 17px 18px;
-    }
-
-    .report-file-icon {
-        width: 43px;
-        height: 43px;
-
-        font-size: 17px;
-    }
-
-    .report-info h3 {
         font-size: 12px;
     }
 
-    .report-info p {
-        font-size: 9px;
+    .view-btn {
+        grid-column: 1 / -1;
+
+        width: 100%;
     }
 
-    .report-modal {
-        padding: 23px 18px;
-
-        border-radius: 14px;
+    .more-btn {
+        grid-column: 3;
+        grid-row: 1;
     }
 
-    .modal-header h2 {
-        font-size: 20px;
+    .modal-profile {
+        align-items: flex-start;
+    }
 
-        padding-right: 25px;
+    .modal-avatar {
+        width: 52px;
+        height: 52px;
+    }
+
+    .modal-profile h2 {
+        font-size: 19px;
     }
 
     .modal-info-grid {
@@ -1837,37 +1828,39 @@ select {
     }
 
     .modal-footer {
-        flex-direction: column-reverse;
+        flex-direction: column;
     }
 
     .modal-secondary-btn,
     .modal-primary-btn {
         width: 100%;
     }
+
 }
 
 
 /* =========================================================
-   380 PX
+   MOBILE MUITO PEQUENO
 ========================================================= */
 
 @media (max-width: 380px) {
 
-    .logo {
+    .logo,
+    .logo-area {
         width: 115px;
     }
 
     .page-header h1 {
-        font-size: 27px;
+        font-size: 28px;
     }
 
     .summary-card {
-        gap: 10px;
+        gap: 12px;
     }
 
-    .report-meta {
-        align-items: flex-start;
-
-        flex-direction: column;
+    .summary-icon {
+        width: 43px;
+        height: 43px;
     }
+
 }

@@ -1,11 +1,664 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <title>Início | Supervisão - DocSenai</title>
+
+    <!-- =====================================================
+         FONTE POPPINS
+    ====================================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- =====================================================
+         FONT AWESOME
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+
+    <!-- =====================================================
+         CSS
+    ====================================================== -->
+
+    <link rel="stylesheet" href="../css/telaInicialSupervisor.css" >
+    <link rel="stylesheet" href="../css/padraoSupervisao.css">
+
 </head>
+
+
 <body>
-        <script src="js/telaInicialSupervisor.js"></script>
+
+
+    <!-- =====================================================
+         TOPBAR
+    ====================================================== -->
+
+    <header class="topbar">
+
+        <div class="topbar-container">
+
+
+            <!-- LOGO -->
+
+            <a
+                href="telaInicialSupervisao.html"
+                class="logo"
+            >
+
+                <img
+                    src="../img/logo.png"
+                    alt="DocSenai"
+                >
+
+            </a>
+
+
+            <!-- =================================================
+                 MENU
+            ================================================== -->
+
+        
+               <nav class="main-nav" id="mainNav">
+
+                <a href="telaInicialSupervisor.html" class="nav-link active">
+                    Início
+                </a>
+
+                <a href="pesquisarRegistros.html" class="nav-link">
+                    Pesquisar Registros
+                </a>
+
+                <a href="gerarRelatorios.html" class="nav-link">
+                    Gerar Relatório
+                </a>
+
+                <a href="relatoriosGerados.html" class="nav-link">
+                    Relatórios Gerados
+                </a>
+
+                <a href="professores.html" class="nav-link ">
+                    Professores
+                </a>
+
+                <a href="PerfilSupervisor.html" class="nav-link">
+                    Meu perfil
+                </a>
+
+            </nav>
+
+            <!-- =================================================
+                 PERFIL
+            ================================================== -->
+
+            <div class="profile-area">
+
+                <a
+                    href="perfilSupervisao.html"
+                    class="profile-link"
+                >
+
+                    <div class="profile-info">
+
+                        <strong>
+                            Supervisão
+                        </strong>
+
+                        <span>
+                            Minha conta
+                        </span>
+
+                    </div>
+
+
+                    <div class="profile-icon">
+
+                        <i class="fa-regular fa-user"></i>
+
+                    </div>
+
+                </a>
+
+
+                <!-- BOTÃO SAIR -->
+
+                <button
+                    type="button"
+                    class="logout-btn"
+                    id="btnSair"
+                    title="Sair"
+                >
+
+                    <i class="fa-solid fa-right-from-bracket"></i>
+
+                </button>
+
+            </div>
+
+
+            <!-- =================================================
+                 MENU MOBILE
+            ================================================== -->
+
+            <button
+                type="button"
+                class="menu-mobile"
+                id="menuMobile"
+                aria-label="Abrir menu"
+            >
+
+                <i class="fa-solid fa-bars"></i>
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         CONTEÚDO PRINCIPAL
+    ====================================================== -->
+
+    <main class="main-content">
+
+        <div class="content-container">
+
+
+            <!-- =================================================
+                 SAUDAÇÃO
+            ================================================== -->
+
+            <section class="welcome">
+
+                <div class="welcome-text">
+
+                    <span class="welcome-label">
+                        ÁREA DA SUPERVISÃO
+                    </span>
+
+
+                    <h1>
+                        Olá, Supervisor! <span>👋</span>
+                    </h1>
+
+
+                    <p>
+                        Acompanhe as atividades e gere relatórios
+                        de forma simples e organizada.
+                    </p>
+
+                </div>
+
+
+                <!-- DATA -->
+
+                <div class="date-box">
+
+                    <i class="fa-regular fa-calendar"></i>
+
+                    <div>
+
+                        <span>
+                            Hoje
+                        </span>
+
+                        <strong id="dataAtual">
+                            15 de setembro de 2026
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 CARDS DE RESUMO
+            ================================================== -->
+
+            <section class="summary-grid">
+
+
+                <!-- ATIVIDADES -->
+
+                <div class="summary-card">
+
+                    <div class="summary-icon blue">
+
+                        <i class="fa-solid fa-file-lines"></i>
+
+                    </div>
+
+                    <div class="summary-info">
+
+                        <strong>
+                            48
+                        </strong>
+
+                        <span>
+                            Atividades
+                            <br>
+                            registradas
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TURMAS -->
+
+                <div class="summary-card">
+
+                    <div class="summary-icon orange">
+
+                        <i class="fa-solid fa-users"></i>
+
+                    </div>
+
+                    <div class="summary-info">
+
+                        <strong>
+                            08
+                        </strong>
+
+                        <span>
+                            Turmas
+                            <br>
+                            vinculadas
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PROFESSORES -->
+
+                <div class="summary-card">
+
+                    <div class="summary-icon green">
+
+                        <i class="fa-solid fa-chalkboard-user"></i>
+
+                    </div>
+
+                    <div class="summary-info">
+
+                        <strong>
+                            28
+                        </strong>
+
+                        <span>
+                            Professores
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- RELATÓRIOS -->
+
+                <div class="summary-card">
+
+                    <div class="summary-icon purple">
+
+                        <i class="fa-solid fa-file-pdf"></i>
+
+                    </div>
+
+                    <div class="summary-info">
+
+                        <strong>
+                            8
+                        </strong>
+
+                        <span>
+                            Relatórios
+                            <br>
+                            gerados
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 GRÁFICO + ATIVIDADES RECENTES
+            ================================================== -->
+
+            <section class="dashboard-grid">
+
+
+                <!-- =================================================
+                     GRÁFICO
+                ================================================== -->
+
+                <div class="chart-box">
+
+                    <div class="box-header">
+
+                        <div>
+
+                            <span>
+                                ACOMPANHAMENTO
+                            </span>
+
+                            <h2>
+                                Atividades por período
+                            </h2>
+
+                            <p>
+                                Atividades registradas nos últimos 30 dias
+                            </p>
+
+                        </div>
+
+
+                        <div class="chart-icon">
+
+                            <i class="fa-solid fa-chart-line"></i>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- GRÁFICO -->
+
+                    <div class="chart-wrapper">
+
+
+                        <!-- NÚMEROS -->
+
+                        <div class="chart-y">
+
+                            <span>30</span>
+
+                            <span>20</span>
+
+                            <span>10</span>
+
+                            <span>0</span>
+
+                        </div>
+
+
+                        <!-- ÁREA -->
+
+                        <div class="chart-main">
+
+                            <div class="chart-lines">
+
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+
+                            </div>
+
+
+                            <svg
+                                class="line-chart"
+                                viewBox="0 0 700 260"
+                                preserveAspectRatio="none"
+                            >
+
+                                <polyline
+                                    points="
+                                        20,210
+                                        70,145
+                                        120,90
+                                        170,135
+                                        220,165
+                                        270,185
+                                        320,145
+                                        370,105
+                                        420,150
+                                        470,170
+                                        520,145
+                                        570,80
+                                        620,65
+                                        680,20
+                                    "
+                                ></polyline>
+
+
+                                <circle cx="20" cy="210" r="4"></circle>
+
+                                <circle cx="70" cy="145" r="4"></circle>
+
+                                <circle cx="120" cy="90" r="4"></circle>
+
+                                <circle cx="170" cy="135" r="4"></circle>
+
+                                <circle cx="220" cy="165" r="4"></circle>
+
+                                <circle cx="270" cy="185" r="4"></circle>
+
+                                <circle cx="320" cy="145" r="4"></circle>
+
+                                <circle cx="370" cy="105" r="4"></circle>
+
+                                <circle cx="420" cy="150" r="4"></circle>
+
+                                <circle cx="470" cy="170" r="4"></circle>
+
+                                <circle cx="520" cy="145" r="4"></circle>
+
+                                <circle cx="570" cy="80" r="4"></circle>
+
+                                <circle cx="620" cy="65" r="4"></circle>
+
+                                <circle cx="680" cy="20" r="5"></circle>
+
+                            </svg>
+
+
+                            <!-- DATAS -->
+
+                            <div class="chart-x">
+
+                                <span>
+                                    27/04
+                                </span>
+
+                                <span>
+                                    04/05
+                                </span>
+
+                                <span>
+                                    11/05
+                                </span>
+
+                                <span>
+                                    18/05
+                                </span>
+
+                                <span>
+                                    25/05
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     ATIVIDADES RECENTES
+                ================================================== -->
+
+                <div class="recent-box">
+
+                    <div class="recent-title">
+
+                        <div>
+
+                            <span>
+                                ÚLTIMOS REGISTROS
+                            </span>
+
+                            <h2>
+                                Atividades recentes
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="recent-list">
+
+
+                        <!-- ATIVIDADE 1 -->
+
+                        <div class="recent-item">
+
+                            <div class="recent-date">
+
+                                <strong>
+                                    26
+                                </strong>
+
+                                <span>
+                                    MAR
+                                </span>
+
+                            </div>
+
+
+                            <div class="recent-info">
+
+                                <strong>
+                                    André Freitas
+                                </strong>
+
+                                <span>
+                                    2º Informática B
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- ATIVIDADE 2 -->
+
+                        <div class="recent-item">
+
+                            <div class="recent-date">
+
+                                <strong>
+                                    26
+                                </strong>
+
+                                <span>
+                                    MAR
+                                </span>
+
+                            </div>
+
+
+                            <div class="recent-info">
+
+                                <strong>
+                                    André Freitas
+                                </strong>
+
+                                <span>
+                                    3º Informática A
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- ATIVIDADE 3 -->
+
+                        <div class="recent-item">
+
+                            <div class="recent-date">
+
+                                <strong>
+                                    26
+                                </strong>
+
+                                <span>
+                                    MAR
+                                </span>
+
+                            </div>
+
+
+                            <div class="recent-info">
+
+                                <strong>
+                                    André Freitas
+                                </strong>
+
+                                <span>
+                                    1º Informática C
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- VER TODAS -->
+
+                    <a
+                        href="atividadesSupervisao.html"
+                        class="recent-button"
+                    >
+
+                        Ver todas
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+            </section>
+
+
+        </div>
+
+    </main>
+
+<script src="../js/telaInicialSupervisor.js"></script>
 </body>
+
 </html>

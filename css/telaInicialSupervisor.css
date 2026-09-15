@@ -1,0 +1,1466 @@
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+
+    font-family: 'Poppins', sans-serif;
+
+    background: #F6F7FB;
+
+    color: #192E75;
+}
+
+
+/* =========================================================
+   TOPBAR — PADRÃO PERFIL SUPERVISOR
+========================================================= */
+
+.topbar {
+    width: 100%;
+    height: 82px;
+
+    background: #FFFFFF;
+
+    border-bottom: 1px solid #E9ECF2;
+
+    position: sticky;
+    top: 0;
+
+    z-index: 100;
+}
+
+
+.topbar-container {
+    width: 92%;
+    max-width: 1450px;
+
+    height: 100%;
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+
+    position: relative;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo {
+    width: 165px;
+
+    display: block;
+
+    flex-shrink: 0;
+}
+
+
+.logo img {
+    width: 100%;
+    height: auto;
+
+    display: block;
+}
+
+
+/* =========================================================
+   MENU DESKTOP
+========================================================= */
+
+.main-nav {
+    position: absolute;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+
+    gap: 4px;
+
+    padding: 5px;
+
+    background: #F5F6FA;
+
+    border: 1px solid #E8EAF0;
+
+    border-radius: 12px;
+}
+
+
+.nav-link {
+    height: 44px;
+
+    padding: 0 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+
+    color: #727B91;
+
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    white-space: nowrap;
+
+    transition: 0.25s ease;
+}
+
+
+.nav-link:hover {
+    color: #192E75;
+}
+
+
+.nav-link.active {
+    color: #FFFFFF;
+
+    background: #192E75;
+
+    font-weight: 600;
+
+    box-shadow: 0 4px 10px rgba(25, 46, 117, 0.15);
+}
+
+
+/* =========================================================
+   PERFIL DO TOPO
+========================================================= */
+
+.profile-area {
+    margin-left: auto;
+
+    display: flex;
+    align-items: center;
+
+    gap: 16px;
+}
+
+
+.profile-link {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    text-decoration: none;
+
+    cursor: pointer;
+}
+
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-end;
+
+    line-height: 1.25;
+}
+
+
+.profile-info strong {
+    color: #192E75;
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+
+.profile-info span {
+    color: #777777;
+
+    font-size: 12px;
+    font-weight: 500;
+}
+
+
+.profile-icon {
+    width: 43px;
+    height: 43px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #EEF1F8;
+
+    color: #192E75;
+
+    transition: 0.2s ease;
+}
+
+
+.profile-icon i {
+    font-size: 17px;
+}
+
+
+.profile-link:hover .profile-icon {
+    background: #E5E9F7;
+}
+
+
+/* =========================================================
+   BOTÃO SAIR
+========================================================= */
+
+.logout-btn {
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0;
+
+    border: 1px solid #DDDDDD;
+
+    border-radius: 10px;
+
+    background: #FFFFFF;
+
+    color: #192E75;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+
+.logout-btn:hover {
+    color: #EA632C;
+
+    border-color: #F0C5B7;
+
+    background: #FFF8F5;
+}
+
+
+/* =========================================================
+   BOTÃO MENU MOBILE
+========================================================= */
+
+.menu-mobile {
+    display: none;
+
+    width: 40px;
+    height: 40px;
+
+    margin-left: 10px;
+
+    border: 1px solid #E5E7ED;
+
+    border-radius: 9px;
+
+    background: #FFFFFF;
+
+    color: #192E75;
+
+    font-size: 17px;
+
+    cursor: pointer;
+
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* =========================================================
+   MENU MOBILE
+========================================================= */
+
+.mobile-nav {
+    display: none;
+}
+
+
+/* =========================================================
+   CONTEÚDO — MESMO PADRÃO DA PERFIL
+========================================================= */
+
+.main-content {
+    width: 100%;
+
+    padding: 45px 0 70px;
+}
+
+
+.content-container {
+    width: 90%;
+    max-width: 1300px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   VOLTAR
+========================================================= */
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 28px;
+
+    color: #192E75;
+
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    transition: 0.2s ease;
+}
+
+
+.back-link i {
+    font-size: 13px;
+}
+
+
+.back-link:hover {
+    color: #EA632C;
+}
+
+
+/* =========================================================
+   CABEÇALHO / SAUDAÇÃO
+========================================================= */
+
+.page-header {
+    margin-bottom: 32px;
+}
+
+
+.section-label,
+.welcome-label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #EA632C;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 1.2px;
+}
+
+
+.welcome {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    margin-bottom: 32px;
+}
+
+
+.welcome h1 {
+    color: #192E75;
+
+    font-size: 38px;
+    font-weight: 700;
+
+    line-height: 1.2;
+
+    letter-spacing: -0.7px;
+}
+
+
+.welcome h1 span {
+    font-size: 30px;
+}
+
+
+.welcome-text p {
+    margin-top: 9px;
+
+    color: #777F91;
+
+    font-size: 15px;
+    font-weight: 400;
+}
+
+
+/* =========================================================
+   DATA
+========================================================= */
+
+.date-box {
+    min-width: 220px;
+
+    padding: 14px 16px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    background: #FFFFFF;
+
+    border: 1px solid #E2E6EF;
+
+    border-radius: 11px;
+
+    box-shadow: 0 8px 25px rgba(25, 46, 117, 0.04);
+}
+
+
+.date-box > i {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background: #EEF1F8;
+
+    color: #192E75;
+
+    font-size: 15px;
+}
+
+
+.date-box div {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.date-box span {
+    color: #7B8392;
+
+    font-size: 9px;
+    font-weight: 600;
+
+    letter-spacing: 0.8px;
+
+    text-transform: uppercase;
+}
+
+
+.date-box strong {
+    margin-top: 2px;
+
+    color: #192E75;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   CARDS DE RESUMO
+========================================================= */
+
+.summary-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 14px;
+
+    margin-bottom: 18px;
+}
+
+
+.summary-card {
+    min-height: 100px;
+
+    padding: 18px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    background: #FFFFFF;
+
+    border: 1px solid #E2E6EF;
+
+    border-radius: 12px;
+
+    box-shadow: 0 8px 25px rgba(25, 46, 117, 0.04);
+}
+
+
+.summary-icon {
+    width: 45px;
+    height: 45px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: #EEF1F8;
+
+    color: #192E75;
+
+    font-size: 16px;
+}
+
+
+.summary-icon.orange {
+    background: #FFF1EC;
+
+    color: #EA632C;
+}
+
+
+.summary-icon.green {
+    background: #EEF8F2;
+
+    color: #3C9860;
+}
+
+
+.summary-icon.purple {
+    background: #F0F0FC;
+
+    color: #5965B7;
+}
+
+
+.summary-info {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.summary-info strong {
+    color: #192E75;
+
+    font-size: 24px;
+    font-weight: 700;
+
+    line-height: 1.1;
+}
+
+
+.summary-info span {
+    margin-top: 4px;
+
+    color: #7B8392;
+
+    font-size: 10px;
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   ÁREA PRINCIPAL
+========================================================= */
+
+.dashboard-grid {
+    display: grid;
+
+    grid-template-columns: 1.55fr 0.85fr;
+
+    gap: 18px;
+}
+
+
+/* =========================================================
+   CARDS PRINCIPAIS
+========================================================= */
+
+.chart-box,
+.recent-box {
+    background: #FFFFFF;
+
+    border: 1px solid #E2E6EF;
+
+    border-radius: 17px;
+
+    box-shadow: 0 12px 35px rgba(25, 46, 117, 0.05);
+}
+
+
+/* =========================================================
+   CABEÇALHO DOS CARDS
+========================================================= */
+
+.box-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    padding: 28px 30px 0;
+}
+
+
+.box-header span,
+.recent-title span {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #EA632C;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+
+.box-header h2,
+.recent-title h2 {
+    color: #192E75;
+
+    font-size: 20px;
+    font-weight: 700;
+}
+
+
+.box-header p {
+    margin-top: 4px;
+
+    color: #7A8292;
+
+    font-size: 11px;
+}
+
+
+.chart-icon {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background: #EEF1F8;
+
+    color: #192E75;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   GRÁFICO
+========================================================= */
+
+.chart-wrapper {
+    width: 100%;
+
+    height: 285px;
+
+    padding: 25px 30px 35px;
+
+    display: flex;
+}
+
+
+.chart-y {
+    width: 30px;
+
+    height: 215px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    color: #A0A6B3;
+
+    font-size: 8px;
+
+    text-align: right;
+}
+
+
+.chart-main {
+    flex: 1;
+
+    height: 215px;
+
+    margin-left: 10px;
+
+    position: relative;
+
+    border-left: 1px solid #E6E9EF;
+
+    border-bottom: 1px solid #E6E9EF;
+}
+
+
+.chart-lines {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    pointer-events: none;
+}
+
+
+.chart-lines span {
+    width: 100%;
+
+    border-top: 1px dashed #ECEEF3;
+}
+
+
+.line-chart {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: visible;
+}
+
+
+.line-chart polyline {
+    fill: none;
+
+    stroke: #7188F2;
+
+    stroke-width: 4;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+.line-chart circle {
+    fill: #7188F2;
+}
+
+
+.chart-x {
+    position: absolute;
+
+    left: 0;
+    bottom: -25px;
+
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+
+    color: #9AA1AE;
+
+    font-size: 8px;
+}
+
+
+/* =========================================================
+   ATIVIDADES RECENTES
+========================================================= */
+
+.recent-box {
+    padding: 28px 25px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+.recent-title {
+    margin-bottom: 10px;
+}
+
+
+.recent-list {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.recent-item {
+    min-height: 69px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+
+    border-bottom: 1px solid #EDF0F4;
+}
+
+
+.recent-item:last-child {
+    border-bottom: none;
+}
+
+
+.recent-date {
+    width: 40px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.recent-date strong {
+    color: #192E75;
+
+    font-size: 18px;
+    font-weight: 700;
+
+    line-height: 1;
+}
+
+
+.recent-date span {
+    margin-top: 3px;
+
+    color: #9AA1AE;
+
+    font-size: 7px;
+    font-weight: 600;
+}
+
+
+.recent-info {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+.recent-info strong {
+    color: #192E75;
+
+    font-size: 10px;
+    font-weight: 600;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+.recent-info span {
+    margin-top: 3px;
+
+    color: #7B8392;
+
+    font-size: 8px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+.recent-button {
+    width: 100%;
+
+    min-height: 41px;
+
+    margin-top: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    border: none;
+    border-radius: 9px;
+
+    background: #192E75;
+
+    color: #FFFFFF;
+
+    text-decoration: none;
+
+    font-size: 10px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+
+.recent-button:hover {
+    background: #14245F;
+}
+
+
+.recent-button i {
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   DESKTOP GRANDE — IGUAL AO PERFIL
+========================================================= */
+
+@media (min-width: 1500px) {
+
+    .topbar {
+        height: 88px;
+    }
+
+
+    .logo {
+        width: 180px;
+    }
+
+
+    .nav-link {
+        height: 45px;
+
+        padding: 0 19px;
+
+        font-size: 13px;
+    }
+
+
+    .main-content {
+        padding-top: 58px;
+    }
+
+
+    .content-container {
+        max-width: 1400px;
+    }
+
+
+    .welcome h1 {
+        font-size: 42px;
+    }
+
+
+    .summary-card {
+        min-height: 110px;
+    }
+
+
+    .dashboard-grid {
+        gap: 20px;
+    }
+
+}
+
+
+/* =========================================================
+   TABLET — IGUAL AO PERFIL
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .main-nav {
+        gap: 2px;
+    }
+
+
+    .nav-link {
+        padding: 0 10px;
+
+        font-size: 11px;
+    }
+
+
+    .profile-info {
+        display: none;
+    }
+
+
+    .content-container {
+        width: 90%;
+    }
+
+
+    .welcome h1 {
+        font-size: 34px;
+    }
+
+
+    .welcome h1 span {
+        font-size: 27px;
+    }
+
+
+    .welcome-text p {
+        font-size: 13px;
+    }
+
+
+    .summary-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    .dashboard-grid {
+        grid-template-columns: 1.3fr 0.9fr;
+    }
+
+}
+
+
+/* =========================================================
+   TABLET / MOBILE — IGUAL AO PERFIL
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .topbar {
+        height: 70px;
+    }
+
+
+    .topbar-container {
+        width: 90%;
+    }
+
+
+    .logo {
+        width: 140px;
+    }
+
+
+    #mainNav {
+        display: none;
+    }
+
+
+    .profile-area {
+        margin-left: auto;
+
+        gap: 10px;
+    }
+
+
+    .profile-info {
+        display: none;
+    }
+
+
+    .profile-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+
+    .logout-btn {
+        display: none;
+    }
+
+
+    .menu-mobile {
+        display: flex;
+    }
+
+
+    /* =====================================================
+       MENU MOBILE
+    ================================================== */
+
+    .mobile-nav {
+        display: none;
+
+        position: absolute;
+
+        top: 70px;
+        left: 0;
+        right: 0;
+
+        width: 100%;
+
+        padding: 12px 5%;
+
+        flex-direction: column;
+
+        gap: 5px;
+
+        background: #FFFFFF;
+
+        border-top: 1px solid #E9ECF2;
+
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.07);
+
+        z-index: 99;
+    }
+
+
+    .mobile-nav.open {
+        display: flex;
+    }
+
+
+    .mobile-nav-link {
+        width: 100%;
+        min-height: 48px;
+
+        padding: 0 15px;
+
+        display: flex;
+        align-items: center;
+
+        gap: 12px;
+
+        border-radius: 9px;
+
+        color: #727B91;
+
+        text-decoration: none;
+
+        font-size: 13px;
+        font-weight: 500;
+
+        transition: 0.2s ease;
+    }
+
+
+    .mobile-nav-link i {
+        width: 18px;
+
+        color: #192E75;
+
+        text-align: center;
+
+        font-size: 14px;
+    }
+
+
+    .mobile-nav-link:hover {
+        background: #F5F6FA;
+
+        color: #192E75;
+    }
+
+
+    .mobile-nav-link.active {
+        background: #192E75;
+
+        color: #FFFFFF;
+
+        font-weight: 600;
+    }
+
+
+    .mobile-nav-link.active i {
+        color: #FFFFFF;
+    }
+
+
+    /* =====================================================
+       CONTEÚDO
+    ================================================== */
+
+    .main-content {
+        padding-top: 35px;
+    }
+
+
+    .welcome {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 20px;
+    }
+
+
+    .welcome h1 {
+        font-size: 34px;
+    }
+
+
+    .welcome h1 span {
+        font-size: 27px;
+    }
+
+
+    .date-box {
+        width: 100%;
+    }
+
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .chart-box,
+    .recent-box {
+        width: 100%;
+    }
+
+}
+
+
+/* =========================================================
+   CELULAR — IGUAL AO PERFIL
+========================================================= */
+
+@media (max-width: 550px) {
+
+    .topbar {
+        height: 66px;
+    }
+
+
+    .topbar-container {
+        width: 92%;
+    }
+
+
+    .logo {
+        width: 125px;
+    }
+
+
+    .menu-mobile {
+        width: 38px;
+        height: 38px;
+    }
+
+
+    .mobile-nav {
+        top: 66px;
+
+        padding: 10px 4%;
+    }
+
+
+    .main-content {
+        padding: 30px 0 45px;
+    }
+
+
+    .content-container {
+        width: 92%;
+    }
+
+
+    .back-link {
+        margin-bottom: 22px;
+
+        font-size: 12px;
+    }
+
+
+    .welcome {
+        margin-bottom: 25px;
+    }
+
+
+    .welcome h1 {
+        font-size: 30px;
+    }
+
+
+    .welcome h1 span {
+        font-size: 24px;
+    }
+
+
+    .welcome-text p {
+        font-size: 12px;
+
+        line-height: 1.6;
+    }
+
+
+    .summary-grid {
+        grid-template-columns: 1fr;
+
+        gap: 10px;
+    }
+
+
+    .summary-card {
+        min-height: 82px;
+
+        padding: 14px;
+    }
+
+
+    .summary-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+
+    .summary-info strong {
+        font-size: 22px;
+    }
+
+
+    .summary-info span {
+        font-size: 9px;
+    }
+
+
+    .chart-box {
+        border-radius: 14px;
+    }
+
+
+    .box-header {
+        padding: 22px 20px 0;
+    }
+
+
+    .box-header h2,
+    .recent-title h2 {
+        font-size: 17px;
+    }
+
+
+    .chart-wrapper {
+        height: 245px;
+
+        padding: 20px 15px 30px;
+    }
+
+
+    .chart-y {
+        height: 185px;
+
+        width: 25px;
+
+        font-size: 7px;
+    }
+
+
+    .chart-main {
+        height: 185px;
+
+        margin-left: 7px;
+    }
+
+
+    .chart-x {
+        bottom: -22px;
+
+        font-size: 7px;
+    }
+
+
+    .recent-box {
+        padding: 22px 18px;
+
+        border-radius: 14px;
+    }
+
+
+    .recent-item {
+        min-height: 62px;
+    }
+
+
+    .recent-date strong {
+        font-size: 17px;
+    }
+
+
+    .recent-info strong {
+        font-size: 9px;
+    }
+
+
+    .recent-info span {
+        font-size: 7px;
+    }
+
+
+    .recent-button {
+        min-height: 40px;
+
+        font-size: 9px;
+    }
+
+}
+
+
+/* =========================================================
+   CELULAR PEQUENO — IGUAL AO PERFIL
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .logo {
+        width: 115px;
+    }
+
+
+    .welcome h1 {
+        font-size: 27px;
+    }
+
+
+    .welcome h1 span {
+        font-size: 22px;
+    }
+
+
+    .summary-card {
+        padding: 12px;
+    }
+
+
+    .summary-icon {
+        width: 37px;
+        height: 37px;
+    }
+
+
+    .summary-info strong {
+        font-size: 20px;
+    }
+
+}

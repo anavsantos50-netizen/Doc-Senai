@@ -1,11 +1,694 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Gerar Relatório | DOCSENAI</title>
+
+
+    <!-- Poppins -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- Font Awesome -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+
+    <!-- CSS -->
+
+    <link
+        rel="stylesheet"
+        href="../css/gerarRelatorios.css"
+    >
+
 </head>
+
+
 <body>
-     <script src="js/gerarRelatorios.js"></script>
+
+
+    <!-- =====================================================
+         TOPBAR
+    ====================================================== -->
+
+    <header class="topbar">
+
+        <div class="topbar-container">
+
+
+            <a
+                href="visualizar-atividades.html"
+                class="logo"
+            >
+
+                <img
+                    src="../img/logo.png"
+                    alt="DocSenai"
+                >
+
+            </a>
+
+
+                <nav class="main-nav" id="mainNav">
+
+                <a href="telaInicialSupervisor.html" class="nav-link">
+                    Início
+                </a>
+
+                <a href="pesquisarRegistros.html" class="nav-link">
+                    Pesquisar Registros
+                </a>
+
+                <a href="gerarRelatorios.html" class="nav-link  active">
+                    Gerar Relatório
+                </a>
+
+                <a href="relatoriosGerados.html" class="nav-link">
+                    Relatórios Gerados
+                </a>
+
+                <a href="professores.html" class="nav-link">
+                    Professores
+                </a>
+
+                <a href="PerfilSupervisor.html" class="nav-link">
+                    Meu perfil
+                </a>
+
+            </nav>
+
+            <div class="profile-area">
+
+                <a
+                    href="perfil.html"
+                    class="profile-link"
+                >
+
+                    <div class="profile-info">
+
+                        <strong>
+                            Supervisão
+                        </strong>
+
+                        <span>
+                            Minha conta
+                        </span>
+
+                    </div>
+
+
+                    <div class="profile-icon">
+
+                        <i class="fa-regular fa-user"></i>
+
+                    </div>
+
+                </a>
+
+
+                <button
+                    type="button"
+                    class="logout-btn"
+                    id="btnLogout"
+                    title="Sair"
+                >
+
+                    <i class="fa-solid fa-right-from-bracket"></i>
+
+                </button>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="menu-mobile"
+                id="menuMobile"
+                aria-label="Abrir menu"
+                aria-expanded="false"
+            >
+
+                <i class="fa-solid fa-bars"></i>
+
+            </button>
+
+        </div>
+
+
+        <!-- MENU MOBILE -->
+
+        <nav
+            class="mobile-nav"
+            id="mobileNav"
+        >
+
+            <a href="telaInicialSupervisor.html">
+
+                <i class="fa-solid fa-house"></i>
+
+                <span>
+                    Início
+                </span>
+
+            </a>
+
+
+            <a href="pesquisarRegistros.html">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <span>
+                    Pesquisar Registros
+                </span>
+
+            </a>
+
+
+            <a
+                href="gerarRelatorios.html"
+                class="active"
+            >
+
+                <i class="fa-solid fa-file-lines"></i>
+
+                <span>
+                    Gerar Relatório
+                </span>
+
+            </a>
+
+
+            <a href="relatoriosGerados.html">
+
+                <i class="fa-solid fa-folder-open"></i>
+
+                <span>
+                    Relatórios Gerados
+                </span>
+
+            </a>
+
+
+            <a href="perfilSupervisor.html">
+
+                <i class="fa-regular fa-user"></i>
+
+                <span>
+                    Meu perfil
+                </span>
+
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main class="main-content">
+
+        <div class="content-container">
+
+
+            <!-- CABEÇALHO -->
+
+            <section class="page-header">
+
+                <div>
+
+                    <span class="section-label">
+                        SUPERVISÃO
+                    </span>
+
+                    <h1>
+                        Gerar relatório
+                    </h1>
+
+                    <p>
+                        Organize as atividades pedagógicas e selecione
+                        os registros que farão parte do relatório.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 CONFIGURAÇÕES
+            ================================================== -->
+
+            <section class="report-settings">
+
+
+                <div class="card-heading">
+
+                    <div class="heading-icon">
+
+                        <i class="fa-solid fa-sliders"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <h2>
+                            Configurações do relatório
+                        </h2>
+
+                        <p>
+                            Defina as informações e o período do relatório.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- TÍTULO -->
+
+                <div class="form-group full">
+
+                    <label for="tituloRelatorio">
+                        Título do relatório
+                    </label>
+
+                    <input
+                        type="text"
+                        id="tituloRelatorio"
+                        value="Relatório de atividades - Maio/2026"
+                        placeholder="Digite o título do relatório"
+                    >
+
+                </div>
+
+
+
+                <!-- FILTROS -->
+
+                <div class="filters-grid">
+
+
+                    <div class="form-group">
+
+                        <label for="professor">
+                            Professor
+                        </label>
+
+                        <div class="select-wrapper">
+
+                            <select id="professor">
+
+                                <option value="">
+                                    Todos os professores
+                                </option>
+
+                                <option value="joao">
+                                    João Silva
+                                </option>
+
+                                <option value="maria">
+                                    Maria Santos
+                                </option>
+
+                                <option value="ana">
+                                    Ana Oliveira
+                                </option>
+
+                            </select>
+
+                            <i class="fa-solid fa-chevron-down"></i>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label for="turma">
+                            Turma
+                        </label>
+
+                        <div class="select-wrapper">
+
+                            <select id="turma">
+
+                                <option value="">
+                                    Todas as turmas
+                                </option>
+
+                                <option value="informatica-a">
+                                    3º Informática A
+                                </option>
+
+                                <option value="informatica-b">
+                                    2º Informática B
+                                </option>
+
+                                <option value="desenvolvimento">
+                                    Desenvolvimento Web
+                                </option>
+
+                            </select>
+
+                            <i class="fa-solid fa-chevron-down"></i>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label for="curso">
+                            Curso
+                        </label>
+
+                        <div class="select-wrapper">
+
+                            <select id="curso">
+
+                                <option value="informatica">
+                                    Informática para Internet
+                                </option>
+
+                                <option value="informatica-basica">
+                                    Informática
+                                </option>
+
+                                <option value="desenvolvimento-web">
+                                    Desenvolvimento Web
+                                </option>
+
+                                <option value="administracao">
+                                    Administração
+                                </option>
+
+                            </select>
+
+                            <i class="fa-solid fa-chevron-down"></i>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     PERÍODO
+                ================================================== -->
+
+                <div class="period-section">
+
+                    <div class="period-title">
+
+                        <i class="fa-regular fa-calendar"></i>
+
+                        <span>
+                            Período do relatório
+                        </span>
+
+                    </div>
+
+
+                    <div class="period-fields">
+
+
+                        <!-- DATA INICIAL -->
+
+                        <div class="date-field">
+
+                            <label for="dataInicio">
+                                Data inicial
+                            </label>
+
+                            <div class="date-input">
+
+                                <input
+                                    type="date"
+                                    id="dataInicio"
+                                    value="2026-05-01"
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <span class="period-separator">
+                            até
+                        </span>
+
+
+                        <!-- DATA FINAL -->
+
+                        <div class="date-field">
+
+                            <label for="dataFim">
+                                Data final
+                            </label>
+
+                            <div class="date-input">
+
+                                <input
+                                    type="date"
+                                    id="dataFim"
+                                    value="2026-05-31"
+                                >
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 ATIVIDADES
+            ================================================== -->
+
+            <section class="activities-card">
+
+
+                <div class="activities-top">
+
+                    <div class="activities-title">
+
+                        <div class="activities-icon">
+
+                            <i class="fa-solid fa-list-check"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <h2>
+                                Atividades disponíveis
+                            </h2>
+
+                            <p>
+                                Selecione os registros que deseja incluir.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="activities-counter">
+
+                        <strong id="activitiesCount">
+                            6
+                        </strong>
+
+                        <span>
+                            encontradas
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- SELECIONAR TODOS -->
+
+                <div class="select-all-area">
+
+                    <label
+                        class="select-all"
+                        id="selectAllBtn"
+                    >
+
+                        <input
+                            type="checkbox"
+                            id="selectAllInput"
+                        >
+
+                        <span class="custom-checkbox">
+
+                            <i class="fa-solid fa-check"></i>
+
+                        </span>
+
+
+                        <span>
+                            Selecionar todas as atividades
+                        </span>
+
+                    </label>
+
+
+                    <span
+                        class="selected-counter"
+                        id="selectedInfo"
+                    >
+                        0 selecionadas
+                    </span>
+
+                </div>
+
+
+
+                <!-- LISTA -->
+
+                <div
+                    class="activities-list"
+                    id="activitiesList"
+                >
+
+                    <!-- ATIVIDADES GERADAS PELO JAVASCRIPT -->
+
+                </div>
+
+
+
+                <!-- SEM RESULTADO -->
+
+                <div
+                    class="no-results"
+                    id="noResults"
+                >
+
+                    <div class="no-results-icon">
+
+                        <i class="fa-regular fa-folder-open"></i>
+
+                    </div>
+
+                    <strong>
+                        Nenhuma atividade encontrada
+                    </strong>
+
+                    <span>
+                        Tente alterar os filtros selecionados.
+                    </span>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <section class="report-summary">
+
+                <div class="summary-info">
+
+                    <div class="summary-icon">
+
+                        <i class="fa-solid fa-file-lines"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <strong>
+                            Relatório pronto para geração
+                        </strong>
+
+                        <span id="summaryText">
+                            0 atividades serão incluídas no PDF.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="generate-btn"
+                    id="btnGerar"
+                >
+
+                    <i class="fa-regular fa-file-pdf"></i>
+
+                    <span>
+                        Gerar relatório em PDF
+                    </span>
+
+                    <i class="fa-solid fa-download"></i>
+
+                </button>
+
+            </section>
+
+
+        </div>
+
+    </main>
+
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="../js/gerarRelatorios.js"></script>
+
 </body>
+
 </html>

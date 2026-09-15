@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Professores | DOCSENAI</title>
+
+    <!-- Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <link rel="stylesheet" href="../css/Professores.css">
+</head>
+
+<body>
+
+    <!-- =========================================================
+         TOPBAR
+    ========================================================== -->
+
+    <header class="topbar">
+
+        <div class="topbar-container">
+
+            <!-- LOGO -->
+            <a href="telaInicialSupervisor.html" class="logo">
+                <img src="../img/logo.png" alt="DOCSENAI">
+            </a>
+
+            <!-- MENU DESKTOP -->
+            <nav class="main-nav" id="mainNav">
+
+                <a href="telaInicialSupervisor.html" class="nav-link">
+                    Início
+                </a>
+
+                <a href="pesquisarRegistros.html" class="nav-link">
+                    Pesquisar Registros
+                </a>
+
+                <a href="gerarRelatorios.html" class="nav-link">
+                    Gerar Relatório
+                </a>
+
+                <a href="relatoriosGerados.html" class="nav-link">
+                    Relatórios Gerados
+                </a>
+
+                <a href="professores.html" class="nav-link active">
+                    Professores
+                </a>
+
+                <a href="PerfilSupervisor.html" class="nav-link">
+                    Meu perfil
+                </a>
+
+            </nav>
+
+            <!-- PERFIL -->
+            <div class="profile-area">
+
+                <a href="PerfilSupervisor.html" class="profile-link">
+
+                    <div class="profile-info">
+                        <strong>Supervisão</strong>
+                        <span>Minha conta</span>
+                    </div>
+
+                    <div class="profile-icon">
+                        <i class="fa-regular fa-user"></i>
+                    </div>
+
+                </a>
+
+                <button class="logout-btn" id="logoutBtn" title="Sair">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                </button>
+
+                <!-- MENU MOBILE -->
+                <button
+                    class="menu-mobile"
+                    id="menuMobile"
+                    type="button"
+                    aria-label="Abrir menu"
+                >
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+            </div>
+
+            <!-- MENU MOBILE -->
+            <nav class="mobile-nav" id="mobileNav">
+
+                <a href="telaInicialSupervisor.html" class="mobile-nav-link">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Início</span>
+                </a>
+
+                <a href="pesquisarRegistros.html" class="mobile-nav-link">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <span>Pesquisar Registros</span>
+                </a>
+
+                <a href="gerarRelatorios.html" class="mobile-nav-link">
+                    <i class="fa-solid fa-file-circle-plus"></i>
+                    <span>Gerar Relatório</span>
+                </a>
+
+                <a href="relatoriosGerados.html" class="mobile-nav-link">
+                    <i class="fa-solid fa-file-lines"></i>
+                    <span>Relatórios Gerados</span>
+                </a>
+
+                <a href="professores.html" class="mobile-nav-link active">
+                    <i class="fa-solid fa-chalkboard-user"></i>
+                    <span>Professores</span>
+                </a>
+
+                <a href="PerfilSupervisor.html" class="mobile-nav-link">
+                    <i class="fa-regular fa-user"></i>
+                    <span>Meu perfil</span>
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================================
+         CONTEÚDO
+    ========================================================== -->
+
+    <main class="main-content">
+
+        <div class="content-container">
+
+            <!-- CABEÇALHO -->
+            <div class="page-header">
+
+                <span class="section-label">
+                    SUPERVISÃO
+                </span>
+
+                <div class="header-row">
+
+                    <div>
+                        <h1>Professores</h1>
+
+                        <p>
+                            Consulte os professores e acompanhe os registros
+                            de atividades realizados por cada um.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <section class="summary-grid">
+
+                <!-- TOTAL -->
+                <div class="summary-card">
+
+                    <div class="summary-icon blue">
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                    </div>
+
+                    <div class="summary-info">
+
+                        <span>Total de professores</span>
+
+                        <strong id="totalProfessores">
+                            12
+                        </strong>
+
+                        <small>
+                            cadastrados no sistema
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ATIVOS -->
+                <div class="summary-card">
+
+                    <div class="summary-icon green">
+                        <i class="fa-solid fa-user-check"></i>
+                    </div>
+
+                    <div class="summary-info">
+
+                        <span>Professores ativos</span>
+
+                        <strong id="professoresAtivos">
+                            10
+                        </strong>
+
+                        <small>
+                            em atividade
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <!-- COM REGISTROS -->
+                <div class="summary-card">
+
+                    <div class="summary-icon orange">
+                        <i class="fa-solid fa-file-circle-check"></i>
+                    </div>
+
+                    <div class="summary-info">
+
+                        <span>Com registros</span>
+
+                        <strong id="professoresComRegistros">
+                            9
+                        </strong>
+
+                        <small>
+                            neste período
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SEM REGISTROS -->
+                <div class="summary-card">
+
+                    <div class="summary-icon purple">
+                        <i class="fa-solid fa-file-circle-xmark"></i>
+                    </div>
+
+                    <div class="summary-info">
+
+                        <span>Sem registros</span>
+
+                        <strong id="professoresSemRegistros">
+                            3
+                        </strong>
+
+                        <small>
+                            precisam de atenção
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 FILTROS
+            ================================================== -->
+
+            <section class="filters-card">
+
+                <div class="search-wrapper">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input
+                        type="text"
+                        id="searchProfessor"
+                        placeholder="Buscar professor por nome ou e-mail..."
+                    >
+
+                </div>
+
+
+                <div class="filter-group">
+
+                    <label for="statusFilter">
+                        Situação
+                    </label>
+
+                    <div class="select-wrapper">
+
+                        <select id="statusFilter">
+
+                            <option value="todos">
+                                Todas
+                            </option>
+
+                            <option value="ativo">
+                                Ativo
+                            </option>
+
+                            <option value="inativo">
+                                Inativo
+                            </option>
+
+                        </select>
+
+                        <i class="fa-solid fa-chevron-down"></i>
+
+                    </div>
+
+                </div>
+
+
+                <div class="filter-group">
+
+                    <label for="courseFilter">
+                        Curso
+                    </label>
+
+                    <div class="select-wrapper">
+
+                        <select id="courseFilter">
+
+                            <option value="todos">
+                                Todos
+                            </option>
+
+                            <option value="informática">
+                                Informática
+                            </option>
+
+                            <option value="administração">
+                                Administração
+                            </option>
+
+                            <option value="eletrônica">
+                                Eletrônica
+                            </option>
+
+                            <option value="mecânica">
+                                Mecânica
+                            </option>
+
+                        </select>
+
+                        <i class="fa-solid fa-chevron-down"></i>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    class="clear-btn"
+                    id="clearFilters"
+                    type="button"
+                >
+                    <i class="fa-solid fa-filter-circle-xmark"></i>
+                    Limpar filtros
+                </button>
+
+            </section>
+
+
+            <!-- =================================================
+                 PROFESSORES
+            ================================================== -->
+
+            <section class="professors-section">
+
+                <div class="results-header">
+
+                    <div>
+
+                        <h2>
+                            Professores
+                            <span id="resultCount">(12)</span>
+                        </h2>
+
+                        <p id="resultDescription">
+                            Lista de professores cadastrados
+                        </p>
+
+                    </div>
+
+
+                    <div class="sort-wrapper">
+
+                        <label for="sortProfessor">
+                            Ordenar por
+                        </label>
+
+                        <select id="sortProfessor">
+
+                            <option value="nome">
+                                Nome (A - Z)
+                            </option>
+
+                            <option value="nome-desc">
+                                Nome (Z - A)
+                            </option>
+
+                            <option value="registros">
+                                Mais registros
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- LISTA -->
+                <div class="professors-list" id="professorsList">
+
+                    <!-- PROFESSOR 1 -->
+                    <article
+                        class="professor-item"
+                        data-name="Ana Souza"
+                        data-email="ana.souza@senai.br"
+                        data-status="ativo"
+                        data-course="informática"
+                        data-registros="18"
+                    >
+
+                        <div class="professor-avatar">
+                            AS
+                        </div>
+
+
+                        <div class="professor-main">
+
+                            <div class="professor-name">
+
+                                <h3>
+                                    Ana Souza
+                                </h3>
+
+                                <span class="status-tag active">
+                                    <i class="fa-solid fa-circle"></i>
+                                    Ativo
+                                </span>
+
+                            </div>
+
+                            <p class="professor-email">
+                                <i class="fa-regular fa-envelope"></i>
+                                ana.souza@senai.br
+                            </p>
+
+                        </div>
+
+
+                        <div class="professor-data">
+
+                            <span class="data-label">
+                                Curso
+                            </span>
+
+                            <strong>
+                                Informática
+                            </strong>
+
+                        </div>
+
+
+                        <div class="professor-data">
+
+                            <span class="data-label">
+                                Registros
+                            </span>
+
+                            <strong>
+                                18 atividades
+                            </strong>
+
+                        </div>
+
+
+                        <div class="professor-date">
+
+                            <span class="data-label">
+                                Último registro
+                            </span>
+
+                            <strong>
+                                10/09/2026
+                            </strong>
+
+                        </div>
+
+
+                        <button
+                            class="view-btn"
+                            type="button"
+                            data-professor="Ana Souza"
+                        >
+                            <i class="fa-regular fa-eye"></i>
+                            Ver registros
+                        </button>
+
+
+                        <button
+                            class="more-btn"
+                            type="button"
+                            aria-label="Mais opções"
+                        >
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </button>
+
+                    </article>
+
+
+                    <!-- PROFESSOR 2 -->
+                    <article
+                        class="professor-item"
+                        data-name="Carlos Roberto"
+                        data-email="carlos.roberto@senai.br"
+                        data-status="ativo"
+                        data-course="eletrônica"
+                        data-registros="14"
+                    >
+
+                        <div class="professor-avatar avatar-blue">
+                            CR
+                        </div>
+
+
+                        <div class="professor-main">
+
+                            <div class="professor-name">
+
+                                <h3>
+                                    Carlos Roberto
+                                </h3>
+
+                                <span class="status-tag active">
+                                    <i class="fa-solid fa-circle"></i>
+                                    Ativo
+                                </span>
+
+                            </div>
+
+                            <p class="professor-email">
+                                <i class="fa-regular fa-envelope"></i>
+                                carlos.roberto@senai.br
+                            </p>
+
+                        </div>
+
+
+                        <div class="professor-data">
+
+                            <span class="data-label">
+                                Curso
+                            </span>
+
+                            <strong>
+                                Eletrônica
+                            </strong>
+
+                        </div>
+
+
+                        <div class="professor-data">
+
+                            <span class="data-label">
+                                Registros
+                            </span>
+
+                            <strong>
+                                14 atividades
+                            </strong>
+
+                        </div>
+
+
+                        <div class="professor-date">
+
+                            <span class="data-label">
+                                Último registro
+                            </span>
+
+                            <strong>
+                                09/09/2026
+                            </strong>
+
+                        </div>
+
+
+                        <button
+                            class="view-btn"
+                            type="button"
+                            data-professor="Carlos Roberto"
+                        >
+                            <i class="fa-regular fa-eye"></i>
+                            Ver registros
+                        </button>
+
+
+                        <button
+                            class="more-btn"
+                            type="button"
+                            aria-label="Mais opções"
+                        >
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </button>
+
+                    </article>
+
+
+                    <!-- PROFESSOR 3 -->
+                    <article
+                        class="professor-item"
+                        data-name="Juliana Henrique"
+                        data-email="juliana.henrique@senai.br"
+                        data-status="ativo"
+                        data-course="informática"
+                        data-registros="21"
+                    >
+
+                        <div class="professor-avatar avatar-orange">
+                            JH
+                        </div>
+
+
+                        <div class="professor-main">
+
+                            <div class="professor-name">
+
+                                <h3>
+                                    Juliana Henrique
+                                </h3>
+
+                                <span class="status-tag active">
+                                    <i class="fa-solid fa-circle"></i>
+                                    Ativo
+                                </span>
+
+                            </div>
+
+                            <p class="professor-email">
+                                <i class="fa-regular fa-envelope"></i>
+                                juliana.henrique@senai.br
+                            </p>
+
+                        </div>
+
+
+                        <div class="professor-data">
+
+                            <span class="data-label">
+                                Curso
+                            </span>
+
+                            <strong>
+                                Informática
+                            </strong>
+
+                        </div>
+
+
+                        <div class="professor-data">
+
+                            <span class="data-label">
+                                Registros
+                            </span>
+
+                            <strong>
+                                21 atividades
+                            </strong>
+
+                        </div>
+
+
+                        <div class="professor-date">
+
+                            <span class="data-label">
+                                Último registro
+                            </span>
+
+                            <strong>
+                                10/09/2026
+                            </strong>
+
+                        </div>
+
+
+                        <button
+                            class="view-btn"
+                            type="button"
+                            data-professor="Juliana Henrique"
+                        >
+                            <i class="fa-regular fa-eye"></i>
+                            Ver registros
+                        </button>
+
+
+                        <button
+                            class="more-btn"
+                            type="button"
+                            aria-label="Mais opções"
+                        >
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </button>
+
+                    </article>
+
+
+                    <!-- PROFESSOR 4 -->
+                    <article
+                        class="professor-item"
+                        data-name="Marcos Santos"
+                        data-email="marcos.santos@senai.br"
+                        data-status="inativo"
+                        data-course="mecânica"
+                        data-registros="8"
+                    >
+
+                        <div class="professor-avatar avatar-purple">
+                            MS
+                        </div>
+
+
+                        <div class="professor-main">
+
+                            <div class="professor-name">
+
+                                <h3>
+                                    Marcos Santos
+                                </h3>
+
+                                <span class="status-tag inactive">
+                                    <i class="fa-solid fa-circle"></i>
+                                    Inativo
+                                </span>
+
+                            </div>
+
+                            <p class="professor-email">
+                                <i class="fa-regular fa-envelope"></i>
+                                marcos.santos@senai.br
+                            </p>
+
+                        </div>
+
+
+                        <div class="professor-data">
+
+                            <span class="data-label">
+                                Curso
+                            </span>
+
+                            <strong>
+                                Mecânica
+                            </strong>
+
+                        </div>
+
+
+                        <div class="professor-data">
+
+                            <span class="data-label">
+                                Registros
+                            </span>
+
+                            <strong>
+                                8 atividades
+                            </strong>
+
+                        </div>
+
+
+                        <div class="professor-date">
+
+                            <span class="data-label">
+                                Último registro
+                            </span>
+
+                            <strong>
+                                04/09/2026
+                            </strong>
+
+                        </div>
+
+
+                        <button
+                            class="view-btn"
+                            type="button"
+                            data-professor="Marcos Santos"
+                        >
+                            <i class="fa-regular fa-eye"></i>
+                            Ver registros
+                        </button>
+
+
+                        <button
+                            class="more-btn"
+                            type="button"
+                            aria-label="Mais opções"
+                        >
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </button>
+
+                    </article>
+
+
+                    <!-- PROFESSOR 5 -->
+                    <article
+                        class="professor-item"
+                        data-name="Mariana Alves"
+                        data-email="mariana.alves@senai.br"
+                        data-status="ativo"
+                        data-course="administração"
+                        data-registros="16"
+                    >
+
+                        <div class="professor-avatar avatar-green">
+                            MA
+                        </div>
+
+
+                        <div class="professor-main">
+
+                            <div class="professor-name">
+
+                                <h3>
+                                    Mariana Alves
+                                </h3>
+
+                                <span class="status-tag active">
+                                    <i class="fa-solid fa-circle"></i>
+                                    Ativo
+                                </span>
+
+                            </div>
+
+                            <p class="professor-email">
+                                <i class="fa-regular fa-envelope"></i>
+                                mariana.alves@senai.br
+                            </p>
+
+                        </div>
+
+
+                        <div class="professor-data">
+
+                            <span class="data-label">
+                                Curso
+                            </span>
+
+                            <strong>
+                                Administração
+                            </strong>
+
+                        </div>
+
+
+                        <div class="professor-data">
+
+                            <span class="data-label">
+                                Registros
+                            </span>
+
+                            <strong>
+                                16 atividades
+                            </strong>
+
+                        </div>
+
+
+                        <div class="professor-date">
+
+                            <span class="data-label">
+                                Último registro
+                            </span>
+
+                            <strong>
+                                10/09/2026
+                            </strong>
+
+                        </div>
+
+
+                        <button
+                            class="view-btn"
+                            type="button"
+                            data-professor="Mariana Alves"
+                        >
+                            <i class="fa-regular fa-eye"></i>
+                            Ver registros
+                        </button>
+
+
+                        <button
+                            class="more-btn"
+                            type="button"
+                            aria-label="Mais opções"
+                        >
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </button>
+
+                    </article>
+
+                </div>
+
+
+                <!-- ESTADO VAZIO -->
+                <div class="empty-state" id="emptyState">
+
+                    <div class="empty-icon">
+                        <i class="fa-solid fa-user-slash"></i>
+                    </div>
+
+                    <h3>
+                        Nenhum professor encontrado
+                    </h3>
+
+                    <p>
+                        Tente alterar os filtros ou realizar uma nova busca.
+                    </p>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================================================
+         MODAL
+    ========================================================== -->
+
+    <div class="modal-overlay" id="professorModal">
+
+        <div class="professor-modal">
+
+            <button
+                class="modal-close"
+                id="modalClose"
+                type="button"
+                aria-label="Fechar"
+            >
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+
+            <div class="modal-profile">
+
+                <div class="modal-avatar" id="modalAvatar">
+                    AS
+                </div>
+
+                <div>
+
+                    <span class="section-label">
+                        PROFESSOR
+                    </span>
+
+                    <h2 id="modalProfessorName">
+                        Ana Souza
+                    </h2>
+
+                    <p id="modalProfessorEmail">
+                        ana.souza@senai.br
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="modal-info-grid">
+
+                <div class="modal-info-item">
+
+                    <span>
+                        Situação
+                    </span>
+
+                    <strong class="modal-status">
+                        <i class="fa-solid fa-circle"></i>
+                        Ativo
+                    </strong>
+
+                </div>
+
+
+                <div class="modal-info-item">
+
+                    <span>
+                        Curso
+                    </span>
+
+                    <strong id="modalCourse">
+                        Informática
+                    </strong>
+
+                </div>
+
+
+                <div class="modal-info-item">
+
+                    <span>
+                        Total de registros
+                    </span>
+
+                    <strong id="modalRecords">
+                        18 atividades
+                    </strong>
+
+                </div>
+
+
+                <div class="modal-info-item">
+
+                    <span>
+                        Último registro
+                    </span>
+
+                    <strong id="modalDate">
+                        10/09/2026
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="modal-section">
+
+                <div class="modal-section-header">
+
+                    <div>
+
+                        <h3>
+                            Atividades recentes
+                        </h3>
+
+                        <p>
+                            Últimos registros realizados pelo professor.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="activity-list">
+
+                    <div class="activity-item">
+
+                        <div class="activity-icon">
+                            <i class="fa-solid fa-file-lines"></i>
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Desenvolvimento de atividade prática
+                            </strong>
+
+                            <span>
+                                10/09/2026
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="activity-item">
+
+                        <div class="activity-icon">
+                            <i class="fa-solid fa-file-lines"></i>
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Registro de aula e evidências
+                            </strong>
+
+                            <span>
+                                09/09/2026
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="activity-item">
+
+                        <div class="activity-icon">
+                            <i class="fa-solid fa-file-lines"></i>
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Atividade prática da turma
+                            </strong>
+
+                            <span>
+                                08/09/2026
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="modal-footer">
+
+                <button
+                    class="modal-secondary-btn"
+                    id="modalCloseFooter"
+                    type="button"
+                >
+                    Fechar
+                </button>
+
+                <button
+                    class="modal-primary-btn"
+                    id="viewRecordsBtn"
+                    type="button"
+                >
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    Ver registros completos
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="../js/Professores.js"></script>
+
+</body>
+
+</html>

@@ -1,11 +1,570 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <title>Meu Perfil | DocSenai</title>
+
+    <!-- Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/perfilSupervisor.css">
 </head>
+
 <body>
-       <script src="js/Perfil.js"></script>
+
+    <!-- =====================================================
+         TOPBAR
+    ====================================================== -->
+
+    <header class="topbar">
+
+        <div class="topbar-container">
+
+            <!-- LOGO -->
+            <a href="telaInicialSupervisor.html" class="logo">
+                <img src="../img/logo.png" alt="DocSenai">
+            </a>
+
+
+            <!-- MENU DESKTOP -->
+            <nav class="main-nav" id="mainNav">
+
+                <a href="telaInicialSupervisor.html" class="nav-link">
+                    Início
+                </a>
+
+                <a href="pesquisarRegistros.html" class="nav-link ">
+                    Pesquisar Registros
+                </a>
+
+                <a href="gerarRelatorios.html" class="nav-link">
+                    Gerar Relatório
+                </a>
+
+                <a href="relatoriosGerados.html" class="nav-link">
+                    Relatórios Gerados
+                </a>
+
+                <a href="professores.html" class="nav-link ">
+                    Professores
+                </a>
+
+                <a href="PerfilSupervisor.html" class="nav-link active">
+                    Meu perfil
+                </a>
+
+            </nav>
+
+            <!-- PERFIL -->
+            <div class="profile-area">
+
+                <a href="PerfilSupervisor.html" class="profile-link">
+
+                    <div class="profile-info">
+                        <strong>Supervisão</strong>
+                        <span>Minha conta</span>
+                    </div>
+
+                    <div class="profile-icon">
+                        <i class="fa-regular fa-user"></i>
+                    </div>
+
+                </a>
+
+
+                <!-- SAIR -->
+                <button
+                    type="button"
+                    class="logout-btn"
+                    id="btnLogout"
+                    title="Sair"
+                >
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                </button>
+
+            </div>
+
+
+            <!-- MENU MOBILE -->
+            <button
+                type="button"
+                class="menu-mobile"
+                id="menuMobile"
+                aria-label="Abrir menu"
+                aria-expanded="false"
+            >
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+        </div>
+
+
+        <!-- =================================================
+             MENU MOBILE
+        ================================================== -->
+
+        <nav class="mobile-nav" id="mobileNav">
+
+            <a href="telaInicialSupervisor.html" class="mobile-nav-link">
+                <i class="fa-solid fa-house"></i>
+                <span>Início</span>
+            </a>
+
+            <a href="pesquisarRegistros.html" class="mobile-nav-link">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <span>Pesquisar Registros</span>
+            </a>
+
+            <a href="gerarRelatorios.html" class="mobile-nav-link">
+                <i class="fa-solid fa-file-circle-plus"></i>
+                <span>Gerar Relatório</span>
+            </a>
+
+            <a href="relatoriosGerados.html" class="mobile-nav-link">
+                <i class="fa-solid fa-file-lines"></i>
+                <span>Relatórios Gerados</span>
+            </a>
+
+            <a href="PerfilSupervisor.html" class="mobile-nav-link active">
+                <i class="fa-regular fa-user"></i>
+                <span>Meu perfil</span>
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main class="main-content">
+
+        <div class="content-container">
+
+            <!-- VOLTAR -->
+            <a href="telaInicialSupervisor.html" class="back-link">
+                <i class="fa-solid fa-arrow-left"></i>
+                Voltar para início
+            </a>
+
+
+            <!-- CABEÇALHO -->
+            <div class="page-header">
+
+                <span class="section-label">
+                    CONTA
+                </span>
+
+                <h1>
+                    Meu perfil
+                </h1>
+
+                <p>
+                    Visualize suas informações pessoais e gerencie as configurações da sua conta.
+                </p>
+
+            </div>
+
+
+            <!-- =================================================
+                 CARD PRINCIPAL DO PERFIL
+            ================================================== -->
+
+            <section class="profile-card">
+
+
+                <!-- CABEÇALHO DO PERFIL -->
+                <div class="profile-card-header">
+
+                    <div class="profile-avatar">
+                        <i class="fa-regular fa-user"></i>
+                    </div>
+
+
+                    <div class="profile-main-info">
+
+                        <span class="profile-role">
+                            SUPERVISÃO
+                        </span>
+
+                        <h2 id="profileName">
+                            Supervisão
+                        </h2>
+
+                        <p id="profileEmail">
+                            supervisao@senai.br
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="edit-profile-btn"
+                        id="btnEditar"
+                    >
+                        <i class="fa-solid fa-pen"></i>
+                        Editar perfil
+                    </button>
+
+                </div>
+
+
+                <!-- =================================================
+                     INFORMAÇÕES PESSOAIS
+                ================================================== -->
+
+                <div class="profile-section">
+
+                    <div class="section-title">
+
+                        <div class="section-title-icon">
+                            <i class="fa-regular fa-id-card"></i>
+                        </div>
+
+                        <div>
+                            <h3>
+                                Informações pessoais
+                            </h3>
+
+                            <p>
+                                Dados cadastrados na sua conta
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="info-grid">
+
+                        <div class="info-item">
+
+                            <span>
+                                Nome completo
+                            </span>
+
+                            <strong id="infoNome">
+                                Supervisão
+                            </strong>
+
+                        </div>
+
+
+                        <div class="info-item">
+
+                            <span>
+                                E-mail
+                            </span>
+
+                            <strong id="infoEmail">
+                                supervisao@senai.br
+                            </strong>
+
+                        </div>
+
+
+                        <div class="info-item">
+
+                            <span>
+                                Cargo
+                            </span>
+
+                            <strong id="infoCargo">
+                                Supervisão
+                            </strong>
+
+                        </div>
+
+
+                        <div class="info-item">
+
+                            <span>
+                                Sistema
+                            </span>
+
+                            <strong>
+                                DocSenai
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     SEGURANÇA
+                ================================================== -->
+
+                <div class="profile-section security-section">
+
+                    <div class="section-title">
+
+                        <div class="section-title-icon">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+
+                        <div>
+                            <h3>
+                                Segurança
+                            </h3>
+
+                            <p>
+                                Gerencie a segurança da sua conta
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="security-card">
+
+                        <div class="security-icon">
+                            <i class="fa-solid fa-lock"></i>
+                        </div>
+
+
+                        <div class="security-info">
+
+                            <strong>
+                                Senha
+                            </strong>
+
+                            <span>
+                                Altere sua senha para manter sua conta protegida.
+                            </span>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            class="change-password-btn"
+                            id="btnAlterarSenha"
+                        >
+                            Alterar senha
+
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     SAIR
+                ================================================== -->
+
+                <div class="profile-actions">
+
+                    <button
+                        type="button"
+                        class="logout-profile-btn"
+                        id="btnSair"
+                    >
+
+                        <i class="fa-solid fa-right-from-bracket"></i>
+
+                        Sair da conta
+
+                    </button>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         MODAL EDITAR PERFIL
+    ====================================================== -->
+
+    <div
+        class="modal-overlay"
+        id="profileModal"
+    >
+
+        <div class="profile-modal">
+
+
+            <!-- FECHAR -->
+            <button
+                type="button"
+                class="modal-close"
+                id="modalClose"
+                aria-label="Fechar"
+            >
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+
+            <!-- CABEÇALHO -->
+            <div class="modal-header">
+
+                <span>
+                    CONTA
+                </span>
+
+                <h2>
+                    Editar perfil
+                </h2>
+
+                <p>
+                    Atualize as informações da sua conta.
+                </p>
+
+            </div>
+
+
+            <!-- FORMULÁRIO -->
+            <div class="form-content">
+
+
+                <!-- NOME -->
+                <div class="form-group">
+
+                    <label for="nome">
+                        Nome completo
+                    </label>
+
+                    <div class="input-box">
+
+                        <i class="fa-regular fa-user"></i>
+
+                        <input
+                            type="text"
+                            id="nome"
+                            placeholder="Digite seu nome"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- E-MAIL -->
+                <div class="form-group">
+
+                    <label for="email">
+                        E-mail
+                    </label>
+
+                    <div class="input-box">
+
+                        <i class="fa-regular fa-envelope"></i>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="Digite seu e-mail"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- CARGO -->
+                <div class="form-group">
+
+                    <label for="cargo">
+                        Cargo
+                    </label>
+
+                    <div class="input-box">
+
+                        <i class="fa-solid fa-briefcase"></i>
+
+                        <input
+                            type="text"
+                            id="cargo"
+                            value="Supervisão"
+                            readonly
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- NOVA SENHA -->
+                <div class="form-group">
+
+                    <label for="senha">
+                        Nova senha
+                    </label>
+
+                    <div class="input-box">
+
+                        <i class="fa-solid fa-lock"></i>
+
+                        <input
+                            type="password"
+                            id="senha"
+                            placeholder="Digite uma nova senha"
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- RODAPÉ -->
+            <div class="modal-footer">
+
+                <button
+                    type="button"
+                    class="cancel-btn"
+                    id="btnCancelar"
+                >
+                    Cancelar
+                </button>
+
+
+                <button
+                    type="button"
+                    class="save-btn"
+                    id="btnSalvar"
+                >
+                    <i class="fa-solid fa-check"></i>
+                    Salvar alterações
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- JS -->
+    <script src="../js/perfilSupervisor.js"></script>
+
 </body>
+
 </html>
