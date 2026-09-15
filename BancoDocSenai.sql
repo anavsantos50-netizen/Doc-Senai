@@ -53,7 +53,7 @@ CREATE TABLE Relatorios_Atividades (
  
  ALTER TABLE Fotos ADD CONSTRAINT FK_Fotos_2
     FOREIGN KEY (fk_Atividade_id_atividade)
-    REFERENCES Atividade (id_atividade)
+    REFERENCES Atividades (id_atividade)
     ON DELETE NO ACTION;
 
 
