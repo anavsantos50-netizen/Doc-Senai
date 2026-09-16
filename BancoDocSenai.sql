@@ -51,6 +51,25 @@ CREATE TABLE Relatorios_Atividades (
     fk_Relatorio_id_relatorio INTEGER
 );
  
+CREATE TABLE Professor_Turma (
+    id_professor_turma INTEGER IDENTITY PRIMARY KEY,
+
+    fk_professor_id_usuario INTEGER NOT NULL,
+
+    fk_turma_id_turma INTEGER NOT NULL,
+
+    CONSTRAINT FK_Professor_Turma_Usuario
+        FOREIGN KEY (fk_professor_id_usuario)
+        REFERENCES Usuarios (id_usuario),
+
+    CONSTRAINT FK_Professor_Turma_Turma
+        FOREIGN KEY (fk_turma_id_turma)
+        REFERENCES Turmas (id_turma),
+
+    CONSTRAINT UQ_Professor_Turma
+        UNIQUE (fk_professor_id_usuario, fk_turma_id_turma)
+);
+
  ALTER TABLE Fotos ADD CONSTRAINT FK_Fotos_2
     FOREIGN KEY (fk_Atividade_id_atividade)
     REFERENCES Atividades (id_atividade)
@@ -59,18 +78,18 @@ CREATE TABLE Relatorios_Atividades (
 
 ALTER TABLE Relatorios ADD CONSTRAINT FK_Relatorio_2
     FOREIGN KEY (fk_Usuario_id_usuario)
-    REFERENCES Usuario (id_usuario);
+    REFERENCES Usuarios (id_usuario);
 
 
 ALTER TABLE Relatorios_Atividades ADD CONSTRAINT FK_Relatorio_Atividade_1
     FOREIGN KEY (fk_Atividade_id_atividade)
-    REFERENCES Atividade (id_atividade)
+    REFERENCES Atividades (id_atividade)
     ON DELETE NO ACTION;
 
 
 ALTER TABLE Relatorios_Atividades ADD CONSTRAINT FK_Relatorio_Atividade_2
     FOREIGN KEY (fk_Relatorio_id_relatorio)
-    REFERENCES Relatorio (id_relatorio)
+    REFERENCES Relatorios (id_relatorio)
     ON DELETE NO ACTION;
 
 
@@ -275,3 +294,62 @@ VALUES
 -- Relatório de Segurança do Trabalho
 (5, 3),
 (6, 3);
+INSERT INTO Professor_Turma
+(fk_professor_id_usuario, fk_turma_id_turma)
+VALUES
+
+-- Ana Paula -> Informática
+(
+    (SELECT id_usuario
+     FROM Usuarios
+     WHERE email = 'ana.souza@senai.br'),
+
+    (SELECT id_turma
+     FROM Turmas
+     WHERE nome_turma = 'Técnico em Informática 2026.1')
+),
+
+-- Carlos -> Administração
+(
+    (SELECT id_usuario
+     FROM Usuarios
+     WHERE email = 'carlos.lima@senai.br'),
+
+    (SELECT id_turma
+     FROM Turmas
+     WHERE nome_turma = 'Técnico em Administração 2026.1')
+),
+
+-- Mariana -> Segurança do Trabalho
+(
+    (SELECT id_usuario
+     FROM Usuarios
+     WHERE email = 'mariana.alves@senai.br'),
+
+    (SELECT id_turma
+     FROM Turmas
+     WHERE nome_turma = 'Técnico em Segurança do Trabalho 2026.1')
+),
+
+-- João -> Aprendizagem Industrial TI
+(
+    (SELECT id_usuario
+     FROM Usuarios
+     WHERE email = 'joao.santos@senai.br'),
+
+    (SELECT id_turma
+     FROM Turmas
+     WHERE nome_turma = 'Aprendizagem Industrial TI 2026')
+),
+
+-- João -> Eletrotécnica
+(
+    (SELECT id_usuario
+     FROM Usuarios
+     WHERE email = 'joao.santos@senai.br'),
+
+    (SELECT id_turma
+     FROM Turmas
+     WHERE nome_turma = 'Técnico em Eletrotécnica 2026.1')
+);
+
