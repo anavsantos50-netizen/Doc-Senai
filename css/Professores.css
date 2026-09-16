@@ -8,9 +8,11 @@
     box-sizing: border-box;
 }
 
+
 html {
     scroll-behavior: smooth;
 }
+
 
 body {
     width: 100%;
@@ -42,6 +44,7 @@ body {
     z-index: 1000;
 }
 
+
 .topbar-container {
     width: 92%;
     max-width: 1450px;
@@ -71,6 +74,7 @@ body {
 
     flex-shrink: 0;
 }
+
 
 .logo img,
 .logo-area img {
@@ -106,6 +110,7 @@ body {
     border-radius: 12px;
 }
 
+
 .nav-link {
     height: 44px;
 
@@ -129,9 +134,11 @@ body {
     transition: .25s ease;
 }
 
+
 .nav-link:hover {
     color: #192E75;
 }
+
 
 .nav-link.active {
     color: #FFFFFF;
@@ -140,7 +147,8 @@ body {
 
     font-weight: 600;
 
-    box-shadow: 0 4px 10px rgba(25, 46, 117, .15);
+    box-shadow:
+        0 4px 10px rgba(25, 46, 117, .15);
 }
 
 
@@ -159,6 +167,7 @@ body {
     flex-shrink: 0;
 }
 
+
 .profile-link {
     display: flex;
     align-items: center;
@@ -170,6 +179,7 @@ body {
     cursor: pointer;
 }
 
+
 .profile-info {
     display: flex;
     flex-direction: column;
@@ -180,6 +190,7 @@ body {
     line-height: 1.25;
 }
 
+
 .profile-info strong {
     color: #192E75;
 
@@ -187,12 +198,14 @@ body {
     font-weight: 700;
 }
 
+
 .profile-info span {
     color: #777;
 
     font-size: 12px;
     font-weight: 500;
 }
+
 
 .profile-icon {
     width: 43px;
@@ -210,6 +223,7 @@ body {
 
     color: #192E75;
 }
+
 
 .profile-icon i {
     font-size: 17px;
@@ -248,6 +262,7 @@ body {
     transition: .2s ease;
 }
 
+
 .logout-btn:hover,
 .btn-sair:hover {
     background: #F5F6FA;
@@ -284,6 +299,7 @@ body {
     justify-content: center;
 }
 
+
 .mobile-nav {
     display: none;
 }
@@ -299,6 +315,7 @@ body {
     padding: 45px 0 70px;
 }
 
+
 .content-container {
     width: 90%;
     max-width: 1300px;
@@ -308,12 +325,13 @@ body {
 
 
 /* =========================================================
-   CABEÇALHO DA PÁGINA
+   CABEÇALHO
 ========================================================= */
 
 .page-header {
     margin-bottom: 32px;
 }
+
 
 .section-label {
     display: block;
@@ -328,6 +346,7 @@ body {
     letter-spacing: 1.2px;
 }
 
+
 .page-header h1 {
     color: #192E75;
 
@@ -338,6 +357,7 @@ body {
 
     letter-spacing: -.7px;
 }
+
 
 .page-header p {
     margin-top: 9px;
@@ -367,6 +387,7 @@ body {
     margin-bottom: 22px;
 }
 
+
 .summary-card {
     min-height: 125px;
 
@@ -386,11 +407,13 @@ body {
     transition: .2s ease;
 }
 
+
 .summary-card:hover {
     border-color: #D8DDEA;
 
     transform: translateY(-2px);
 }
+
 
 .summary-icon {
     width: 48px;
@@ -407,25 +430,30 @@ body {
     font-size: 18px;
 }
 
+
 .summary-icon.blue {
     background: #EEF3FF;
     color: #315CCF;
 }
+
 
 .summary-icon.green {
     background: #EAF9F1;
     color: #16A765;
 }
 
+
 .summary-icon.orange {
     background: #FFF3E9;
     color: #EA632C;
 }
 
+
 .summary-icon.purple {
     background: #F1EEFF;
     color: #7059D9;
 }
+
 
 .summary-info {
     min-width: 0;
@@ -433,6 +461,7 @@ body {
     display: flex;
     flex-direction: column;
 }
+
 
 .summary-info span {
     color: #727B91;
@@ -442,6 +471,7 @@ body {
 
     line-height: 1.4;
 }
+
 
 .summary-info strong {
     margin-top: 3px;
@@ -453,6 +483,7 @@ body {
 
     line-height: 1.2;
 }
+
 
 .summary-info small {
     margin-top: 2px;
@@ -474,7 +505,11 @@ body {
 
     display: grid;
 
-    grid-template-columns: minmax(250px, 1.7fr) minmax(150px, .8fr) minmax(150px, .8fr) auto;
+    grid-template-columns:
+        minmax(250px, 1.7fr)
+        minmax(150px, .8fr)
+        minmax(150px, .8fr)
+        auto;
 
     align-items: end;
 
@@ -488,6 +523,7 @@ body {
 
     margin-bottom: 28px;
 }
+
 
 .search-wrapper {
     height: 46px;
@@ -508,17 +544,21 @@ body {
     transition: .2s ease;
 }
 
+
 .search-wrapper:focus-within {
     border-color: #192E75;
 
-    box-shadow: 0 0 0 3px rgba(25, 46, 117, .06);
+    box-shadow:
+        0 0 0 3px rgba(25, 46, 117, .06);
 }
+
 
 .search-wrapper i {
     color: #8190AE;
 
     font-size: 14px;
 }
+
 
 .search-wrapper input {
     width: 100%;
@@ -534,6 +574,7 @@ body {
 
     font-size: 12px;
 }
+
 
 .search-wrapper input::placeholder {
     color: #98A1B4;
@@ -551,6 +592,7 @@ body {
     gap: 6px;
 }
 
+
 .filter-group label {
     color: #626C82;
 
@@ -558,11 +600,13 @@ body {
     font-weight: 600;
 }
 
+
 .select-wrapper {
     height: 46px;
 
     position: relative;
 }
+
 
 .select-wrapper select {
     width: 100%;
@@ -589,6 +633,12 @@ body {
     cursor: pointer;
 }
 
+
+.select-wrapper select:focus {
+    border-color: #192E75;
+}
+
+
 .select-wrapper i {
     position: absolute;
 
@@ -606,7 +656,7 @@ body {
 
 
 /* =========================================================
-   LIMPAR FILTROS
+   LIMPAR
 ========================================================= */
 
 .clear-btn {
@@ -640,6 +690,7 @@ body {
     transition: .2s ease;
 }
 
+
 .clear-btn:hover {
     color: #192E75;
 
@@ -648,18 +699,15 @@ body {
     background: #F8F9FC;
 }
 
-.clear-btn i {
-    font-size: 12px;
-}
-
 
 /* =========================================================
-   SEÇÃO PROFESSORES
+   PROFESSORES
 ========================================================= */
 
 .professors-section {
     width: 100%;
 }
+
 
 .results-header {
     margin-bottom: 14px;
@@ -671,6 +719,7 @@ body {
     gap: 20px;
 }
 
+
 .results-header h2 {
     color: #192E75;
 
@@ -678,12 +727,14 @@ body {
     font-weight: 700;
 }
 
+
 .results-header h2 span {
     color: #7D879B;
 
     font-size: 14px;
     font-weight: 500;
 }
+
 
 .results-header p {
     margin-top: 4px;
@@ -705,11 +756,13 @@ body {
     gap: 9px;
 }
 
+
 .sort-wrapper label {
     color: #7A8397;
 
     font-size: 10px;
 }
+
 
 .sort-wrapper select {
     height: 38px;
@@ -747,7 +800,7 @@ body {
 
 
 /* =========================================================
-   ITEM PROFESSOR
+   ITEM
 ========================================================= */
 
 .professor-item {
@@ -757,7 +810,13 @@ body {
 
     display: grid;
 
-    grid-template-columns: 52px minmax(190px, 1.5fr) minmax(120px, .8fr) minmax(120px, .8fr) minmax(120px, .8fr) auto 30px;
+    grid-template-columns:
+        52px
+        minmax(190px, 1.5fr)
+        minmax(120px, .8fr)
+        minmax(120px, .8fr)
+        minmax(120px, .8fr)
+        auto;
 
     align-items: center;
 
@@ -772,10 +831,12 @@ body {
     transition: .2s ease;
 }
 
+
 .professor-item:hover {
     border-color: #D7DCE7;
 
-    box-shadow: 0 5px 18px rgba(25, 46, 117, .04);
+    box-shadow:
+        0 5px 18px rgba(25, 46, 117, .04);
 }
 
 
@@ -801,20 +862,24 @@ body {
     font-weight: 700;
 }
 
+
 .avatar-blue {
     background: #E6F0FF;
     color: #3974CE;
 }
+
 
 .avatar-orange {
     background: #FFF0E5;
     color: #EA632C;
 }
 
+
 .avatar-purple {
     background: #F0ECFF;
     color: #7358D7;
 }
+
 
 .avatar-green {
     background: #E8F8F0;
@@ -823,12 +888,13 @@ body {
 
 
 /* =========================================================
-   INFORMAÇÕES PRINCIPAIS
+   INFORMAÇÕES
 ========================================================= */
 
 .professor-main {
     min-width: 0;
 }
+
 
 .professor-name {
     display: flex;
@@ -839,12 +905,14 @@ body {
     gap: 8px;
 }
 
+
 .professor-name h3 {
     color: #192E75;
 
     font-size: 14px;
     font-weight: 700;
 }
+
 
 .professor-email {
     margin-top: 6px;
@@ -862,6 +930,7 @@ body {
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+
 
 .professor-email i {
     color: #8190AA;
@@ -890,14 +959,17 @@ body {
     font-weight: 600;
 }
 
+
 .status-tag i {
     font-size: 6px;
 }
+
 
 .status-tag.active {
     background: #E8F8F0;
     color: #15945A;
 }
+
 
 .status-tag.inactive {
     background: #F3F4F6;
@@ -919,12 +991,14 @@ body {
     gap: 5px;
 }
 
+
 .data-label {
     color: #929AAA;
 
     font-size: 9px;
     font-weight: 500;
 }
+
 
 .professor-data strong,
 .professor-date strong {
@@ -934,13 +1008,27 @@ body {
     font-weight: 600;
 }
 
+
 .professor-date strong {
     color: #4C5871;
 }
 
 
 /* =========================================================
-   BOTÃO VER REGISTROS
+   AÇÕES
+========================================================= */
+
+.professor-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 7px;
+}
+
+
+/* =========================================================
+   VER REGISTROS
 ========================================================= */
 
 .view-btn {
@@ -974,6 +1062,7 @@ body {
     transition: .2s ease;
 }
 
+
 .view-btn:hover {
     background: #192E75;
 
@@ -982,8 +1071,59 @@ body {
     color: #FFFFFF;
 }
 
+
 .view-btn i {
     font-size: 11px;
+}
+
+
+/* =========================================================
+   CADASTRAR TURMA
+========================================================= */
+
+.class-btn {
+    height: 38px;
+
+    padding: 0 13px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    border: 1px solid #E6A98F;
+
+    border-radius: 8px;
+
+    background: #FFFFFF;
+
+    color: #EA632C;
+
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 10px;
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    cursor: pointer;
+
+    transition: .2s ease;
+}
+
+
+.class-btn:hover {
+    background: #EA632C;
+
+    border-color: #EA632C;
+
+    color: #FFFFFF;
+}
+
+
+.class-btn i {
+    font-size: 10px;
 }
 
 
@@ -1012,6 +1152,7 @@ body {
     border-radius: 7px;
 }
 
+
 .more-btn:hover {
     background: #F2F4F8;
 
@@ -1037,6 +1178,7 @@ body {
     border-radius: 12px;
 }
 
+
 .empty-icon {
     width: 58px;
     height: 58px;
@@ -1056,11 +1198,13 @@ body {
     font-size: 20px;
 }
 
+
 .empty-state h3 {
     color: #192E75;
 
     font-size: 16px;
 }
+
 
 .empty-state p {
     margin-top: 6px;
@@ -1091,13 +1235,19 @@ body {
     background: rgba(20, 29, 55, .42);
 }
 
+
 .modal-overlay.open {
     display: flex;
 }
 
+
+/* =========================================================
+   MODAL PROFESSOR
+========================================================= */
+
 .professor-modal {
     width: 100%;
-    max-width: 650px;
+    max-width: 680px;
     max-height: 90vh;
 
     overflow-y: auto;
@@ -1110,12 +1260,13 @@ body {
 
     border-radius: 16px;
 
-    box-shadow: 0 20px 50px rgba(20, 30, 60, .18);
+    box-shadow:
+        0 20px 50px rgba(20, 30, 60, .18);
 }
 
 
 /* =========================================================
-   FECHAR MODAL
+   FECHAR
 ========================================================= */
 
 .modal-close {
@@ -1144,6 +1295,7 @@ body {
     transition: .2s ease;
 }
 
+
 .modal-close:hover {
     background: #EA632C;
 
@@ -1152,7 +1304,7 @@ body {
 
 
 /* =========================================================
-   PERFIL DO MODAL
+   PERFIL MODAL
 ========================================================= */
 
 .modal-profile {
@@ -1165,6 +1317,7 @@ body {
 
     margin-bottom: 28px;
 }
+
 
 .modal-avatar {
     width: 62px;
@@ -1186,9 +1339,11 @@ body {
     font-weight: 700;
 }
 
+
 .modal-profile .section-label {
     margin-bottom: 4px;
 }
+
 
 .modal-profile h2 {
     color: #192E75;
@@ -1196,6 +1351,7 @@ body {
     font-size: 23px;
     font-weight: 700;
 }
+
 
 .modal-profile p {
     margin-top: 3px;
@@ -1207,7 +1363,7 @@ body {
 
 
 /* =========================================================
-   INFORMAÇÕES DO MODAL
+   INFORMAÇÕES MODAL
 ========================================================= */
 
 .modal-info-grid {
@@ -1219,6 +1375,7 @@ body {
 
     margin-bottom: 28px;
 }
+
 
 .modal-info-item {
     padding: 14px;
@@ -1235,11 +1392,13 @@ body {
     border-radius: 9px;
 }
 
+
 .modal-info-item span {
     color: #8A93A5;
 
     font-size: 9px;
 }
+
 
 .modal-info-item strong {
     color: #263760;
@@ -1248,9 +1407,16 @@ body {
     font-weight: 600;
 }
 
+
 .modal-status {
     color: #15945A !important;
 }
+
+
+.modal-status.inactive-status {
+    color: #7A8290 !important;
+}
+
 
 .modal-status i {
     margin-right: 4px;
@@ -1260,7 +1426,7 @@ body {
 
 
 /* =========================================================
-   SEÇÃO DO MODAL
+   SEÇÃO MODAL
 ========================================================= */
 
 .modal-section {
@@ -1269,12 +1435,14 @@ body {
     border-top: 1px solid #E9ECF2;
 }
 
+
 .modal-section-header h3 {
     color: #192E75;
 
     font-size: 15px;
     font-weight: 700;
 }
+
 
 .modal-section-header p {
     margin-top: 4px;
@@ -1286,10 +1454,10 @@ body {
 
 
 /* =========================================================
-   ATIVIDADES
+   TURMAS VINCULADAS
 ========================================================= */
 
-.activity-list {
+.linked-classes-list {
     margin-top: 15px;
 
     display: flex;
@@ -1298,7 +1466,8 @@ body {
     gap: 8px;
 }
 
-.activity-item {
+
+.linked-class-item {
     padding: 12px;
 
     display: flex;
@@ -1313,9 +1482,10 @@ body {
     border-radius: 8px;
 }
 
-.activity-icon {
-    width: 35px;
-    height: 35px;
+
+.linked-class-icon {
+    width: 38px;
+    height: 38px;
 
     flex-shrink: 0;
 
@@ -1332,8 +1502,11 @@ body {
     font-size: 12px;
 }
 
-.activity-item div:last-child {
+
+.linked-class-info {
     min-width: 0;
+
+    flex: 1;
 
     display: flex;
     flex-direction: column;
@@ -1341,17 +1514,85 @@ body {
     gap: 3px;
 }
 
-.activity-item strong {
+
+.linked-class-info strong {
     color: #354264;
 
-    font-size: 10px;
+    font-size: 11px;
     font-weight: 600;
 }
 
-.activity-item span {
+
+.linked-class-info span {
     color: #9098A8;
 
     font-size: 9px;
+}
+
+
+.remove-class-btn {
+    width: 34px;
+    height: 34px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #E7D4D4;
+
+    border-radius: 8px;
+
+    background: #FFFFFF;
+
+    color: #C45C5C;
+
+    cursor: pointer;
+
+    transition: .2s ease;
+}
+
+
+.remove-class-btn:hover {
+    background: #FDEEEE;
+
+    border-color: #C45C5C;
+}
+
+
+.linked-empty {
+    padding: 22px;
+
+    text-align: center;
+
+    background: #F8F9FC;
+
+    border: 1px dashed #DDE2EC;
+
+    border-radius: 9px;
+
+    color: #8992A5;
+
+    font-size: 10px;
+}
+
+
+.linked-loading {
+    padding: 20px;
+
+    text-align: center;
+
+    color: #8992A5;
+
+    font-size: 10px;
+}
+
+
+.linked-loading i {
+    margin-right: 5px;
+
+    color: #192E75;
 }
 
 
@@ -1367,6 +1608,7 @@ body {
 
     gap: 10px;
 }
+
 
 .modal-secondary-btn,
 .modal-primary-btn {
@@ -1392,6 +1634,7 @@ body {
     transition: .2s ease;
 }
 
+
 .modal-secondary-btn {
     border: 1px solid #DDE2EC;
 
@@ -1400,11 +1643,13 @@ body {
     color: #68748C;
 }
 
+
 .modal-secondary-btn:hover {
     border-color: #192E75;
 
     color: #192E75;
 }
+
 
 .modal-primary-btn {
     border: 1px solid #192E75;
@@ -1414,10 +1659,204 @@ body {
     color: #FFFFFF;
 }
 
+
 .modal-primary-btn:hover {
     background: #14245F;
 
     border-color: #14245F;
+}
+
+
+.modal-primary-btn:disabled {
+    opacity: .6;
+
+    cursor: not-allowed;
+}
+
+
+/* =========================================================
+   MODAL CADASTRAR TURMA
+========================================================= */
+
+.turma-modal {
+    width: 100%;
+    max-width: 520px;
+
+    position: relative;
+
+    padding: 30px;
+
+    background: #FFFFFF;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 20px 50px rgba(20, 30, 60, .18);
+}
+
+
+.turma-modal-header {
+    padding-right: 40px;
+
+    margin-bottom: 25px;
+}
+
+
+.turma-modal-header .section-label {
+    margin-bottom: 7px;
+}
+
+
+.turma-modal-header h2 {
+    color: #192E75;
+
+    font-size: 24px;
+    font-weight: 700;
+}
+
+
+.turma-modal-header p {
+    margin-top: 7px;
+
+    color: #858EA1;
+
+    font-size: 11px;
+
+    line-height: 1.6;
+}
+
+
+.turma-modal-header p strong {
+    color: #192E75;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   FORMULÁRIO TURMA
+========================================================= */
+
+.turma-form {
+    width: 100%;
+}
+
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+
+.form-group label {
+    color: #626C82;
+
+    font-size: 11px;
+    font-weight: 600;
+}
+
+
+.turma-select-wrapper {
+    width: 100%;
+    height: 48px;
+
+    position: relative;
+}
+
+
+.turma-select-wrapper select {
+    width: 100%;
+    height: 100%;
+
+    padding: 0 40px 0 14px;
+
+    appearance: none;
+
+    border: 1px solid #DDE2EC;
+
+    border-radius: 9px;
+
+    outline: none;
+
+    background: #FFFFFF;
+
+    color: #192E75;
+
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 12px;
+
+    cursor: pointer;
+}
+
+
+.turma-select-wrapper select:focus {
+    border-color: #192E75;
+
+    box-shadow:
+        0 0 0 3px rgba(25, 46, 117, .06);
+}
+
+
+.turma-select-wrapper i {
+    position: absolute;
+
+    right: 14px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    pointer-events: none;
+
+    color: #7C87A0;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   MENSAGEM
+========================================================= */
+
+.turma-message {
+    min-height: 20px;
+
+    margin-top: 12px;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+}
+
+
+.turma-message.success {
+    color: #15945A;
+}
+
+
+.turma-message.error {
+    color: #D64545;
+}
+
+
+.turma-message.info {
+    color: #6F7B92;
+}
+
+
+/* =========================================================
+   AÇÕES TURMA
+========================================================= */
+
+.turma-actions {
+    margin-top: 22px;
+
+    display: flex;
+    justify-content: flex-end;
+
+    gap: 10px;
 }
 
 
@@ -1431,10 +1870,12 @@ body {
         height: 88px;
     }
 
+
     .logo,
     .logo-area {
         width: 180px;
     }
+
 
     .nav-link {
         height: 45px;
@@ -1444,13 +1885,16 @@ body {
         font-size: 13px;
     }
 
+
     .main-content {
         padding-top: 58px;
     }
 
+
     .content-container {
         max-width: 1400px;
     }
+
 
     .page-header h1 {
         font-size: 42px;
@@ -1469,35 +1913,43 @@ body {
         gap: 2px;
     }
 
+
     .nav-link {
         padding: 0 10px;
 
         font-size: 11px;
     }
 
+
     .profile-info {
         display: none;
     }
+
 
     .content-container {
         width: 90%;
     }
 
+
     .summary-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+
 
     .filters-card {
         grid-template-columns: 1fr 1fr;
     }
 
+
     .search-wrapper {
         grid-column: 1 / -1;
     }
 
+
     .clear-btn {
         justify-self: start;
     }
+
 
     .professor-item {
         grid-template-columns:
@@ -1505,12 +1957,17 @@ body {
             minmax(170px, 1.5fr)
             minmax(110px, .8fr)
             minmax(110px, .8fr)
-            auto
-            30px;
+            auto;
     }
+
 
     .professor-date {
         display: none;
+    }
+
+
+    .professor-actions {
+        flex-wrap: wrap;
     }
 
 }
@@ -1526,18 +1983,22 @@ body {
         height: 70px;
     }
 
+
     .topbar-container {
         width: 90%;
     }
+
 
     .logo,
     .logo-area {
         width: 140px;
     }
 
+
     #mainNav {
         display: none;
     }
+
 
     .profile-area {
         margin-left: auto;
@@ -1545,23 +2006,28 @@ body {
         gap: 10px;
     }
 
+
     .profile-info {
         display: none;
     }
+
 
     .profile-icon {
         width: 40px;
         height: 40px;
     }
 
+
     .logout-btn,
     .btn-sair {
         display: none;
     }
 
+
     .menu-mobile {
         display: flex;
     }
+
 
     .mobile-nav.open {
         display: flex;
@@ -1584,10 +2050,12 @@ body {
 
         border-top: 1px solid #E9ECF2;
 
-        box-shadow: 0 12px 25px rgba(0, 0, 0, .07);
+        box-shadow:
+            0 12px 25px rgba(0, 0, 0, .07);
 
         z-index: 999;
     }
+
 
     .mobile-nav-link {
         width: 100%;
@@ -1610,6 +2078,7 @@ body {
         font-weight: 500;
     }
 
+
     .mobile-nav-link i {
         width: 18px;
 
@@ -1620,6 +2089,7 @@ body {
         font-size: 14px;
     }
 
+
     .mobile-nav-link.active {
         background: #192E75;
 
@@ -1628,25 +2098,31 @@ body {
         font-weight: 600;
     }
 
+
     .mobile-nav-link.active i {
         color: #FFFFFF;
     }
+
 
     .main-content {
         padding-top: 35px;
     }
 
+
     .page-header h1 {
         font-size: 34px;
     }
+
 
     .page-header p {
         font-size: 13px;
     }
 
+
     .summary-grid {
         grid-template-columns: 1fr;
     }
+
 
     .filters-card {
         grid-template-columns: 1fr;
@@ -1654,13 +2130,16 @@ body {
         padding: 16px;
     }
 
+
     .search-wrapper {
         grid-column: auto;
     }
 
+
     .clear-btn {
         width: 100%;
     }
+
 
     .results-header {
         align-items: flex-start;
@@ -1668,60 +2147,71 @@ body {
         flex-direction: column;
     }
 
+
     .sort-wrapper {
         width: 100%;
     }
+
 
     .sort-wrapper select {
         flex: 1;
     }
 
+
     .professor-item {
-        grid-template-columns: 48px 1fr auto;
+        grid-template-columns:
+            48px
+            1fr
+            auto;
 
         gap: 12px;
 
         padding: 16px;
     }
 
+
     .professor-avatar {
         width: 48px;
         height: 48px;
     }
+
 
     .professor-data,
     .professor-date {
         display: none;
     }
 
-    .view-btn {
-        grid-column: 2 / 3;
 
-        width: fit-content;
+    .professor-actions {
+        grid-column: 2 / -1;
+
+        justify-content: flex-start;
+
+        flex-wrap: wrap;
     }
 
-    .more-btn {
-        grid-column: 3;
-        grid-row: 1;
-    }
 
     .professor-name h3 {
         font-size: 13px;
     }
 
+
     .professor-email {
         font-size: 9px;
     }
 
+
     .modal-overlay {
         padding: 15px;
     }
+
 
     .professor-modal {
         padding: 23px;
 
         max-height: 92vh;
     }
+
 
     .modal-info-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -1740,43 +2230,53 @@ body {
         height: 66px;
     }
 
+
     .topbar-container {
         width: 92%;
     }
+
 
     .logo,
     .logo-area {
         width: 125px;
     }
 
+
     .menu-mobile {
         width: 38px;
         height: 38px;
     }
 
+
     .mobile-nav.open {
         top: 66px;
     }
+
 
     .main-content {
         padding: 30px 0 45px;
     }
 
+
     .content-container {
         width: 92%;
     }
+
 
     .page-header {
         margin-bottom: 25px;
     }
 
+
     .page-header h1 {
         font-size: 30px;
     }
 
+
     .page-header p {
         font-size: 12px;
     }
+
 
     .summary-card {
         min-height: 105px;
@@ -1784,13 +2284,19 @@ body {
         padding: 18px;
     }
 
+
     .summary-info strong {
         font-size: 23px;
     }
 
+
     .professor-item {
-        grid-template-columns: 44px 1fr 28px;
+        grid-template-columns:
+            44px
+            1fr
+            28px;
     }
+
 
     .professor-avatar {
         width: 44px;
@@ -1799,40 +2305,72 @@ body {
         font-size: 12px;
     }
 
-    .view-btn {
+
+    .professor-actions {
         grid-column: 1 / -1;
 
         width: 100%;
+
+        flex-direction: column;
+
+        align-items: stretch;
     }
 
-    .more-btn {
-        grid-column: 3;
-        grid-row: 1;
+
+    .view-btn,
+    .class-btn {
+        width: 100%;
     }
+
 
     .modal-profile {
         align-items: flex-start;
     }
+
 
     .modal-avatar {
         width: 52px;
         height: 52px;
     }
 
+
     .modal-profile h2 {
         font-size: 19px;
     }
+
 
     .modal-info-grid {
         grid-template-columns: 1fr;
     }
 
+
     .modal-footer {
         flex-direction: column;
     }
 
+
     .modal-secondary-btn,
     .modal-primary-btn {
+        width: 100%;
+    }
+
+
+    .turma-modal {
+        padding: 23px;
+    }
+
+
+    .turma-modal-header h2 {
+        font-size: 21px;
+    }
+
+
+    .turma-actions {
+        flex-direction: column;
+    }
+
+
+    .turma-actions button {
         width: 100%;
     }
 
@@ -1850,13 +2388,16 @@ body {
         width: 115px;
     }
 
+
     .page-header h1 {
         font-size: 28px;
     }
 
+
     .summary-card {
         gap: 12px;
     }
+
 
     .summary-icon {
         width: 43px;

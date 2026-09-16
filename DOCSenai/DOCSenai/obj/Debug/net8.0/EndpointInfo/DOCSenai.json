@@ -5,6 +5,192 @@
     "version": "1.0"
   },
   "paths": {
+    "/api/Atividade/turmas": {
+      "get": {
+        "tags": [
+          "Atividade"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Atividade/registrar": {
+      "post": {
+        "tags": [
+          "Atividade"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Fk_Turma_Id_Turma": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Data_Atividade": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Descricao_Atividade": {
+                    "type": "string"
+                  },
+                  "Observacao": {
+                    "type": "string"
+                  },
+                  "Fotos": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "binary"
+                    }
+                  }
+                }
+              },
+              "encoding": {
+                "Fk_Turma_Id_Turma": {
+                  "style": "form"
+                },
+                "Data_Atividade": {
+                  "style": "form"
+                },
+                "Descricao_Atividade": {
+                  "style": "form"
+                },
+                "Observacao": {
+                  "style": "form"
+                },
+                "Fotos": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ProfessorInicio": {
+      "get": {
+        "tags": [
+          "ProfessorInicio"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ProfessorTurma/professores": {
+      "get": {
+        "tags": [
+          "ProfessorTurma"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ProfessorTurma/turmas": {
+      "get": {
+        "tags": [
+          "ProfessorTurma"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ProfessorTurma": {
+      "post": {
+        "tags": [
+          "ProfessorTurma"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProfessorTurmaRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProfessorTurmaRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProfessorTurmaRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ProfessorTurma/professor/{id}": {
+      "get": {
+        "tags": [
+          "ProfessorTurma"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ProfessorTurma/{id}": {
+      "delete": {
+        "tags": [
+          "ProfessorTurma"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/Usuario/login": {
       "post": {
         "tags": [
@@ -70,6 +256,20 @@
   },
   "components": {
     "schemas": {
+      "ProfessorTurmaRequest": {
+        "type": "object",
+        "properties": {
+          "fk_Professor_Id_Usuario": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fk_Turma_Id_Turma": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
       "Usuario": {
         "type": "object",
         "properties": {

@@ -1,5 +1,129 @@
 [
   {
+    "ContainingType": "DOCSenai.Controllers.AtividadeController",
+    "Method": "RegistrarAtividade",
+    "RelativePath": "api/Atividade/registrar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Fk_Turma_Id_Turma",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Data_Atividade",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "Descricao_Atividade",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Observacao",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Fotos",
+        "Type": "System.Collections.Generic.List\u00601[[Microsoft.AspNetCore.Http.IFormFile, Microsoft.AspNetCore.Http.Features, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DOCSenai.Controllers.AtividadeController",
+    "Method": "ListarTurmasDoProfessor",
+    "RelativePath": "api/Atividade/turmas",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DOCSenai.Controllers.ProfessorInicioController",
+    "Method": "BuscarInicio",
+    "RelativePath": "api/ProfessorInicio",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DOCSenai.Controllers.ProfessorTurmaController",
+    "Method": "CadastrarVinculo",
+    "RelativePath": "api/ProfessorTurma",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "DOCSenai.Controllers.ProfessorTurmaRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DOCSenai.Controllers.ProfessorTurmaController",
+    "Method": "ExcluirVinculo",
+    "RelativePath": "api/ProfessorTurma/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DOCSenai.Controllers.ProfessorTurmaController",
+    "Method": "ListarTurmasProfessor",
+    "RelativePath": "api/ProfessorTurma/professor/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DOCSenai.Controllers.ProfessorTurmaController",
+    "Method": "ListarProfessores",
+    "RelativePath": "api/ProfessorTurma/professores",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DOCSenai.Controllers.ProfessorTurmaController",
+    "Method": "ListarTurmas",
+    "RelativePath": "api/ProfessorTurma/turmas",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "DOCSenai.Controllers.UsuarioController",
     "Method": "CadastraUsuario",
     "RelativePath": "Usuario",

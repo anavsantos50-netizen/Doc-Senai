@@ -145,3 +145,4 @@ E:\Ana Vitória\DOCSenai\Doc-Senai\DOCSenai\DOCSenai\obj\Debug\net8.0\refint\DOC
 E:\Ana Vitória\DOCSenai\Doc-Senai\DOCSenai\DOCSenai\obj\Debug\net8.0\DOCSenai.pdb
 E:\Ana Vitória\DOCSenai\Doc-Senai\DOCSenai\DOCSenai\obj\Debug\net8.0\DOCSenai.genruntimeconfig.cache
 E:\Ana Vitória\DOCSenai\Doc-Senai\DOCSenai\DOCSenai\obj\Debug\net8.0\ref\DOCSenai.dll
+E:\Ana Vitória\DOCSenai\Doc-Senai\DOCSenai\DOCSenai\bin\Debug\net8.0\DOCSenai.staticwebassets.runtime.json

@@ -3,178 +3,168 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Início | DocSenai</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <!-- Poppins -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Início | DOC SENAI</title>
 
     <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
         rel="stylesheet"
     >
 
-    <!-- Font Awesome -->
     <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     >
 
-    <link rel="stylesheet" href="../css/telaInicialProfessor.css">
+    <link
+        rel="stylesheet"
+        href="../css/telaInicialProfessor.css"
+    >
 </head>
 
 <body>
 
-
-    <!-- =====================================================
-         CABEÇALHO
-    ====================================================== -->
 
     <header class="topbar">
 
         <div class="topbar-container">
 
 
-            <!-- LOGO -->
-
-            <a href="inicio-professor.html" class="logo">
-
+            <a
+                href="telaInicialProfessor.html"
+                class="logo"
+                aria-label="Página inicial"
+            >
                 <img
                     src="../img/logo.png"
-                    alt="DocSenai"
+                    alt="DOC SENAI"
                 >
-
             </a>
 
-
-            <!-- MENU -->
-
-        <nav class="main-nav" id="mainNav">
+            <nav
+                class="main-nav"
+                id="mainNav"
+            >
 
                 <a
                     href="telaInicialProfessor.html"
-                    class="nav-link active "
+                    class="nav-link active"
                 >
                     Início
                 </a>
-                   <a
+                     <a
                     href="registrarAtividade.html"
-                    class="nav-link "
+                    class="nav-link"
                 >
-                   Registrar Atividades
+                    Registrar Atividades
                 </a>
 
                 <a
                     href="minhasAtividades.html"
                     class="nav-link"
                 >
-                  Minhas Atividades
+                    Minhas Atividades
                 </a>
 
                 <a
                     href="minhasTurmas.html"
                     class="nav-link"
                 >
-                    Turmas
+                    Turma
                 </a>
 
                 <a
                     href="perfilProfessor.html"
                     class="nav-link"
                 >
-                    Meu perfil
+                    Perfil
                 </a>
 
             </nav>
 
 
-            <!-- PERFIL -->
+            <div class="profile-area">
 
-          <div class="profile-area">
+                <a
+                    href="perfilProfessor.html"
+                    class="profile-link"
+                    aria-label="Abrir meu perfil"
+                >
 
-    <a href="perfilProfessor.html" class="profile-link">
+                    <div class="profile-icon">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
 
-        <div class="profile-info">
+                    <div class="profile-info">
 
-            <strong>
-                Professor
-            </strong>
+                        <strong id="nomeProfessorTopo">
+                            Professor
+                        </strong>
 
-            <span>
-                Minha conta
-            </span>
-
-        </div>
- <div class="profile-icon">
-
-                        <i class="fa-regular fa-user"></i>
+                        <span>
+                            Minha conta
+                        </span>
 
                     </div>
-    </a>
 
-    <button
-        type="button"
-        class="logout-btn"
-        id="btnSair"
-        title="Sair"
-    >
+                </a>
 
-      
+
+                <button
+                    type="button"
+                    class="logout-btn"
+                    id="btnSair"
+                    aria-label="Sair"
+                    title="Sair"
+                >
                     <i class="fa-solid fa-right-from-bracket"></i>
+                </button>
 
-    </button>
+            </div>
 
-</div>
-
-            <!-- MENU MOBILE -->
 
             <button
                 type="button"
                 class="menu-mobile"
                 id="menuMobile"
                 aria-label="Abrir menu"
+                aria-expanded="false"
             >
-
                 <i class="fa-solid fa-bars"></i>
-
             </button>
 
         </div>
 
     </header>
-
-
-
-    <!-- =====================================================
-         CONTEÚDO PRINCIPAL
-    ====================================================== -->
-
+    
     <main class="main-content">
 
         <div class="content-container">
 
-
-            <!-- =================================================
-                 SAUDAÇÃO
-            ================================================== -->
-
             <section class="welcome">
 
-                <div class="welcome-text">
+                <div>
 
                     <span class="welcome-label">
                         ÁREA DO PROFESSOR
                     </span>
 
                     <h1>
-                        Olá, Professor! <span>👋</span>
+                        Olá,
+                        <span id="nomeProfessor">
+                            Professor
+                        </span>!
+                        👋
                     </h1>
 
                     <p>
-                        Organize suas evidências pedagógicas
-                        de forma simples e prática.
+                        Acompanhe suas atividades, turmas e
+                        evidências pedagógicas.
                     </p>
 
                 </div>
@@ -189,8 +179,8 @@
                             Hoje
                         </span>
 
-                        <strong>
-                            11 de setembro de 2026
+                        <strong id="dataAtual">
+                            Carregando...
                         </strong>
 
                     </div>
@@ -199,77 +189,56 @@
 
             </section>
 
-
-
-            <!-- =================================================
-                 ÁREA PRINCIPAL
-            ================================================== -->
-
             <section class="main-grid">
 
+                <article class="register-box">
 
-                <!-- =================================================
-                     REGISTRAR ATIVIDADE
-                ================================================== -->
+                    <div class="register-decoration">
 
-                <div class="register-box">
+                        <i class="fa-solid fa-camera"></i>
 
-                    <div class="register-decoration"></div>
+                    </div>
 
                     <div class="register-content">
 
-                        <span class="register-small">
-                            NOVO REGISTRO
+                        <span class="box-label">
+                            NOVA EVIDÊNCIA
                         </span>
 
                         <h2>
-                            Registre uma nova atividade
+                            Registre uma atividade
                         </h2>
 
                         <p>
-                            Descreva o que foi realizado,
-                            selecione a turma e adicione
-                            as fotografias da atividade.
+                            Adicione a descrição da aula,
+                            turma e suas evidências fotográficas.
                         </p>
 
                         <a
                             href="registrarAtividade.html"
                             class="register-button"
                         >
-
-                            <span>
-                                Registrar atividade
-                            </span>
+                            Registrar atividade
 
                             <i class="fa-solid fa-arrow-right"></i>
-
                         </a>
 
                     </div>
 
-
                     <div class="register-symbol">
-
-                        <i class="fa-solid fa-camera"></i>
-
+                        <i class="fa-solid fa-plus"></i>
                     </div>
 
-                </div>
+                </article>
 
-
-
-                <!-- =================================================
-                     RESUMO
-                ================================================== -->
-
-                <div class="monthly-box">
+                <article class="monthly-box">
 
                     <div class="box-title">
 
                         <div>
 
                             <span>
-                                SEU RESUMO
+                                RESUMO
                             </span>
 
                             <h2>
@@ -278,64 +247,91 @@
 
                         </div>
 
-                        <i class="fa-solid fa-chart-simple"></i>
+                        <div class="summary-icon">
+                            <i class="fa-solid fa-chart-simple"></i>
+                        </div>
 
                     </div>
-
-
-                    <div class="monthly-number">
-
-                        <strong>
-                            12
-                        </strong>
-
-                        <span>
-                            atividades
-                        </span>
-
-                    </div>
-
-
-                    <div class="monthly-line"></div>
 
 
                     <div class="monthly-details">
 
-                        <div>
+                        <div class="monthly-line">
 
-                            <strong>
-                                28
-                            </strong>
+                            <div class="monthly-icon">
+                                <i class="fa-solid fa-book-open"></i>
+                            </div>
 
-                            <span>
-                                evidências
-                            </span>
+                            <div>
+
+                                <strong
+                                    id="totalAtividades"
+                                    class="monthly-number"
+                                >
+                                    0
+                                </strong>
+
+                                <span>
+                                    atividades
+                                </span>
+
+                            </div>
 
                         </div>
 
-                        <div>
 
-                            <strong>
-                                3
-                            </strong>
+                        <div class="monthly-line">
 
-                            <span>
-                                turmas
-                            </span>
+                            <div class="monthly-icon">
+                                <i class="fa-solid fa-camera"></i>
+                            </div>
+
+                            <div>
+
+                                <strong
+                                    id="totalEvidencias"
+                                    class="monthly-number"
+                                >
+                                    0
+                                </strong>
+
+                                <span>
+                                    evidências
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="monthly-line">
+
+                            <div class="monthly-icon">
+                                <i class="fa-solid fa-users"></i>
+                            </div>
+
+                            <div>
+
+                                <strong
+                                    id="totalTurmas"
+                                    class="monthly-number"
+                                >
+                                    0
+                                </strong>
+
+                                <span>
+                                    turmas
+                                </span>
+
+                            </div>
 
                         </div>
 
                     </div>
 
-                </div>
+                </article>
 
             </section>
-
-
-
-            <!-- =================================================
-                 REGISTROS RECENTES
-            ================================================== -->
 
             <section class="recent-section">
 
@@ -344,311 +340,146 @@
 
                     <div>
 
-                        <span>
+                        <span class="section-label">
                             HISTÓRICO
                         </span>
 
                         <h2>
-                            Suas últimas atividades
+                            Atividades recentes
                         </h2>
+
+                        <p>
+                            Confira os últimos registros realizados.
+                        </p>
 
                     </div>
 
-                    <a href="minhasAtividades.html">
-                        Ver todos
+
+                    <a
+                        href="minhasAtividades.html"
+                        class="see-all"
+                    >
+                        Ver todas
+
                         <i class="fa-solid fa-arrow-right"></i>
+
                     </a>
 
                 </div>
 
+                <div
+                    class="activity-list"
+                    id="atividadesRecentes"
+                >
 
-                <div class="activity-list">
 
+                    <div class="activity-loading">
 
-                    <!-- REGISTRO 1 -->
-
-                    <article class="activity-item">
-
-                        <div class="activity-date">
-
-                            <strong>
-                                10
-                            </strong>
-
-                            <span>
-                                SET
-                            </span>
-
+                        <div class="loading-icon">
+                            <i class="fa-solid fa-spinner fa-spin"></i>
                         </div>
 
-
-                        <div class="activity-type blue">
-
-                            <i class="fa-solid fa-code"></i>
-
-                        </div>
-
-
-                        <div class="activity-info">
-
-                            <h3>
-                                Introdução à programação
-                            </h3>
-
-                            <p>
-                                Desenvolvimento de páginas web com HTML e CSS
-                            </p>
-
-                        </div>
-
-
-                        <div class="activity-class">
-
-                            <span>
-                                TURMA
-                            </span>
-
-                            <strong>
-                                Desenvolvimento Web
-                            </strong>
-
-                        </div>
-
-
-                        <div class="activity-photos">
-
-                            <i class="fa-regular fa-image"></i>
-
-                            <span>
-                                5 fotos
-                            </span>
-
-                        </div>
-
-
-                      <button type="button" class="view-button" data-id="1" title="Visualizar">
-    <i class="fa-solid fa-chevron-right"></i>
-</button>
-
-                    </article>
-
-
-
-                    <!-- REGISTRO 2 -->
-
-                    <article class="activity-item">
-
-                        <div class="activity-date">
-
-                            <strong>
-                                09
-                            </strong>
-
-                            <span>
-                                SET
-                            </span>
-
-                        </div>
-
-
-                        <div class="activity-type orange">
-
-                            <i class="fa-solid fa-database"></i>
-
-                        </div>
-
-
-                        <div class="activity-info">
-
-                            <h3>
-                                Projeto Banco de Dados
-                            </h3>
-
-                            <p>
-                                Criação e organização de banco de dados
-                            </p>
-
-                        </div>
-
-
-                        <div class="activity-class">
-
-                            <span>
-                                TURMA
-                            </span>
-
-                            <strong>
-                                Informática para Internet
-                            </strong>
-
-                        </div>
-
-
-                        <div class="activity-photos">
-
-                            <i class="fa-regular fa-image"></i>
-
-                            <span>
-                                4 fotos
-                            </span>
-
-                        </div>
-
-<button type="button" class="view-button" data-id="2" title="Visualizar">
-    <i class="fa-solid fa-chevron-right"></i>
-</button>
-
-                    </article>
-
-
-
-                    <!-- REGISTRO 3 -->
-
-                    <article class="activity-item">
-
-                        <div class="activity-date">
-
-                            <strong>
-                                08
-                            </strong>
-
-                            <span>
-                                SET
-                            </span>
-
-                        </div>
-
-
-                        <div class="activity-type green">
-
-                            <i class="fa-solid fa-shield-halved"></i>
-
-                        </div>
-
-
-                        <div class="activity-info">
-
-                            <h3>
-                                Segurança da Informação
-                            </h3>
-
-                            <p>
-                                Boas práticas de segurança digital
-                            </p>
-
-                        </div>
-
-
-                        <div class="activity-class">
-
-                            <span>
-                                TURMA
-                            </span>
-
-                            <strong>
-                                Informática
-                            </strong>
-
-                        </div>
-
-
-                        <div class="activity-photos">
-
-                            <i class="fa-regular fa-image"></i>
-
-                            <span>
-                                3 fotos
-                            </span>
-
-                        </div>
-
-
-                      <button type="button" class="view-button" data-id="3" title="Visualizar">
-    <i class="fa-solid fa-chevron-right"></i>
-</button>
-
-                    </article>
-
+                        <p>
+                            Carregando atividades...
+                        </p>
+
+                    </div>
 
                 </div>
 
             </section>
 
 
-
-            <!-- =================================================
-                 ACESSOS RÁPIDOS
-            ================================================== -->
-
             <section class="quick-section">
 
 
-                <a href="minhasTurmas.html" class="quick-card">
-
-                    <div class="quick-icon blue">
-
-                        <i class="fa-solid fa-users"></i>
-
-                    </div>
+                <div class="quick-header">
 
                     <div>
 
-                        <span>
-                            ORGANIZAÇÃO
+                        <span class="section-label">
+                            ACESSO RÁPIDO
                         </span>
 
-                        <h3>
-                            Minhas turmas
-                        </h3>
-
-                        <p>
-                            Visualize suas turmas cadastradas.
-                        </p>
+                        <h2>
+                            O que você deseja fazer?
+                        </h2>
 
                     </div>
 
-                    <i class="fa-solid fa-arrow-up-right-from-square quick-arrow"></i>
-
-                </a>
+                </div>
 
 
-                <a href="minhasAtividades.html" class="quick-card">
+                <div class="quick-grid">
 
-                    <div class="quick-icon orange">
 
-                        <i class="fa-solid fa-file-lines"></i>
+                    <a
+                        href="minhasTurmas.html"
+                        class="quick-card"
+                    >
 
-                    </div>
+                        <div class="quick-icon">
 
-                    <div>
+                            <i class="fa-solid fa-users"></i>
 
-                        <span>
-                           Atividades
-                        </span>
+                        </div>
 
-                        <h3>
-                           Minhas atividades
-                        </h3>
+                        <div>
 
-                        <p>
-                            Consulte suas atividades.
-                        </p>
+                            <h3>
+                                Minhas turmas
+                            </h3>
 
-                    </div>
+                            <p>
+                                Consulte as turmas vinculadas ao seu perfil.
+                            </p>
 
-                    <i class="fa-solid fa-arrow-up-right-from-square quick-arrow"></i>
+                        </div>
 
-                </a>
+                        <i class="fa-solid fa-arrow-right quick-arrow"></i>
 
+                    </a>
+
+
+                    <a
+                        href="minhasAtividades.html"
+                        class="quick-card"
+                    >
+
+                        <div class="quick-icon">
+
+                            <i class="fa-solid fa-clipboard-list"></i>
+
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Minhas atividades
+                            </h3>
+
+                            <p>
+                                Consulte e acompanhe seus registros.
+                            </p>
+
+                        </div>
+
+                        <i class="fa-solid fa-arrow-right quick-arrow"></i>
+
+                    </a>
+
+                </div>
 
             </section>
+
 
         </div>
 
     </main>
 
-
-    <script src="../js/telaInicialProfessor.js"></script>
+    <script
+        src="../js/telaInicialProfessor.js"
+    ></script>
 
 </body>
 

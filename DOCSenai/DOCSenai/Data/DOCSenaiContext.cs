@@ -12,6 +12,7 @@ namespace DOCSenai.Data
         public DbSet<Relatorio> Relatorios { get; set; }
         public DbSet<Foto> Fotos { get; set; }
         public DbSet<Atividade> Atividades { get; set; }
+        public DbSet<Professor_Turma> Professor_Turmas { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -21,6 +22,35 @@ namespace DOCSenai.Data
                     ra.Fk_Atividade_Id_Atividade,
                     ra.Fk_Relatorio_Id_Relatorio
                 });
+
+            modelBuilder.Entity<Professor_Turma>()
+             .ToTable("Professor_Turma");
+
+            modelBuilder.Entity<Professor_Turma>()
+                .HasKey(pt => pt.Id_Professor_Turma);
+
+
+            modelBuilder.Entity<Professor_Turma>()
+                .HasOne(pt => pt.Professor)
+                .WithMany()
+                .HasForeignKey(pt => pt.Fk_Professor_Id_Usuario)
+                .OnDelete(DeleteBehavior.Restrict);
+
+
+            modelBuilder.Entity<Professor_Turma>()
+                .HasOne(pt => pt.Turma)
+                .WithMany()
+                .HasForeignKey(pt => pt.Fk_Turma_Id_Turma)
+                .OnDelete(DeleteBehavior.Restrict);
+
+
+            modelBuilder.Entity<Professor_Turma>()
+                .HasIndex(pt => new
+                {
+                    pt.Fk_Professor_Id_Usuario,
+                    pt.Fk_Turma_Id_Turma
+                })
+                .IsUnique();
 
 
         }

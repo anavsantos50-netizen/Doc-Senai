@@ -59,7 +59,8 @@ if (campoData) {
         hoje.getDate()
     ).padStart(2, "0");
 
-    campoData.value = `${ano}-${mes}-${dia}`;
+    campoData.value =
+        `${ano}-${mes}-${dia}`;
 
 }
 
@@ -68,8 +69,11 @@ if (campoData) {
    CONTADORES
 ========================================================= */
 
-const descricao = document.getElementById("descricao");
-const observacao = document.getElementById("observacao");
+const descricao =
+    document.getElementById("descricao");
+
+const observacao =
+    document.getElementById("observacao");
 
 const contadorDescricao =
     document.getElementById("contadorDescricao");
@@ -104,6 +108,11 @@ if (descricao) {
         }
     );
 
+    atualizarContador(
+        descricao,
+        contadorDescricao
+    );
+
 }
 
 
@@ -121,18 +130,26 @@ if (observacao) {
         }
     );
 
+    atualizarContador(
+        observacao,
+        contadorObservacao
+    );
+
 }
 
 
 /* =========================================================
-   UPLOAD DE FOTOS
+   ELEMENTOS DAS FOTOS
 ========================================================= */
 
-const fotosInput = document.getElementById("fotos");
+const fotosInput =
+    document.getElementById("fotos");
 
-const btnFotos = document.getElementById("btnFotos");
+const btnFotos =
+    document.getElementById("btnFotos");
 
-const uploadArea = document.getElementById("uploadArea");
+const uploadArea =
+    document.getElementById("uploadArea");
 
 const previewSection =
     document.getElementById("previewSection");
@@ -151,7 +168,7 @@ let arquivosSelecionados = [];
 
 
 /* =========================================================
-   ABRIR SELEÇÃO DE ARQUIVOS
+   ABRIR SELEÇÃO DE FOTOS
 ========================================================= */
 
 if (btnFotos) {
@@ -223,8 +240,6 @@ function adicionarArquivos(arquivos) {
     Array.from(arquivos).forEach(
         function (arquivo) {
 
-            /* Verifica formato */
-
             if (
                 !formatosPermitidos.includes(
                     arquivo.type
@@ -239,8 +254,6 @@ function adicionarArquivos(arquivos) {
             }
 
 
-            /* Verifica tamanho */
-
             if (arquivo.size > limiteTamanho) {
 
                 alert(
@@ -250,8 +263,6 @@ function adicionarArquivos(arquivos) {
                 return;
             }
 
-
-            /* Evita duplicados */
 
             const arquivoJaExiste =
                 arquivosSelecionados.some(
@@ -271,7 +282,9 @@ function adicionarArquivos(arquivos) {
             }
 
 
-            arquivosSelecionados.push(arquivo);
+            arquivosSelecionados.push(
+                arquivo
+            );
 
         }
     );
@@ -288,30 +301,44 @@ function adicionarArquivos(arquivos) {
 
 function atualizarPreview() {
 
+    if (!previewGrid) {
+        return;
+    }
+
     previewGrid.innerHTML = "";
 
 
     if (arquivosSelecionados.length === 0) {
 
-        previewSection.style.display = "none";
+        if (previewSection) {
+            previewSection.style.display = "none";
+        }
 
-        contadorFotos.textContent = "0 fotos";
+        if (contadorFotos) {
+            contadorFotos.textContent = "0 fotos";
+        }
 
         return;
     }
 
 
-    previewSection.style.display = "block";
+    if (previewSection) {
+        previewSection.style.display = "block";
+    }
 
 
     const quantidade =
         arquivosSelecionados.length;
 
 
-    contadorFotos.textContent =
-        quantidade === 1
-            ? "1 foto selecionada"
-            : `${quantidade} fotos selecionadas`;
+    if (contadorFotos) {
+
+        contadorFotos.textContent =
+            quantidade === 1
+                ? "1 foto selecionada"
+                : `${quantidade} fotos selecionadas`;
+
+    }
 
 
     arquivosSelecionados.forEach(
@@ -408,7 +435,9 @@ if (uploadArea) {
 
             event.preventDefault();
 
-            uploadArea.classList.add("dragover");
+            uploadArea.classList.add(
+                "dragover"
+            );
 
         }
     );
@@ -447,6 +476,110 @@ if (uploadArea) {
 
 
 /* =========================================================
+   CARREGAR TURMAS DO PROFESSOR
+========================================================= */
+
+const campoTurma =
+    document.getElementById("turma");
+
+
+async function carregarTurmas() {
+
+    if (!campoTurma) {
+        return;
+    }
+
+
+    try {
+
+        const resposta =
+            await fetch(
+                "https://localhost:7082/api/Atividade/turmas",
+                {
+                    method: "GET",
+                    credentials: "include"
+                }
+            );
+
+
+        if (resposta.status === 401) {
+
+            alert(
+                "Sua sessão expirou. Faça login novamente."
+            );
+
+            window.location.href =
+                "login.html";
+
+            return;
+        }
+
+
+        if (!resposta.ok) {
+
+            throw new Error(
+                "Não foi possível carregar as turmas."
+            );
+
+        }
+
+
+        const turmas =
+            await resposta.json();
+
+
+        campoTurma.innerHTML =
+            '<option value="">Selecione a turma</option>';
+
+
+        turmas.forEach(
+            function (turma) {
+
+                const option =
+                    document.createElement("option");
+
+                option.value =
+                    turma.id_turma;
+
+                option.textContent =
+                    `${turma.nome_turma} - ${turma.curso}`;
+
+                campoTurma.appendChild(
+                    option
+                );
+
+            }
+        );
+
+
+        if (turmas.length === 0) {
+
+            campoTurma.innerHTML =
+                '<option value="">Nenhuma turma vinculada</option>';
+
+        }
+
+    }
+    catch (erro) {
+
+        console.error(
+            "Erro ao carregar turmas:",
+            erro
+        );
+
+        alert(
+            "Não foi possível carregar as turmas do professor."
+        );
+
+    }
+
+}
+
+
+carregarTurmas();
+
+
+/* =========================================================
    FORMULÁRIO
 ========================================================= */
 
@@ -467,7 +600,7 @@ if (atividadeForm) {
 
     atividadeForm.addEventListener(
         "submit",
-        function (event) {
+        async function (event) {
 
             event.preventDefault();
 
@@ -477,14 +610,24 @@ if (atividadeForm) {
             ========================== */
 
             const turma =
-                document.getElementById("turma").value;
+                document.getElementById(
+                    "turma"
+                ).value;
 
             const data =
-                document.getElementById("data").value;
+                document.getElementById(
+                    "data"
+                ).value;
 
             const descricaoValue =
                 document
                     .getElementById("descricao")
+                    .value
+                    .trim();
+
+            const observacaoValue =
+                document
+                    .getElementById("observacao")
                     .value
                     .trim();
 
@@ -588,49 +731,140 @@ if (atividadeForm) {
                 '<i class="fa-solid fa-spinner fa-spin"></i> Registrando...';
 
 
-            /* ==========================
-               SIMULA SALVAMENTO
-               
-               Depois será substituído
-               pelo fetch da API.
-            ========================== */
+            try {
 
-            setTimeout(
-                function () {
+                /* ==========================
+                   FORMDATA
+                ========================== */
 
-                    submitButton.disabled = false;
-
-                    submitButton.innerHTML =
-                        '<i class="fa-solid fa-check"></i> Registrar atividade';
+                const formData =
+                    new FormData();
 
 
-                    /* Abre modal */
+                formData.append(
+                    "Fk_Turma_Id_Turma",
+                    turma
+                );
+
+
+                formData.append(
+                    "Data_Atividade",
+                    data
+                );
+
+
+                formData.append(
+                    "Descricao_Atividade",
+                    descricaoValue
+                );
+
+
+                formData.append(
+                    "Observacao",
+                    observacaoValue
+                );
+
+
+                /* ==========================
+                   ADICIONA FOTOS
+                ========================== */
+
+                arquivosSelecionados.forEach(
+                    function (arquivo) {
+
+                        formData.append(
+                            "Fotos",
+                            arquivo
+                        );
+
+                    }
+                );
+
+
+                /* ==========================
+                   ENVIA PARA API
+                ========================== */
+
+                const resposta =
+                    await fetch(
+                        "https://localhost:7082/api/Atividade/registrar",
+                        {
+                            method: "POST",
+                            credentials: "include",
+                            body: formData
+                        }
+                    );
+
+
+                /* ==========================
+                   LÊ RESPOSTA
+                ========================== */
+
+                const resultado =
+                    await resposta.json();
+
+
+                if (!resposta.ok) {
+
+                    throw new Error(
+                        resultado.mensagem ||
+                        "Não foi possível registrar a atividade."
+                    );
+
+                }
+
+
+                /* ==========================
+                   SUCESSO
+                ========================== */
+
+                console.log(
+                    "Atividade registrada:",
+                    resultado
+                );
+
+
+                submitButton.disabled =
+                    false;
+
+                submitButton.innerHTML =
+                    '<i class="fa-solid fa-check"></i> Registrar atividade';
+
+
+                /* ==========================
+                   ABRE MODAL
+                ========================== */
+
+                if (successOverlay) {
 
                     successOverlay.classList.add(
                         "show"
                     );
 
+                }
 
-                    /* Mostra no console */
+            }
+            catch (erro) {
 
-                    console.log(
-                        "Atividade registrada:"
-                    );
-
-                    console.log({
-                        turma: turma,
-                        data: data,
-                        descricao: descricaoValue,
-                        observacao:
-                            observacao.value.trim(),
-                        fotos:
-                            arquivosSelecionados
-                    });
+                console.error(
+                    "Erro ao registrar atividade:",
+                    erro
+                );
 
 
-                },
-                900
-            );
+                submitButton.disabled =
+                    false;
+
+                submitButton.innerHTML =
+                    '<i class="fa-solid fa-check"></i> Registrar atividade';
+
+
+                alert(
+                    erro.message ||
+                    "Ocorreu um erro ao registrar a atividade."
+                );
+
+            }
 
         }
     );
