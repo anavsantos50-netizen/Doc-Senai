@@ -19,6 +19,7 @@ body {
     font-family: 'Poppins', sans-serif;
 
     background: #F6F7FB;
+
     color: #192E75;
 }
 
@@ -39,9 +40,11 @@ textarea {
     height: 82px;
 
     background: #FFFFFF;
+
     border-bottom: 1px solid #E9ECF2;
 
     position: sticky;
+
     top: 0;
 
     z-index: 100;
@@ -49,12 +52,15 @@ textarea {
 
 .topbar-container {
     width: 92%;
+
     max-width: 1450px;
+
     height: 100%;
 
     margin: 0 auto;
 
     display: flex;
+
     align-items: center;
 
     position: relative;
@@ -79,6 +85,7 @@ textarea {
 .logo img,
 .logo-area img {
     width: 100%;
+
     height: auto;
 
     display: block;
@@ -93,9 +100,11 @@ textarea {
     position: absolute;
 
     left: 50%;
+
     transform: translateX(-50%);
 
     display: flex;
+
     align-items: center;
 
     gap: 4px;
@@ -116,7 +125,9 @@ textarea {
     padding: 0 21px;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     border-radius: 8px;
@@ -126,6 +137,7 @@ textarea {
     text-decoration: none;
 
     font-size: 14px;
+
     font-weight: 500;
 
     white-space: nowrap;
@@ -146,7 +158,8 @@ textarea {
 
     font-weight: 600;
 
-    box-shadow: 0 4px 10px rgba(25, 46, 117, 0.15);
+    box-shadow:
+        0 4px 10px rgba(25, 46, 117, 0.15);
 }
 
 
@@ -158,6 +171,7 @@ textarea {
     margin-left: auto;
 
     display: flex;
+
     align-items: center;
 
     gap: 16px;
@@ -165,6 +179,7 @@ textarea {
 
 .profile-link {
     display: flex;
+
     align-items: center;
 
     gap: 10px;
@@ -176,6 +191,7 @@ textarea {
 
 .profile-info {
     display: flex;
+
     flex-direction: column;
 
     align-items: flex-end;
@@ -187,6 +203,7 @@ textarea {
     color: #192E75;
 
     font-size: 14px;
+
     font-weight: 700;
 
     transition: 0.2s ease;
@@ -196,6 +213,7 @@ textarea {
     color: #777777;
 
     font-size: 12px;
+
     font-weight: 500;
 }
 
@@ -210,12 +228,15 @@ textarea {
 
 .profile-icon {
     width: 43px;
+
     height: 43px;
 
     flex-shrink: 0;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     border-radius: 50%;
@@ -243,12 +264,15 @@ textarea {
 .logout-btn,
 .logout-button {
     width: 42px;
+
     height: 42px;
 
     flex-shrink: 0;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     margin: 0;
@@ -286,6 +310,7 @@ textarea {
     display: none;
 
     width: 40px;
+
     height: 40px;
 
     margin-left: 10px;
@@ -303,6 +328,7 @@ textarea {
     cursor: pointer;
 
     align-items: center;
+
     justify-content: center;
 }
 
@@ -319,6 +345,7 @@ textarea {
 
 .content-container {
     width: 90%;
+
     max-width: 1300px;
 
     margin: 0 auto;
@@ -331,6 +358,7 @@ textarea {
 
 .back-link {
     display: inline-flex;
+
     align-items: center;
 
     gap: 8px;
@@ -342,6 +370,7 @@ textarea {
     text-decoration: none;
 
     font-size: 11px;
+
     font-weight: 500;
 
     transition: 0.2s ease;
@@ -372,6 +401,7 @@ textarea {
     color: #969DAC;
 
     font-size: 11px;
+
     font-weight: 600;
 
     letter-spacing: 1.2px;
@@ -383,6 +413,7 @@ textarea {
     color: #192E75;
 
     font-size: 38px;
+
     line-height: 1.2;
 
     font-weight: 700;
@@ -394,6 +425,7 @@ textarea {
     color: #777F91;
 
     font-size: 15px;
+
     line-height: 1.5;
 
     margin-top: 9px;
@@ -426,7 +458,8 @@ textarea {
 
     position: relative;
 
-    box-shadow: 0 8px 25px rgba(25, 46, 117, 0.035);
+    box-shadow:
+        0 8px 25px rgba(25, 46, 117, 0.035);
 
     margin-bottom: 20px;
 }
@@ -438,6 +471,7 @@ textarea {
 
 .card-header {
     display: flex;
+
     align-items: center;
 
     gap: 14px;
@@ -447,12 +481,15 @@ textarea {
 
 .card-icon {
     width: 45px;
+
     height: 45px;
 
     flex-shrink: 0;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     border-radius: 10px;
@@ -474,6 +511,7 @@ textarea {
 
 .card-header > div {
     display: flex;
+
     flex-direction: column;
 }
 
@@ -481,6 +519,7 @@ textarea {
     color: #969DAC;
 
     font-size: 9px;
+
     font-weight: 600;
 
     letter-spacing: 1px;
@@ -490,6 +529,7 @@ textarea {
     color: #192E75;
 
     font-size: 20px;
+
     font-weight: 700;
 
     margin-top: 4px;
@@ -510,6 +550,7 @@ textarea {
 
 .form-group {
     display: flex;
+
     flex-direction: column;
 
     min-width: 0;
@@ -528,6 +569,7 @@ textarea {
     color: #3F4659;
 
     font-size: 11px;
+
     font-weight: 600;
 
     margin-bottom: 7px;
@@ -541,6 +583,7 @@ textarea {
     color: #9AA0AE;
 
     font-size: 9px;
+
     font-style: normal;
 
     font-weight: 500;
@@ -548,7 +591,7 @@ textarea {
 
 
 /* =========================================================
-   INPUT WRAPPER
+   INPUT
 ========================================================= */
 
 .input-wrapper {
@@ -560,6 +603,7 @@ textarea {
 .input-wrapper input,
 .input-wrapper select {
     width: 100%;
+
     height: 45px;
 
     padding: 0 14px;
@@ -589,7 +633,8 @@ textarea {
 .input-wrapper select:focus {
     border-color: #192E75;
 
-    box-shadow: 0 0 0 3px rgba(25, 46, 117, 0.07);
+    box-shadow:
+        0 0 0 3px rgba(25, 46, 117, 0.07);
 }
 
 
@@ -611,6 +656,7 @@ textarea {
     position: absolute;
 
     left: 14px;
+
     top: 50%;
 
     transform: translateY(-50%);
@@ -634,6 +680,7 @@ textarea {
     position: absolute;
 
     right: 14px;
+
     top: 50%;
 
     transform: translateY(-50%);
@@ -676,6 +723,7 @@ textarea {
     resize: vertical;
 
     font-size: 11px;
+
     line-height: 1.65;
 
     transition:
@@ -690,7 +738,8 @@ textarea {
 .textarea-wrapper textarea:focus {
     border-color: #192E75;
 
-    box-shadow: 0 0 0 3px rgba(25, 46, 117, 0.07);
+    box-shadow:
+        0 0 0 3px rgba(25, 46, 117, 0.07);
 }
 
 
@@ -700,7 +749,9 @@ textarea {
 
 .textarea-footer {
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
 
     gap: 15px;
@@ -726,7 +777,7 @@ textarea {
 
 
 /* =========================================================
-   SEÇÃO DE FOTOS
+   FOTOS
 ========================================================= */
 
 .photos-card {
@@ -745,11 +796,6 @@ textarea {
     margin-bottom: 22px;
 }
 
-
-/* =========================================================
-   ÁREA DE UPLOAD
-========================================================= */
-
 .upload-area {
     width: 100%;
 
@@ -758,8 +804,11 @@ textarea {
     padding: 30px;
 
     display: flex;
+
     flex-direction: column;
+
     align-items: center;
+
     justify-content: center;
 
     text-align: center;
@@ -785,17 +834,15 @@ textarea {
     background: #FFF7F4;
 }
 
-
-/* =========================================================
-   ÍCONE UPLOAD
-========================================================= */
-
 .upload-icon {
     width: 52px;
+
     height: 52px;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     margin-bottom: 13px;
@@ -809,15 +856,11 @@ textarea {
     font-size: 19px;
 }
 
-
-/* =========================================================
-   TEXTO UPLOAD
-========================================================= */
-
 .upload-area h3 {
     color: #192E75;
 
     font-size: 15px;
+
     font-weight: 600;
 
     margin-bottom: 5px;
@@ -833,18 +876,15 @@ textarea {
     margin-bottom: 17px;
 }
 
-
-/* =========================================================
-   BOTÃO FOTOS
-========================================================= */
-
 .upload-button {
     height: 43px;
 
     padding: 0 18px;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     gap: 8px;
@@ -858,6 +898,7 @@ textarea {
     color: #FFFFFF;
 
     font-size: 11px;
+
     font-weight: 600;
 
     cursor: pointer;
@@ -869,10 +910,6 @@ textarea {
     background: #EA632C;
 
     transform: translateY(-2px);
-}
-
-.upload-button i {
-    font-size: 10px;
 }
 
 .upload-info {
@@ -894,7 +931,9 @@ textarea {
 
 .preview-header {
     display: flex;
+
     align-items: flex-end;
+
     justify-content: space-between;
 
     margin-bottom: 14px;
@@ -904,6 +943,7 @@ textarea {
     color: #192E75;
 
     font-size: 15px;
+
     font-weight: 600;
 }
 
@@ -913,18 +953,15 @@ textarea {
     font-size: 9px;
 }
 
-
-/* =========================================================
-   ADICIONAR MAIS FOTOS
-========================================================= */
-
 .add-more-button {
     height: 38px;
 
     padding: 0 14px;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     gap: 7px;
@@ -938,6 +975,7 @@ textarea {
     color: #192E75;
 
     font-size: 10px;
+
     font-weight: 600;
 
     cursor: pointer;
@@ -951,11 +989,6 @@ textarea {
     background: #F5F6FA;
 }
 
-
-/* =========================================================
-   GRID DE FOTOS
-========================================================= */
-
 .preview-grid {
     width: 100%;
 
@@ -965,34 +998,6 @@ textarea {
 
     gap: 12px;
 }
-.photo-preview {
-    position: relative;
-
-    width: 100%;
-    aspect-ratio: 4 / 3;
-
-    overflow: hidden;
-
-    border-radius: 10px;
-
-    border: 1px solid #E5E8EF;
-
-    background: #F6F7FB;
-}
-
-.photo-preview img {
-    width: 100%;
-    height: 100%;
-
-    display: block;
-
-    object-fit: cover;
-}
-
-
-/* =========================================================
-   FOTO
-========================================================= */
 
 .preview-item {
     position: relative;
@@ -1012,6 +1017,7 @@ textarea {
 
 .preview-item img {
     width: 100%;
+
     height: 100%;
 
     display: block;
@@ -1019,23 +1025,22 @@ textarea {
     object-fit: cover;
 }
 
-
-/* =========================================================
-   REMOVER FOTO
-========================================================= */
-
 .preview-remove,
 .remove-photo {
     position: absolute;
 
     top: 7px;
+
     right: 7px;
 
     width: 29px;
+
     height: 29px;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     border: none;
@@ -1071,6 +1076,7 @@ textarea {
     margin-bottom: 25px;
 
     display: flex;
+
     align-items: flex-start;
 
     gap: 11px;
@@ -1107,7 +1113,9 @@ textarea {
 
 .form-actions {
     display: flex;
+
     align-items: center;
+
     justify-content: flex-end;
 
     gap: 10px;
@@ -1115,18 +1123,15 @@ textarea {
     margin-top: 5px;
 }
 
-
-/* =========================================================
-   CANCELAR
-========================================================= */
-
 .cancel-button {
     height: 45px;
 
     padding: 0 19px;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     border: 1px solid #DDDFE6;
@@ -1140,6 +1145,7 @@ textarea {
     text-decoration: none;
 
     font-size: 11px;
+
     font-weight: 600;
 
     transition: 0.2s ease;
@@ -1151,18 +1157,15 @@ textarea {
     border-color: #192E75;
 }
 
-
-/* =========================================================
-   ENVIAR
-========================================================= */
-
 .submit-button {
     height: 45px;
 
     padding: 0 20px;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     gap: 8px;
@@ -1176,6 +1179,7 @@ textarea {
     color: #FFFFFF;
 
     font-size: 11px;
+
     font-weight: 600;
 
     cursor: pointer;
@@ -1205,28 +1209,20 @@ textarea {
 
     padding: 20px;
 
-    display: flex;
+    display: none;
+
     align-items: center;
+
     justify-content: center;
 
     background: rgba(25, 46, 117, 0.45);
-
-    opacity: 0;
-
-    visibility: hidden;
-
-    transition:
-        opacity 0.25s ease,
-        visibility 0.25s ease;
 
     z-index: 9999;
 }
 
 .success-overlay.show,
 .success-overlay.active {
-    opacity: 1;
-
-    visibility: visible;
+    display: flex;
 }
 
 
@@ -1236,6 +1232,7 @@ textarea {
 
 .success-modal {
     width: 100%;
+
     max-width: 420px;
 
     padding: 35px 32px 30px;
@@ -1248,15 +1245,9 @@ textarea {
 
     border-radius: 17px;
 
-    box-shadow: 0 18px 50px rgba(25, 46, 117, 0.15);
+    box-shadow:
+        0 18px 50px rgba(25, 46, 117, 0.15);
 
-    transform: translateY(15px);
-
-    transition: 0.25s ease;
-}
-
-.success-overlay.show .success-modal,
-.success-overlay.active .success-modal {
     transform: translateY(0);
 }
 
@@ -1267,12 +1258,15 @@ textarea {
 
 .success-icon {
     width: 58px;
+
     height: 58px;
 
     margin: 0 auto 17px;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     border-radius: 50%;
@@ -1293,6 +1287,7 @@ textarea {
     color: #192E75;
 
     font-size: 21px;
+
     font-weight: 700;
 
     margin-bottom: 8px;
@@ -1315,6 +1310,7 @@ textarea {
 
 #successButton {
     width: 100%;
+
     height: 44px;
 
     border: none;
@@ -1326,6 +1322,7 @@ textarea {
     color: #FFFFFF;
 
     font-size: 11px;
+
     font-weight: 600;
 
     cursor: pointer;
@@ -1387,7 +1384,6 @@ textarea {
     .upload-area {
         min-height: 240px;
     }
-
 }
 
 
@@ -1427,7 +1423,6 @@ textarea {
     .preview-grid {
         grid-template-columns: repeat(3, 1fr);
     }
-
 }
 
 
@@ -1450,11 +1445,6 @@ textarea {
         width: 140px;
     }
 
-
-    /* -----------------------------------------------------
-       PERFIL
-    ----------------------------------------------------- */
-
     .profile-area {
         margin-left: auto;
 
@@ -1467,6 +1457,7 @@ textarea {
 
     .profile-icon {
         width: 40px;
+
         height: 40px;
     }
 
@@ -1474,11 +1465,6 @@ textarea {
     .logout-button {
         display: none;
     }
-
-
-    /* -----------------------------------------------------
-       MENU
-    ----------------------------------------------------- */
 
     .main-nav {
         display: none;
@@ -1494,6 +1480,7 @@ textarea {
         position: absolute;
 
         top: 70px;
+
         left: 0;
 
         transform: none;
@@ -1513,10 +1500,13 @@ textarea {
         border-radius: 0;
 
         border-left: none;
+
         border-right: none;
+
         border-top: none;
 
-        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.07);
+        box-shadow:
+            0 12px 25px rgba(0, 0, 0, 0.07);
     }
 
     .main-nav.open .nav-link,
@@ -1536,11 +1526,6 @@ textarea {
     .main-nav.open a.active {
         box-shadow: none;
     }
-
-
-    /* -----------------------------------------------------
-       CONTEÚDO
-    ----------------------------------------------------- */
 
     .main-content {
         padding-top: 35px;
@@ -1565,7 +1550,6 @@ textarea {
     .preview-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-
 }
 
 
@@ -1590,6 +1574,7 @@ textarea {
 
     .menu-mobile {
         width: 38px;
+
         height: 38px;
     }
 
@@ -1604,11 +1589,6 @@ textarea {
     .content-container {
         width: 92%;
     }
-
-
-    /* -----------------------------------------------------
-       CABEÇALHO
-    ----------------------------------------------------- */
 
     .page-header {
         margin-bottom: 25px;
@@ -1632,21 +1612,11 @@ textarea {
         line-height: 1.5;
     }
 
-
-    /* -----------------------------------------------------
-       VOLTAR
-    ----------------------------------------------------- */
-
     .back-link {
         font-size: 10px;
 
         margin-bottom: 20px;
     }
-
-
-    /* -----------------------------------------------------
-       CARD
-    ----------------------------------------------------- */
 
     .form-card {
         padding: 23px 20px;
@@ -1662,6 +1632,7 @@ textarea {
 
     .card-icon {
         width: 40px;
+
         height: 40px;
 
         border-radius: 9px;
@@ -1676,11 +1647,6 @@ textarea {
     .card-header h2 {
         font-size: 17px;
     }
-
-
-    /* -----------------------------------------------------
-       FORMULÁRIO
-    ----------------------------------------------------- */
 
     .form-grid {
         gap: 17px;
@@ -1708,11 +1674,6 @@ textarea {
         font-size: 8px;
     }
 
-
-    /* -----------------------------------------------------
-       FOTOS
-    ----------------------------------------------------- */
-
     .photos-description {
         font-size: 10px;
     }
@@ -1725,6 +1686,7 @@ textarea {
 
     .upload-icon {
         width: 48px;
+
         height: 48px;
 
         font-size: 18px;
@@ -1752,11 +1714,6 @@ textarea {
         font-size: 8px;
     }
 
-
-    /* -----------------------------------------------------
-       PREVIEW
-    ----------------------------------------------------- */
-
     .preview-header {
         align-items: flex-start;
 
@@ -1779,11 +1736,6 @@ textarea {
         gap: 9px;
     }
 
-
-    /* -----------------------------------------------------
-       AVISO
-    ----------------------------------------------------- */
-
     .form-notice {
         padding: 12px 13px;
 
@@ -1793,11 +1745,6 @@ textarea {
     .form-notice p {
         font-size: 9px;
     }
-
-
-    /* -----------------------------------------------------
-       BOTÕES
-    ----------------------------------------------------- */
 
     .form-actions {
         flex-direction: column-reverse;
@@ -1809,11 +1756,6 @@ textarea {
     .submit-button {
         width: 100%;
     }
-
-
-    /* -----------------------------------------------------
-       MODAL
-    ----------------------------------------------------- */
 
     .success-overlay {
         padding: 15px;
@@ -1827,6 +1769,7 @@ textarea {
 
     .success-icon {
         width: 54px;
+
         height: 54px;
 
         font-size: 20px;
@@ -1839,7 +1782,6 @@ textarea {
     .success-modal p {
         font-size: 10px;
     }
-
 }
 
 
@@ -1881,5 +1823,4 @@ textarea {
     .success-modal {
         padding: 27px 18px 22px;
     }
-
 }

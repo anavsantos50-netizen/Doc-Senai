@@ -23,12 +23,15 @@ namespace DOCSenai.Data
                     ra.Fk_Relatorio_Id_Relatorio
                 });
 
+            modelBuilder.Entity<Atividade>()
+                .Property(a => a.Observacao)
+                .IsRequired(false);
+
             modelBuilder.Entity<Professor_Turma>()
-             .ToTable("Professor_Turma");
+                .ToTable("Professor_Turma");
 
             modelBuilder.Entity<Professor_Turma>()
                 .HasKey(pt => pt.Id_Professor_Turma);
-
 
             modelBuilder.Entity<Professor_Turma>()
                 .HasOne(pt => pt.Professor)
@@ -36,13 +39,11 @@ namespace DOCSenai.Data
                 .HasForeignKey(pt => pt.Fk_Professor_Id_Usuario)
                 .OnDelete(DeleteBehavior.Restrict);
 
-
             modelBuilder.Entity<Professor_Turma>()
                 .HasOne(pt => pt.Turma)
                 .WithMany()
                 .HasForeignKey(pt => pt.Fk_Turma_Id_Turma)
                 .OnDelete(DeleteBehavior.Restrict);
-
 
             modelBuilder.Entity<Professor_Turma>()
                 .HasIndex(pt => new
@@ -51,9 +52,6 @@ namespace DOCSenai.Data
                     pt.Fk_Turma_Id_Turma
                 })
                 .IsUnique();
-
-
         }
     }
 }
-

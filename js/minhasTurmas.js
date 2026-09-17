@@ -1,438 +1,36 @@
-/* =====================================================
-   DADOS DAS TURMAS
-===================================================== */
+/* =========================================================
+   CONFIGURAÇÃO
+========================================================= */
 
-const turmas = [
-    {
-        id: 1,
-        nome: "Turma 2026.1",
-        curso: "Informática",
-        cursoFiltro: "informatica",
-        periodo: "2026.1",
-        turno: "Matutino",
-        atividades: [
-            {
-                titulo: "Introdução ao Desenvolvimento Web",
-                data: "05/09/2026"
-            },
-            {
-                titulo: "Estrutura básica de páginas HTML",
-                data: "08/09/2026"
-            },
-            {
-                titulo: "Estilização com CSS",
-                data: "10/09/2026"
-            }
-        ]
-    },
+const API_BASE = "https://localhost:7082";
 
-    {
-        id: 2,
-        nome: "Turma 2026.2",
-        curso: "Administração",
-        cursoFiltro: "administracao",
-        periodo: "2026.2",
-        turno: "Vespertino",
-        atividades: [
-            {
-                titulo: "Introdução à Administração",
-                data: "04/09/2026"
-            },
-            {
-                titulo: "Organização e Planejamento",
-                data: "09/09/2026"
-            }
-        ]
-    },
 
-    {
-        id: 3,
-        nome: "Turma 2026.3",
-        curso: "Mecânica",
-        cursoFiltro: "mecanica",
-        periodo: "2026.3",
-        turno: "Noturno",
-        atividades: [
-            {
-                titulo: "Introdução à Mecânica",
-                data: "03/09/2026"
-            },
-            {
-                titulo: "Segurança no ambiente de trabalho",
-                data: "07/09/2026"
-            },
-            {
-                titulo: "Ferramentas e equipamentos",
-                data: "11/09/2026"
-            }
-        ]
-    }
-];
+/* =========================================================
+   ELEMENTOS
+========================================================= */
 
+const searchInput =
+    document.getElementById("searchInput");
 
-/* =====================================================
-   ELEMENTOS DO DOM
-===================================================== */
+const cursoFilter =
+    document.getElementById("cursoFilter");
 
-const classesGrid = document.getElementById("classesGrid");
-const emptyState = document.getElementById("emptyState");
+const resultsCount =
+    document.getElementById("resultsCount");
 
-const searchInput = document.getElementById("searchInput");
-const cursoFilter = document.getElementById("cursoFilter");
+const classesGrid =
+    document.getElementById("classesGrid");
 
-const clearFilters = document.getElementById("clearFilters");
-const emptyClearBtn = document.getElementById("emptyClearBtn");
+const emptyState =
+    document.getElementById("emptyState");
 
-const resultsCount = document.getElementById("resultsCount");
+const emptyClearBtn =
+    document.getElementById("emptyClearBtn");
 
 
-/* =====================================================
-   MENU MOBILE
-===================================================== */
-
-const menuMobile = document.getElementById("menuMobile");
-const mainNav = document.getElementById("mainNav");
-
-if (menuMobile && mainNav) {
-
-    menuMobile.addEventListener("click", () => {
-
-        mainNav.classList.toggle("open");
-
-        const icon = menuMobile.querySelector("i");
-
-        if (mainNav.classList.contains("open")) {
-
-            icon.classList.remove("fa-bars");
-            icon.classList.add("fa-xmark");
-
-            menuMobile.setAttribute(
-                "aria-label",
-                "Fechar menu"
-            );
-
-        } else {
-
-            icon.classList.remove("fa-xmark");
-            icon.classList.add("fa-bars");
-
-            menuMobile.setAttribute(
-                "aria-label",
-                "Abrir menu"
-            );
-
-        }
-
-    });
-
-
-    /* Fecha o menu ao clicar em algum link */
-
-    const menuLinks = mainNav.querySelectorAll(".nav-link");
-
-    menuLinks.forEach(link => {
-
-        link.addEventListener("click", () => {
-
-            mainNav.classList.remove("open");
-
-            const icon = menuMobile.querySelector("i");
-
-            icon.classList.remove("fa-xmark");
-            icon.classList.add("fa-bars");
-
-            menuMobile.setAttribute(
-                "aria-label",
-                "Abrir menu"
-            );
-
-        });
-
-    });
-
-}
-
-
-/* =====================================================
-   CRIAÇÃO DOS CARDS
-===================================================== */
-
-function renderTurmas(lista) {
-
-    classesGrid.innerHTML = "";
-
-
-    /* Nenhuma turma */
-
-    if (lista.length === 0) {
-
-        classesGrid.style.display = "none";
-
-        emptyState.style.display = "block";
-
-        resultsCount.textContent =
-            "0 turmas encontradas";
-
-        return;
-    }
-
-
-    /* Existem turmas */
-
-    classesGrid.style.display = "grid";
-
-    emptyState.style.display = "none";
-
-
-    /* Quantidade */
-
-    if (lista.length === 1) {
-
-        resultsCount.textContent =
-            "1 turma encontrada";
-
-    } else {
-
-        resultsCount.textContent =
-            `${lista.length} turmas encontradas`;
-
-    }
-
-
-    /* Cards */
-
-    lista.forEach(turma => {
-
-        const quantidadeAtividades =
-            turma.atividades.length;
-
-
-        const card = document.createElement("article");
-
-        card.className = "class-card";
-
-
-        card.innerHTML = `
-
-            <div class="class-icon">
-
-                <i class="fa-solid fa-users"></i>
-
-            </div>
-
-
-            <h2>
-                ${turma.nome}
-            </h2>
-
-
-            <p class="class-course">
-                ${turma.curso}
-            </p>
-
-
-            <div class="class-details">
-
-                <div class="class-detail">
-
-                    <i class="fa-regular fa-calendar"></i>
-
-                    <span>
-                        Período: ${turma.periodo}
-                    </span>
-
-                </div>
-
-
-                <div class="class-detail">
-
-                    <i class="fa-regular fa-clock"></i>
-
-                    <span>
-                        Turno: ${turma.turno}
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <div class="class-card-footer">
-
-                <span class="activity-badge">
-
-                    <i class="fa-solid fa-file-lines"></i>
-
-                    ${quantidadeAtividades}
-                    ${quantidadeAtividades === 1
-                        ? "atividade"
-                        : "atividades"}
-
-                </span>
-
-
-                <button
-                    type="button"
-                    class="view-class-btn"
-                    data-id="${turma.id}">
-
-                    Ver turma
-
-                    <i class="fa-solid fa-arrow-right"></i>
-
-                </button>
-
-            </div>
-
-        `;
-
-
-        classesGrid.appendChild(card);
-
-    });
-
-
-    /* Eventos dos botões */
-
-    const buttons =
-        document.querySelectorAll(".view-class-btn");
-
-
-    buttons.forEach(button => {
-
-        button.addEventListener("click", () => {
-
-            const id =
-                Number(button.dataset.id);
-
-            abrirModal(id);
-
-        });
-
-    });
-
-}
-
-
-/* =====================================================
-   FILTROS
-===================================================== */
-
-function aplicarFiltros() {
-
-    const texto =
-        searchInput.value
-            .trim()
-            .toLowerCase();
-
-
-    const curso =
-        cursoFilter.value;
-
-
-    const resultado =
-        turmas.filter(turma => {
-
-            const correspondeBusca =
-
-                turma.nome
-                    .toLowerCase()
-                    .includes(texto)
-
-                ||
-
-                turma.curso
-                    .toLowerCase()
-                    .includes(texto);
-
-
-            const correspondeCurso =
-
-                curso === "todos"
-
-                ||
-
-                turma.cursoFiltro === curso;
-
-
-            return
-                correspondeBusca &&
-                correspondeCurso;
-
-        });
-
-
-    renderTurmas(resultado);
-
-}
-
-
-/* =====================================================
-   BUSCA
-===================================================== */
-
-if (searchInput) {
-
-    searchInput.addEventListener(
-        "input",
-        aplicarFiltros
-    );
-
-}
-
-
-/* =====================================================
-   FILTRO DE CURSO
-===================================================== */
-
-if (cursoFilter) {
-
-    cursoFilter.addEventListener(
-        "change",
-        aplicarFiltros
-    );
-
-}
-
-
-/* =====================================================
-   LIMPAR FILTROS
-===================================================== */
-
-function limparFiltros() {
-
-    searchInput.value = "";
-
-    cursoFilter.value = "todos";
-
-    renderTurmas(turmas);
-
-}
-
-
-if (clearFilters) {
-
-    clearFilters.addEventListener(
-        "click",
-        limparFiltros
-    );
-
-}
-
-
-if (emptyClearBtn) {
-
-    emptyClearBtn.addEventListener(
-        "click",
-        limparFiltros
-    );
-
-}
-
-
-/* =====================================================
+/* =========================================================
    MODAL
-===================================================== */
+========================================================= */
 
 const classModal =
     document.getElementById("classModal");
@@ -442,7 +40,6 @@ const modalClose =
 
 const modalCloseBottom =
     document.getElementById("modalCloseBottom");
-
 
 const modalTitle =
     document.getElementById("modalTitle");
@@ -466,236 +63,153 @@ const modalActivitiesList =
     document.getElementById("modalActivitiesList");
 
 
-/* =====================================================
-   ABRIR MODAL
-===================================================== */
+/* =========================================================
+   MENU MOBILE
+========================================================= */
 
-function abrirModal(id) {
+const mobileMenuBtn =
+    document.getElementById("mobileMenuBtn");
 
-    const turma =
-        turmas.find(item => item.id === id);
-
-
-    if (!turma) {
-        return;
-    }
+const mobileNav =
+    document.getElementById("mobileNav");
 
 
-    /* Informações */
+/* =========================================================
+   LOGOUT
+========================================================= */
 
-    modalTitle.textContent =
-        turma.nome;
-
-    modalCourse.textContent =
-        turma.curso;
-
-    modalCourseInfo.textContent =
-        turma.curso;
-
-    modalPeriod.textContent =
-        turma.periodo;
-
-    modalShift.textContent =
-        turma.turno;
+const btnLogout =
+    document.getElementById("btnLogout");
 
 
-    /* Quantidade */
+/* =========================================================
+   VARIÁVEIS
+========================================================= */
 
-    const quantidade =
-        turma.atividades.length;
+let turmas = [];
 
-
-    modalActivities.textContent =
-        quantidade === 1
-            ? "1 atividade"
-            : `${quantidade} atividades`;
+let turmaSelecionada = null;
 
 
-    /* Lista */
+/* =========================================================
+   INICIALIZAÇÃO
+========================================================= */
 
-    modalActivitiesList.innerHTML = "";
+document.addEventListener("DOMContentLoaded", () => {
 
+    carregarTurmas();
 
-    if (turma.atividades.length === 0) {
+    configurarEventos();
 
-        modalActivitiesList.innerHTML = `
-
-            <div class="modal-empty">
-
-                <i class="fa-regular fa-folder-open"></i>
-
-                <span>
-                    Nenhuma atividade registrada.
-                </span>
-
-            </div>
-
-        `;
-
-    } else {
-
-        turma.atividades.forEach(atividade => {
-
-            const data =
-                formatarData(atividade.data);
+});
 
 
-            const item =
-                document.createElement("div");
+/* =========================================================
+   CONFIGURAR EVENTOS
+========================================================= */
 
+function configurarEventos() {
 
-            item.className =
-                "modal-activity";
+    /* -----------------------------------------------------
+       BUSCA
+    ----------------------------------------------------- */
 
+    if (searchInput) {
 
-            item.innerHTML = `
-
-                <div class="modal-activity-date">
-
-                    <strong>
-                        ${data.dia}
-                    </strong>
-
-                    <span>
-                        ${data.mes}
-                    </span>
-
-                </div>
-
-
-                <div class="modal-activity-info">
-
-                    <strong>
-                        ${atividade.titulo}
-                    </strong>
-
-                    <span>
-                        Registrada em ${atividade.data}
-                    </span>
-
-                </div>
-
-            `;
-
-
-            modalActivitiesList.appendChild(item);
-
-        });
+        searchInput.addEventListener(
+            "input",
+            renderizarTurmas
+        );
 
     }
 
 
-    /* Abre */
+    /* -----------------------------------------------------
+       FILTRO DE CURSO
+    ----------------------------------------------------- */
 
-    classModal.classList.add("show");
+    if (cursoFilter) {
 
-    document.body.style.overflow =
-        "hidden";
-
-}
-
-
-/* =====================================================
-   FORMATAR DATA
-===================================================== */
-
-function formatarData(data) {
-
-    const partes =
-        data.split("/");
-
-
-    if (partes.length !== 3) {
-
-        return {
-            dia: "--",
-            mes: "---"
-        };
+        cursoFilter.addEventListener(
+            "change",
+            renderizarTurmas
+        );
 
     }
 
 
-    const dia =
-        partes[0];
+    /* -----------------------------------------------------
+       LIMPAR FILTROS
+    ----------------------------------------------------- */
 
-    const mesNumero =
-        Number(partes[1]);
+    if (emptyClearBtn) {
 
+        emptyClearBtn.addEventListener(
+            "click",
+            limparFiltros
+        );
 
-    const meses = [
-        "JAN",
-        "FEV",
-        "MAR",
-        "ABR",
-        "MAI",
-        "JUN",
-        "JUL",
-        "AGO",
-        "SET",
-        "OUT",
-        "NOV",
-        "DEZ"
-    ];
+    }
 
 
-    return {
+    /* -----------------------------------------------------
+       FECHAR MODAL
+    ----------------------------------------------------- */
 
-        dia: dia,
+    if (modalClose) {
 
-        mes:
-            meses[mesNumero - 1] || "---"
+        modalClose.addEventListener(
+            "click",
+            fecharModal
+        );
 
-    };
-
-}
-
-
-/* =====================================================
-   FECHAR MODAL
-===================================================== */
-
-function fecharModal() {
-
-    classModal.classList.remove("show");
-
-    document.body.style.overflow =
-        "";
-
-}
+    }
 
 
-if (modalClose) {
+    if (modalCloseBottom) {
 
-    modalClose.addEventListener(
-        "click",
-        fecharModal
-    );
+        modalCloseBottom.addEventListener(
+            "click",
+            fecharModal
+        );
 
-}
-
-
-if (modalCloseBottom) {
-
-    modalCloseBottom.addEventListener(
-        "click",
-        fecharModal
-    );
-
-}
+    }
 
 
-/* =====================================================
-   FECHAR CLICANDO FORA
-===================================================== */
+    /* -----------------------------------------------------
+       CLICAR FORA DO MODAL
+    ----------------------------------------------------- */
 
-if (classModal) {
+    if (classModal) {
 
-    classModal.addEventListener(
-        "click",
-        event => {
+        classModal.addEventListener(
+            "click",
+            (event) => {
+
+                if (
+                    event.target === classModal
+                ) {
+
+                    fecharModal();
+
+                }
+
+            }
+        );
+
+    }
+
+
+    /* -----------------------------------------------------
+       TECLA ESC
+    ----------------------------------------------------- */
+
+    document.addEventListener(
+        "keydown",
+        (event) => {
 
             if (
-                event.target === classModal
+                event.key === "Escape"
             ) {
 
                 fecharModal();
@@ -705,69 +219,264 @@ if (classModal) {
         }
     );
 
+
+    /* -----------------------------------------------------
+       BOTÕES DOS CARDS
+    ----------------------------------------------------- */
+
+    if (classesGrid) {
+
+        classesGrid.addEventListener(
+            "click",
+            (event) => {
+
+                const botao =
+                    event.target.closest(
+                        "[data-action]"
+                    );
+
+                if (!botao) {
+                    return;
+                }
+
+
+                const action =
+                    botao.dataset.action;
+
+
+                const id =
+                    Number(
+                        botao.dataset.id
+                    );
+
+
+                if (
+                    action === "detalhes"
+                ) {
+
+                    abrirDetalhes(id);
+
+                }
+
+            }
+        );
+
+    }
+
+
+    /* -----------------------------------------------------
+       MENU MOBILE
+    ----------------------------------------------------- */
+
+    if (
+        mobileMenuBtn &&
+        mobileNav
+    ) {
+
+        mobileMenuBtn.addEventListener(
+            "click",
+            () => {
+
+                const aberto =
+                    mobileNav.classList.toggle(
+                        "active"
+                    );
+
+
+                mobileMenuBtn.setAttribute(
+                    "aria-expanded",
+                    aberto
+                        ? "true"
+                        : "false"
+                );
+
+            }
+        );
+
+    }
+
+
+    /* -----------------------------------------------------
+       LOGOUT
+    ----------------------------------------------------- */
+
+    if (btnLogout) {
+
+        btnLogout.addEventListener(
+            "click",
+            logout
+        );
+
+    }
+
 }
 
 
-/* =====================================================
-   FECHAR COM ESC
-===================================================== */
+/* =========================================================
+   CARREGAR TURMAS
+========================================================= */
 
-document.addEventListener(
-    "keydown",
-    event => {
+async function carregarTurmas() {
+
+    try {
+
+        const resposta =
+            await fetch(
+                `${API_BASE}/api/Atividade/minhas-turmas`,
+                {
+                    method: "GET",
+                    credentials: "include"
+                }
+            );
+
+
+        /* -------------------------------------------------
+           SESSÃO EXPIRADA
+        ------------------------------------------------- */
 
         if (
-            event.key === "Escape" &&
-            classModal.classList.contains("show")
+            resposta.status === 401
         ) {
 
-            fecharModal();
+            alert(
+                "Sua sessão expirou. Faça login novamente."
+            );
+
+
+            window.location.href =
+                "login.html";
+
+
+            return;
+
+        }
+
+
+        if (!resposta.ok) {
+
+            throw new Error(
+                "Não foi possível carregar suas turmas."
+            );
+
+        }
+
+
+        const dados =
+            await resposta.json();
+
+
+        turmas =
+            Array.isArray(dados)
+                ? dados
+                : [];
+
+
+        preencherFiltroCursos();
+
+        renderizarTurmas();
+
+    }
+
+    catch (erro) {
+
+        console.error(
+            "Erro ao carregar turmas:",
+            erro
+        );
+
+
+        if (classesGrid) {
+
+            classesGrid.innerHTML = `
+                <div class="error-state">
+
+                    <i class="fa-solid fa-circle-exclamation"></i>
+
+                    <h2>
+                        Não foi possível carregar as turmas
+                    </h2>
+
+                    <p>
+                        Verifique sua conexão com o sistema
+                        e tente novamente.
+                    </p>
+
+                </div>
+            `;
+
+        }
+
+
+        if (resultsCount) {
+
+            resultsCount.textContent =
+                "0";
 
         }
 
     }
-);
+
+}
 
 
-/* =====================================================
-   LOGOUT
-===================================================== */
+/* =========================================================
+   PREENCHER FILTRO DE CURSOS
+========================================================= */
 
-const btnLogout =
-    document.getElementById("btnLogout");
+function preencherFiltroCursos() {
+
+    if (!cursoFilter) {
+        return;
+    }
 
 
-if (btnLogout) {
+    const cursos =
+        [
+            ...new Set(
+                turmas
+                    .map(
+                        turma =>
+                            turma.curso
+                    )
+                    .filter(Boolean)
+            )
+        ]
+        .sort(
+            (a, b) =>
+                a.localeCompare(
+                    b,
+                    "pt-BR"
+                )
+        );
 
-    btnLogout.addEventListener(
-        "click",
-        () => {
 
-            const confirmar =
-                confirm(
-                    "Deseja realmente sair do sistema?"
+    cursoFilter.innerHTML = `
+        <option value="">
+            Todos os cursos
+        </option>
+    `;
+
+
+    cursos.forEach(
+        curso => {
+
+            const option =
+                document.createElement(
+                    "option"
                 );
 
 
-            if (!confirmar) {
-                return;
-            }
+            option.value =
+                curso;
 
 
-            /*
-             * Limpa os dados da sessão
-             * utilizados no projeto.
-             */
-
-            localStorage.clear();
-
-            sessionStorage.clear();
+            option.textContent =
+                curso;
 
 
-            /* Redireciona para o login */
-
-            window.location.href =
-                "login.html";
+            cursoFilter.appendChild(
+                option
+            );
 
         }
     );
@@ -775,50 +484,1029 @@ if (btnLogout) {
 }
 
 
-/* =====================================================
-   RESPONSIVIDADE DO MENU
-===================================================== */
+/* =========================================================
+   RENDERIZAR TURMAS
+========================================================= */
 
-window.addEventListener(
-    "resize",
-    () => {
+function renderizarTurmas() {
 
-        if (
-            window.innerWidth > 800 &&
-            mainNav
-        ) {
-
-            mainNav.classList.remove("open");
+    if (!classesGrid) {
+        return;
+    }
 
 
-            if (menuMobile) {
+    const busca =
+        searchInput
+            ? searchInput.value
+                .trim()
+                .toLowerCase()
+            : "";
 
-                const icon =
-                    menuMobile.querySelector("i");
+
+    const cursoSelecionado =
+        cursoFilter
+            ? cursoFilter.value
+            : "";
 
 
-                if (icon) {
+    const resultado =
+        turmas.filter(
+            turma => {
 
-                    icon.classList.remove(
-                        "fa-xmark"
+                const nome =
+                    turma.nome_turma ||
+                    "";
+
+
+                const curso =
+                    turma.curso ||
+                    "";
+
+
+                const texto =
+                    `${nome} ${curso}`
+                        .toLowerCase();
+
+
+                const correspondeBusca =
+                    !busca ||
+                    texto.includes(
+                        busca
                     );
 
-                    icon.classList.add(
-                        "fa-bars"
-                    );
 
-                }
+                const correspondeCurso =
+                    !cursoSelecionado ||
+                    curso ===
+                    cursoSelecionado;
+
+
+                return (
+                    correspondeBusca &&
+                    correspondeCurso
+                );
+
+            }
+        );
+
+
+    /* -----------------------------------------------------
+       CONTADOR
+    ----------------------------------------------------- */
+
+    if (resultsCount) {
+
+        resultsCount.textContent =
+            resultado.length;
+
+    }
+
+
+    /* -----------------------------------------------------
+       ESTADO VAZIO
+    ----------------------------------------------------- */
+
+    if (
+        resultado.length === 0
+    ) {
+
+        classesGrid.innerHTML =
+            "";
+
+
+        if (emptyState) {
+
+            emptyState.style.display =
+                "block";
+
+        }
+
+
+        return;
+
+    }
+
+
+    if (emptyState) {
+
+        emptyState.style.display =
+            "none";
+
+    }
+
+
+    /* -----------------------------------------------------
+       CARDS
+    ----------------------------------------------------- */
+
+    classesGrid.innerHTML =
+        resultado
+            .map(
+                turma =>
+                    criarCardTurma(
+                        turma
+                    )
+            )
+            .join("");
+
+}
+
+
+/* =========================================================
+   CRIAR CARD DA TURMA
+========================================================= */
+
+function criarCardTurma(
+    turma
+) {
+
+    const id =
+        Number(
+            turma.id_turma ??
+            turma.idTurma ??
+            turma.Id_Turma ??
+            0
+        );
+
+
+    const nome =
+        turma.nome_turma ??
+        turma.nomeTurma ??
+        "Turma";
+
+
+    const curso =
+        turma.curso ??
+        "Curso não informado";
+
+
+    const periodo =
+        formatarPeriodo(
+            turma.periodo
+        );
+
+
+    const turno =
+        turma.turno ??
+        "Não informado";
+
+
+    const quantidadeAtividades =
+        obterQuantidadeAtividades(
+            turma
+        );
+
+
+    return `
+        <article class="class-card">
+
+            <div class="class-card-content">
+
+                <div class="class-card-header">
+
+                    <div>
+
+                        <span class="class-label">
+                            TURMA
+                        </span>
+
+                        <h2>
+                            ${escaparHTML(nome)}
+                        </h2>
+
+                    </div>
+
+                    <span class="class-icon">
+                        <i class="fa-solid fa-users"></i>
+                    </span>
+
+                </div>
+
+
+                <div class="class-info">
+
+                    <span>
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        ${escaparHTML(curso)}
+                    </span>
+
+                    <span>
+                        <i class="fa-regular fa-calendar"></i>
+                        ${escaparHTML(periodo)}
+                    </span>
+
+                    <span>
+                        <i class="fa-regular fa-clock"></i>
+                        ${escaparHTML(turno)}
+                    </span>
+
+                </div>
+
+
+                <div class="class-card-footer">
+
+                    <span class="activity-total">
+
+                        <i class="fa-regular fa-file-lines"></i>
+
+                        ${quantidadeAtividades}
+
+                        ${
+                            quantidadeAtividades === 1
+                                ? "atividade"
+                                : "atividades"
+                        }
+
+                    </span>
+
+
+                    <button
+                        type="button"
+                        class="class-detail-btn"
+                        data-action="detalhes"
+                        data-id="${id}"
+                    >
+
+                        <i class="fa-regular fa-eye"></i>
+
+                        Detalhes
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+    `;
+
+}
+
+
+/* =========================================================
+   ABRIR DETALHES
+========================================================= */
+
+async function abrirDetalhes(
+    id
+) {
+
+    const turma =
+        turmas.find(
+            item =>
+                Number(
+                    item.id_turma ??
+                    item.idTurma ??
+                    item.Id_Turma
+                ) ===
+                Number(id)
+        );
+
+
+    if (!turma) {
+
+        alert(
+            "Não foi possível encontrar esta turma."
+        );
+
+        return;
+
+    }
+
+
+    turmaSelecionada =
+        turma;
+
+
+    /* -----------------------------------------------------
+       DADOS DA TURMA
+    ----------------------------------------------------- */
+
+    const nome =
+        turma.nome_turma ??
+        turma.nomeTurma ??
+        "Turma";
+
+
+    const curso =
+        turma.curso ??
+        "Curso não informado";
+
+
+    const periodo =
+        formatarPeriodo(
+            turma.periodo
+        );
+
+
+    const turno =
+        turma.turno ??
+        "Não informado";
+
+
+    if (modalTitle) {
+
+        modalTitle.textContent =
+            nome;
+
+    }
+
+
+    if (modalCourse) {
+
+        modalCourse.textContent =
+            curso;
+
+    }
+
+
+    if (modalCourseInfo) {
+
+        modalCourseInfo.textContent =
+            curso;
+
+    }
+
+
+    if (modalPeriod) {
+
+        modalPeriod.textContent =
+            periodo;
+
+    }
+
+
+    if (modalShift) {
+
+        modalShift.textContent =
+            turno;
+
+    }
+
+
+    /* -----------------------------------------------------
+       ATIVIDADES
+    ----------------------------------------------------- */
+
+    let atividadesDaTurma =
+        obterAtividadesDaTurma(
+            turma
+        );
+
+
+    /* -----------------------------------------------------
+       SE O OBJETO NÃO TROUXER AS ATIVIDADES,
+       BUSCA AS ATIVIDADES DO PROFESSOR
+    ----------------------------------------------------- */
+
+    if (
+        atividadesDaTurma.length === 0
+    ) {
+
+        try {
+
+            const resposta =
+                await fetch(
+                    `${API_BASE}/api/Atividade/minhas`,
+                    {
+                        method: "GET",
+                        credentials: "include"
+                    }
+                );
+
+
+            if (
+                resposta.ok
+            ) {
+
+                const atividades =
+                    await resposta.json();
+
+
+                atividadesDaTurma =
+                    atividades.filter(
+                        atividade =>
+                            atividadePertenceATurma(
+                                atividade,
+                                id
+                            )
+                    );
 
             }
 
         }
 
+        catch (erro) {
+
+            console.error(
+                "Erro ao carregar atividades da turma:",
+                erro
+            );
+
+        }
+
     }
-);
 
 
-/* =====================================================
-   INICIALIZAÇÃO
-===================================================== */
+    renderizarAtividadesModal(
+        atividadesDaTurma
+    );
 
-renderTurmas(turmas);
+
+    /* -----------------------------------------------------
+       ABRIR MODAL
+    ----------------------------------------------------- */
+
+    if (classModal) {
+
+        classModal.classList.add(
+            "show"
+        );
+
+
+        classModal.style.display =
+            "flex";
+
+    }
+
+
+    document.body.style.overflow =
+        "hidden";
+
+}
+
+
+/* =========================================================
+   OBTER ATIVIDADES DA TURMA
+========================================================= */
+
+function obterAtividadesDaTurma(
+    turma
+) {
+
+    const possiveis =
+        [
+            turma.atividades,
+            turma.Atividades,
+            turma.activities
+        ];
+
+
+    for (
+        const lista of possiveis
+    ) {
+
+        if (
+            Array.isArray(lista)
+        ) {
+
+            return lista;
+
+        }
+
+    }
+
+
+    return [];
+
+}
+
+
+/* =========================================================
+   VERIFICAR SE ATIVIDADE PERTENCE À TURMA
+========================================================= */
+
+function atividadePertenceATurma(
+    atividade,
+    idTurma
+) {
+
+    const fkTurma =
+        atividade.fk_turma_id_turma ??
+        atividade.fkTurmaIdTurma ??
+        atividade.id_turma ??
+        atividade.idTurma ??
+        atividade.turma?.id ??
+        atividade.turma?.id_turma;
+
+
+    if (
+        fkTurma !== undefined &&
+        fkTurma !== null
+    ) {
+
+        return (
+            Number(fkTurma) ===
+            Number(idTurma)
+        );
+
+    }
+
+
+    const nomeTurmaAtividade =
+        atividade.turma?.nome ??
+        atividade.turma?.nome_turma ??
+        atividade.turma ??
+        "";
+
+
+    const nomeTurmaSelecionada =
+        turmaSelecionada?.nome_turma ??
+        turmaSelecionada?.nomeTurma ??
+        "";
+
+
+    if (
+        typeof nomeTurmaAtividade ===
+        "string" &&
+        typeof nomeTurmaSelecionada ===
+        "string"
+    ) {
+
+        return (
+            nomeTurmaAtividade
+                .trim()
+                .toLowerCase() ===
+            nomeTurmaSelecionada
+                .trim()
+                .toLowerCase()
+        );
+
+    }
+
+
+    return false;
+
+}
+
+
+/* =========================================================
+   RENDERIZAR ATIVIDADES NO MODAL
+========================================================= */
+
+function renderizarAtividadesModal(
+    atividades
+) {
+
+    if (!modalActivitiesList) {
+        return;
+    }
+
+
+    if (
+        !Array.isArray(atividades) ||
+        atividades.length === 0
+    ) {
+
+        modalActivitiesList.innerHTML = `
+            <div class="modal-empty">
+
+                <i class="fa-regular fa-file-lines"></i>
+
+                <p>
+                    Nenhuma atividade registrada
+                    para esta turma.
+                </p>
+
+            </div>
+        `;
+
+
+        if (modalActivities) {
+
+            modalActivities.style.display =
+                "block";
+
+        }
+
+
+        return;
+
+    }
+
+
+    const ordenadas =
+        [...atividades]
+            .sort(
+                (a, b) =>
+                    converterData(
+                        obterDataAtividade(b)
+                    ) -
+                    converterData(
+                        obterDataAtividade(a)
+                    )
+            );
+
+
+    modalActivitiesList.innerHTML =
+        ordenadas
+            .map(
+                atividade =>
+                    criarAtividadeModal(
+                        atividade
+                    )
+            )
+            .join("");
+
+
+    if (modalActivities) {
+
+        modalActivities.style.display =
+            "block";
+
+    }
+
+}
+
+
+/* =========================================================
+   CRIAR ATIVIDADE DO MODAL
+========================================================= */
+
+function criarAtividadeModal(
+    atividade
+) {
+
+    const descricao =
+        atividade.descricao ??
+        atividade.descricao_atividade ??
+        atividade.Descricao_Atividade ??
+        "Atividade pedagógica";
+
+
+    const observacao =
+        atividade.observacao ??
+        atividade.Observacao ??
+        "";
+
+
+    const data =
+        obterDataAtividade(
+            atividade
+        );
+
+
+    const fotos =
+        Array.isArray(
+            atividade.fotos
+        )
+            ? atividade.fotos.length
+            : Array.isArray(
+                atividade.Fotos
+            )
+                ? atividade.Fotos.length
+                : 0;
+
+
+    return `
+        <div class="modal-activity-item">
+
+            <div class="modal-activity-date">
+
+                <i class="fa-regular fa-calendar"></i>
+
+                ${escaparHTML(
+                    formatarData(data)
+                )}
+
+            </div>
+
+
+            <h4>
+                ${escaparHTML(
+                    descricao
+                )}
+            </h4>
+
+
+            ${
+                observacao
+                    ? `
+                        <p>
+                            ${escaparHTML(
+                                observacao
+                            )}
+                        </p>
+                    `
+                    : ""
+            }
+
+
+            <span class="modal-activity-photos">
+
+                <i class="fa-regular fa-images"></i>
+
+                ${fotos}
+
+                ${
+                    fotos === 1
+                        ? "foto"
+                        : "fotos"
+                }
+
+            </span>
+
+        </div>
+    `;
+
+}
+
+
+/* =========================================================
+   OBTER DATA DA ATIVIDADE
+========================================================= */
+
+function obterDataAtividade(
+    atividade
+) {
+
+    return (
+        atividade.data ??
+        atividade.data_atividade ??
+        atividade.Data_Atividade ??
+        ""
+    );
+
+}
+
+
+/* =========================================================
+   QUANTIDADE DE ATIVIDADES
+========================================================= */
+
+function obterQuantidadeAtividades(
+    turma
+) {
+
+    const atividades =
+        obterAtividadesDaTurma(
+            turma
+        );
+
+
+    return atividades.length;
+
+}
+
+
+/* =========================================================
+   FECHAR MODAL
+========================================================= */
+
+function fecharModal() {
+
+    if (!classModal) {
+        return;
+    }
+
+
+    classModal.classList.remove(
+        "show"
+    );
+
+
+    classModal.style.display =
+        "none";
+
+
+    document.body.style.overflow =
+        "";
+
+
+    turmaSelecionada =
+        null;
+
+}
+
+
+/* =========================================================
+   LIMPAR FILTROS
+========================================================= */
+
+function limparFiltros() {
+
+    if (searchInput) {
+
+        searchInput.value =
+            "";
+
+    }
+
+
+    if (cursoFilter) {
+
+        cursoFilter.value =
+            "";
+
+    }
+
+
+    renderizarTurmas();
+
+}
+
+
+/* =========================================================
+   FORMATAR DATA
+========================================================= */
+
+function formatarData(
+    data
+) {
+
+    if (!data) {
+
+        return "—";
+
+    }
+
+
+    if (
+        typeof data === "string" &&
+        data.includes("/")
+    ) {
+
+        return data;
+
+    }
+
+
+    const dataObj =
+        new Date(data);
+
+
+    if (
+        Number.isNaN(
+            dataObj.getTime()
+        )
+    ) {
+
+        return "—";
+
+    }
+
+
+    return dataObj.toLocaleDateString(
+        "pt-BR"
+    );
+
+}
+
+
+/* =========================================================
+   FORMATAR PERÍODO
+========================================================= */
+
+function formatarPeriodo(
+    periodo
+) {
+
+    if (!periodo) {
+
+        return "—";
+
+    }
+
+
+    const data =
+        new Date(periodo);
+
+
+    if (
+        Number.isNaN(
+            data.getTime()
+        )
+    ) {
+
+        return "—";
+
+    }
+
+
+    return data.toLocaleDateString(
+        "pt-BR",
+        {
+            month: "long",
+            year: "numeric"
+        }
+    );
+
+}
+
+
+/* =========================================================
+   CONVERTER DATA PARA ORDENAÇÃO
+========================================================= */
+
+function converterData(
+    data
+) {
+
+    if (!data) {
+
+        return 0;
+
+    }
+
+
+    if (
+        typeof data === "string" &&
+        data.includes("/")
+    ) {
+
+        const partes =
+            data.split("/");
+
+
+        if (
+            partes.length === 3
+        ) {
+
+            return new Date(
+                Number(partes[2]),
+                Number(partes[1]) - 1,
+                Number(partes[0])
+            ).getTime();
+
+        }
+
+    }
+
+
+    const dataObj =
+        new Date(data);
+
+
+    if (
+        Number.isNaN(
+            dataObj.getTime()
+        )
+    ) {
+
+        return 0;
+
+    }
+
+
+    return dataObj.getTime();
+
+}
+
+
+/* =========================================================
+   ESCAPAR HTML
+========================================================= */
+
+function escaparHTML(
+    texto
+) {
+
+    if (
+        texto === null ||
+        texto === undefined
+    ) {
+
+        return "";
+
+    }
+
+
+    return String(texto)
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+        .replace(
+            /</g,
+            "&lt;"
+        )
+        .replace(
+            />/g,
+            "&gt;"
+        )
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+
+/* =========================================================
+   LOGOUT
+========================================================= */
+
+function logout() {
+
+    sessionStorage.clear();
+
+    localStorage.clear();
+
+    window.location.href =
+        "login.html";
+
+}

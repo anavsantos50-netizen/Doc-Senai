@@ -1,6 +1,99 @@
 [
   {
     "ContainingType": "DOCSenai.Controllers.AtividadeController",
+    "Method": "BuscarAtividade",
+    "RelativePath": "api/Atividade/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DOCSenai.Controllers.AtividadeController",
+    "Method": "AtualizarAtividade",
+    "RelativePath": "api/Atividade/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "Fk_Turma_Id_Turma",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Data_Atividade",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "Descricao_Atividade",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Observacao",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Fotos",
+        "Type": "System.Collections.Generic.List\u00601[[Microsoft.AspNetCore.Http.IFormFile, Microsoft.AspNetCore.Http.Features, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DOCSenai.Controllers.AtividadeController",
+    "Method": "ExcluirAtividade",
+    "RelativePath": "api/Atividade/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DOCSenai.Controllers.AtividadeController",
+    "Method": "MinhasAtividades",
+    "RelativePath": "api/Atividade/minhas",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DOCSenai.Controllers.AtividadeController",
+    "Method": "MinhasTurmas",
+    "RelativePath": "api/Atividade/minhas-turmas",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DOCSenai.Controllers.AtividadeController",
     "Method": "RegistrarAtividade",
     "RelativePath": "api/Atividade/registrar",
     "HttpMethod": "POST",
@@ -37,7 +130,7 @@
   },
   {
     "ContainingType": "DOCSenai.Controllers.AtividadeController",
-    "Method": "ListarTurmasDoProfessor",
+    "Method": "ListarTurmas",
     "RelativePath": "api/Atividade/turmas",
     "HttpMethod": "GET",
     "IsController": true,
@@ -150,6 +243,48 @@
       {
         "Name": "usuario",
         "Type": "DOCSenai.Models.Usuario",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DOCSenai.Controllers.UsuarioController",
+    "Method": "BuscarPerfil",
+    "RelativePath": "Usuario/perfil",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DOCSenai.Controllers.UsuarioController",
+    "Method": "AlterarPerfil",
+    "RelativePath": "Usuario/perfil",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "DOCSenai.Controllers.AlterarPerfilRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DOCSenai.Controllers.UsuarioController",
+    "Method": "AlterarSenha",
+    "RelativePath": "Usuario/senha",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "DOCSenai.Controllers.AlterarSenhaRequest",
         "IsRequired": true
       }
     ],

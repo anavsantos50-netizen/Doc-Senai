@@ -1665,3 +1665,48 @@ select {
         font-size: 19px;
     }
 }
+/* =========================================================
+   BOTÃO DOS CARDS DE TURMA
+========================================================= */
+
+.class-card-button {
+    width: 100%;
+    min-height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding: 10px 16px;
+
+    border: 1px solid #192E75;
+    border-radius: 8px;
+
+    background: #192E75;
+    color: #FFFFFF;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.class-card-button i {
+    font-size: 13px;
+}
+
+.class-card-button:hover {
+    background: #EA632C;
+    border-color: #EA632C;
+}
+
+.class-card-button:active {
+    transform: scale(0.98);
+}

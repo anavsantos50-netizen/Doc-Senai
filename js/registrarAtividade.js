@@ -1,67 +1,238 @@
+const API_BASE = "https://localhost:7082";
+
+let modoEdicao = false;
+let idAtividade = null;
+
+let fotosSelecionadas = [];
+let fotosExistentes = [];
+
+let successOverlay;
+let successButton;
+
+
 /* =========================================================
-   MENU MOBILE
+   INICIALIZAÇÃO
 ========================================================= */
 
-const menuMobile = document.getElementById("menuMobile");
-const mainNav = document.getElementById("mainNav");
+document.addEventListener("DOMContentLoaded", () => {
 
-if (menuMobile && mainNav) {
+    configurarElementos();
+    configurarEventos();
+    configurarContadores();
+    configurarModo();
 
-    menuMobile.addEventListener("click", function () {
+    carregarTurmas();
 
-        mainNav.classList.toggle("open");
+    if (modoEdicao) {
+        carregarAtividade();
+    }
+});
 
-        const icon = menuMobile.querySelector("i");
 
-        if (mainNav.classList.contains("open")) {
+/* =========================================================
+   ELEMENTOS
+========================================================= */
 
-            icon.classList.remove("fa-bars");
-            icon.classList.add("fa-xmark");
+function configurarElementos() {
 
-            menuMobile.setAttribute(
-                "aria-label",
-                "Fechar menu"
-            );
+    successOverlay =
+        document.getElementById("successOverlay");
 
-        } else {
-
-            icon.classList.remove("fa-xmark");
-            icon.classList.add("fa-bars");
-
-            menuMobile.setAttribute(
-                "aria-label",
-                "Abrir menu"
-            );
-        }
-
-    });
-
+    successButton =
+        document.getElementById("successButton");
 }
 
 
 /* =========================================================
-   DATA ATUAL
+   EVENTOS
 ========================================================= */
 
-const campoData = document.getElementById("data");
+function configurarEventos() {
 
-if (campoData) {
+    const form =
+        document.getElementById("atividadeForm");
 
-    const hoje = new Date();
+    const btnFotos =
+        document.getElementById("btnFotos");
 
-    const ano = hoje.getFullYear();
+    const adicionarMaisFotos =
+        document.getElementById("adicionarMaisFotos");
 
-    const mes = String(
-        hoje.getMonth() + 1
-    ).padStart(2, "0");
+    const inputFotos =
+        document.getElementById("fotos");
 
-    const dia = String(
-        hoje.getDate()
-    ).padStart(2, "0");
+    const uploadArea =
+        document.getElementById("uploadArea");
 
-    campoData.value =
-        `${ano}-${mes}-${dia}`;
+    const menuMobile =
+        document.getElementById("menuMobile");
 
+    const mainNav =
+        document.getElementById("mainNav");
+
+    const btnLogout =
+        document.getElementById("btnLogout");
+
+
+    /* -----------------------------------------------------
+       FORMULÁRIO
+    ----------------------------------------------------- */
+
+    if (form) {
+
+        form.addEventListener(
+            "submit",
+            enviarFormulario
+        );
+    }
+
+
+    /* -----------------------------------------------------
+       BOTÃO FOTOS
+    ----------------------------------------------------- */
+
+    if (btnFotos && inputFotos) {
+
+        btnFotos.addEventListener(
+            "click",
+            () => {
+                inputFotos.click();
+            }
+        );
+    }
+
+
+    if (
+        adicionarMaisFotos &&
+        inputFotos
+    ) {
+
+        adicionarMaisFotos.addEventListener(
+            "click",
+            () => {
+                inputFotos.click();
+            }
+        );
+    }
+
+
+    /* -----------------------------------------------------
+       INPUT DE FOTOS
+    ----------------------------------------------------- */
+
+    if (inputFotos) {
+
+        inputFotos.addEventListener(
+            "change",
+            (event) => {
+
+                adicionarFotos(
+                    event.target.files
+                );
+
+                inputFotos.value = "";
+            }
+        );
+    }
+
+
+    /* -----------------------------------------------------
+       DRAG AND DROP
+    ----------------------------------------------------- */
+
+    if (uploadArea) {
+
+        uploadArea.addEventListener(
+            "dragover",
+            (event) => {
+
+                event.preventDefault();
+
+                uploadArea.classList.add(
+                    "dragover"
+                );
+            }
+        );
+
+
+        uploadArea.addEventListener(
+            "dragleave",
+            () => {
+
+                uploadArea.classList.remove(
+                    "dragover"
+                );
+            }
+        );
+
+
+        uploadArea.addEventListener(
+            "drop",
+            (event) => {
+
+                event.preventDefault();
+
+                uploadArea.classList.remove(
+                    "dragover"
+                );
+
+                adicionarFotos(
+                    event.dataTransfer.files
+                );
+            }
+        );
+    }
+
+
+    /* -----------------------------------------------------
+       MENU MOBILE
+    ----------------------------------------------------- */
+
+    if (
+        menuMobile &&
+        mainNav
+    ) {
+
+        menuMobile.addEventListener(
+            "click",
+            () => {
+
+                mainNav.classList.toggle(
+                    "open"
+                );
+            }
+        );
+    }
+
+
+    /* -----------------------------------------------------
+       LOGOUT
+    ----------------------------------------------------- */
+
+    if (btnLogout) {
+
+        btnLogout.addEventListener(
+            "click",
+            fazerLogout
+        );
+    }
+
+
+    /* -----------------------------------------------------
+       BOTÃO DE SUCESSO
+    ----------------------------------------------------- */
+
+    if (successButton) {
+
+        successButton.addEventListener(
+            "click",
+            () => {
+
+                window.location.href =
+                    "minhasAtividades.html";
+            }
+        );
+    }
 }
 
 
@@ -69,825 +240,881 @@ if (campoData) {
    CONTADORES
 ========================================================= */
 
-const descricao =
-    document.getElementById("descricao");
+function configurarContadores() {
 
-const observacao =
-    document.getElementById("observacao");
+    const descricao =
+        document.getElementById("descricao");
 
-const contadorDescricao =
-    document.getElementById("contadorDescricao");
+    const observacao =
+        document.getElementById("observacao");
 
-const contadorObservacao =
-    document.getElementById("contadorObservacao");
+    const contadorDescricao =
+        document.getElementById(
+            "contadorDescricao"
+        );
 
-
-function atualizarContador(campo, contador) {
-
-    if (!campo || !contador) {
-        return;
-    }
-
-    contador.textContent =
-        `${campo.value.length} / ${campo.maxLength}`;
-
-}
+    const contadorObservacao =
+        document.getElementById(
+            "contadorObservacao"
+        );
 
 
-if (descricao) {
-
-    descricao.addEventListener(
-        "input",
-        function () {
-
-            atualizarContador(
-                descricao,
-                contadorDescricao
-            );
-
-        }
-    );
-
-    atualizarContador(
-        descricao,
+    if (
+        descricao &&
         contadorDescricao
-    );
+    ) {
 
-}
+        const atualizarDescricao = () => {
+
+            contadorDescricao.textContent =
+                `${descricao.value.length} / 1000`;
+        };
+
+        descricao.addEventListener(
+            "input",
+            atualizarDescricao
+        );
+
+        atualizarDescricao();
+    }
 
 
-if (observacao) {
-
-    observacao.addEventListener(
-        "input",
-        function () {
-
-            atualizarContador(
-                observacao,
-                contadorObservacao
-            );
-
-        }
-    );
-
-    atualizarContador(
-        observacao,
+    if (
+        observacao &&
         contadorObservacao
-    );
+    ) {
 
-}
+        const atualizarObservacao = () => {
 
+            contadorObservacao.textContent =
+                `${observacao.value.length} / 500`;
+        };
 
-/* =========================================================
-   ELEMENTOS DAS FOTOS
-========================================================= */
+        observacao.addEventListener(
+            "input",
+            atualizarObservacao
+        );
 
-const fotosInput =
-    document.getElementById("fotos");
-
-const btnFotos =
-    document.getElementById("btnFotos");
-
-const uploadArea =
-    document.getElementById("uploadArea");
-
-const previewSection =
-    document.getElementById("previewSection");
-
-const previewGrid =
-    document.getElementById("previewGrid");
-
-const contadorFotos =
-    document.getElementById("contadorFotos");
-
-const adicionarMaisFotos =
-    document.getElementById("adicionarMaisFotos");
-
-
-let arquivosSelecionados = [];
-
-
-/* =========================================================
-   ABRIR SELEÇÃO DE FOTOS
-========================================================= */
-
-if (btnFotos) {
-
-    btnFotos.addEventListener(
-        "click",
-        function () {
-
-            fotosInput.click();
-
-        }
-    );
-
-}
-
-
-if (adicionarMaisFotos) {
-
-    adicionarMaisFotos.addEventListener(
-        "click",
-        function () {
-
-            fotosInput.click();
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   SELEÇÃO DE ARQUIVOS
-========================================================= */
-
-if (fotosInput) {
-
-    fotosInput.addEventListener(
-        "change",
-        function (event) {
-
-            adicionarArquivos(
-                event.target.files
-            );
-
-            fotosInput.value = "";
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   ADICIONAR ARQUIVOS
-========================================================= */
-
-function adicionarArquivos(arquivos) {
-
-    const limiteTamanho =
-        10 * 1024 * 1024;
-
-    const formatosPermitidos = [
-        "image/jpeg",
-        "image/jpg",
-        "image/png"
-    ];
-
-
-    Array.from(arquivos).forEach(
-        function (arquivo) {
-
-            if (
-                !formatosPermitidos.includes(
-                    arquivo.type
-                )
-            ) {
-
-                alert(
-                    `O arquivo "${arquivo.name}" não possui um formato permitido.`
-                );
-
-                return;
-            }
-
-
-            if (arquivo.size > limiteTamanho) {
-
-                alert(
-                    `A imagem "${arquivo.name}" ultrapassa o limite de 10 MB.`
-                );
-
-                return;
-            }
-
-
-            const arquivoJaExiste =
-                arquivosSelecionados.some(
-                    function (item) {
-
-                        return (
-                            item.name === arquivo.name &&
-                            item.size === arquivo.size
-                        );
-
-                    }
-                );
-
-
-            if (arquivoJaExiste) {
-                return;
-            }
-
-
-            arquivosSelecionados.push(
-                arquivo
-            );
-
-        }
-    );
-
-
-    atualizarPreview();
-
-}
-
-
-/* =========================================================
-   ATUALIZAR PREVIEW
-========================================================= */
-
-function atualizarPreview() {
-
-    if (!previewGrid) {
-        return;
+        atualizarObservacao();
     }
-
-    previewGrid.innerHTML = "";
-
-
-    if (arquivosSelecionados.length === 0) {
-
-        if (previewSection) {
-            previewSection.style.display = "none";
-        }
-
-        if (contadorFotos) {
-            contadorFotos.textContent = "0 fotos";
-        }
-
-        return;
-    }
-
-
-    if (previewSection) {
-        previewSection.style.display = "block";
-    }
-
-
-    const quantidade =
-        arquivosSelecionados.length;
-
-
-    if (contadorFotos) {
-
-        contadorFotos.textContent =
-            quantidade === 1
-                ? "1 foto selecionada"
-                : `${quantidade} fotos selecionadas`;
-
-    }
-
-
-    arquivosSelecionados.forEach(
-        function (arquivo, index) {
-
-            const container =
-                document.createElement("div");
-
-            container.className =
-                "photo-preview";
-
-
-            const imagem =
-                document.createElement("img");
-
-            const url =
-                URL.createObjectURL(arquivo);
-
-            imagem.src = url;
-
-            imagem.alt =
-                `Foto ${index + 1}`;
-
-
-            imagem.onload = function () {
-
-                URL.revokeObjectURL(url);
-
-            };
-
-
-            const remover =
-                document.createElement("button");
-
-            remover.type = "button";
-
-            remover.className =
-                "remove-photo";
-
-            remover.innerHTML =
-                '<i class="fa-solid fa-xmark"></i>';
-
-            remover.title =
-                "Remover foto";
-
-
-            remover.addEventListener(
-                "click",
-                function () {
-
-                    removerArquivo(index);
-
-                }
-            );
-
-
-            container.appendChild(imagem);
-
-            container.appendChild(remover);
-
-            previewGrid.appendChild(container);
-
-        }
-    );
-
 }
 
 
 /* =========================================================
-   REMOVER ARQUIVO
+   MODO
 ========================================================= */
 
-function removerArquivo(index) {
+function configurarModo() {
 
-    arquivosSelecionados.splice(
-        index,
-        1
-    );
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
 
-    atualizarPreview();
+    idAtividade =
+        params.get("id");
 
+    modoEdicao =
+        !!idAtividade;
+
+    const titulo =
+        document.querySelector(
+            ".page-header h1"
+        );
+
+    const label =
+        document.querySelector(
+            ".page-label"
+        );
+
+    const submitButton =
+        document.getElementById(
+            "submitButton"
+        );
+
+
+    if (modoEdicao) {
+
+        if (titulo) {
+            titulo.textContent =
+                "Editar atividade";
+        }
+
+        if (label) {
+            label.textContent =
+                "EDITAR ATIVIDADE";
+        }
+
+        if (submitButton) {
+
+            submitButton.innerHTML = `
+                <i class="fa-solid fa-check"></i>
+                Salvar alterações
+            `;
+        }
+    }
 }
 
 
 /* =========================================================
-   DRAG AND DROP
+   CARREGAR TURMAS
 ========================================================= */
-
-if (uploadArea) {
-
-    uploadArea.addEventListener(
-        "dragover",
-        function (event) {
-
-            event.preventDefault();
-
-            uploadArea.classList.add(
-                "dragover"
-            );
-
-        }
-    );
-
-
-    uploadArea.addEventListener(
-        "dragleave",
-        function () {
-
-            uploadArea.classList.remove(
-                "dragover"
-            );
-
-        }
-    );
-
-
-    uploadArea.addEventListener(
-        "drop",
-        function (event) {
-
-            event.preventDefault();
-
-            uploadArea.classList.remove(
-                "dragover"
-            );
-
-            adicionarArquivos(
-                event.dataTransfer.files
-            );
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   CARREGAR TURMAS DO PROFESSOR
-========================================================= */
-
-const campoTurma =
-    document.getElementById("turma");
-
 
 async function carregarTurmas() {
 
-    if (!campoTurma) {
+    const select =
+        document.getElementById("turma");
+
+    if (!select) {
         return;
     }
-
 
     try {
 
         const resposta =
             await fetch(
-                "https://localhost:7082/api/Atividade/turmas",
+                `${API_BASE}/api/Atividade/turmas`,
                 {
-                    method: "GET",
                     credentials: "include"
                 }
             );
-
-
-        if (resposta.status === 401) {
-
-            alert(
-                "Sua sessão expirou. Faça login novamente."
-            );
-
-            window.location.href =
-                "login.html";
-
-            return;
-        }
-
 
         if (!resposta.ok) {
 
             throw new Error(
                 "Não foi possível carregar as turmas."
             );
-
         }
-
 
         const turmas =
             await resposta.json();
 
 
-        campoTurma.innerHTML =
-            '<option value="">Selecione a turma</option>';
+        select.innerHTML = `
+            <option value="" disabled selected>
+                Selecione a turma
+            </option>
+        `;
 
 
-        turmas.forEach(
-            function (turma) {
+        turmas.forEach(turma => {
 
-                const option =
-                    document.createElement("option");
+            const option =
+                document.createElement("option");
 
-                option.value =
-                    turma.id_turma;
+            option.value =
+                turma.id_turma ??
+                turma.Id_Turma;
 
-                option.textContent =
-                    `${turma.nome_turma} - ${turma.curso}`;
+            option.textContent =
+                turma.nome_turma ??
+                turma.Nome_Turma ??
+                turma.curso ??
+                turma.Curso ??
+                "Turma";
 
-                campoTurma.appendChild(
-                    option
-                );
+            select.appendChild(option);
+        });
 
-            }
-        );
-
-
-        if (turmas.length === 0) {
-
-            campoTurma.innerHTML =
-                '<option value="">Nenhuma turma vinculada</option>';
-
-        }
-
-    }
-    catch (erro) {
+    } catch (erro) {
 
         console.error(
             "Erro ao carregar turmas:",
             erro
         );
+    }
+}
 
-        alert(
-            "Não foi possível carregar as turmas do professor."
-        );
 
+/* =========================================================
+   CARREGAR ATIVIDADE
+========================================================= */
+
+async function carregarAtividade() {
+
+    if (!idAtividade) {
+        return;
     }
 
-}
-
-
-carregarTurmas();
-
-
-/* =========================================================
-   FORMULÁRIO
-========================================================= */
-
-const atividadeForm =
-    document.getElementById("atividadeForm");
-
-const submitButton =
-    document.getElementById("submitButton");
-
-const successOverlay =
-    document.getElementById("successOverlay");
-
-const successButton =
-    document.getElementById("successButton");
-
-
-if (atividadeForm) {
-
-    atividadeForm.addEventListener(
-        "submit",
-        async function (event) {
-
-            event.preventDefault();
-
-
-            /* ==========================
-               CAMPOS
-            ========================== */
-
-            const turma =
-                document.getElementById(
-                    "turma"
-                ).value;
-
-            const data =
-                document.getElementById(
-                    "data"
-                ).value;
-
-            const descricaoValue =
-                document
-                    .getElementById("descricao")
-                    .value
-                    .trim();
-
-            const observacaoValue =
-                document
-                    .getElementById("observacao")
-                    .value
-                    .trim();
-
-
-            /* ==========================
-               VALIDA TURMA
-            ========================== */
-
-            if (!turma) {
-
-                alert(
-                    "Selecione a turma da atividade."
-                );
-
-                document
-                    .getElementById("turma")
-                    .focus();
-
-                return;
-            }
-
-
-            /* ==========================
-               VALIDA DATA
-            ========================== */
-
-            if (!data) {
-
-                alert(
-                    "Informe a data da atividade."
-                );
-
-                document
-                    .getElementById("data")
-                    .focus();
-
-                return;
-            }
-
-
-            /* ==========================
-               VALIDA DESCRIÇÃO
-            ========================== */
-
-            if (!descricaoValue) {
-
-                alert(
-                    "Digite a descrição da atividade."
-                );
-
-                document
-                    .getElementById("descricao")
-                    .focus();
-
-                return;
-            }
-
-
-            if (descricaoValue.length < 10) {
-
-                alert(
-                    "A descrição deve possuir pelo menos 10 caracteres."
-                );
-
-                document
-                    .getElementById("descricao")
-                    .focus();
-
-                return;
-            }
-
-
-            /* ==========================
-               VALIDA FOTOS
-            ========================== */
-
-            if (
-                arquivosSelecionados.length === 0
-            ) {
-
-                alert(
-                    "Adicione pelo menos uma fotografia da atividade."
-                );
-
-                uploadArea.scrollIntoView({
-                    behavior: "smooth",
-                    block: "center"
-                });
-
-                return;
-            }
-
-
-            /* ==========================
-               DESABILITA BOTÃO
-            ========================== */
-
-            submitButton.disabled = true;
-
-            submitButton.innerHTML =
-                '<i class="fa-solid fa-spinner fa-spin"></i> Registrando...';
-
-
-            try {
-
-                /* ==========================
-                   FORMDATA
-                ========================== */
-
-                const formData =
-                    new FormData();
-
-
-                formData.append(
-                    "Fk_Turma_Id_Turma",
-                    turma
-                );
-
-
-                formData.append(
-                    "Data_Atividade",
-                    data
-                );
-
-
-                formData.append(
-                    "Descricao_Atividade",
-                    descricaoValue
-                );
-
-
-                formData.append(
-                    "Observacao",
-                    observacaoValue
-                );
-
-
-                /* ==========================
-                   ADICIONA FOTOS
-                ========================== */
-
-                arquivosSelecionados.forEach(
-                    function (arquivo) {
-
-                        formData.append(
-                            "Fotos",
-                            arquivo
-                        );
-
-                    }
-                );
-
-
-                /* ==========================
-                   ENVIA PARA API
-                ========================== */
-
-                const resposta =
-                    await fetch(
-                        "https://localhost:7082/api/Atividade/registrar",
-                        {
-                            method: "POST",
-                            credentials: "include",
-                            body: formData
-                        }
-                    );
-
-
-                /* ==========================
-                   LÊ RESPOSTA
-                ========================== */
-
-                const resultado =
-                    await resposta.json();
-
-
-                if (!resposta.ok) {
-
-                    throw new Error(
-                        resultado.mensagem ||
-                        "Não foi possível registrar a atividade."
-                    );
-
+    try {
+
+        const resposta =
+            await fetch(
+                `${API_BASE}/api/Atividade/${idAtividade}`,
+                {
+                    credentials: "include"
                 }
+            );
 
+        if (!resposta.ok) {
 
-                /* ==========================
-                   SUCESSO
-                ========================== */
-
-                console.log(
-                    "Atividade registrada:",
-                    resultado
-                );
-
-
-                submitButton.disabled =
-                    false;
-
-                submitButton.innerHTML =
-                    '<i class="fa-solid fa-check"></i> Registrar atividade';
-
-
-                /* ==========================
-                   ABRE MODAL
-                ========================== */
-
-                if (successOverlay) {
-
-                    successOverlay.classList.add(
-                        "show"
-                    );
-
-                }
-
-            }
-            catch (erro) {
-
-                console.error(
-                    "Erro ao registrar atividade:",
-                    erro
-                );
-
-
-                submitButton.disabled =
-                    false;
-
-                submitButton.innerHTML =
-                    '<i class="fa-solid fa-check"></i> Registrar atividade';
-
-
-                alert(
-                    erro.message ||
-                    "Ocorreu um erro ao registrar a atividade."
-                );
-
-            }
-
+            throw new Error(
+                "Não foi possível carregar a atividade."
+            );
         }
-    );
 
+        const atividade =
+            await resposta.json();
+
+
+        const descricao =
+            document.getElementById("descricao");
+
+        const observacao =
+            document.getElementById("observacao");
+
+        const data =
+            document.getElementById("data");
+
+        const turma =
+            document.getElementById("turma");
+
+
+        if (descricao) {
+
+            descricao.value =
+                atividade.descricao_atividade ??
+                atividade.Descricao_Atividade ??
+                "";
+        }
+
+
+        if (observacao) {
+
+            observacao.value =
+                atividade.observacao ??
+                atividade.Observacao ??
+                "";
+        }
+
+
+        if (data) {
+
+            const dataAtividade =
+                atividade.data_atividade ??
+                atividade.Data_Atividade;
+
+            if (dataAtividade) {
+
+                data.value =
+                    dataAtividade
+                        .substring(0, 10);
+            }
+        }
+
+
+        if (turma) {
+
+            const idTurma =
+                atividade.fk_turma_id_turma ??
+                atividade.Fk_Turma_Id_Turma ??
+                atividade.turma?.id_turma ??
+                atividade.turma?.Id_Turma;
+
+            if (idTurma) {
+
+                turma.value =
+                    String(idTurma);
+            }
+        }
+
+
+        const fotos =
+            atividade.fotos ??
+            atividade.Fotos ??
+            [];
+
+
+        fotosExistentes =
+            Array.isArray(fotos)
+                ? fotos
+                : [];
+
+
+        renderizarFotos();
+
+    } catch (erro) {
+
+        console.error(
+            "Erro ao carregar atividade:",
+            erro
+        );
+    }
 }
 
 
 /* =========================================================
-   BOTÃO DO MODAL
+   FOTOS
 ========================================================= */
 
-if (successButton) {
+function adicionarFotos(lista) {
 
-    successButton.addEventListener(
-        "click",
-        function () {
+    if (!lista) {
+        return;
+    }
 
-            window.location.href =
-                "telaInicialProfessor.html";
+    const arquivos =
+        Array.from(lista);
 
+
+    arquivos.forEach(arquivo => {
+
+        if (
+            !arquivo.type.startsWith(
+                "image/"
+            )
+        ) {
+            return;
+        }
+
+        if (
+            arquivo.size >
+            10 * 1024 * 1024
+        ) {
+
+            alert(
+                `A imagem "${arquivo.name}" ultrapassa 10 MB.`
+            );
+
+            return;
+        }
+
+        fotosSelecionadas.push(
+            arquivo
+        );
+    });
+
+
+    renderizarFotos();
+}
+
+
+/* =========================================================
+   URL FOTO
+========================================================= */
+
+function obterUrlFoto(foto) {
+
+    if (!foto) {
+        return null;
+    }
+
+
+    if (typeof foto === "string") {
+        return foto;
+    }
+
+
+    return (
+        foto.url ??
+        foto.Url ??
+        foto.caminho ??
+        foto.Caminho ??
+        foto.nome_arquivo ??
+        foto.Nome_Arquivo ??
+        null
+    );
+}
+
+
+/* =========================================================
+   TRANSFORMAR CAMINHO
+========================================================= */
+
+function transformarCaminhoFoto(caminho) {
+
+    if (!caminho) {
+        return null;
+    }
+
+
+    if (
+        caminho.startsWith("http://") ||
+        caminho.startsWith("https://")
+    ) {
+
+        return caminho;
+    }
+
+
+    if (
+        caminho.startsWith("/")
+    ) {
+
+        return `${API_BASE}${caminho}`;
+    }
+
+
+    return `${API_BASE}/uploads/${caminho}`;
+}
+
+
+/* =========================================================
+   RENDERIZAR FOTOS
+========================================================= */
+
+function renderizarFotos() {
+
+    const previewSection =
+        document.getElementById(
+            "previewSection"
+        );
+
+    const previewGrid =
+        document.getElementById(
+            "previewGrid"
+        );
+
+    const contadorFotos =
+        document.getElementById(
+            "contadorFotos"
+        );
+
+
+    if (!previewSection || !previewGrid) {
+        return;
+    }
+
+
+    previewGrid.innerHTML = "";
+
+
+    const total =
+        fotosExistentes.length +
+        fotosSelecionadas.length;
+
+
+    if (total === 0) {
+
+        previewSection.style.display =
+            "none";
+
+        if (contadorFotos) {
+
+            contadorFotos.textContent =
+                "0 fotos";
+        }
+
+        return;
+    }
+
+
+    previewSection.style.display =
+        "block";
+
+
+    if (contadorFotos) {
+
+        contadorFotos.textContent =
+            `${total} ${
+                total === 1
+                    ? "foto"
+                    : "fotos"
+            }`;
+    }
+
+
+    /* -----------------------------------------------------
+       FOTOS EXISTENTES
+    ----------------------------------------------------- */
+
+    fotosExistentes.forEach(
+        (foto, index) => {
+
+            const url =
+                transformarCaminhoFoto(
+                    obterUrlFoto(foto)
+                );
+
+
+            if (!url) {
+                return;
+            }
+
+
+            const item =
+                document.createElement(
+                    "div"
+                );
+
+            item.className =
+                "preview-item";
+
+
+            const img =
+                document.createElement(
+                    "img"
+                );
+
+            img.src = url;
+
+            img.alt =
+                "Foto da atividade";
+
+
+            img.onerror = () => {
+
+                item.remove();
+            };
+
+
+            const button =
+                document.createElement(
+                    "button"
+                );
+
+            button.type =
+                "button";
+
+            button.className =
+                "remove-photo";
+
+            button.innerHTML =
+                '<i class="fa-solid fa-xmark"></i>';
+
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    fotosExistentes.splice(
+                        index,
+                        1
+                    );
+
+                    renderizarFotos();
+                }
+            );
+
+
+            item.appendChild(img);
+
+            item.appendChild(button);
+
+            previewGrid.appendChild(item);
         }
     );
 
+
+    /* -----------------------------------------------------
+       NOVAS FOTOS
+    ----------------------------------------------------- */
+
+    fotosSelecionadas.forEach(
+        (arquivo, index) => {
+
+            const item =
+                document.createElement(
+                    "div"
+                );
+
+            item.className =
+                "preview-item";
+
+
+            const img =
+                document.createElement(
+                    "img"
+                );
+
+
+            img.src =
+                URL.createObjectURL(
+                    arquivo
+                );
+
+            img.alt =
+                arquivo.name;
+
+
+            const button =
+                document.createElement(
+                    "button"
+                );
+
+            button.type =
+                "button";
+
+            button.className =
+                "remove-photo";
+
+            button.innerHTML =
+                '<i class="fa-solid fa-xmark"></i>';
+
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    fotosSelecionadas.splice(
+                        index,
+                        1
+                    );
+
+                    renderizarFotos();
+                }
+            );
+
+
+            item.appendChild(img);
+
+            item.appendChild(button);
+
+            previewGrid.appendChild(item);
+        }
+    );
+}
+
+
+/* =========================================================
+   ENVIAR FORMULÁRIO
+========================================================= */
+
+async function enviarFormulario(event) {
+
+    event.preventDefault();
+
+
+    const turma =
+        document.getElementById("turma");
+
+    const data =
+        document.getElementById("data");
+
+    const descricao =
+        document.getElementById("descricao");
+
+    const observacao =
+        document.getElementById("observacao");
+
+    const submitButton =
+        document.getElementById(
+            "submitButton"
+        );
+
+
+    if (
+        !turma ||
+        !data ||
+        !descricao
+    ) {
+        return;
+    }
+
+
+    if (!turma.value) {
+
+        alert(
+            "Selecione uma turma."
+        );
+
+        return;
+    }
+
+
+    if (!data.value) {
+
+        alert(
+            "Informe a data da atividade."
+        );
+
+        return;
+    }
+
+
+    if (!descricao.value.trim()) {
+
+        alert(
+            "Informe a descrição da atividade."
+        );
+
+        return;
+    }
+
+
+    if (
+        !modoEdicao &&
+        fotosSelecionadas.length === 0
+    ) {
+
+        alert(
+            "Adicione pelo menos uma foto da atividade."
+        );
+
+        return;
+    }
+
+
+    const formData =
+        new FormData();
+
+
+    formData.append(
+        "Fk_Turma_Id_Turma",
+        turma.value
+    );
+
+
+    formData.append(
+        "Data_Atividade",
+        data.value
+    );
+
+
+    formData.append(
+        "Descricao_Atividade",
+        descricao.value.trim()
+    );
+
+
+    formData.append(
+        "Observacao",
+        observacao
+            ? observacao.value.trim()
+            : ""
+    );
+
+
+    fotosSelecionadas.forEach(
+        foto => {
+
+            formData.append(
+                "Fotos",
+                foto
+            );
+        }
+    );
+
+
+    if (submitButton) {
+
+        submitButton.disabled =
+            true;
+
+        submitButton.innerHTML = `
+            <i class="fa-solid fa-spinner fa-spin"></i>
+            Salvando...
+        `;
+    }
+
+
+    try {
+
+        const url =
+            modoEdicao
+                ? `${API_BASE}/api/Atividade/${idAtividade}`
+                : `${API_BASE}/api/Atividade/registrar`;
+
+
+        const metodo =
+            modoEdicao
+                ? "PUT"
+                : "POST";
+
+
+        const resposta =
+            await fetch(
+                url,
+                {
+                    method: metodo,
+                    body: formData,
+                    credentials: "include"
+                }
+            );
+
+
+        const resultado =
+            await resposta.json()
+                .catch(() => ({}));
+
+
+        if (!resposta.ok) {
+
+            throw new Error(
+                resultado.mensagem ??
+                resultado.message ??
+                "Não foi possível salvar a atividade."
+            );
+        }
+
+
+        mostrarSucesso();
+
+
+    } catch (erro) {
+
+        console.error(
+            "Erro ao salvar atividade:",
+            erro
+        );
+
+
+        alert(
+            erro.message ??
+            "Ocorreu um erro ao salvar a atividade."
+        );
+
+
+        if (submitButton) {
+
+            submitButton.disabled =
+                false;
+
+            submitButton.innerHTML = `
+                <i class="fa-solid fa-check"></i>
+                ${modoEdicao
+                    ? "Salvar alterações"
+                    : "Registrar atividade"}
+            `;
+        }
+    }
+}
+
+
+/* =========================================================
+   MODAL DE SUCESSO
+========================================================= */
+
+function mostrarSucesso() {
+
+    if (!successOverlay) {
+
+        console.error(
+            "Elemento successOverlay não encontrado."
+        );
+
+        return;
+    }
+
+
+    /*
+       Garante que o modal fique visível
+       e não desapareça sozinho.
+    */
+
+    successOverlay.style.display =
+        "flex";
+
+    successOverlay.style.opacity =
+        "1";
+
+    successOverlay.style.visibility =
+        "visible";
+
+
+    successOverlay.classList.add(
+        "show"
+    );
+
+    successOverlay.classList.add(
+        "active"
+    );
+
+
+    successOverlay.setAttribute(
+        "aria-hidden",
+        "false"
+    );
 }
 
 
@@ -895,28 +1122,27 @@ if (successButton) {
    LOGOUT
 ========================================================= */
 
-const btnLogout =
-    document.getElementById("btnLogout");
+async function fazerLogout() {
 
-if (btnLogout) {
+    try {
 
-    btnLogout.addEventListener(
-        "click",
-        function () {
-
-            const confirmar =
-                confirm(
-                    "Deseja realmente sair da sua conta?"
-                );
-
-            if (confirmar) {
-
-                window.location.href =
-                    "login.html";
-
+        await fetch(
+            `${API_BASE}/Usuario/logout`,
+            {
+                method: "POST",
+                credentials: "include"
             }
+        );
 
-        }
-    );
+    } catch (erro) {
 
+        console.error(
+            "Erro ao fazer logout:",
+            erro
+        );
+    }
+
+
+    window.location.href =
+        "login.html";
 }
