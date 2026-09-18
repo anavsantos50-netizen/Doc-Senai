@@ -329,6 +329,173 @@
         }
       }
     },
+    "/api/Relatorio/listar": {
+      "get": {
+        "tags": [
+          "Relatorio"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Relatorio/gerar": {
+      "post": {
+        "tags": [
+          "Relatorio"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GerarRelatorioRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GerarRelatorioRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GerarRelatorioRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Relatorio/pdf/{id}": {
+      "get": {
+        "tags": [
+          "Relatorio"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Supervisao/dashboard": {
+      "get": {
+        "tags": [
+          "Supervisao"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Supervisao/professores": {
+      "get": {
+        "tags": [
+          "Supervisao"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Supervisao/turmas": {
+      "get": {
+        "tags": [
+          "Supervisao"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Supervisao/cursos": {
+      "get": {
+        "tags": [
+          "Supervisao"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Supervisao/registros": {
+      "get": {
+        "tags": [
+          "Supervisao"
+        ],
+        "parameters": [
+          {
+            "name": "professor",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "turma",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "curso",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "dataInicial",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "dataFinal",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/Usuario/login": {
       "post": {
         "tags": [
@@ -489,6 +656,46 @@
           },
           "novaSenha": {
             "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "GerarRelatorioRequest": {
+        "type": "object",
+        "properties": {
+          "titulo": {
+            "type": "string",
+            "nullable": true
+          },
+          "professor": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "turma": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "curso": {
+            "type": "string",
+            "nullable": true
+          },
+          "periodoInicio": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "periodoFim": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "atividades": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
             "nullable": true
           }
         },

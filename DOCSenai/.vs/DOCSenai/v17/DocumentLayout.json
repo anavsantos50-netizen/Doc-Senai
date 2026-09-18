@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|e:\\ana vit\u00F3ria\\docsenai\\doc-senai\\docsenai\\docsenai\\controllers\\atividadecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|solutionrelative:docsenai\\controllers\\atividadecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|e:\\ana vit\u00F3ria\\docsenai\\doc-senai\\docsenai\\docsenai\\controllers\\relatoriocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|solutionrelative:docsenai\\controllers\\relatoriocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|e:\\ana vit\u00F3ria\\docsenai\\doc-senai\\docsenai\\docsenai\\data\\docsenaicontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|solutionrelative:docsenai\\data\\docsenaicontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|e:\\ana vit\u00F3ria\\docsenai\\doc-senai\\docsenai\\docsenai\\models\\turma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|solutionrelative:docsenai\\models\\turma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|e:\\ana vit\u00F3ria\\docsenai\\doc-senai\\docsenai\\docsenai\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|solutionrelative:docsenai\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|e:\\ana vit\u00F3ria\\docsenai\\doc-senai\\docsenai\\docsenai\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|solutionrelative:docsenai\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|e:\\ana vit\u00F3ria\\docsenai\\doc-senai\\docsenai\\docsenai\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|solutionrelative:docsenai\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|e:\\ana vit\u00F3ria\\docsenai\\doc-senai\\docsenai\\docsenai\\models\\relatorio_atividade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|solutionrelative:docsenai\\models\\relatorio_atividade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|e:\\ana vit\u00F3ria\\docsenai\\doc-senai\\docsenai\\docsenai\\models\\relatorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|solutionrelative:docsenai\\models\\relatorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|e:\\ana vit\u00F3ria\\docsenai\\doc-senai\\docsenai\\docsenai\\controllers\\turmacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -27,24 +31,12 @@
       "RelativeMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|solutionrelative:docsenai\\controllers\\fotocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|e:\\ana vit\u00F3ria\\docsenai\\doc-senai\\docsenai\\docsenai\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|solutionrelative:docsenai\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|e:\\ana vit\u00F3ria\\docsenai\\doc-senai\\docsenai\\docsenai\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|solutionrelative:docsenai\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|e:\\ana vit\u00F3ria\\docsenai\\doc-senai\\docsenai\\docsenai\\models\\foto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|solutionrelative:docsenai\\models\\foto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|e:\\ana vit\u00F3ria\\docsenai\\doc-senai\\docsenai\\docsenai\\models\\turma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|solutionrelative:docsenai\\models\\turma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|e:\\ana vit\u00F3ria\\docsenai\\doc-senai\\docsenai\\docsenai\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|solutionrelative:docsenai\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|e:\\ana vit\u00F3ria\\docsenai\\doc-senai\\docsenai\\docsenai\\wwwroot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -63,10 +55,6 @@
       "RelativeMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|solutionrelative:docsenai\\controllers\\professor_turmacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|e:\\ana vit\u00F3ria\\docsenai\\doc-senai\\docsenai\\docsenai\\models\\professor_turma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|solutionrelative:docsenai\\models\\professor_turma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|e:\\ana vit\u00F3ria\\docsenai\\doc-senai\\docsenai\\docsenai\\controllers\\relatorio_atividadecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|solutionrelative:docsenai\\controllers\\relatorio_atividadecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -79,20 +67,8 @@
       "RelativeMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|solutionrelative:docsenai\\docsenai.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|e:\\ana vit\u00F3ria\\docsenai\\doc-senai\\docsenai\\docsenai\\models\\relatorio_atividade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|solutionrelative:docsenai\\models\\relatorio_atividade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|e:\\ana vit\u00F3ria\\docsenai\\doc-senai\\docsenai\\docsenai\\models\\relatorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|solutionrelative:docsenai\\models\\relatorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|e:\\ana vit\u00F3ria\\docsenai\\doc-senai\\docsenai\\docsenai\\docsenai.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
       "RelativeMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|solutionrelative:docsenai\\docsenai.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|e:\\ana vit\u00F3ria\\docsenai\\doc-senai\\docsenai\\docsenai\\controllers\\relatoriocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|solutionrelative:docsenai\\controllers\\relatoriocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -106,7 +82,111 @@
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\Program.cs",
+              "RelativeDocumentMoniker": "DOCSenai\\Program.cs",
+              "ToolTip": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\Program.cs",
+              "RelativeToolTip": "DOCSenai\\Program.cs",
+              "ViewState": "AgIAAFIAAAAAAAAAAAAAwFoAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-14T11:08:31.005Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Turma.cs",
+              "DocumentMoniker": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\Models\\Turma.cs",
+              "RelativeDocumentMoniker": "DOCSenai\\Models\\Turma.cs",
+              "ToolTip": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\Models\\Turma.cs",
+              "RelativeToolTip": "DOCSenai\\Models\\Turma.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-14T11:34:38.221Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Professor_TurmaController.cs",
+              "DocumentMoniker": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\Controllers\\Professor_TurmaController.cs",
+              "RelativeDocumentMoniker": "DOCSenai\\Controllers\\Professor_TurmaController.cs",
+              "ToolTip": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\Controllers\\Professor_TurmaController.cs",
+              "RelativeToolTip": "DOCSenai\\Controllers\\Professor_TurmaController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-16T11:06:13.742Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "RelatorioController.cs",
+              "DocumentMoniker": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\Controllers\\RelatorioController.cs",
+              "RelativeDocumentMoniker": "DOCSenai\\Controllers\\RelatorioController.cs",
+              "ToolTip": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\Controllers\\RelatorioController.cs",
+              "RelativeToolTip": "DOCSenai\\Controllers\\RelatorioController.cs",
+              "ViewState": "AgIAAL8EAAAAAAAAAAAswOMEAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-14T11:29:51.971Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Foto.cs",
+              "DocumentMoniker": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\Models\\Foto.cs",
+              "RelativeDocumentMoniker": "DOCSenai\\Models\\Foto.cs",
+              "ToolTip": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\Models\\Foto.cs",
+              "RelativeToolTip": "DOCSenai\\Models\\Foto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-14T11:35:23.511Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\Models\\Usuario.cs",
+              "RelativeDocumentMoniker": "DOCSenai\\Models\\Usuario.cs",
+              "ToolTip": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\Models\\Usuario.cs",
+              "RelativeToolTip": "DOCSenai\\Models\\Usuario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-14T11:33:30.155Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "Relatorio.cs",
+              "DocumentMoniker": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\Models\\Relatorio.cs",
+              "RelativeDocumentMoniker": "DOCSenai\\Models\\Relatorio.cs",
+              "ToolTip": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\Models\\Relatorio.cs",
+              "RelativeToolTip": "DOCSenai\\Models\\Relatorio.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-14T11:34:49.138Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Relatorio_Atividade.cs",
+              "DocumentMoniker": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\Models\\Relatorio_Atividade.cs",
+              "RelativeDocumentMoniker": "DOCSenai\\Models\\Relatorio_Atividade.cs",
+              "ToolTip": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\Models\\Relatorio_Atividade.cs",
+              "RelativeToolTip": "DOCSenai\\Models\\Relatorio_Atividade.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-14T11:35:02.224Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "TurmaController.cs",
               "DocumentMoniker": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\Controllers\\TurmaController.cs",
               "RelativeDocumentMoniker": "DOCSenai\\Controllers\\TurmaController.cs",
@@ -119,143 +199,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "launchSettings.json",
-              "DocumentMoniker": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\Properties\\launchSettings.json",
-              "RelativeDocumentMoniker": "DOCSenai\\Properties\\launchSettings.json",
-              "ToolTip": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\Properties\\launchSettings.json",
-              "RelativeToolTip": "DOCSenai\\Properties\\launchSettings.json",
-              "ViewState": "AgIAABAAAAAAAAAAAAAYwCMAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-09-14T13:21:33.461Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "DOCSenaiContext.cs",
-              "DocumentMoniker": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\Data\\DOCSenaiContext.cs",
-              "RelativeDocumentMoniker": "DOCSenai\\Data\\DOCSenaiContext.cs",
-              "ToolTip": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\Data\\DOCSenaiContext.cs",
-              "RelativeToolTip": "DOCSenai\\Data\\DOCSenaiContext.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAA0wDgAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-14T11:18:17.653Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AtividadeController.cs",
-              "DocumentMoniker": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\Controllers\\AtividadeController.cs",
-              "RelativeDocumentMoniker": "DOCSenai\\Controllers\\AtividadeController.cs",
-              "ToolTip": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\Controllers\\AtividadeController.cs",
-              "RelativeToolTip": "DOCSenai\\Controllers\\AtividadeController.cs",
-              "ViewState": "AgIAAGwEAAAAAAAAAAAAAG0EAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-14T11:30:26.606Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\appsettings.json",
-              "RelativeDocumentMoniker": "DOCSenai\\appsettings.json",
-              "ToolTip": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\appsettings.json",
-              "RelativeToolTip": "DOCSenai\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-09-14T11:40:05.981Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "UsuarioController.cs",
-              "DocumentMoniker": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\Controllers\\UsuarioController.cs",
-              "RelativeDocumentMoniker": "DOCSenai\\Controllers\\UsuarioController.cs",
-              "ToolTip": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\Controllers\\UsuarioController.cs",
-              "RelativeToolTip": "DOCSenai\\Controllers\\UsuarioController.cs",
-              "ViewState": "AgIAACYCAAAAAAAAAAAswDACAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-14T11:28:16.731Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 10,
-              "Title": "Program.cs",
-              "DocumentMoniker": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\Program.cs",
-              "RelativeDocumentMoniker": "DOCSenai\\Program.cs",
-              "ToolTip": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\Program.cs",
-              "RelativeToolTip": "DOCSenai\\Program.cs",
-              "ViewState": "AgIAAFIAAAAAAAAAAAAAwFoAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-14T11:08:31.005Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "Professor_Turma.cs",
-              "DocumentMoniker": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\Models\\Professor_Turma.cs",
-              "RelativeDocumentMoniker": "DOCSenai\\Models\\Professor_Turma.cs",
-              "ToolTip": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\Models\\Professor_Turma.cs",
-              "RelativeToolTip": "DOCSenai\\Models\\Professor_Turma.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-16T11:04:12.462Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Usuario.cs",
-              "DocumentMoniker": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\Models\\Usuario.cs",
-              "RelativeDocumentMoniker": "DOCSenai\\Models\\Usuario.cs",
-              "ToolTip": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\Models\\Usuario.cs",
-              "RelativeToolTip": "DOCSenai\\Models\\Usuario.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-14T11:33:30.155Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Turma.cs",
-              "DocumentMoniker": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\Models\\Turma.cs",
-              "RelativeDocumentMoniker": "DOCSenai\\Models\\Turma.cs",
-              "ToolTip": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\Models\\Turma.cs",
-              "RelativeToolTip": "DOCSenai\\Models\\Turma.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-14T11:34:38.221Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Foto.cs",
-              "DocumentMoniker": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\Models\\Foto.cs",
-              "RelativeDocumentMoniker": "DOCSenai\\Models\\Foto.cs",
-              "ToolTip": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\Models\\Foto.cs",
-              "RelativeToolTip": "DOCSenai\\Models\\Foto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-14T11:35:23.511Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Professor_TurmaController.cs",
-              "DocumentMoniker": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\Controllers\\Professor_TurmaController.cs",
-              "RelativeDocumentMoniker": "DOCSenai\\Controllers\\Professor_TurmaController.cs",
-              "ToolTip": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\Controllers\\Professor_TurmaController.cs",
-              "RelativeToolTip": "DOCSenai\\Controllers\\Professor_TurmaController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-16T11:06:13.742Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
               "Title": "ProfessorInicioController.cs",
               "DocumentMoniker": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\Controllers\\ProfessorInicioController.cs",
               "RelativeDocumentMoniker": "DOCSenai\\Controllers\\ProfessorInicioController.cs",
@@ -263,11 +207,12 @@
               "RelativeToolTip": "DOCSenai\\Controllers\\ProfessorInicioController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-16T11:34:08.699Z"
+              "WhenOpened": "2026-09-16T11:34:08.699Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 11,
               "Title": "Atividade.cs",
               "DocumentMoniker": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\Models\\Atividade.cs",
               "RelativeDocumentMoniker": "DOCSenai\\Models\\Atividade.cs",
@@ -275,11 +220,12 @@
               "RelativeToolTip": "DOCSenai\\Models\\Atividade.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-14T11:39:07.029Z"
+              "WhenOpened": "2026-09-14T11:39:07.029Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "FotoController.cs",
               "DocumentMoniker": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\Controllers\\FotoController.cs",
               "RelativeDocumentMoniker": "DOCSenai\\Controllers\\FotoController.cs",
@@ -292,7 +238,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 9,
               "Title": "wwwroot.cs",
               "DocumentMoniker": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\wwwroot.cs",
               "RelativeDocumentMoniker": "DOCSenai\\wwwroot.cs",
@@ -300,11 +246,12 @@
               "RelativeToolTip": "DOCSenai\\wwwroot.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-16T11:57:33.079Z"
+              "WhenOpened": "2026-09-16T11:57:33.079Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 13,
               "Title": "Relatorio_AtividadeController.cs",
               "DocumentMoniker": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\Controllers\\Relatorio_AtividadeController.cs",
               "RelativeDocumentMoniker": "DOCSenai\\Controllers\\Relatorio_AtividadeController.cs",
@@ -312,11 +259,12 @@
               "RelativeToolTip": "DOCSenai\\Controllers\\Relatorio_AtividadeController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-14T11:29:34.171Z"
+              "WhenOpened": "2026-09-14T11:29:34.171Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 14,
               "Title": "appsettings.Development.json",
               "DocumentMoniker": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\appsettings.Development.json",
               "RelativeDocumentMoniker": "DOCSenai\\appsettings.Development.json",
@@ -324,11 +272,12 @@
               "RelativeToolTip": "DOCSenai\\appsettings.Development.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-09-14T12:40:44.658Z"
+              "WhenOpened": "2026-09-14T12:40:44.658Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 15,
               "Title": "DOCSenai.http",
               "DocumentMoniker": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\DOCSenai.http",
               "RelativeDocumentMoniker": "DOCSenai\\DOCSenai.http",
@@ -336,54 +285,20 @@
               "RelativeToolTip": "DOCSenai\\DOCSenai.http",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2026-09-14T12:40:26.386Z"
+              "WhenOpened": "2026-09-14T12:40:26.386Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 16,
               "Title": "DOCSenai",
               "DocumentMoniker": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\DOCSenai.csproj",
               "RelativeDocumentMoniker": "DOCSenai\\DOCSenai.csproj",
               "ToolTip": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\DOCSenai.csproj",
               "RelativeToolTip": "DOCSenai\\DOCSenai.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-09-14T12:40:32.243Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "Relatorio.cs",
-              "DocumentMoniker": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\Models\\Relatorio.cs",
-              "RelativeDocumentMoniker": "DOCSenai\\Models\\Relatorio.cs",
-              "ToolTip": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\Models\\Relatorio.cs",
-              "RelativeToolTip": "DOCSenai\\Models\\Relatorio.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-14T11:34:49.138Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "Relatorio_Atividade.cs",
-              "DocumentMoniker": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\Models\\Relatorio_Atividade.cs",
-              "RelativeDocumentMoniker": "DOCSenai\\Models\\Relatorio_Atividade.cs",
-              "ToolTip": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\Models\\Relatorio_Atividade.cs",
-              "RelativeToolTip": "DOCSenai\\Models\\Relatorio_Atividade.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-14T11:35:02.224Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "RelatorioController.cs",
-              "DocumentMoniker": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\Controllers\\RelatorioController.cs",
-              "RelativeDocumentMoniker": "DOCSenai\\Controllers\\RelatorioController.cs",
-              "ToolTip": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\Controllers\\RelatorioController.cs",
-              "RelativeToolTip": "DOCSenai\\Controllers\\RelatorioController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-14T11:29:51.971Z"
+              "WhenOpened": "2026-09-14T12:40:32.243Z",
+              "EditorCaption": ""
             }
           ]
         }

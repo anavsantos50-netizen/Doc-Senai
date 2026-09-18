@@ -14,17 +14,19 @@ let successButton;
    INICIALIZAÇÃO
 ========================================================= */
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
 
     configurarElementos();
     configurarEventos();
     configurarContadores();
     configurarModo();
 
-    carregarTurmas();
+    // Primeiro carrega as turmas.
+    // Depois carrega a atividade para conseguir selecionar a turma correta.
+    await carregarTurmas();
 
     if (modoEdicao) {
-        carregarAtividade();
+        await carregarAtividade();
     }
 });
 
@@ -317,6 +319,7 @@ function configurarModo() {
     modoEdicao =
         !!idAtividade;
 
+
     const titulo =
         document.querySelector(
             ".page-header h1"
@@ -336,14 +339,18 @@ function configurarModo() {
     if (modoEdicao) {
 
         if (titulo) {
+
             titulo.textContent =
                 "Editar atividade";
         }
 
+
         if (label) {
+
             label.textContent =
                 "EDITAR ATIVIDADE";
         }
+
 
         if (submitButton) {
 
@@ -369,6 +376,7 @@ async function carregarTurmas() {
         return;
     }
 
+
     try {
 
         const resposta =
@@ -379,12 +387,14 @@ async function carregarTurmas() {
                 }
             );
 
+
         if (!resposta.ok) {
 
             throw new Error(
                 "Não foi possível carregar as turmas."
             );
         }
+
 
         const turmas =
             await resposta.json();
@@ -402,9 +412,11 @@ async function carregarTurmas() {
             const option =
                 document.createElement("option");
 
+
             option.value =
                 turma.id_turma ??
                 turma.Id_Turma;
+
 
             option.textContent =
                 turma.nome_turma ??
@@ -413,8 +425,10 @@ async function carregarTurmas() {
                 turma.Curso ??
                 "Turma";
 
+
             select.appendChild(option);
         });
+
 
     } catch (erro) {
 
@@ -446,6 +460,7 @@ async function carregarAtividade() {
                 }
             );
 
+
         if (!resposta.ok) {
 
             throw new Error(
@@ -453,8 +468,15 @@ async function carregarAtividade() {
             );
         }
 
+
         const atividade =
             await resposta.json();
+
+
+        console.log(
+            "ATIVIDADE CARREGADA:",
+            atividade
+        );
 
 
         const descricao =
@@ -470,14 +492,24 @@ async function carregarAtividade() {
             document.getElementById("turma");
 
 
+        /* =====================================================
+           DESCRIÇÃO
+        ===================================================== */
+
         if (descricao) {
 
             descricao.value =
+                atividade.descricao ??
+                atividade.Descricao ??
                 atividade.descricao_atividade ??
                 atividade.Descricao_Atividade ??
                 "";
         }
 
+
+        /* =====================================================
+           OBSERVAÇÃO
+        ===================================================== */
 
         if (observacao) {
 
@@ -488,36 +520,99 @@ async function carregarAtividade() {
         }
 
 
+        /* =====================================================
+           DATA
+        ===================================================== */
+
         if (data) {
 
             const dataAtividade =
+                atividade.data ??
+                atividade.Data ??
                 atividade.data_atividade ??
                 atividade.Data_Atividade;
 
+
             if (dataAtividade) {
 
-                data.value =
-                    dataAtividade
-                        .substring(0, 10);
+                const dataString =
+                    String(dataAtividade);
+
+
+                /*
+                   O backend envia a data como:
+
+                   dd/MM/yyyy
+
+                   Exemplo:
+                   15/09/2026
+
+                   O input type="date" precisa de:
+
+                   yyyy-MM-dd
+
+                   Exemplo:
+                   2026-09-15
+                */
+
+                if (
+                    dataString.includes("/")
+                ) {
+
+                    const partes =
+                        dataString.split("/");
+
+
+                    if (partes.length === 3) {
+
+                        data.value =
+                            `${partes[2]}-${partes[1].padStart(2, "0")}-${partes[0].padStart(2, "0")}`;
+                    }
+
+                } else {
+
+                    data.value =
+                        dataString.substring(0, 10);
+                }
             }
         }
 
 
+        /* =====================================================
+           TURMA
+        ===================================================== */
+
         if (turma) {
 
             const idTurma =
-                atividade.fk_turma_id_turma ??
-                atividade.Fk_Turma_Id_Turma ??
+                atividade.turma?.id ??
+                atividade.turma?.Id ??
                 atividade.turma?.id_turma ??
-                atividade.turma?.Id_Turma;
+                atividade.turma?.Id_Turma ??
+                atividade.fk_turma_id_turma ??
+                atividade.Fk_Turma_Id_Turma;
 
-            if (idTurma) {
+
+            console.log(
+                "ID DA TURMA:",
+                idTurma
+            );
+
+
+            if (
+                idTurma !== null &&
+                idTurma !== undefined
+            ) {
 
                 turma.value =
                     String(idTurma);
             }
         }
 
+
+        /* =====================================================
+           FOTOS
+        ===================================================== */
 
         const fotos =
             atividade.fotos ??
@@ -533,15 +628,45 @@ async function carregarAtividade() {
 
         renderizarFotos();
 
+
+        /* =====================================================
+           ATUALIZAR CONTADORES
+        ===================================================== */
+
+        if (descricao) {
+
+            descricao.dispatchEvent(
+                new Event("input")
+            );
+        }
+
+
+        if (observacao) {
+
+            observacao.dispatchEvent(
+                new Event("input")
+            );
+        }
+
+
+        console.log(
+            "Dados da atividade preenchidos no formulário."
+        );
+
+
     } catch (erro) {
 
         console.error(
             "Erro ao carregar atividade:",
             erro
         );
+
+
+        alert(
+            "Não foi possível carregar os dados da atividade."
+        );
     }
 }
-
 
 /* =========================================================
    FOTOS
@@ -552,6 +677,7 @@ function adicionarFotos(lista) {
     if (!lista) {
         return;
     }
+
 
     const arquivos =
         Array.from(lista);
@@ -564,8 +690,10 @@ function adicionarFotos(lista) {
                 "image/"
             )
         ) {
+
             return;
         }
+
 
         if (
             arquivo.size >
@@ -578,6 +706,7 @@ function adicionarFotos(lista) {
 
             return;
         }
+
 
         fotosSelecionadas.push(
             arquivo
@@ -671,7 +800,11 @@ function renderizarFotos() {
         );
 
 
-    if (!previewSection || !previewGrid) {
+    if (
+        !previewSection ||
+        !previewGrid
+    ) {
+
         return;
     }
 
@@ -688,6 +821,7 @@ function renderizarFotos() {
 
         previewSection.style.display =
             "none";
+
 
         if (contadorFotos) {
 
@@ -737,6 +871,7 @@ function renderizarFotos() {
                     "div"
                 );
 
+
             item.className =
                 "preview-item";
 
@@ -745,6 +880,7 @@ function renderizarFotos() {
                 document.createElement(
                     "img"
                 );
+
 
             img.src = url;
 
@@ -762,6 +898,7 @@ function renderizarFotos() {
                 document.createElement(
                     "button"
                 );
+
 
             button.type =
                 "button";
@@ -808,6 +945,7 @@ function renderizarFotos() {
                     "div"
                 );
 
+
             item.className =
                 "preview-item";
 
@@ -823,6 +961,7 @@ function renderizarFotos() {
                     arquivo
                 );
 
+
             img.alt =
                 arquivo.name;
 
@@ -831,6 +970,7 @@ function renderizarFotos() {
                 document.createElement(
                     "button"
                 );
+
 
             button.type =
                 "button";
@@ -898,6 +1038,7 @@ async function enviarFormulario(event) {
         !data ||
         !descricao
     ) {
+
         return;
     }
 
@@ -991,6 +1132,7 @@ async function enviarFormulario(event) {
         submitButton.disabled =
             true;
 
+
         submitButton.innerHTML = `
             <i class="fa-solid fa-spinner fa-spin"></i>
             Salvando...
@@ -1060,6 +1202,7 @@ async function enviarFormulario(event) {
             submitButton.disabled =
                 false;
 
+
             submitButton.innerHTML = `
                 <i class="fa-solid fa-check"></i>
                 ${modoEdicao
@@ -1087,16 +1230,13 @@ function mostrarSucesso() {
     }
 
 
-    /*
-       Garante que o modal fique visível
-       e não desapareça sozinho.
-    */
-
     successOverlay.style.display =
         "flex";
 
+
     successOverlay.style.opacity =
         "1";
+
 
     successOverlay.style.visibility =
         "visible";
@@ -1105,6 +1245,7 @@ function mostrarSucesso() {
     successOverlay.classList.add(
         "show"
     );
+
 
     successOverlay.classList.add(
         "active"
@@ -1133,6 +1274,7 @@ async function fazerLogout() {
                 credentials: "include"
             }
         );
+
 
     } catch (erro) {
 

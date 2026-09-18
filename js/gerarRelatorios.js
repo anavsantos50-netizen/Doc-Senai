@@ -1,236 +1,807 @@
 /* =========================================================
-   DOCSENAI
-   GERAR RELATÓRIO - SUPERVISÃO
+   CONFIGURAÇÃO
 ========================================================= */
+
+const API_BASE = "https://localhost:7082";
+
+let atividades = [];
+let atividadesSelecionadas = new Set();
+let gerandoRelatorio = false;
 
 
 /* =========================================================
-   DADOS DE EXEMPLO
+   INICIALIZAÇÃO
 ========================================================= */
 
-const atividades = [
+document.addEventListener("DOMContentLoaded", () => {
 
-    {
-        id: 1,
-        data: "24/05/2026",
-        professor: "João Silva",
-        turma: "3º Informática A",
-        turmaId: "informatica-a",
-        curso: "informatica",
-        descricao: "Atividade prática de HTML e CSS"
-    },
+    configurarMenu();
+    configurarLogout();
+    configurarFiltros();
+    configurarSelecao();
+    configurarGeracao();
 
-    {
-        id: 2,
-        data: "25/05/2026",
-        professor: "Maria Santos",
-        turma: "2º Informática B",
-        turmaId: "informatica-b",
-        curso: "informatica",
-        descricao: "Projeto de Banco de Dados"
-    },
+    carregarProfessores();
+    carregarTurmas();
+    carregarCursos();
 
-    {
-        id: 3,
-        data: "26/05/2026",
-        professor: "João Silva",
-        turma: "3º Informática A",
-        turmaId: "informatica-a",
-        curso: "informatica",
-        descricao: "Aula sobre Segurança da Informação"
-    },
+    buscarAtividades();
 
-    {
-        id: 4,
-        data: "27/05/2026",
-        professor: "Ana Oliveira",
-        turma: "Desenvolvimento Web",
-        turmaId: "desenvolvimento",
-        curso: "desenvolvimento-web",
-        descricao: "Estruturação de páginas responsivas"
-    },
+});
 
-    {
-        id: 5,
-        data: "28/05/2026",
-        professor: "João Silva",
-        turma: "3º Informática A",
-        turmaId: "informatica-a",
-        curso: "informatica",
-        descricao: "Introdução ao JavaScript"
-    },
 
-    {
-        id: 6,
-        data: "29/05/2026",
-        professor: "Maria Santos",
-        turma: "2º Informática B",
-        turmaId: "informatica-b",
-        curso: "informatica",
-        descricao: "Modelagem de dados"
+/* =========================================================
+   MENU MOBILE
+========================================================= */
+
+function configurarMenu() {
+
+    const btnMenu = document.getElementById("menuMobile");
+    const mobileNav = document.getElementById("mobileNav");
+
+    if (!btnMenu || !mobileNav) {
+        return;
     }
 
-];
+    btnMenu.addEventListener("click", () => {
+
+        mobileNav.classList.toggle("ativo");
+
+    });
+
+}
 
 
 /* =========================================================
-   ELEMENTOS
+   LOGOUT
 ========================================================= */
 
-const activitiesList =
-    document.getElementById("activitiesList");
+function configurarLogout() {
 
-const activitiesCount =
-    document.getElementById("activitiesCount");
+    const btnLogout = document.getElementById("btnLogout");
+    const btnLogoutMobile =
+        document.getElementById("btnLogoutMobile");
 
-const selectedInfo =
-    document.getElementById("selectedInfo");
 
-const summaryText =
-    document.getElementById("summaryText");
+    async function fazerLogout(event) {
 
-const noResults =
-    document.getElementById("noResults");
+        if (event) {
+            event.preventDefault();
+        }
 
-const selectAllInput =
-    document.getElementById("selectAllInput");
+        try {
 
-const professor =
-    document.getElementById("professor");
+            await fetch(
+                `${API_BASE}/Usuario/logout`,
+                {
+                    method: "POST",
+                    credentials: "include"
+                }
+            );
 
-const turma =
-    document.getElementById("turma");
+        } catch (erro) {
 
-const curso =
-    document.getElementById("curso");
+            console.error(
+                "Erro ao realizar logout:",
+                erro
+            );
 
-const dataInicio =
-    document.getElementById("dataInicio");
+        } finally {
 
-const dataFim =
-    document.getElementById("dataFim");
+            window.location.href =
+                "../html/login.html";
 
-const tituloRelatorio =
-    document.getElementById("tituloRelatorio");
+        }
 
-const btnGerar =
-    document.getElementById("btnGerar");
+    }
 
-const btnLogout =
-    document.getElementById("btnLogout");
+
+    if (btnLogout) {
+
+        btnLogout.addEventListener(
+            "click",
+            fazerLogout
+        );
+
+    }
+
+
+    if (btnLogoutMobile) {
+
+        btnLogoutMobile.addEventListener(
+            "click",
+            fazerLogout
+        );
+
+    }
+
+}
 
 
 /* =========================================================
-   RENDERIZAR
+   FILTROS
 ========================================================= */
 
-function renderizarAtividades(lista) {
+function configurarFiltros() {
 
-    activitiesList.innerHTML = "";
+    const professor =
+        document.getElementById("professor");
+
+    const turma =
+        document.getElementById("turma");
+
+    const curso =
+        document.getElementById("curso");
+
+    const dataInicio =
+        document.getElementById("dataInicio");
+
+    const dataFim =
+        document.getElementById("dataFim");
 
 
-    activitiesCount.textContent =
-        lista.length;
+    if (professor) {
+
+        professor.addEventListener(
+            "change",
+            buscarAtividades
+        );
+
+    }
 
 
-    if (lista.length === 0) {
+    if (turma) {
 
-        noResults.classList.add("visible");
+        turma.addEventListener(
+            "change",
+            buscarAtividades
+        );
 
-        atualizarResumo();
+    }
+
+
+    if (curso) {
+
+        curso.addEventListener(
+            "change",
+            buscarAtividades
+        );
+
+    }
+
+
+    if (dataInicio) {
+
+        dataInicio.addEventListener(
+            "change",
+            buscarAtividades
+        );
+
+    }
+
+
+    if (dataFim) {
+
+        dataFim.addEventListener(
+            "change",
+            buscarAtividades
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   CARREGAR PROFESSORES
+========================================================= */
+
+async function carregarProfessores() {
+
+    const select =
+        document.getElementById("professor");
+
+    if (!select) {
+        return;
+    }
+
+
+    try {
+
+        const resposta = await fetch(
+            `${API_BASE}/api/Supervisao/professores`,
+            {
+                method: "GET",
+                credentials: "include"
+            }
+        );
+
+
+        if (!resposta.ok) {
+
+            throw new Error(
+                `Erro ao carregar professores: ${resposta.status}`
+            );
+
+        }
+
+
+        const professores =
+            await resposta.json();
+
+
+        select.innerHTML = `
+            <option value="">
+                Todos os professores
+            </option>
+        `;
+
+
+        professores.forEach(professor => {
+
+            const option =
+                document.createElement("option");
+
+            option.value =
+                professor.id;
+
+            option.textContent =
+                professor.nome;
+
+            select.appendChild(option);
+
+        });
+
+
+    } catch (erro) {
+
+        console.error(
+            "Erro ao carregar professores:",
+            erro
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   CARREGAR TURMAS
+========================================================= */
+
+async function carregarTurmas() {
+
+    const select =
+        document.getElementById("turma");
+
+    if (!select) {
+        return;
+    }
+
+
+    try {
+
+        const resposta = await fetch(
+            `${API_BASE}/api/Supervisao/turmas`,
+            {
+                method: "GET",
+                credentials: "include"
+            }
+        );
+
+
+        if (!resposta.ok) {
+
+            throw new Error(
+                `Erro ao carregar turmas: ${resposta.status}`
+            );
+
+        }
+
+
+        const turmas =
+            await resposta.json();
+
+
+        select.innerHTML = `
+            <option value="">
+                Todas as turmas
+            </option>
+        `;
+
+
+        turmas.forEach(turma => {
+
+            const option =
+                document.createElement("option");
+
+            option.value =
+                turma.id;
+
+            option.textContent =
+                turma.nome;
+
+            select.appendChild(option);
+
+        });
+
+
+    } catch (erro) {
+
+        console.error(
+            "Erro ao carregar turmas:",
+            erro
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   CARREGAR CURSOS
+========================================================= */
+
+async function carregarCursos() {
+
+    const select =
+        document.getElementById("curso");
+
+    if (!select) {
+        return;
+    }
+
+
+    try {
+
+        const resposta = await fetch(
+            `${API_BASE}/api/Supervisao/cursos`,
+            {
+                method: "GET",
+                credentials: "include"
+            }
+        );
+
+
+        if (!resposta.ok) {
+
+            throw new Error(
+                `Erro ao carregar cursos: ${resposta.status}`
+            );
+
+        }
+
+
+        const cursos =
+            await resposta.json();
+
+
+        select.innerHTML = `
+            <option value="">
+                Todos os cursos
+            </option>
+        `;
+
+
+        cursos.forEach(curso => {
+
+            const option =
+                document.createElement("option");
+
+            option.value =
+                curso;
+
+            option.textContent =
+                curso;
+
+            select.appendChild(option);
+
+        });
+
+
+    } catch (erro) {
+
+        console.error(
+            "Erro ao carregar cursos:",
+            erro
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   BUSCAR ATIVIDADES
+========================================================= */
+
+async function buscarAtividades() {
+
+    const professor =
+        document.getElementById("professor");
+
+    const turma =
+        document.getElementById("turma");
+
+    const curso =
+        document.getElementById("curso");
+
+    const dataInicio =
+        document.getElementById("dataInicio");
+
+    const dataFim =
+        document.getElementById("dataFim");
+
+
+    const parametros =
+        new URLSearchParams();
+
+
+    if (
+        professor &&
+        professor.value
+    ) {
+
+        parametros.append(
+            "professor",
+            professor.value
+        );
+
+    }
+
+
+    if (
+        turma &&
+        turma.value
+    ) {
+
+        parametros.append(
+            "turma",
+            turma.value
+        );
+
+    }
+
+
+    if (
+        curso &&
+        curso.value
+    ) {
+
+        parametros.append(
+            "curso",
+            curso.value
+        );
+
+    }
+
+
+    if (
+        dataInicio &&
+        dataInicio.value
+    ) {
+
+        parametros.append(
+            "dataInicial",
+            dataInicio.value
+        );
+
+    }
+
+
+    if (
+        dataFim &&
+        dataFim.value
+    ) {
+
+        parametros.append(
+            "dataFinal",
+            dataFim.value
+        );
+
+    }
+
+
+    const url =
+        `${API_BASE}/api/Supervisao/registros?${parametros.toString()}`;
+
+
+    console.log(
+        "========== BUSCANDO ATIVIDADES =========="
+    );
+
+    console.log(
+        "URL:",
+        url
+    );
+
+
+    try {
+
+        const resposta =
+            await fetch(
+                url,
+                {
+                    method: "GET",
+                    credentials: "include"
+                }
+            );
+
+
+        console.log(
+            "Status atividades:",
+            resposta.status
+        );
+
+
+        if (!resposta.ok) {
+
+            const erroTexto =
+                await resposta.text();
+
+            console.error(
+                "Erro retornado pela API:",
+                erroTexto
+            );
+
+            throw new Error(
+                `Erro ao buscar atividades: ${resposta.status}`
+            );
+
+        }
+
+
+        atividades =
+            await resposta.json();
+
+
+        console.log(
+            "ATIVIDADES RECEBIDAS:",
+            atividades
+        );
+
+
+        /*
+           Todas as atividades começam
+           selecionadas.
+        */
+
+        atividadesSelecionadas =
+            new Set(
+                atividades.map(
+                    atividade => atividade.id
+                )
+            );
+
+
+        renderizarAtividades();
+
+        atualizarQuantidade();
+
+        atualizarSelecionadas();
+
+        atualizarCheckboxTodas();
+
+
+    } catch (erro) {
+
+        console.error(
+            "Erro ao buscar atividades:",
+            erro
+        );
+
+
+        atividades = [];
+
+        atividadesSelecionadas.clear();
+
+
+        renderizarAtividades();
+
+        atualizarQuantidade();
+
+        atualizarSelecionadas();
+
+        atualizarCheckboxTodas();
+
+    }
+
+}
+
+
+/* =========================================================
+   RENDERIZAR ATIVIDADES
+========================================================= */
+
+function renderizarAtividades() {
+
+    const lista =
+        document.getElementById("activitiesList");
+
+    const noResults =
+        document.getElementById("noResults");
+
+
+    if (!lista) {
+        return;
+    }
+
+
+    lista.innerHTML = "";
+
+
+    /*
+       Nenhuma atividade
+    */
+
+    if (atividades.length === 0) {
+
+        if (noResults) {
+            noResults.style.display = "flex";
+        }
 
         return;
 
     }
 
 
-    noResults.classList.remove("visible");
+    /*
+       Existem atividades
+    */
+
+    if (noResults) {
+        noResults.style.display = "none";
+    }
 
 
-    lista.forEach(atividade => {
+    atividades.forEach(atividade => {
 
-        const row =
-            document.createElement("label");
-
-
-        row.className = "activity-row";
+        const item =
+            document.createElement("div");
 
 
-        row.innerHTML = `
-
-            <input
-                type="checkbox"
-                class="activity-checkbox"
-                value="${atividade.id}"
-                checked
-            >
+        item.className =
+            "activity-item";
 
 
-            <span class="custom-checkbox">
+        const selecionada =
+            atividadesSelecionadas.has(
+                atividade.id
+            );
 
-                <i class="fa-solid fa-check"></i>
 
-            </span>
+        item.innerHTML = `
+
+            <label class="activity-checkbox">
+
+                <input
+                    type="checkbox"
+                    class="checkbox-atividade"
+                    data-id="${atividade.id}"
+                    ${selecionada ? "checked" : ""}
+                >
+
+                <span class="custom-checkbox">
+
+                    <i class="fa-solid fa-check"></i>
+
+                </span>
+
+            </label>
 
 
             <div class="activity-content">
 
+
                 <div class="activity-main">
 
-                    <span class="activity-date">
-                        ${atividade.data}
-                    </span>
+
+                    <div class="activity-date">
+
+                        <i class="fa-regular fa-calendar"></i>
+
+                        <span>
+                            ${escaparHTML(
+                                atividade.data || ""
+                            )}
+                        </span>
+
+                    </div>
 
 
-                    <span class="activity-separator">
-                        •
-                    </span>
+                    <h3>
+
+                        ${escaparHTML(
+                            primeiraLinha(
+                                atividade.descricao || ""
+                            )
+                        )}
+
+                    </h3>
 
 
-                    <span class="activity-professor">
-                        ${atividade.professor}
-                    </span>
+                    ${
+                        atividade.observacao
+                            ? `
+                                <p>
+                                    ${escaparHTML(
+                                        atividade.observacao
+                                    )}
+                                </p>
+                              `
+                            : ""
+                    }
 
-
-                    <span class="activity-class">
-                        ${atividade.turma}
-                    </span>
 
                 </div>
 
 
-                <div class="activity-info">
+                <div class="activity-details">
 
-                    ${atividade.descricao}
+
+                    <span>
+
+                        <i class="fa-solid fa-user"></i>
+
+                        ${escaparHTML(
+                            atividade.professor?.nome ||
+                            "Professor não informado"
+                        )}
+
+                    </span>
+
+
+                    <span>
+
+                        <i class="fa-solid fa-users"></i>
+
+                        ${escaparHTML(
+                            atividade.turma?.nome ||
+                            "Turma não informada"
+                        )}
+
+                    </span>
+
+
+                    <span>
+
+                        <i class="fa-solid fa-graduation-cap"></i>
+
+                        ${escaparHTML(
+                            atividade.turma?.curso ||
+                            "Curso não informado"
+                        )}
+
+                    </span>
+
 
                 </div>
+
 
             </div>
 
         `;
 
 
-        activitiesList.appendChild(row);
+        lista.appendChild(item);
 
     });
 
 
-    adicionarEventosCheckbox();
-
-    atualizarResumo();
+    configurarCheckboxes();
 
 }
 
 
 /* =========================================================
-   CHECKBOXES
+   CHECKBOXES INDIVIDUAIS
 ========================================================= */
 
-function adicionarEventosCheckbox() {
+function configurarCheckboxes() {
 
     const checkboxes =
         document.querySelectorAll(
-            ".activity-checkbox"
+            ".checkbox-atividade"
         );
 
 
@@ -238,59 +809,33 @@ function adicionarEventosCheckbox() {
 
         checkbox.addEventListener(
             "change",
-            function () {
+            () => {
 
-                atualizarResumo();
+                const id =
+                    Number(
+                        checkbox.dataset.id
+                    );
+
+
+                if (checkbox.checked) {
+
+                    atividadesSelecionadas.add(id);
+
+                } else {
+
+                    atividadesSelecionadas.delete(id);
+
+                }
+
+
+                atualizarSelecionadas();
+
+                atualizarCheckboxTodas();
 
             }
         );
 
     });
-
-}
-
-
-/* =========================================================
-   ATUALIZAR RESUMO
-========================================================= */
-
-function atualizarResumo() {
-
-    const checkboxes =
-        document.querySelectorAll(
-            ".activity-checkbox"
-        );
-
-
-    const selecionadas =
-        Array.from(checkboxes)
-            .filter(
-                checkbox =>
-                    checkbox.checked
-            );
-
-
-    const quantidade =
-        selecionadas.length;
-
-
-    selectedInfo.textContent =
-        `${quantidade} ${
-            quantidade === 1
-                ? "selecionada"
-                : "selecionadas"
-        }`;
-
-
-    summaryText.textContent =
-        `${quantidade} ${
-            quantidade === 1
-                ? "atividade será incluída"
-                : "atividades serão incluídas"
-        } no PDF.`;
-
-
-    atualizarSelecionarTodos();
 
 }
 
@@ -299,531 +844,918 @@ function atualizarResumo() {
    SELECIONAR TODAS
 ========================================================= */
 
-function atualizarSelecionarTodos() {
+function configurarSelecao() {
 
-    const checkboxes =
-        document.querySelectorAll(
-            ".activity-checkbox"
+    const checkboxTodas =
+        document.getElementById(
+            "selecionarTodas"
         );
 
 
-    if (checkboxes.length === 0) {
+    if (!checkboxTodas) {
+        return;
+    }
 
-        selectAllInput.checked = false;
+
+    checkboxTodas.addEventListener(
+        "change",
+        () => {
+
+            if (checkboxTodas.checked) {
+
+                atividades.forEach(
+                    atividade => {
+
+                        atividadesSelecionadas.add(
+                            atividade.id
+                        );
+
+                    }
+                );
+
+            } else {
+
+                atividadesSelecionadas.clear();
+
+            }
+
+
+            renderizarAtividades();
+
+            atualizarSelecionadas();
+
+            atualizarCheckboxTodas();
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   ATUALIZAR CHECKBOX "TODAS"
+========================================================= */
+
+function atualizarCheckboxTodas() {
+
+    const checkboxTodas =
+        document.getElementById(
+            "selecionarTodas"
+        );
+
+
+    if (!checkboxTodas) {
+        return;
+    }
+
+
+    if (atividades.length === 0) {
+
+        checkboxTodas.checked = false;
+
+        checkboxTodas.indeterminate = false;
 
         return;
-
     }
 
 
-    selectAllInput.checked =
-        Array.from(checkboxes)
-            .every(
-                checkbox =>
-                    checkbox.checked
-            );
-
-}
+    const quantidade =
+        atividadesSelecionadas.size;
 
 
-selectAllInput.addEventListener(
-    "change",
-    function () {
+    if (
+        quantidade === atividades.length
+    ) {
 
-        const checkboxes =
-            document.querySelectorAll(
-                ".activity-checkbox"
-            );
+        checkboxTodas.checked = true;
 
+        checkboxTodas.indeterminate = false;
 
-        checkboxes.forEach(checkbox => {
+    } else if (
+        quantidade > 0
+    ) {
 
-            checkbox.checked =
-                selectAllInput.checked;
+        checkboxTodas.checked = false;
 
-        });
+        checkboxTodas.indeterminate = true;
 
+    } else {
 
-        atualizarResumo();
+        checkboxTodas.checked = false;
+
+        checkboxTodas.indeterminate = false;
 
     }
-);
-
-
-/* =========================================================
-   FILTROS
-========================================================= */
-
-function filtrarAtividades() {
-
-    let resultado =
-        [...atividades];
-
-
-    /* PROFESSOR */
-
-    if (professor.value) {
-
-        const nomes = {
-
-            joao: "João Silva",
-
-            maria: "Maria Santos",
-
-            ana: "Ana Oliveira"
-
-        };
-
-
-        resultado =
-            resultado.filter(
-                atividade =>
-                    atividade.professor ===
-                    nomes[professor.value]
-            );
-
-    }
-
-
-    /* TURMA */
-
-    if (turma.value) {
-
-        resultado =
-            resultado.filter(
-                atividade =>
-                    atividade.turmaId ===
-                    turma.value
-            );
-
-    }
-
-
-    /* CURSO */
-
-    if (curso.value) {
-
-        resultado =
-            resultado.filter(
-                atividade =>
-                    atividade.curso ===
-                    curso.value
-            );
-
-    }
-
-
-    /* DATA */
-
-    if (dataInicio.value) {
-
-        const inicio =
-            new Date(
-                dataInicio.value +
-                "T00:00:00"
-            );
-
-
-        resultado =
-            resultado.filter(
-                atividade => {
-
-                    const partes =
-                        atividade.data.split("/");
-
-
-                    const data =
-                        new Date(
-                            partes[2],
-                            partes[1] - 1,
-                            partes[0]
-                        );
-
-
-                    return data >= inicio;
-
-                }
-            );
-
-    }
-
-
-    if (dataFim.value) {
-
-        const fim =
-            new Date(
-                dataFim.value +
-                "T23:59:59"
-            );
-
-
-        resultado =
-            resultado.filter(
-                atividade => {
-
-                    const partes =
-                        atividade.data.split("/");
-
-
-                    const data =
-                        new Date(
-                            partes[2],
-                            partes[1] - 1,
-                            partes[0]
-                        );
-
-
-                    return data <= fim;
-
-                }
-            );
-
-    }
-
-
-    renderizarAtividades(resultado);
 
 }
 
 
 /* =========================================================
-   EVENTOS DOS FILTROS
+   ATUALIZAR QUANTIDADE ENCONTRADAS
 ========================================================= */
 
-professor.addEventListener(
-    "change",
-    filtrarAtividades
-);
+function atualizarQuantidade() {
+
+    const elemento =
+        document.getElementById(
+            "quantidadeEncontradas"
+        );
 
 
-turma.addEventListener(
-    "change",
-    filtrarAtividades
-);
+    if (!elemento) {
+        return;
+    }
 
 
-curso.addEventListener(
-    "change",
-    filtrarAtividades
-);
+    elemento.textContent =
+        atividades.length;
+
+}
 
 
-dataInicio.addEventListener(
-    "change",
-    filtrarAtividades
-);
+/* =========================================================
+   ATUALIZAR QUANTIDADE SELECIONADAS
+========================================================= */
+
+function atualizarSelecionadas() {
+
+    const elemento =
+        document.getElementById(
+            "quantidadeSelecionadas"
+        );
 
 
-dataFim.addEventListener(
-    "change",
-    filtrarAtividades
-);
+    if (!elemento) {
+        return;
+    }
+
+
+    const quantidade =
+        atividadesSelecionadas.size;
+
+
+    elemento.textContent =
+        `${quantidade} selecionada${
+            quantidade === 1 ? "" : "s"
+        }`;
+
+
+    /*
+       Atualiza o resumo inferior
+    */
+
+    const resumo =
+        document.getElementById(
+            "summaryText"
+        );
+
+
+    if (resumo) {
+
+        if (quantidade === 0) {
+
+            resumo.textContent =
+                "Nenhuma atividade selecionada.";
+
+        } else if (quantidade === 1) {
+
+            resumo.textContent =
+                "1 atividade selecionada.";
+
+        } else {
+
+            resumo.textContent =
+                `${quantidade} atividades selecionadas.`;
+
+        }
+
+    }
+
+}
+
+
+/* =========================================================
+   CONFIGURAR GERAÇÃO
+========================================================= */
+
+function configurarGeracao() {
+
+    const botao =
+        document.getElementById(
+            "btnGerar"
+        );
+
+
+    if (!botao) {
+
+        console.error(
+            "Botão #btnGerar não encontrado."
+        );
+
+        return;
+    }
+
+
+    botao.addEventListener(
+        "click",
+        gerarRelatorio
+    );
+
+}
 
 
 /* =========================================================
    GERAR RELATÓRIO
 ========================================================= */
 
-btnGerar.addEventListener(
-    "click",
-    function () {
+async function gerarRelatorio(event) {
 
-        const titulo =
-            tituloRelatorio.value.trim();
+    if (event) {
+        event.preventDefault();
+    }
 
 
-        if (!titulo) {
+    if (gerandoRelatorio) {
 
-            alert(
-                "Digite um título para o relatório."
-            );
+        console.log(
+            "A geração já está em andamento."
+        );
 
-            tituloRelatorio.focus();
+        return;
 
-            return;
+    }
 
+
+    /* -----------------------------------------------------
+       TÍTULO
+    ----------------------------------------------------- */
+
+    const campoTitulo =
+        document.getElementById(
+            "tituloRelatorio"
+        );
+
+
+    const titulo =
+        campoTitulo
+            ? campoTitulo.value.trim()
+            : "";
+
+
+    if (!titulo) {
+
+        alert(
+            "Digite um título para o relatório."
+        );
+
+
+        if (campoTitulo) {
+            campoTitulo.focus();
         }
 
 
-        if (
-            !dataInicio.value ||
-            !dataFim.value
-        ) {
+        return;
 
-            alert(
-                "Informe o período do relatório."
-            );
-
-            return;
-
-        }
+    }
 
 
-        if (
-            new Date(dataInicio.value) >
-            new Date(dataFim.value)
-        ) {
+    /* -----------------------------------------------------
+       ATIVIDADES
+    ----------------------------------------------------- */
 
-            alert(
-                "A data inicial não pode ser maior que a data final."
-            );
-
-            return;
-
-        }
+    const idsSelecionados =
+        Array.from(
+            atividadesSelecionadas
+        );
 
 
-        const checkboxes =
-            document.querySelectorAll(
-                ".activity-checkbox"
-            );
+    if (
+        idsSelecionados.length === 0
+    ) {
 
+        alert(
+            "Selecione pelo menos uma atividade."
+        );
+
+        return;
+
+    }
+
+
+    /* -----------------------------------------------------
+       DATAS
+    ----------------------------------------------------- */
+
+    const campoInicio =
+        document.getElementById(
+            "dataInicio"
+        );
+
+
+    const campoFim =
+        document.getElementById(
+            "dataFim"
+        );
+
+
+    let inicio =
+        campoInicio
+            ? campoInicio.value
+            : "";
+
+
+    let fim =
+        campoFim
+            ? campoFim.value
+            : "";
+
+
+    /*
+       Se as datas não forem preenchidas,
+       usamos a menor e a maior data
+       entre as atividades selecionadas.
+    */
+
+    if (!inicio || !fim) {
 
         const selecionadas =
-            Array.from(checkboxes)
-                .filter(
-                    checkbox =>
-                        checkbox.checked
-                )
+            atividades.filter(
+                atividade =>
+                    atividadesSelecionadas.has(
+                        atividade.id
+                    )
+            );
+
+
+        const datas =
+            selecionadas
                 .map(
-                    checkbox =>
-                        Number(
-                            checkbox.value
+                    atividade =>
+                        converterDataParaISO(
+                            atividade.data
                         )
+                )
+                .filter(
+                    data => data !== null
                 );
 
 
-        if (
-            selecionadas.length === 0
-        ) {
+        if (datas.length > 0) {
 
-            alert(
-                "Selecione pelo menos uma atividade."
+            datas.sort();
+
+
+            if (!inicio) {
+
+                inicio =
+                    datas[0];
+
+            }
+
+
+            if (!fim) {
+
+                fim =
+                    datas[datas.length - 1];
+
+            }
+
+        }
+
+    }
+
+
+    const periodoInicio =
+        inicio
+            ? `${inicio}T00:00:00`
+            : "1900-01-01T00:00:00";
+
+
+    const periodoFim =
+        fim
+            ? `${fim}T23:59:59`
+            : "2100-12-31T23:59:59";
+
+
+    /* -----------------------------------------------------
+       FILTROS
+    ----------------------------------------------------- */
+
+    const campoProfessor =
+        document.getElementById(
+            "professor"
+        );
+
+
+    const campoTurma =
+        document.getElementById(
+            "turma"
+        );
+
+
+    const campoCurso =
+        document.getElementById(
+            "curso"
+        );
+
+
+    const professor =
+        campoProfessor &&
+        campoProfessor.value
+            ? Number(
+                campoProfessor.value
+              )
+            : null;
+
+
+    const turma =
+        campoTurma &&
+        campoTurma.value
+            ? Number(
+                campoTurma.value
+              )
+            : null;
+
+
+    const curso =
+        campoCurso &&
+        campoCurso.value
+            ? campoCurso.value
+            : null;
+
+
+    /* -----------------------------------------------------
+       DADOS
+    ----------------------------------------------------- */
+
+    const dados = {
+
+        titulo: titulo,
+
+        professor: professor,
+
+        turma: turma,
+
+        curso: curso,
+
+        periodoInicio:
+            periodoInicio,
+
+        periodoFim:
+            periodoFim,
+
+        atividades:
+            idsSelecionados
+
+    };
+
+
+    console.log(
+        "========================================"
+    );
+
+    console.log(
+        "INICIANDO GERAÇÃO"
+    );
+
+    console.log(
+        "IDs selecionados:",
+        idsSelecionados
+    );
+
+    console.log(
+        "DADOS ENVIADOS PARA A API:",
+        dados
+    );
+
+    console.log(
+        "========================================"
+    );
+
+
+    /* -----------------------------------------------------
+       BOTÃO
+    ----------------------------------------------------- */
+
+    const botao =
+        document.getElementById(
+            "btnGerar"
+        );
+
+
+    const textoOriginal =
+        botao
+            ? botao.innerHTML
+            : "";
+
+
+    if (botao) {
+
+        botao.disabled = true;
+
+        botao.innerHTML = `
+            <i class="fa-solid fa-spinner fa-spin"></i>
+            Gerando relatório...
+        `;
+
+    }
+
+
+    gerandoRelatorio = true;
+
+
+    /* -----------------------------------------------------
+       ENVIAR PARA API
+    ----------------------------------------------------- */
+
+    try {
+
+        console.log(
+            "Enviando POST para:",
+            `${API_BASE}/api/Relatorio/gerar`
+        );
+
+
+        const resposta =
+            await fetch(
+                `${API_BASE}/api/Relatorio/gerar`,
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    credentials: "include",
+
+                    body:
+                        JSON.stringify(dados)
+                }
             );
 
-            return;
+
+        console.log(
+            "Status HTTP:",
+            resposta.status
+        );
+
+
+        /* -------------------------------------------------
+           LER RESPOSTA
+        ------------------------------------------------- */
+
+        const textoResposta =
+            await resposta.text();
+
+
+        console.log(
+            "Resposta bruta da API:",
+            textoResposta
+        );
+
+
+        let resultado = null;
+
+
+        try {
+
+            resultado =
+                textoResposta
+                    ? JSON.parse(
+                        textoResposta
+                      )
+                    : null;
+
+        } catch (erroJSON) {
+
+            console.error(
+                "Erro ao interpretar JSON:",
+                erroJSON
+            );
+
+            throw new Error(
+                "A API retornou uma resposta inválida."
+            );
 
         }
 
 
-        const dadosRelatorio = {
+        console.log(
+            "Resposta interpretada:",
+            resultado
+        );
 
-            titulo: titulo,
 
-            professor:
-                professor.value,
+        /* -------------------------------------------------
+           ERRO
+        ------------------------------------------------- */
 
-            turma:
-                turma.value,
+        if (!resposta.ok) {
 
-            curso:
-                curso.value,
+            const mensagem =
+                resultado?.mensagem ||
+                resultado?.title ||
+                "Não foi possível gerar o relatório.";
 
-            periodoInicio:
-                dataInicio.value,
 
-            periodoFim:
-                dataFim.value,
+            throw new Error(
+                mensagem
+            );
 
-            atividades:
-                selecionadas
+        }
 
-        };
+
+        /* -------------------------------------------------
+           SUCESSO
+        ------------------------------------------------- */
+
+        console.log(
+            "RELATÓRIO GERADO COM SUCESSO:",
+            resultado
+        );
+
+
+        /* -------------------------------------------------
+           PEGAR URL
+        ------------------------------------------------- */
+
+        let urlPdf =
+            resultado?.url;
+
+
+        /*
+           Caso a API não mande a URL,
+           usamos o ID do relatório.
+        */
+
+        if (
+            !urlPdf &&
+            resultado?.id_relatorio
+        ) {
+
+            urlPdf =
+                `${API_BASE}/api/Relatorio/pdf/${resultado.id_relatorio}`;
+
+        }
+
+
+        if (!urlPdf) {
+
+            throw new Error(
+                "O relatório foi gerado, mas a URL do PDF não foi retornada."
+            );
+
+        }
 
 
         console.log(
-            "Dados que serão enviados para a API:",
-            dadosRelatorio
+            "URL RECEBIDA DO PDF:",
+            urlPdf
         );
 
 
         /*
-         * FUTURA INTEGRAÇÃO COM C#
-         *
-         * fetch("/api/relatorios/gerar", {
-         *
-         *     method: "POST",
-         *
-         *     headers: {
-         *         "Content-Type":
-         *             "application/json"
-         *     },
-         *
-         *     body:
-         *         JSON.stringify(
-         *             dadosRelatorio
-         *         )
-         *
-         * })
-         *
-         */
+           Se vier uma URL relativa,
+           adiciona o endereço da API.
+        */
+
+        if (
+            urlPdf.startsWith("/")
+        ) {
+
+            urlPdf =
+                `${API_BASE}${urlPdf}`;
+
+        }
+
+
+        /*
+           Se vier apenas o caminho do arquivo.
+        */
+
+        else if (
+            !urlPdf.startsWith(
+                "http://"
+            ) &&
+            !urlPdf.startsWith(
+                "https://"
+            )
+        ) {
+
+            urlPdf =
+                `${API_BASE}/${urlPdf}`;
+
+        }
+
+
+        console.log(
+            "URL FINAL DO PDF:",
+            urlPdf
+        );
+
+
+        /* -------------------------------------------------
+           ABRIR PDF
+        ------------------------------------------------- */
+
+        console.log(
+            "ABRINDO PDF..."
+        );
+
+
+        /*
+           Como a URL é absoluta e aponta
+           para o backend, o navegador não
+           tentará abrir no localhost:5500.
+        */
+
+        window.location.href =
+            urlPdf;
+
+
+    } catch (erro) {
+
+        console.error(
+            "ERRO AO GERAR RELATÓRIO:",
+            erro
+        );
 
 
         alert(
-            `Relatório preparado com ${selecionadas.length} ${
-                selecionadas.length === 1
-                    ? "atividade"
-                    : "atividades"
-            } selecionadas.`
+            erro.message ||
+            "Ocorreu um erro ao gerar o relatório."
         );
 
-    }
-);
+
+    } finally {
+
+        gerandoRelatorio = false;
 
 
-/* =========================================================
-   LOGOUT
-========================================================= */
+        if (botao) {
 
-if (btnLogout) {
+            botao.disabled = false;
 
-    btnLogout.addEventListener(
-        "click",
-        function () {
-
-            const confirmar =
-                confirm(
-                    "Deseja realmente sair?"
-                );
-
-
-            if (!confirmar) {
-                return;
-            }
-
-
-            sessionStorage.clear();
-
-            localStorage.removeItem(
-                "usuarioLogado"
-            );
-
-
-            window.location.href =
-                "login.html";
+            botao.innerHTML =
+                textoOriginal ||
+                `
+                    <i class="fa-solid fa-file-pdf"></i>
+                    Gerar relatório
+                `;
 
         }
-    );
+
+    }
 
 }
 
 
 /* =========================================================
-   MENU MOBILE
+   CONVERTER DATA
 ========================================================= */
 
-const menuMobile =
-    document.getElementById(
-        "menuMobile"
-    );
+function converterDataParaISO(data) {
 
-const mobileNav =
-    document.getElementById(
-        "mobileNav"
-    );
+    if (!data) {
+        return null;
+    }
 
 
-if (
-    menuMobile &&
-    mobileNav
-) {
+    /*
+       yyyy-MM-dd
+    */
 
-    menuMobile.addEventListener(
-        "click",
-        function () {
+    if (
+        /^\d{4}-\d{2}-\d{2}$/.test(data)
+    ) {
 
-            const aberto =
-                mobileNav.classList.toggle(
-                    "show"
-                );
+        return data;
+
+    }
 
 
-            menuMobile.setAttribute(
-                "aria-expanded",
-                aberto
-                    ? "true"
-                    : "false"
-            );
+    /*
+       dd/MM/yyyy
+    */
+
+    if (
+        /^\d{2}\/\d{2}\/\d{4}$/.test(data)
+    ) {
+
+        const partes =
+            data.split("/");
 
 
-            const icon =
-                menuMobile.querySelector(
-                    "i"
-                );
+        const dia =
+            partes[0];
+
+        const mes =
+            partes[1];
+
+        const ano =
+            partes[2];
 
 
-            if (icon) {
+        return `${ano}-${mes}-${dia}`;
 
-                icon.classList.toggle(
-                    "fa-bars",
-                    !aberto
-                );
-
-                icon.classList.toggle(
-                    "fa-xmark",
-                    aberto
-                );
-
-            }
-
-        }
-    );
+    }
 
 
-    mobileNav
-        .querySelectorAll("a")
-        .forEach(link => {
+    /*
+       Tentativa final
+    */
 
-            link.addEventListener(
-                "click",
-                function () {
-
-                    mobileNav.classList.remove(
-                        "show"
-                    );
+    const objeto =
+        new Date(data);
 
 
-                    menuMobile.setAttribute(
-                        "aria-expanded",
-                        "false"
-                    );
+    if (
+        !Number.isNaN(
+            objeto.getTime()
+        )
+    ) {
+
+        const ano =
+            objeto.getFullYear();
 
 
-                    const icon =
-                        menuMobile.querySelector(
-                            "i"
-                        );
+        const mes =
+            String(
+                objeto.getMonth() + 1
+            ).padStart(2, "0");
 
 
-                    if (icon) {
+        const dia =
+            String(
+                objeto.getDate()
+            ).padStart(2, "0");
 
-                        icon.classList.remove(
-                            "fa-xmark"
-                        );
 
-                        icon.classList.add(
-                            "fa-bars"
-                        );
+        return `${ano}-${mes}-${dia}`;
 
-                    }
+    }
 
-                }
-            );
 
-        });
+    return null;
 
 }
 
 
 /* =========================================================
-   INICIALIZAÇÃO
+   PRIMEIRA LINHA DA DESCRIÇÃO
 ========================================================= */
 
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
+function primeiraLinha(texto) {
 
-        filtrarAtividades();
+    if (!texto) {
+        return "";
+    }
+
+
+    return String(texto)
+        .split(/\r?\n/)[0]
+        .trim();
+
+}
+
+
+/* =========================================================
+   ESCAPAR HTML
+========================================================= */
+
+function escaparHTML(valor) {
+
+    if (
+        valor === null ||
+        valor === undefined
+    ) {
+
+        return "";
 
     }
-);
+
+
+    return String(valor)
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+        .replace(
+            /</g,
+            "&lt;"
+        )
+        .replace(
+            />/g,
+            "&gt;"
+        )
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}

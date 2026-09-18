@@ -83,29 +83,50 @@
 
             <!-- MENU DESKTOP -->
 
-               <nav class="main-nav" id="mainNav">
+            <nav
+                class="main-nav"
+                id="mainNav"
+            >
 
-                <a href="telaInicialSupervisor.html" class="nav-link">
+                <a
+                    href="telaInicialSupervisor.html"
+                    class="nav-link"
+                >
                     Início
                 </a>
 
-                <a href="pesquisarRegistros.html" class="nav-link">
+                <a
+                    href="pesquisarRegistros.html"
+                    class="nav-link"
+                >
                     Pesquisar Registros
                 </a>
 
-                <a href="gerarRelatorios.html" class="nav-link">
+                <a
+                    href="gerarRelatorios.html"
+                    class="nav-link"
+                >
                     Gerar Relatório
                 </a>
 
-                <a href="relatoriosGerados.html" class="nav-link  active">
+                <a
+                    href="relatoriosGerados.html"
+                    class="nav-link active"
+                >
                     Relatórios Gerados
                 </a>
 
-                <a href="professores.html" class="nav-link">
+                <a
+                    href="professores.html"
+                    class="nav-link"
+                >
                     Professores
                 </a>
 
-                <a href="PerfilSupervisor.html" class="nav-link">
+                <a
+                    href="perfilSupervisor.html"
+                    class="nav-link"
+                >
                     Meu perfil
                 </a>
 
@@ -118,7 +139,7 @@
             <div class="profile-area">
 
                 <a
-                    href="perfil.html"
+                    href="perfilSupervisor.html"
                     class="profile-link"
                 >
 
@@ -228,6 +249,17 @@
 
                 <span>
                     Relatórios Gerados
+                </span>
+
+            </a>
+
+
+            <a href="professores.html">
+
+                <i class="fa-solid fa-chalkboard-user"></i>
+
+                <span>
+                    Professores
                 </span>
 
             </a>
@@ -420,18 +452,6 @@
                                 Todos os períodos
                             </option>
 
-                            <option value="maio">
-                                Maio/2026
-                            </option>
-
-                            <option value="abril">
-                                Abril/2026
-                            </option>
-
-                            <option value="marco">
-                                Março/2026
-                            </option>
-
                         </select>
 
                         <i class="fa-solid fa-chevron-down"></i>
@@ -454,18 +474,6 @@
 
                             <option value="">
                                 Todos os cursos
-                            </option>
-
-                            <option value="informatica">
-                                Informática para Internet
-                            </option>
-
-                            <option value="desenvolvimento">
-                                Desenvolvimento Web
-                            </option>
-
-                            <option value="administracao">
-                                Administração
                             </option>
 
                         </select>
@@ -510,11 +518,13 @@
                         </h2>
 
                         <p>
+
                             <strong id="resultsCount">
                                 0
                             </strong>
 
                             relatórios encontrados
+
                         </p>
 
                     </div>
@@ -554,8 +564,6 @@
                     class="reports-list"
                     id="reportsList"
                 >
-
-                    <!-- GERADO PELO JAVASCRIPT -->
 
                 </div>
 
@@ -668,7 +676,7 @@
                 <div class="modal-info-item">
 
                     <span>
-                        Professor
+                        Responsável
                     </span>
 
                     <strong id="modalProfessor">
@@ -681,7 +689,7 @@
                 <div class="modal-info-item">
 
                     <span>
-                        Turma
+                        Data de criação
                     </span>
 
                     <strong id="modalClass">
@@ -694,7 +702,7 @@
                 <div class="modal-info-item">
 
                     <span>
-                        Curso
+                        Atividades
                     </span>
 
                     <strong id="modalCourse">
@@ -707,7 +715,7 @@
                 <div class="modal-info-item">
 
                     <span>
-                        Atividades
+                        ID do relatório
                     </span>
 
                     <strong id="modalActivities">
@@ -746,7 +754,9 @@
                     class="modal-secondary-btn"
                     id="modalCloseBottom"
                 >
+
                     Fechar
+
                 </button>
 
 

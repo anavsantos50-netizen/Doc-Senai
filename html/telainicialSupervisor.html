@@ -8,6 +8,7 @@
 
     <title>Início | Supervisão - DocSenai</title>
 
+
     <!-- =====================================================
          FONTE POPPINS
     ====================================================== -->
@@ -35,8 +36,10 @@
          CSS
     ====================================================== -->
 
-    <link rel="stylesheet" href="../css/telaInicialSupervisor.css" >
-    <link rel="stylesheet" href="../css/padraoSupervisao.css">
+    <link
+        rel="stylesheet"
+        href="../css/telaInicialSupervisor.css"
+    >
 
 </head>
 
@@ -56,7 +59,7 @@
             <!-- LOGO -->
 
             <a
-                href="telaInicialSupervisao.html"
+                href="telaInicialSupervisor.html"
                 class="logo"
             >
 
@@ -72,34 +75,60 @@
                  MENU
             ================================================== -->
 
-        
-               <nav class="main-nav" id="mainNav">
+            <nav
+                class="main-nav"
+                id="mainNav"
+            >
 
-                <a href="telaInicialSupervisor.html" class="nav-link active">
+                <a
+                    href="telaInicialSupervisor.html"
+                    class="nav-link active"
+                >
                     Início
                 </a>
 
-                <a href="pesquisarRegistros.html" class="nav-link">
+
+                <a
+                    href="pesquisarRegistros.html"
+                    class="nav-link"
+                >
                     Pesquisar Registros
                 </a>
 
-                <a href="gerarRelatorios.html" class="nav-link">
+
+                <a
+                    href="gerarRelatorios.html"
+                    class="nav-link"
+                >
                     Gerar Relatório
                 </a>
 
-                <a href="relatoriosGerados.html" class="nav-link">
+
+                <a
+                    href="relatoriosGerados.html"
+                    class="nav-link"
+                >
                     Relatórios Gerados
                 </a>
 
-                <a href="professores.html" class="nav-link ">
+
+                <a
+                    href="professores.html"
+                    class="nav-link"
+                >
                     Professores
                 </a>
 
-                <a href="PerfilSupervisor.html" class="nav-link">
+
+                <a
+                    href="perfilSupervisao.html"
+                    class="nav-link"
+                >
                     Meu perfil
                 </a>
 
             </nav>
+
 
             <!-- =================================================
                  PERFIL
@@ -114,7 +143,7 @@
 
                     <div class="profile-info">
 
-                        <strong>
+                        <strong id="nomeSupervisorTopo">
                             Supervisão
                         </strong>
 
@@ -141,6 +170,7 @@
                     class="logout-btn"
                     id="btnSair"
                     title="Sair"
+                    aria-label="Sair"
                 >
 
                     <i class="fa-solid fa-right-from-bracket"></i>
@@ -159,6 +189,7 @@
                 class="menu-mobile"
                 id="menuMobile"
                 aria-label="Abrir menu"
+                aria-expanded="false"
             >
 
                 <i class="fa-solid fa-bars"></i>
@@ -194,7 +225,11 @@
 
 
                     <h1>
-                        Olá, Supervisor! <span>👋</span>
+                        Olá,
+                        <span id="nomeSupervisor">
+                            Supervisor
+                        </span>!
+                        👋
                     </h1>
 
 
@@ -219,7 +254,7 @@
                         </span>
 
                         <strong id="dataAtual">
-                            15 de setembro de 2026
+                            Carregando...
                         </strong>
 
                     </div>
@@ -237,7 +272,9 @@
             <section class="summary-grid">
 
 
-                <!-- ATIVIDADES -->
+                <!-- =================================================
+                     ATIVIDADES
+                ================================================== -->
 
                 <div class="summary-card">
 
@@ -247,10 +284,11 @@
 
                     </div>
 
+
                     <div class="summary-info">
 
-                        <strong>
-                            48
+                        <strong id="totalAtividades">
+                            0
                         </strong>
 
                         <span>
@@ -264,7 +302,10 @@
                 </div>
 
 
-                <!-- TURMAS -->
+
+                <!-- =================================================
+                     TURMAS
+                ================================================== -->
 
                 <div class="summary-card">
 
@@ -274,10 +315,11 @@
 
                     </div>
 
+
                     <div class="summary-info">
 
-                        <strong>
-                            08
+                        <strong id="totalTurmas">
+                            0
                         </strong>
 
                         <span>
@@ -291,7 +333,10 @@
                 </div>
 
 
-                <!-- PROFESSORES -->
+
+                <!-- =================================================
+                     PROFESSORES
+                ================================================== -->
 
                 <div class="summary-card">
 
@@ -301,10 +346,11 @@
 
                     </div>
 
+
                     <div class="summary-info">
 
-                        <strong>
-                            28
+                        <strong id="totalProfessores">
+                            0
                         </strong>
 
                         <span>
@@ -316,7 +362,10 @@
                 </div>
 
 
-                <!-- RELATÓRIOS -->
+
+                <!-- =================================================
+                     RELATÓRIOS
+                ================================================== -->
 
                 <div class="summary-card">
 
@@ -326,10 +375,11 @@
 
                     </div>
 
+
                     <div class="summary-info">
 
-                        <strong>
-                            8
+                        <strong id="totalRelatorios">
+                            0
                         </strong>
 
                         <span>
@@ -414,8 +464,11 @@
                             <div class="chart-lines">
 
                                 <span></span>
+
                                 <span></span>
+
                                 <span></span>
+
                                 <span></span>
 
                             </div>
@@ -447,33 +500,102 @@
                                 ></polyline>
 
 
-                                <circle cx="20" cy="210" r="4"></circle>
+                                <circle
+                                    cx="20"
+                                    cy="210"
+                                    r="4"
+                                ></circle>
 
-                                <circle cx="70" cy="145" r="4"></circle>
 
-                                <circle cx="120" cy="90" r="4"></circle>
+                                <circle
+                                    cx="70"
+                                    cy="145"
+                                    r="4"
+                                ></circle>
 
-                                <circle cx="170" cy="135" r="4"></circle>
 
-                                <circle cx="220" cy="165" r="4"></circle>
+                                <circle
+                                    cx="120"
+                                    cy="90"
+                                    r="4"
+                                ></circle>
 
-                                <circle cx="270" cy="185" r="4"></circle>
 
-                                <circle cx="320" cy="145" r="4"></circle>
+                                <circle
+                                    cx="170"
+                                    cy="135"
+                                    r="4"
+                                ></circle>
 
-                                <circle cx="370" cy="105" r="4"></circle>
 
-                                <circle cx="420" cy="150" r="4"></circle>
+                                <circle
+                                    cx="220"
+                                    cy="165"
+                                    r="4"
+                                ></circle>
 
-                                <circle cx="470" cy="170" r="4"></circle>
 
-                                <circle cx="520" cy="145" r="4"></circle>
+                                <circle
+                                    cx="270"
+                                    cy="185"
+                                    r="4"
+                                ></circle>
 
-                                <circle cx="570" cy="80" r="4"></circle>
 
-                                <circle cx="620" cy="65" r="4"></circle>
+                                <circle
+                                    cx="320"
+                                    cy="145"
+                                    r="4"
+                                ></circle>
 
-                                <circle cx="680" cy="20" r="5"></circle>
+
+                                <circle
+                                    cx="370"
+                                    cy="105"
+                                    r="4"
+                                ></circle>
+
+
+                                <circle
+                                    cx="420"
+                                    cy="150"
+                                    r="4"
+                                ></circle>
+
+
+                                <circle
+                                    cx="470"
+                                    cy="170"
+                                    r="4"
+                                ></circle>
+
+
+                                <circle
+                                    cx="520"
+                                    cy="145"
+                                    r="4"
+                                ></circle>
+
+
+                                <circle
+                                    cx="570"
+                                    cy="80"
+                                    r="4"
+                                ></circle>
+
+
+                                <circle
+                                    cx="620"
+                                    cy="65"
+                                    r="4"
+                                ></circle>
+
+
+                                <circle
+                                    cx="680"
+                                    cy="20"
+                                    r="5"
+                                ></circle>
 
                             </svg>
 
@@ -570,6 +692,7 @@
                         </div>
 
 
+
                         <!-- ATIVIDADE 2 -->
 
                         <div class="recent-item">
@@ -600,6 +723,7 @@
                             </div>
 
                         </div>
+
 
 
                         <!-- ATIVIDADE 3 -->
@@ -639,7 +763,7 @@
                     <!-- VER TODAS -->
 
                     <a
-                        href="atividadesSupervisao.html"
+                        href="pesquisarRegistros.html"
                         class="recent-button"
                     >
 
@@ -658,7 +782,14 @@
 
     </main>
 
-<script src="../js/telaInicialSupervisor.js"></script>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="../js/telaInicialSupervisor.js"></script>
+
 </body>
 
 </html>

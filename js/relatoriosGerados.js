@@ -1,1139 +1,1425 @@
-/* =========================================================
-   DADOS DOS RELATÓRIOS
-   ========================================================= */
+document.addEventListener("DOMContentLoaded", () => {
 
-let relatorios = [
+    const API_BASE = "https://localhost:7082";
 
-    {
-        id: 1,
+    /* =========================================================
+       ELEMENTOS
+    ========================================================= */
 
-        titulo: "Relatório de atividades - Maio/2026",
+    const totalReports = document.getElementById("totalReports");
+    const monthReports = document.getElementById("monthReports");
+    const totalActivities = document.getElementById("totalActivities");
 
-        periodo: "Maio/2026",
+    const searchInput = document.getElementById("searchInput");
+    const periodFilter = document.getElementById("periodFilter");
+    const courseFilter = document.getElementById("courseFilter");
+    const clearFilters = document.getElementById("clearFilters");
 
-        periodoFiltro: "maio",
+    const resultsCount = document.getElementById("resultsCount");
+    const sortFilter = document.getElementById("sortFilter");
 
-        professor: "João Silva",
+    const reportsList = document.getElementById("reportsList");
+    const emptyState = document.getElementById("emptyState");
+    const emptyClear = document.getElementById("emptyClear");
 
-        turma: "3º Informática A",
+    const reportModal = document.getElementById("reportModal");
+    const modalClose = document.getElementById("modalClose");
+    const modalCloseBottom = document.getElementById("modalCloseBottom");
 
-        curso: "Informática para Internet",
+    const modalTitle = document.getElementById("modalTitle");
+    const modalPeriod = document.getElementById("modalPeriod");
+    const modalProfessor = document.getElementById("modalProfessor");
+    const modalClass = document.getElementById("modalClass");
+    const modalCourse = document.getElementById("modalCourse");
+    const modalActivities = document.getElementById("modalActivities");
+    const modalDescription = document.getElementById("modalDescription");
+    const modalDownload = document.getElementById("modalDownload");
 
-        cursoFiltro: "informatica",
+    const menuMobile = document.getElementById("menuMobile");
+    const mobileNav = document.getElementById("mobileNav");
 
-        atividades: 12,
+    const btnLogout = document.getElementById("btnLogout");
+    const btnLogoutMobile = document.getElementById("btnLogoutMobile");
 
-        dataGeracao: "2026-05-31",
 
-        descricao:
-            "Relatório contendo as atividades pedagógicas realizadas durante o mês de maio de 2026, com os respectivos registros e evidências."
-    },
+    /* =========================================================
+       VARIÁVEIS
+    ========================================================= */
 
+    let relatorios = [];
+    let relatorioSelecionado = null;
 
-    {
-        id: 2,
 
-        titulo: "Relatório de atividades - Abril/2026",
+    /* =========================================================
+       INICIAR
+    ========================================================= */
 
-        periodo: "Abril/2026",
+    carregarRelatorios();
 
-        periodoFiltro: "abril",
 
-        professor: "Maria Santos",
+    /* =========================================================
+       CARREGAR RELATÓRIOS
+    ========================================================= */
 
-        turma: "2º Informática B",
+    async function carregarRelatorios() {
 
-        curso: "Informática para Internet",
+        try {
 
-        cursoFiltro: "informatica",
-
-        atividades: 9,
-
-        dataGeracao: "2026-04-30",
-
-        descricao:
-            "Relatório das atividades desenvolvidas pela turma durante o mês de abril de 2026."
-    },
-
-
-    {
-        id: 3,
-
-        titulo: "Atividades pedagógicas - Abril/2026",
-
-        periodo: "Abril/2026",
-
-        periodoFiltro: "abril",
-
-        professor: "Ana Oliveira",
-
-        turma: "Desenvolvimento Web",
-
-        curso: "Desenvolvimento Web",
-
-        cursoFiltro: "desenvolvimento",
-
-        atividades: 15,
-
-        dataGeracao: "2026-04-29",
-
-        descricao:
-            "Registro consolidado das atividades pedagógicas e evidências realizadas pela turma de Desenvolvimento Web."
-    },
-
-
-    {
-        id: 4,
-
-        titulo: "Relatório mensal - Março/2026",
-
-        periodo: "Março/2026",
-
-        periodoFiltro: "marco",
-
-        professor: "João Silva",
-
-        turma: "3º Informática A",
-
-        curso: "Informática para Internet",
-
-        cursoFiltro: "informatica",
-
-        atividades: 11,
-
-        dataGeracao: "2026-03-31",
-
-        descricao:
-            "Relatório mensal das atividades realizadas durante o período de março de 2026."
-    },
-
-
-    {
-        id: 5,
-
-        titulo: "Relatório pedagógico - Março/2026",
-
-        periodo: "Março/2026",
-
-        periodoFiltro: "marco",
-
-        professor: "Maria Santos",
-
-        turma: "2º Informática B",
-
-        curso: "Informática para Internet",
-
-        cursoFiltro: "informatica",
-
-        atividades: 8,
-
-        dataGeracao: "2026-03-28",
-
-        descricao:
-            "Relatório contendo os registros das atividades desenvolvidas e suas respectivas evidências."
-    },
-
-
-    {
-        id: 6,
-
-        titulo: "Relatório Desenvolvimento Web - Maio/2026",
-
-        periodo: "Maio/2026",
-
-        periodoFiltro: "maio",
-
-        professor: "Ana Oliveira",
-
-        turma: "Desenvolvimento Web",
-
-        curso: "Desenvolvimento Web",
-
-        cursoFiltro: "desenvolvimento",
-
-        atividades: 13,
-
-        dataGeracao: "2026-05-30",
-
-        descricao:
-            "Relatório das atividades realizadas no curso de Desenvolvimento Web durante o mês de maio."
-    }
-
-];
-
-
-/* =========================================================
-   ELEMENTOS
-   ========================================================= */
-
-const reportsList =
-    document.getElementById("reportsList");
-
-const emptyState =
-    document.getElementById("emptyState");
-
-const searchInput =
-    document.getElementById("searchInput");
-
-const periodFilter =
-    document.getElementById("periodFilter");
-
-const courseFilter =
-    document.getElementById("courseFilter");
-
-const sortFilter =
-    document.getElementById("sortFilter");
-
-const clearFilters =
-    document.getElementById("clearFilters");
-
-const emptyClear =
-    document.getElementById("emptyClear");
-
-const resultsCount =
-    document.getElementById("resultsCount");
-
-const totalReports =
-    document.getElementById("totalReports");
-
-const monthReports =
-    document.getElementById("monthReports");
-
-const totalActivities =
-    document.getElementById("totalActivities");
-
-
-/* =========================================================
-   MENU MOBILE
-   ========================================================= */
-
-const menuMobile =
-    document.getElementById("menuMobile");
-
-const mobileNav =
-    document.getElementById("mobileNav");
-
-
-if (menuMobile && mobileNav) {
-
-    menuMobile.addEventListener("click", () => {
-
-        mobileNav.classList.toggle("show");
-
-        const aberto =
-            mobileNav.classList.contains("show");
-
-        menuMobile.setAttribute(
-            "aria-expanded",
-            aberto
-        );
-
-
-        const icon =
-            menuMobile.querySelector("i");
-
-
-        if (icon) {
-
-            icon.classList.toggle(
-                "fa-bars",
-                !aberto
+            const response = await fetch(
+                `${API_BASE}/api/Relatorio/listar`,
+                {
+                    method: "GET",
+                    credentials: "include"
+                }
             );
 
-            icon.classList.toggle(
-                "fa-xmark",
-                aberto
-            );
-        }
+            if (response.status === 401) {
 
-    });
+                window.location.href =
+                    "../html/login.html";
 
-
-    mobileNav.querySelectorAll("a").forEach(link => {
-
-        link.addEventListener("click", () => {
-
-            mobileNav.classList.remove("show");
-
-            menuMobile.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-
-
-            const icon =
-                menuMobile.querySelector("i");
-
-
-            if (icon) {
-
-                icon.classList.remove("fa-xmark");
-
-                icon.classList.add("fa-bars");
+                return;
             }
 
-        });
+            if (!response.ok) {
 
-    });
+                throw new Error(
+                    `Erro HTTP: ${response.status}`
+                );
+            }
 
-}
+            const texto =
+                await response.text();
 
+            let dados;
 
-/* =========================================================
-   FORMATAR DATA
-   ========================================================= */
+            try {
 
-function formatarData(data) {
+                dados = JSON.parse(texto);
 
-    const partes =
-        data.split("-");
+            } catch {
 
-    if (partes.length !== 3) {
-        return data;
+                throw new Error(
+                    "A API retornou uma resposta inválida."
+                );
+            }
+
+            if (!Array.isArray(dados)) {
+
+                throw new Error(
+                    "Os dados dos relatórios não estão no formato esperado."
+                );
+            }
+
+            relatorios = dados;
+
+            atualizarResumo();
+
+            preencherCursos();
+
+            renderizarRelatorios();
+
+        } catch (erro) {
+
+            console.error(
+                "Erro ao carregar relatórios:",
+                erro
+            );
+
+            reportsList.innerHTML = "";
+
+            emptyState.classList.add("visible");
+
+            resultsCount.textContent =
+                "Erro ao carregar os relatórios";
+        }
     }
 
-    return `${partes[2]}/${partes[1]}/${partes[0]}`;
-}
 
+    /* =========================================================
+       ATUALIZAR RESUMO
+    ========================================================= */
 
-/* =========================================================
-   ESCAPAR HTML
-   ========================================================= */
-
-function escaparHTML(texto) {
-
-    return String(texto)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-}
-
-
-/* =========================================================
-   ATUALIZAR RESUMO
-   ========================================================= */
-
-function atualizarResumo(lista) {
-
-    if (resultsCount) {
-
-        resultsCount.textContent =
-            lista.length;
-    }
-
-
-    if (totalReports) {
+    function atualizarResumo() {
 
         totalReports.textContent =
             relatorios.length;
-    }
 
+        const agora =
+            new Date();
 
-    const mesAtual =
-        relatorios.filter(relatorio =>
-            relatorio.periodoFiltro === "maio"
-        );
+        const mesAtual =
+            agora.getMonth();
 
+        const anoAtual =
+            agora.getFullYear();
 
-    if (monthReports) {
+        let quantidadeMes = 0;
+        let quantidadeAtividades = 0;
+
+        relatorios.forEach(relatorio => {
+
+            const dataCriacao =
+                converterData(
+                    relatorio.data_criacao
+                );
+
+            if (
+                dataCriacao &&
+                dataCriacao.getMonth() === mesAtual &&
+                dataCriacao.getFullYear() === anoAtual
+            ) {
+
+                quantidadeMes++;
+            }
+
+            quantidadeAtividades +=
+                Number(
+                    relatorio.quantidade_atividades || 0
+                );
+        });
 
         monthReports.textContent =
-            mesAtual.length;
-    }
-
-
-    const atividades =
-        relatorios.reduce(
-            (total, relatorio) =>
-                total + relatorio.atividades,
-            0
-        );
-
-
-    if (totalActivities) {
+            quantidadeMes;
 
         totalActivities.textContent =
-            atividades;
-    }
-
-}
-
-
-/* =========================================================
-   CRIAR CARD
-   ========================================================= */
-
-function criarCard(relatorio) {
-
-    const article =
-        document.createElement("article");
-
-    article.className =
-        "report-item";
-
-
-    article.innerHTML = `
-
-        <div class="report-file-icon">
-
-            <i class="fa-regular fa-file-pdf"></i>
-
-        </div>
-
-
-        <div class="report-info">
-
-            <h3>
-                ${escaparHTML(relatorio.titulo)}
-            </h3>
-
-
-            <p>
-                ${escaparHTML(relatorio.professor)}
-                •
-                ${escaparHTML(relatorio.turma)}
-                •
-                ${escaparHTML(relatorio.curso)}
-            </p>
-
-
-            <div class="report-meta">
-
-                <span class="report-tag">
-                    ${escaparHTML(relatorio.periodo)}
-                </span>
-
-
-                <span class="report-date">
-
-                    Gerado em
-                    ${formatarData(relatorio.dataGeracao)}
-
-                </span>
-
-            </div>
-
-        </div>
-
-
-        <div class="report-activities">
-
-            <strong>
-                ${relatorio.atividades}
-            </strong>
-
-            <span>
-                atividades
-            </span>
-
-        </div>
-
-
-        <div class="report-actions">
-
-            <button
-                type="button"
-                class="report-action-btn"
-                title="Visualizar relatório"
-                data-action="view"
-                data-id="${relatorio.id}"
-            >
-
-                <i class="fa-regular fa-eye"></i>
-
-            </button>
-
-
-            <button
-                type="button"
-                class="report-action-btn download"
-                title="Baixar PDF"
-                data-action="download"
-                data-id="${relatorio.id}"
-            >
-
-                <i class="fa-solid fa-download"></i>
-
-            </button>
-
-
-            <button
-                type="button"
-                class="report-action-btn delete"
-                title="Excluir relatório"
-                data-action="delete"
-                data-id="${relatorio.id}"
-            >
-
-                <i class="fa-regular fa-trash-can"></i>
-
-            </button>
-
-        </div>
-
-    `;
-
-
-    return article;
-}
-
-
-/* =========================================================
-   RENDERIZAR RELATÓRIOS
-   ========================================================= */
-
-function renderizarRelatorios(lista) {
-
-    reportsList.innerHTML = "";
-
-
-    if (lista.length === 0) {
-
-        emptyState.classList.add("visible");
-
-        atualizarResumo(lista);
-
-        return;
+            quantidadeAtividades;
     }
 
 
-    emptyState.classList.remove("visible");
+    /* =========================================================
+       PREENCHER CURSOS
+    ========================================================= */
 
+    function preencherCursos() {
 
-    lista.forEach(relatorio => {
+        if (!courseFilter) {
+            return;
+        }
 
-        const card =
-            criarCard(relatorio);
+        const cursos =
+            new Set();
 
-        reportsList.appendChild(card);
+        relatorios.forEach(relatorio => {
 
-    });
+            /*
+             * O backend envia "curso".
+             */
 
+            if (relatorio.curso) {
 
-    atualizarResumo(lista);
-}
+                String(relatorio.curso)
+                    .split(",")
+                    .map(curso => curso.trim())
+                    .filter(curso => curso)
+                    .forEach(curso => {
+                        cursos.add(curso);
+                    });
+            }
 
+            /*
+             * Também aceita "cursos", caso
+             * o relatório tenha mais de um.
+             */
 
-/* =========================================================
-   FILTRAR E ORDENAR
-   ========================================================= */
+            if (Array.isArray(relatorio.cursos)) {
 
-function aplicarFiltros() {
+                relatorio.cursos.forEach(curso => {
 
-    const busca =
-        searchInput.value
-            .trim()
-            .toLowerCase();
-
-
-    const periodo =
-        periodFilter.value;
-
-
-    const curso =
-        courseFilter.value;
-
-
-    let lista =
-        relatorios.filter(relatorio => {
-
-
-            const correspondeBusca =
-
-                !busca ||
-
-                relatorio.titulo
-                    .toLowerCase()
-                    .includes(busca) ||
-
-                relatorio.professor
-                    .toLowerCase()
-                    .includes(busca) ||
-
-                relatorio.turma
-                    .toLowerCase()
-                    .includes(busca) ||
-
-                relatorio.curso
-                    .toLowerCase()
-                    .includes(busca);
-
-
-            const correspondePeriodo =
-
-                !periodo ||
-
-                relatorio.periodoFiltro === periodo;
-
-
-            const correspondeCurso =
-
-                !curso ||
-
-                relatorio.cursoFiltro === curso;
-
-
-            return (
-                correspondeBusca &&
-                correspondePeriodo &&
-                correspondeCurso
-            );
-
+                    if (curso) {
+                        cursos.add(
+                            String(curso).trim()
+                        );
+                    }
+                });
+            }
         });
 
 
-    /* =====================================================
-       ORDENAÇÃO
-    ====================================================== */
-
-    switch (sortFilter.value) {
-
-        case "oldest":
-
-            lista.sort(
+        const cursosOrdenados =
+            [...cursos].sort(
                 (a, b) =>
-                    new Date(a.dataGeracao) -
-                    new Date(b.dataGeracao)
-            );
-
-            break;
-
-
-        case "title":
-
-            lista.sort(
-                (a, b) =>
-                    a.titulo.localeCompare(
-                        b.titulo,
+                    a.localeCompare(
+                        b,
                         "pt-BR"
                     )
             );
 
-            break;
+
+        courseFilter.innerHTML = `
+            <option value="">
+                Todos os cursos
+            </option>
+        `;
 
 
-        case "recent":
+        cursosOrdenados.forEach(curso => {
 
-        default:
+            const option =
+                document.createElement("option");
 
-            lista.sort(
-                (a, b) =>
-                    new Date(b.dataGeracao) -
-                    new Date(a.dataGeracao)
+            option.value =
+                curso;
+
+            option.textContent =
+                curso;
+
+            courseFilter.appendChild(
+                option
             );
-
-            break;
-
+        });
     }
 
 
-    renderizarRelatorios(lista);
-}
+    /* =========================================================
+       RENDERIZAR RELATÓRIOS
+    ========================================================= */
+
+    function renderizarRelatorios() {
+
+        const busca =
+            searchInput
+                ? searchInput.value
+                    .trim()
+                    .toLowerCase()
+                : "";
 
 
-/* =========================================================
-   LIMPAR FILTROS
-   ========================================================= */
-
-function limparFiltros() {
-
-    searchInput.value = "";
-
-    periodFilter.value = "";
-
-    courseFilter.value = "";
-
-    sortFilter.value = "recent";
+        const periodo =
+            periodFilter
+                ? periodFilter.value
+                : "";
 
 
-    aplicarFiltros();
-}
+        const curso =
+            courseFilter
+                ? courseFilter.value
+                : "";
 
 
-if (clearFilters) {
-
-    clearFilters.addEventListener(
-        "click",
-        limparFiltros
-    );
-
-}
+        let lista =
+            [...relatorios];
 
 
-if (emptyClear) {
+        /* =====================================================
+           BUSCA
+        ===================================================== */
 
-    emptyClear.addEventListener(
-        "click",
-        limparFiltros
-    );
+        if (busca) {
 
-}
+            lista =
+                lista.filter(relatorio => {
 
-
-/* =========================================================
-   EVENTOS DOS FILTROS
-   ========================================================= */
-
-searchInput.addEventListener(
-    "input",
-    aplicarFiltros
-);
+                    const titulo =
+                        String(
+                            relatorio.titulo || ""
+                        ).toLowerCase();
 
 
-periodFilter.addEventListener(
-    "change",
-    aplicarFiltros
-);
+                    const descricao =
+                        String(
+                            relatorio.descricao || ""
+                        ).toLowerCase();
 
 
-courseFilter.addEventListener(
-    "change",
-    aplicarFiltros
-);
+                    const responsavel =
+                        String(
+                            relatorio.responsavel || ""
+                        ).toLowerCase();
 
 
-sortFilter.addEventListener(
-    "change",
-    aplicarFiltros
-);
+                    const cursoRelatorio =
+                        String(
+                            relatorio.curso || ""
+                        ).toLowerCase();
 
 
-/* =========================================================
-   MODAL
-   ========================================================= */
-
-const reportModal =
-    document.getElementById("reportModal");
-
-const modalClose =
-    document.getElementById("modalClose");
-
-const modalCloseBottom =
-    document.getElementById("modalCloseBottom");
-
-const modalTitle =
-    document.getElementById("modalTitle");
-
-const modalPeriod =
-    document.getElementById("modalPeriod");
-
-const modalProfessor =
-    document.getElementById("modalProfessor");
-
-const modalClass =
-    document.getElementById("modalClass");
-
-const modalCourse =
-    document.getElementById("modalCourse");
-
-const modalActivities =
-    document.getElementById("modalActivities");
-
-const modalDescription =
-    document.getElementById("modalDescription");
-
-const modalDownload =
-    document.getElementById("modalDownload");
+                    const turmas =
+                        Array.isArray(
+                            relatorio.turmas
+                        )
+                            ? relatorio.turmas.join(" ")
+                                .toLowerCase()
+                            : "";
 
 
-let relatorioSelecionado = null;
+                    return (
+                        titulo.includes(busca) ||
+                        descricao.includes(busca) ||
+                        responsavel.includes(busca) ||
+                        cursoRelatorio.includes(busca) ||
+                        turmas.includes(busca)
+                    );
+                });
+        }
 
 
-/* =========================================================
-   ABRIR MODAL
-   ========================================================= */
+        /* =====================================================
+           FILTRO DE PERÍODO
+        ===================================================== */
 
-function abrirModal(id) {
+        if (periodo) {
 
-    const relatorio =
-        relatorios.find(
-            item => item.id === id
+            lista =
+                lista.filter(relatorio => {
+
+                    /*
+                     * O select normalmente usa:
+                     *
+                     * 2026-08
+                     * 2026-09
+                     *
+                     * Vamos verificar TODAS as datas
+                     * importantes do relatório.
+                     */
+
+                    const inicio =
+                        converterData(
+                            relatorio.periodo_inicio
+                        );
+
+
+                    const fim =
+                        converterData(
+                            relatorio.periodo_fim
+                        );
+
+
+                    const criacao =
+                        converterData(
+                            relatorio.data_criacao
+                        );
+
+
+                    /*
+                     * Função para verificar
+                     * se uma data pertence ao
+                     * mês selecionado.
+                     */
+
+                    function pertenceAoPeriodo(data) {
+
+                        if (!data) {
+                            return false;
+                        }
+
+                        const ano =
+                            data.getFullYear();
+
+                        const mes =
+                            String(
+                                data.getMonth() + 1
+                            ).padStart(2, "0");
+
+
+                        return (
+                            `${ano}-${mes}` ===
+                            periodo
+                        );
+                    }
+
+
+                    /*
+                     * O relatório aparece quando
+                     * o mês selecionado corresponde
+                     * ao período do relatório.
+                     */
+
+                    return (
+                        pertenceAoPeriodo(inicio) ||
+                        pertenceAoPeriodo(fim) ||
+                        pertenceAoPeriodo(criacao)
+                    );
+                });
+        }
+
+
+        /* =====================================================
+           FILTRO DE CURSO
+        ===================================================== */
+
+        if (curso) {
+
+            lista =
+                lista.filter(relatorio => {
+
+                    /*
+                     * Primeiro verifica o campo "curso".
+                     */
+
+                    const cursoPrincipal =
+                        String(
+                            relatorio.curso || ""
+                        );
+
+
+                    if (
+                        cursoPrincipal
+                            .split(",")
+                            .map(c =>
+                                c.trim()
+                            )
+                            .includes(curso)
+                    ) {
+
+                        return true;
+                    }
+
+
+                    /*
+                     * Depois verifica "cursos".
+                     */
+
+                    if (
+                        Array.isArray(
+                            relatorio.cursos
+                        )
+                    ) {
+
+                        return relatorio.cursos
+                            .map(c =>
+                                String(c).trim()
+                            )
+                            .includes(curso);
+                    }
+
+
+                    return false;
+                });
+        }
+
+
+        /* =====================================================
+           ORDENAÇÃO
+        ===================================================== */
+
+        if (sortFilter) {
+
+            const ordenacao =
+                sortFilter.value;
+
+
+            if (
+                ordenacao === "recentes"
+            ) {
+
+                lista.sort(
+                    (a, b) => {
+
+                        const dataA =
+                            converterData(
+                                a.data_criacao
+                            );
+
+                        const dataB =
+                            converterData(
+                                b.data_criacao
+                            );
+
+
+                        return (
+                            (dataB?.getTime() || 0) -
+                            (dataA?.getTime() || 0)
+                        );
+                    }
+                );
+            }
+
+
+            else if (
+                ordenacao === "antigos"
+            ) {
+
+                lista.sort(
+                    (a, b) => {
+
+                        const dataA =
+                            converterData(
+                                a.data_criacao
+                            );
+
+                        const dataB =
+                            converterData(
+                                b.data_criacao
+                            );
+
+
+                        return (
+                            (dataA?.getTime() || 0) -
+                            (dataB?.getTime() || 0)
+                        );
+                    }
+                );
+            }
+
+
+            else if (
+                ordenacao === "az"
+            ) {
+
+                lista.sort(
+                    (a, b) =>
+                        String(
+                            a.titulo || ""
+                        ).localeCompare(
+                            String(
+                                b.titulo || ""
+                            ),
+                            "pt-BR"
+                        )
+                );
+            }
+
+
+            else if (
+                ordenacao === "za"
+            ) {
+
+                lista.sort(
+                    (a, b) =>
+                        String(
+                            b.titulo || ""
+                        ).localeCompare(
+                            String(
+                                a.titulo || ""
+                            ),
+                            "pt-BR"
+                        )
+                );
+            }
+        }
+
+
+        /* =====================================================
+           CONTADOR
+        ===================================================== */
+
+        resultsCount.textContent =
+            `${lista.length} ${
+                lista.length === 1
+                    ? "relatório"
+                    : "relatórios"
+            } encontrados`;
+
+
+        /* =====================================================
+           ESTADO VAZIO
+        ===================================================== */
+
+        if (lista.length === 0) {
+
+            reportsList.innerHTML = "";
+
+            emptyState.classList.add(
+                "visible"
+            );
+
+            return;
+        }
+
+
+        emptyState.classList.remove(
+            "visible"
         );
 
 
-    if (!relatorio) {
-        return;
+        /* =====================================================
+           RENDER
+        ===================================================== */
+
+        reportsList.innerHTML =
+            lista.map(
+                relatorio =>
+                    criarCardRelatorio(
+                        relatorio
+                    )
+            ).join("");
     }
 
 
-    relatorioSelecionado =
-        relatorio;
+    /* =========================================================
+       CRIAR CARD
+    ========================================================= */
 
+    function criarCardRelatorio(
+        relatorio
+    ) {
 
-    modalTitle.textContent =
-        relatorio.titulo;
-
-
-    modalPeriod.textContent =
-        relatorio.periodo;
-
-
-    modalProfessor.textContent =
-        relatorio.professor;
-
-
-    modalClass.textContent =
-        relatorio.turma;
-
-
-    modalCourse.textContent =
-        relatorio.curso;
-
-
-    modalActivities.textContent =
-        `${relatorio.atividades} atividades`;
-
-
-    modalDescription.textContent =
-        relatorio.descricao;
-
-
-    reportModal.classList.add("show");
-
-
-    document.body.style.overflow =
-        "hidden";
-
-}
-
-
-/* =========================================================
-   FECHAR MODAL
-   ========================================================= */
-
-function fecharModal() {
-
-    reportModal.classList.remove("show");
-
-    document.body.style.overflow = "";
-
-    relatorioSelecionado = null;
-}
-
-
-if (modalClose) {
-
-    modalClose.addEventListener(
-        "click",
-        fecharModal
-    );
-
-}
-
-
-if (modalCloseBottom) {
-
-    modalCloseBottom.addEventListener(
-        "click",
-        fecharModal
-    );
-
-}
-
-
-/* =========================================================
-   FECHAR CLICANDO FORA
-   ========================================================= */
-
-reportModal.addEventListener(
-    "click",
-    event => {
-
-        if (
-            event.target === reportModal
-        ) {
-
-            fecharModal();
-
-        }
-
-    }
-);
-
-
-/* =========================================================
-   DOWNLOAD
-   ========================================================= */
-
-function baixarPDF(relatorio) {
-
-    if (!relatorio) {
-        return;
-    }
-
-
-    /*
-       POR ENQUANTO É UMA SIMULAÇÃO.
-
-       Quando o backend estiver pronto,
-       aqui vamos chamar a API do C# para
-       buscar o PDF verdadeiro.
-    */
-
-    alert(
-        `Download do relatório "${relatorio.titulo}" será realizado quando o PDF estiver disponível no sistema.`
-    );
-
-}
-
-
-/* =========================================================
-   EVENTOS DOS BOTÕES DOS CARDS
-   ========================================================= */
-
-reportsList.addEventListener(
-    "click",
-    event => {
-
-        const button =
-            event.target.closest(
-                ".report-action-btn"
+        const titulo =
+            escaparHTML(
+                relatorio.titulo ||
+                "Relatório sem título"
             );
 
 
-        if (!button) {
-            return;
+        const responsavel =
+            escaparHTML(
+                relatorio.responsavel ||
+                "Não informado"
+            );
+
+
+        const periodoInicio =
+            relatorio.periodo_inicio
+                ? formatarData(
+                    relatorio.periodo_inicio
+                )
+                : null;
+
+
+        const periodoFim =
+            formatarData(
+                relatorio.periodo_fim
+            );
+
+
+        let periodoTexto;
+
+
+        if (
+            periodoInicio &&
+            periodoInicio !== "Não informado"
+        ) {
+
+            periodoTexto =
+                `${periodoInicio} - ${periodoFim}`;
+
+        } else {
+
+            periodoTexto =
+                periodoFim;
         }
+
+
+        const dataCriacao =
+            formatarDataHora(
+                relatorio.data_criacao
+            );
+
+
+        const quantidade =
+            Number(
+                relatorio.quantidade_atividades || 0
+            );
 
 
         const id =
-            Number(button.dataset.id);
-
-
-        const action =
-            button.dataset.action;
-
-
-        const relatorio =
-            relatorios.find(
-                item => item.id === id
+            Number(
+                relatorio.id
             );
 
 
-        if (!relatorio) {
-            return;
-        }
+        return `
+            <article class="report-item">
+
+                <div class="report-file-icon">
+                    <i class="fa-solid fa-file-pdf"></i>
+                </div>
 
 
-        /* VISUALIZAR */
+                <div class="report-info">
 
-        if (action === "view") {
-
-            abrirModal(id);
-
-        }
+                    <h3>
+                        ${titulo}
+                    </h3>
 
 
-        /* DOWNLOAD */
-
-        if (action === "download") {
-
-            baixarPDF(relatorio);
-
-        }
+                    <p>
+                        Responsável:
+                        ${responsavel}
+                    </p>
 
 
-        /* EXCLUIR */
+                    <div class="report-meta">
 
-        if (action === "delete") {
+                        <span class="report-tag">
+                            ${escaparHTML(
+                                periodoTexto
+                            )}
+                        </span>
 
-            const confirmar =
-                confirm(
-                    `Deseja realmente excluir o relatório "${relatorio.titulo}"?`
+
+                        <span class="report-date">
+                            Criado em
+                            ${dataCriacao}
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="report-activities">
+
+                    <strong>
+                        ${quantidade}
+                    </strong>
+
+
+                    <span>
+                        ${
+                            quantidade === 1
+                                ? "atividade"
+                                : "atividades"
+                        }
+                    </span>
+
+                </div>
+
+
+                <div class="report-actions">
+
+                    <button
+                        type="button"
+                        class="report-action-btn"
+                        title="Visualizar relatório"
+                        data-acao="visualizar"
+                        data-id="${id}"
+                    >
+                        <i class="fa-regular fa-eye"></i>
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="report-action-btn download"
+                        title="Baixar PDF"
+                        data-acao="baixar"
+                        data-id="${id}"
+                    >
+                        <i class="fa-solid fa-download"></i>
+                    </button>
+
+                </div>
+
+            </article>
+        `;
+    }
+
+
+    /* =========================================================
+       CLIQUE NOS BOTÕES DOS CARDS
+    ========================================================= */
+
+    reportsList.addEventListener(
+        "click",
+        evento => {
+
+            const botao =
+                evento.target.closest(
+                    "[data-acao]"
                 );
 
 
-            if (!confirmar) {
+            if (!botao) {
                 return;
             }
 
 
-            relatorios =
-                relatorios.filter(
-                    item => item.id !== id
+            const id =
+                Number(
+                    botao.dataset.id
                 );
 
 
-            aplicarFiltros();
-
-        }
-
-    }
-);
+            const acao =
+                botao.dataset.acao;
 
 
-/* =========================================================
-   DOWNLOAD PELO MODAL
-   ========================================================= */
+            const relatorio =
+                relatorios.find(
+                    item =>
+                        Number(item.id) === id
+                );
 
-if (modalDownload) {
 
-    modalDownload.addEventListener(
-        "click",
-        () => {
+            if (!relatorio) {
+                return;
+            }
 
-            baixarPDF(
-                relatorioSelecionado
-            );
 
+            if (
+                acao === "visualizar"
+            ) {
+
+                abrirModal(
+                    relatorio
+                );
+            }
+
+
+            if (
+                acao === "baixar"
+            ) {
+
+                abrirPDF(id);
+            }
         }
     );
 
-}
+
+    /* =========================================================
+       MODAL
+    ========================================================= */
+
+    function abrirModal(
+        relatorio
+    ) {
+
+        relatorioSelecionado =
+            relatorio;
 
 
-/* =========================================================
-   TECLA ESC
-   ========================================================= */
-
-document.addEventListener(
-    "keydown",
-    event => {
-
-        if (event.key !== "Escape") {
-            return;
-        }
+        modalTitle.textContent =
+            relatorio.titulo ||
+            "Relatório";
 
 
-        if (
-            reportModal.classList.contains("show")
-        ) {
+        const inicio =
+            relatorio.periodo_inicio
+                ? formatarData(
+                    relatorio.periodo_inicio
+                )
+                : null;
 
-            fecharModal();
 
-        }
-
-
-        if (
-            mobileNav &&
-            mobileNav.classList.contains("show")
-        ) {
-
-            mobileNav.classList.remove("show");
-
-            menuMobile.setAttribute(
-                "aria-expanded",
-                "false"
+        const fim =
+            formatarData(
+                relatorio.periodo_fim
             );
 
 
-            const icon =
-                menuMobile.querySelector("i");
+        if (
+            inicio &&
+            inicio !== "Não informado"
+        ) {
 
+            modalPeriod.textContent =
+                `${inicio} - ${fim}`;
 
-            if (icon) {
+        } else {
 
-                icon.classList.remove(
-                    "fa-xmark"
-                );
-
-                icon.classList.add(
-                    "fa-bars"
-                );
-
-            }
-
+            modalPeriod.textContent =
+                fim;
         }
 
+
+        modalProfessor.textContent =
+            relatorio.responsavel ||
+            "Não informado";
+
+
+        modalClass.textContent =
+            formatarDataHora(
+                relatorio.data_criacao
+            );
+
+
+        modalCourse.textContent =
+            relatorio.curso ||
+            "Não informado";
+
+
+        modalActivities.textContent =
+            Number(
+                relatorio.quantidade_atividades || 0
+            );
+
+
+        modalDescription.textContent =
+            relatorio.descricao ||
+            "Nenhuma descrição informada.";
+
+
+        reportModal.classList.add(
+            "show"
+        );
+
+
+        document.body.style.overflow =
+            "hidden";
     }
-);
 
 
-/* =========================================================
-   REDIMENSIONAMENTO
-   ========================================================= */
+    /* =========================================================
+       FECHAR MODAL
+    ========================================================= */
 
-window.addEventListener(
-    "resize",
-    () => {
+    function fecharModal() {
 
-        if (
-            window.innerWidth > 800 &&
-            mobileNav
-        ) {
-
-            mobileNav.classList.remove("show");
-
-            menuMobile.setAttribute(
-                "aria-expanded",
-                "false"
-            );
+        reportModal.classList.remove(
+            "show"
+        );
 
 
-            const icon =
-                menuMobile.querySelector("i");
+        document.body.style.overflow =
+            "";
 
 
-            if (icon) {
+        relatorioSelecionado =
+            null;
+    }
 
-                icon.classList.remove(
-                    "fa-xmark"
-                );
 
-                icon.classList.add(
-                    "fa-bars"
-                );
+    if (modalClose) {
 
+        modalClose.addEventListener(
+            "click",
+            fecharModal
+        );
+    }
+
+
+    if (modalCloseBottom) {
+
+        modalCloseBottom.addEventListener(
+            "click",
+            fecharModal
+        );
+    }
+
+
+    if (reportModal) {
+
+        reportModal.addEventListener(
+            "click",
+            evento => {
+
+                if (
+                    evento.target ===
+                    reportModal
+                ) {
+
+                    fecharModal();
+                }
             }
+        );
+    }
 
+
+    /* =========================================================
+       DOWNLOAD DO MODAL
+    ========================================================= */
+
+    if (modalDownload) {
+
+        modalDownload.addEventListener(
+            "click",
+            () => {
+
+                if (
+                    !relatorioSelecionado
+                ) {
+
+                    return;
+                }
+
+
+                abrirPDF(
+                    relatorioSelecionado.id
+                );
+            }
+        );
+    }
+
+
+    /* =========================================================
+       ABRIR PDF
+    ========================================================= */
+
+    function abrirPDF(id) {
+
+        const url =
+            `${API_BASE}/api/Relatorio/pdf/${id}`;
+
+
+        window.open(
+            url,
+            "_blank"
+        );
+    }
+
+
+    /* =========================================================
+       FILTROS
+    ========================================================= */
+
+    if (searchInput) {
+
+        searchInput.addEventListener(
+            "input",
+            renderizarRelatorios
+        );
+    }
+
+
+    if (periodFilter) {
+
+        periodFilter.addEventListener(
+            "change",
+            renderizarRelatorios
+        );
+    }
+
+
+    if (courseFilter) {
+
+        courseFilter.addEventListener(
+            "change",
+            renderizarRelatorios
+        );
+    }
+
+
+    if (sortFilter) {
+
+        sortFilter.addEventListener(
+            "change",
+            renderizarRelatorios
+        );
+    }
+
+
+    /* =========================================================
+       LIMPAR FILTROS
+    ========================================================= */
+
+    function limparFiltros() {
+
+        if (searchInput) {
+
+            searchInput.value =
+                "";
         }
 
+
+        if (periodFilter) {
+
+            periodFilter.value =
+                "";
+        }
+
+
+        if (courseFilter) {
+
+            courseFilter.value =
+                "";
+        }
+
+
+        renderizarRelatorios();
     }
-);
 
 
-/* =========================================================
-   LOGOUT
-   ========================================================= */
+    if (clearFilters) {
 
-const btnLogout =
-    document.getElementById("btnLogout");
+        clearFilters.addEventListener(
+            "click",
+            limparFiltros
+        );
+    }
 
 
-if (btnLogout) {
+    if (emptyClear) {
 
-    btnLogout.addEventListener(
-        "click",
-        () => {
+        emptyClear.addEventListener(
+            "click",
+            limparFiltros
+        );
+    }
 
-            const confirmar =
-                confirm(
-                    "Deseja realmente sair?"
+
+    /* =========================================================
+       MENU MOBILE
+    ========================================================= */
+
+    if (
+        menuMobile &&
+        mobileNav
+    ) {
+
+        menuMobile.addEventListener(
+            "click",
+            () => {
+
+                mobileNav.classList.toggle(
+                    "show"
                 );
-
-
-            if (!confirmar) {
-                return;
             }
+        );
+    }
 
 
-            sessionStorage.clear();
+    /* =========================================================
+       LOGOUT
+    ========================================================= */
 
-            localStorage.removeItem(
-                "usuarioLogado"
+    async function fazerLogout() {
+
+        try {
+
+            await fetch(
+                `${API_BASE}/Usuario/logout`,
+                {
+                    method: "POST",
+                    credentials: "include"
+                }
             );
 
+        } catch (erro) {
+
+            console.error(
+                "Erro ao fazer logout:",
+                erro
+            );
+
+        } finally {
 
             window.location.href =
-                "login.html";
-
+                "../html/login.html";
         }
-    );
-
-}
-
-
-/* =========================================================
-   INICIALIZAÇÃO
-   ========================================================= */
-
-document.addEventListener(
-    "DOMContentLoaded",
-    () => {
-
-        aplicarFiltros();
-
     }
-);
+
+
+    if (btnLogout) {
+
+        btnLogout.addEventListener(
+            "click",
+            fazerLogout
+        );
+    }
+
+
+    if (btnLogoutMobile) {
+
+        btnLogoutMobile.addEventListener(
+            "click",
+            fazerLogout
+        );
+    }
+
+
+    /* =========================================================
+       CONVERTER DATA
+    ========================================================= */
+
+    function converterData(valor) {
+
+        if (!valor) {
+            return null;
+        }
+
+
+        if (valor instanceof Date) {
+            return valor;
+        }
+
+
+        const texto =
+            String(valor).trim();
+
+
+        /* -----------------------------------------------------
+           dd/MM/yyyy HH:mm
+        ----------------------------------------------------- */
+
+        const brasileira =
+            texto.match(
+                /^(\d{2})\/(\d{2})\/(\d{4})(?:\s+(\d{2}):(\d{2}))?$/
+            );
+
+
+        if (brasileira) {
+
+            const dia =
+                Number(
+                    brasileira[1]
+                );
+
+
+            const mes =
+                Number(
+                    brasileira[2]
+                ) - 1;
+
+
+            const ano =
+                Number(
+                    brasileira[3]
+                );
+
+
+            const hora =
+                Number(
+                    brasileira[4] || 0
+                );
+
+
+            const minuto =
+                Number(
+                    brasileira[5] || 0
+                );
+
+
+            return new Date(
+                ano,
+                mes,
+                dia,
+                hora,
+                minuto
+            );
+        }
+
+
+        /* -----------------------------------------------------
+           yyyy-MM-dd
+        ----------------------------------------------------- */
+
+        const isoData =
+            texto.match(
+                /^(\d{4})-(\d{2})-(\d{2})/
+            );
+
+
+        if (isoData) {
+
+            return new Date(
+                Number(
+                    isoData[1]
+                ),
+                Number(
+                    isoData[2]
+                ) - 1,
+                Number(
+                    isoData[3]
+                )
+            );
+        }
+
+
+        /* -----------------------------------------------------
+           yyyy-MM-ddTHH:mm:ss
+        ----------------------------------------------------- */
+
+        const isoCompleto =
+            texto.match(
+                /^(\d{4})-(\d{2})-(\d{2})T/
+            );
+
+
+        if (isoCompleto) {
+
+            const data =
+                new Date(texto);
+
+
+            if (
+                !Number.isNaN(
+                    data.getTime()
+                )
+            ) {
+
+                return data;
+            }
+        }
+
+
+        const data =
+            new Date(texto);
+
+
+        if (
+            Number.isNaN(
+                data.getTime()
+            )
+        ) {
+
+            return null;
+        }
+
+
+        return data;
+    }
+
+
+    /* =========================================================
+       FORMATAR DATA
+    ========================================================= */
+
+    function formatarData(valor) {
+
+        const data =
+            converterData(valor);
+
+
+        if (!data) {
+
+            return "Não informado";
+        }
+
+
+        return data.toLocaleDateString(
+            "pt-BR"
+        );
+    }
+
+
+    /* =========================================================
+       FORMATAR DATA + HORA
+    ========================================================= */
+
+    function formatarDataHora(valor) {
+
+        const data =
+            converterData(valor);
+
+
+        if (!data) {
+
+            return "Não informado";
+        }
+
+
+        return data.toLocaleString(
+            "pt-BR",
+            {
+                day: "2-digit",
+                month: "2-digit",
+                year: "numeric",
+                hour: "2-digit",
+                minute: "2-digit"
+            }
+        );
+    }
+
+
+    /* =========================================================
+       ESCAPAR HTML
+    ========================================================= */
+
+    function escaparHTML(valor) {
+
+        return String(valor)
+            .replace(
+                /&/g,
+                "&amp;"
+            )
+            .replace(
+                /</g,
+                "&lt;"
+            )
+            .replace(
+                />/g,
+                "&gt;"
+            )
+            .replace(
+                /"/g,
+                "&quot;"
+            )
+            .replace(
+                /'/g,
+                "&#039;"
+            );
+    }
+
+});

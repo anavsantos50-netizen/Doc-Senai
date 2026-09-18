@@ -10,35 +10,21 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>Gerar Relatório | DOCSENAI</title>
-
+    <title>Gerar Relatórios - DOC SENAI</title>
 
     <!-- Poppins -->
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
-
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
         rel="stylesheet"
     >
 
-
     <!-- Font Awesome -->
-
     <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     >
 
-
-    <!-- CSS -->
-
+    <!-- CSS da página -->
     <link
         rel="stylesheet"
         href="../css/gerarRelatorios.css"
@@ -50,60 +36,79 @@
 <body>
 
 
-    <!-- =====================================================
+    <!-- =========================================================
          TOPBAR
-    ====================================================== -->
+    ========================================================== -->
 
     <header class="topbar">
 
         <div class="topbar-container">
 
 
+            <!-- LOGO -->
+
             <a
-                href="visualizar-atividades.html"
+                href="telaInicialSupervisor.html"
                 class="logo"
             >
 
                 <img
                     src="../img/logo.png"
-                    alt="DocSenai"
+                    alt="DOC SENAI"
                 >
 
             </a>
 
 
-                <nav class="main-nav" id="mainNav">
+            <!-- MENU DESKTOP -->
 
-                <a href="telaInicialSupervisor.html" class="nav-link">
+            <nav class="main-nav">
+
+                <a
+                    href="telaInicialSupervisor.html"
+                    class="nav-link"
+                >
                     Início
                 </a>
 
-                <a href="pesquisarRegistros.html" class="nav-link">
+                <a
+                    href="pesquisarRegistros.html"
+                    class="nav-link"
+                >
                     Pesquisar Registros
                 </a>
 
-                <a href="gerarRelatorios.html" class="nav-link  active">
-                    Gerar Relatório
+                <a
+                    href="gerarRelatorios.html"
+                    class="nav-link active"
+                >
+                    Gerar Relatórios
                 </a>
 
-                <a href="relatoriosGerados.html" class="nav-link">
+                <a
+                    href="relatoriosGerados.html"
+                    class="nav-link"
+                >
                     Relatórios Gerados
                 </a>
 
-                <a href="professores.html" class="nav-link">
+                <a
+                    href="professores.html"
+                    class="nav-link"
+                >
                     Professores
-                </a>
-
-                <a href="PerfilSupervisor.html" class="nav-link">
-                    Meu perfil
                 </a>
 
             </nav>
 
+
+            <!-- PERFIL / SAIR -->
+
             <div class="profile-area">
 
+
                 <a
-                    href="perfil.html"
+                    href="perfilSupervisor.html"
                     class="profile-link"
                 >
 
@@ -114,7 +119,7 @@
                         </strong>
 
                         <span>
-                            Minha conta
+                            Meu perfil
                         </span>
 
                     </div>
@@ -122,7 +127,7 @@
 
                     <div class="profile-icon">
 
-                        <i class="fa-regular fa-user"></i>
+                        <i class="fa-solid fa-user"></i>
 
                     </div>
 
@@ -131,8 +136,8 @@
 
                 <button
                     type="button"
-                    class="logout-btn"
                     id="btnLogout"
+                    class="logout-btn"
                     title="Sair"
                 >
 
@@ -140,20 +145,21 @@
 
                 </button>
 
+
+                <button
+                    type="button"
+                    id="menuMobile"
+                    class="menu-mobile"
+                    aria-label="Abrir menu"
+                >
+
+                    <i class="fa-solid fa-bars"></i>
+
+                </button>
+
+
             </div>
 
-
-            <button
-                type="button"
-                class="menu-mobile"
-                id="menuMobile"
-                aria-label="Abrir menu"
-                aria-expanded="false"
-            >
-
-                <i class="fa-solid fa-bars"></i>
-
-            </button>
 
         </div>
 
@@ -161,65 +167,49 @@
         <!-- MENU MOBILE -->
 
         <nav
-            class="mobile-nav"
             id="mobileNav"
+            class="mobile-nav"
         >
 
             <a href="telaInicialSupervisor.html">
-
                 <i class="fa-solid fa-house"></i>
-
-                <span>
-                    Início
-                </span>
-
+                Início
             </a>
-
 
             <a href="pesquisarRegistros.html">
-
                 <i class="fa-solid fa-magnifying-glass"></i>
-
-                <span>
-                    Pesquisar Registros
-                </span>
-
+                Pesquisar Registros
             </a>
-
 
             <a
                 href="gerarRelatorios.html"
                 class="active"
             >
-
-                <i class="fa-solid fa-file-lines"></i>
-
-                <span>
-                    Gerar Relatório
-                </span>
-
+                <i class="fa-solid fa-file-pdf"></i>
+                Gerar Relatórios
             </a>
-
 
             <a href="relatoriosGerados.html">
-
                 <i class="fa-solid fa-folder-open"></i>
-
-                <span>
-                    Relatórios Gerados
-                </span>
-
+                Relatórios Gerados
             </a>
 
+            <a href="professores.html">
+                <i class="fa-solid fa-users"></i>
+                Professores
+            </a>
 
             <a href="perfilSupervisor.html">
+                <i class="fa-solid fa-user"></i>
+                Meu Perfil
+            </a>
 
-                <i class="fa-regular fa-user"></i>
-
-                <span>
-                    Meu perfil
-                </span>
-
+            <a
+                href="#"
+                id="btnLogoutMobile"
+            >
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Sair
             </a>
 
         </nav>
@@ -228,35 +218,32 @@
 
 
 
-    <!-- =====================================================
+    <!-- =========================================================
          CONTEÚDO
-    ====================================================== -->
+    ========================================================== -->
 
     <main class="main-content">
 
         <div class="content-container">
 
 
-            <!-- CABEÇALHO -->
+            <!-- =================================================
+                 CABEÇALHO
+            ================================================== -->
 
             <section class="page-header">
 
-                <div>
+                <span class="section-label">
+                    ÁREA DA SUPERVISÃO
+                </span>
 
-                    <span class="section-label">
-                        SUPERVISÃO
-                    </span>
+                <h1>
+                    Gerar relatório
+                </h1>
 
-                    <h1>
-                        Gerar relatório
-                    </h1>
-
-                    <p>
-                        Organize as atividades pedagógicas e selecione
-                        os registros que farão parte do relatório.
-                    </p>
-
-                </div>
+                <p>
+                    Selecione as atividades que deseja incluir no relatório.
+                </p>
 
             </section>
 
@@ -270,6 +257,7 @@
 
 
                 <div class="card-heading">
+
 
                     <div class="heading-icon">
 
@@ -290,6 +278,7 @@
 
                     </div>
 
+
                 </div>
 
 
@@ -305,8 +294,8 @@
                     <input
                         type="text"
                         id="tituloRelatorio"
-                        value="Relatório de atividades - Maio/2026"
                         placeholder="Digite o título do relatório"
+                        autocomplete="off"
                     >
 
                 </div>
@@ -317,6 +306,8 @@
 
                 <div class="filters-grid">
 
+
+                    <!-- PROFESSOR -->
 
                     <div class="form-group">
 
@@ -332,18 +323,6 @@
                                     Todos os professores
                                 </option>
 
-                                <option value="joao">
-                                    João Silva
-                                </option>
-
-                                <option value="maria">
-                                    Maria Santos
-                                </option>
-
-                                <option value="ana">
-                                    Ana Oliveira
-                                </option>
-
                             </select>
 
                             <i class="fa-solid fa-chevron-down"></i>
@@ -353,6 +332,8 @@
                     </div>
 
 
+
+                    <!-- TURMA -->
 
                     <div class="form-group">
 
@@ -368,18 +349,6 @@
                                     Todas as turmas
                                 </option>
 
-                                <option value="informatica-a">
-                                    3º Informática A
-                                </option>
-
-                                <option value="informatica-b">
-                                    2º Informática B
-                                </option>
-
-                                <option value="desenvolvimento">
-                                    Desenvolvimento Web
-                                </option>
-
                             </select>
 
                             <i class="fa-solid fa-chevron-down"></i>
@@ -389,6 +358,8 @@
                     </div>
 
 
+
+                    <!-- CURSO -->
 
                     <div class="form-group">
 
@@ -400,20 +371,8 @@
 
                             <select id="curso">
 
-                                <option value="informatica">
-                                    Informática para Internet
-                                </option>
-
-                                <option value="informatica-basica">
-                                    Informática
-                                </option>
-
-                                <option value="desenvolvimento-web">
-                                    Desenvolvimento Web
-                                </option>
-
-                                <option value="administracao">
-                                    Administração
+                                <option value="">
+                                    Todos os cursos
                                 </option>
 
                             </select>
@@ -424,6 +383,7 @@
 
                     </div>
 
+
                 </div>
 
 
@@ -433,6 +393,7 @@
                 ================================================== -->
 
                 <div class="period-section">
+
 
                     <div class="period-title">
 
@@ -445,10 +406,9 @@
                     </div>
 
 
+
                     <div class="period-fields">
 
-
-                        <!-- DATA INICIAL -->
 
                         <div class="date-field">
 
@@ -461,7 +421,6 @@
                                 <input
                                     type="date"
                                     id="dataInicio"
-                                    value="2026-05-01"
                                 >
 
                             </div>
@@ -474,8 +433,6 @@
                         </span>
 
 
-                        <!-- DATA FINAL -->
-
                         <div class="date-field">
 
                             <label for="dataFim">
@@ -487,16 +444,18 @@
                                 <input
                                     type="date"
                                     id="dataFim"
-                                    value="2026-05-31"
                                 >
 
                             </div>
 
                         </div>
 
+
                     </div>
 
+
                 </div>
+
 
             </section>
 
@@ -511,7 +470,9 @@
 
                 <div class="activities-top">
 
+
                     <div class="activities-title">
+
 
                         <div class="activities-icon">
 
@@ -532,13 +493,14 @@
 
                         </div>
 
+
                     </div>
 
 
                     <div class="activities-counter">
 
-                        <strong id="activitiesCount">
-                            6
+                        <strong id="quantidadeEncontradas">
+                            0
                         </strong>
 
                         <span>
@@ -547,22 +509,23 @@
 
                     </div>
 
+
                 </div>
 
 
 
-                <!-- SELECIONAR TODOS -->
+                <!-- =================================================
+                     SELECIONAR TODAS
+                ================================================== -->
 
                 <div class="select-all-area">
 
-                    <label
-                        class="select-all"
-                        id="selectAllBtn"
-                    >
+
+                    <label class="select-all">
 
                         <input
                             type="checkbox"
-                            id="selectAllInput"
+                            id="selecionarTodas"
                         >
 
                         <span class="custom-checkbox">
@@ -570,7 +533,6 @@
                             <i class="fa-solid fa-check"></i>
 
                         </span>
-
 
                         <span>
                             Selecionar todas as atividades
@@ -580,34 +542,39 @@
 
 
                     <span
+                        id="quantidadeSelecionadas"
                         class="selected-counter"
-                        id="selectedInfo"
                     >
                         0 selecionadas
                     </span>
 
+
                 </div>
 
 
 
-                <!-- LISTA -->
+                <!-- =================================================
+                     LISTA DE ATIVIDADES
+                ================================================== -->
 
                 <div
-                    class="activities-list"
                     id="activitiesList"
+                    class="activities-list"
                 >
 
-                    <!-- ATIVIDADES GERADAS PELO JAVASCRIPT -->
+                    <!-- preenchido pelo JavaScript -->
 
                 </div>
 
 
 
-                <!-- SEM RESULTADO -->
+                <!-- =================================================
+                     SEM RESULTADOS
+                ================================================== -->
 
                 <div
-                    class="no-results"
                     id="noResults"
+                    class="no-results"
                 >
 
                     <div class="no-results-icon">
@@ -621,10 +588,11 @@
                     </strong>
 
                     <span>
-                        Tente alterar os filtros selecionados.
+                        Não existem atividades para os filtros selecionados.
                     </span>
 
                 </div>
+
 
             </section>
 
@@ -636,7 +604,9 @@
 
             <section class="report-summary">
 
+
                 <div class="summary-info">
+
 
                     <div class="summary-icon">
 
@@ -648,33 +618,31 @@
                     <div>
 
                         <strong>
-                            Relatório pronto para geração
+                            Resumo do relatório
                         </strong>
 
                         <span id="summaryText">
-                            0 atividades serão incluídas no PDF.
+                            Nenhuma atividade selecionada.
                         </span>
 
                     </div>
+
 
                 </div>
 
 
                 <button
                     type="button"
-                    class="generate-btn"
                     id="btnGerar"
+                    class="generate-btn"
                 >
 
-                    <i class="fa-regular fa-file-pdf"></i>
+                    <i class="fa-solid fa-file-pdf"></i>
 
-                    <span>
-                        Gerar relatório em PDF
-                    </span>
-
-                    <i class="fa-solid fa-download"></i>
+                    Gerar relatório
 
                 </button>
+
 
             </section>
 
@@ -685,9 +653,12 @@
 
 
 
-    <!-- JAVASCRIPT -->
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================== -->
 
     <script src="../js/gerarRelatorios.js"></script>
+
 
 </body>
 

@@ -217,6 +217,124 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "DOCSenai.Controllers.RelatorioController",
+    "Method": "GerarRelatorio",
+    "RelativePath": "api/Relatorio/gerar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "DOCSenai.Controllers.GerarRelatorioRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DOCSenai.Controllers.RelatorioController",
+    "Method": "ListarRelatorios",
+    "RelativePath": "api/Relatorio/listar",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DOCSenai.Controllers.RelatorioController",
+    "Method": "VisualizarPdf",
+    "RelativePath": "api/Relatorio/pdf/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DOCSenai.Controllers.SupervisaoController",
+    "Method": "ListarCursos",
+    "RelativePath": "api/Supervisao/cursos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DOCSenai.Controllers.SupervisaoController",
+    "Method": "Dashboard",
+    "RelativePath": "api/Supervisao/dashboard",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DOCSenai.Controllers.SupervisaoController",
+    "Method": "ListarProfessores",
+    "RelativePath": "api/Supervisao/professores",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DOCSenai.Controllers.SupervisaoController",
+    "Method": "PesquisarRegistros",
+    "RelativePath": "api/Supervisao/registros",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "professor",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "turma",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "curso",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "dataInicial",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "dataFinal",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DOCSenai.Controllers.SupervisaoController",
+    "Method": "ListarTurmas",
+    "RelativePath": "api/Supervisao/turmas",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "DOCSenai.Controllers.UsuarioController",
     "Method": "CadastraUsuario",
     "RelativePath": "Usuario",
