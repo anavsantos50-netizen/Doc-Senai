@@ -5,7 +5,9 @@
 const API_BASE = "https://localhost:7082";
 
 let atividades = [];
+
 let atividadesSelecionadas = new Set();
+
 let gerandoRelatorio = false;
 
 
@@ -16,13 +18,19 @@ let gerandoRelatorio = false;
 document.addEventListener("DOMContentLoaded", () => {
 
     configurarMenu();
+
     configurarLogout();
+
     configurarFiltros();
+
     configurarSelecao();
+
     configurarGeracao();
 
     carregarProfessores();
+
     carregarTurmas();
+
     carregarCursos();
 
     buscarAtividades();
@@ -36,16 +44,56 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function configurarMenu() {
 
-    const btnMenu = document.getElementById("menuMobile");
-    const mobileNav = document.getElementById("mobileNav");
+    const btnMenu =
+        document.getElementById("menuMobile");
+
+    const mobileNav =
+        document.getElementById("mobileNav");
+
 
     if (!btnMenu || !mobileNav) {
         return;
     }
 
+
     btnMenu.addEventListener("click", () => {
 
-        mobileNav.classList.toggle("ativo");
+        const aberto =
+            mobileNav.classList.toggle("ativo");
+
+
+        btnMenu.setAttribute(
+            "aria-expanded",
+            aberto ? "true" : "false"
+        );
+
+    });
+
+
+    const links =
+        mobileNav.querySelectorAll(
+            "a"
+        );
+
+
+    links.forEach(link => {
+
+        link.addEventListener(
+            "click",
+            () => {
+
+                mobileNav.classList.remove(
+                    "ativo"
+                );
+
+
+                btnMenu.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+            }
+        );
 
     });
 
@@ -58,7 +106,9 @@ function configurarMenu() {
 
 function configurarLogout() {
 
-    const btnLogout = document.getElementById("btnLogout");
+    const btnLogout =
+        document.getElementById("btnLogout");
+
     const btnLogoutMobile =
         document.getElementById("btnLogoutMobile");
 
@@ -68,6 +118,7 @@ function configurarLogout() {
         if (event) {
             event.preventDefault();
         }
+
 
         try {
 
@@ -201,6 +252,7 @@ async function carregarProfessores() {
     const select =
         document.getElementById("professor");
 
+
     if (!select) {
         return;
     }
@@ -208,13 +260,14 @@ async function carregarProfessores() {
 
     try {
 
-        const resposta = await fetch(
-            `${API_BASE}/api/Supervisao/professores`,
-            {
-                method: "GET",
-                credentials: "include"
-            }
-        );
+        const resposta =
+            await fetch(
+                `${API_BASE}/api/Supervisao/professores`,
+                {
+                    method: "GET",
+                    credentials: "include"
+                }
+            );
 
 
         if (!resposta.ok) {
@@ -242,11 +295,14 @@ async function carregarProfessores() {
             const option =
                 document.createElement("option");
 
+
             option.value =
                 professor.id;
 
+
             option.textContent =
                 professor.nome;
+
 
             select.appendChild(option);
 
@@ -274,6 +330,7 @@ async function carregarTurmas() {
     const select =
         document.getElementById("turma");
 
+
     if (!select) {
         return;
     }
@@ -281,13 +338,14 @@ async function carregarTurmas() {
 
     try {
 
-        const resposta = await fetch(
-            `${API_BASE}/api/Supervisao/turmas`,
-            {
-                method: "GET",
-                credentials: "include"
-            }
-        );
+        const resposta =
+            await fetch(
+                `${API_BASE}/api/Supervisao/turmas`,
+                {
+                    method: "GET",
+                    credentials: "include"
+                }
+            );
 
 
         if (!resposta.ok) {
@@ -315,11 +373,14 @@ async function carregarTurmas() {
             const option =
                 document.createElement("option");
 
+
             option.value =
                 turma.id;
 
+
             option.textContent =
                 turma.nome;
+
 
             select.appendChild(option);
 
@@ -347,6 +408,7 @@ async function carregarCursos() {
     const select =
         document.getElementById("curso");
 
+
     if (!select) {
         return;
     }
@@ -354,13 +416,14 @@ async function carregarCursos() {
 
     try {
 
-        const resposta = await fetch(
-            `${API_BASE}/api/Supervisao/cursos`,
-            {
-                method: "GET",
-                credentials: "include"
-            }
-        );
+        const resposta =
+            await fetch(
+                `${API_BASE}/api/Supervisao/cursos`,
+                {
+                    method: "GET",
+                    credentials: "include"
+                }
+            );
 
 
         if (!resposta.ok) {
@@ -388,11 +451,14 @@ async function carregarCursos() {
             const option =
                 document.createElement("option");
 
+
             option.value =
                 curso;
 
+
             option.textContent =
                 curso;
+
 
             select.appendChild(option);
 
@@ -437,10 +503,7 @@ async function buscarAtividades() {
         new URLSearchParams();
 
 
-    if (
-        professor &&
-        professor.value
-    ) {
+    if (professor && professor.value) {
 
         parametros.append(
             "professor",
@@ -450,10 +513,7 @@ async function buscarAtividades() {
     }
 
 
-    if (
-        turma &&
-        turma.value
-    ) {
+    if (turma && turma.value) {
 
         parametros.append(
             "turma",
@@ -463,10 +523,7 @@ async function buscarAtividades() {
     }
 
 
-    if (
-        curso &&
-        curso.value
-    ) {
+    if (curso && curso.value) {
 
         parametros.append(
             "curso",
@@ -476,10 +533,7 @@ async function buscarAtividades() {
     }
 
 
-    if (
-        dataInicio &&
-        dataInicio.value
-    ) {
+    if (dataInicio && dataInicio.value) {
 
         parametros.append(
             "dataInicial",
@@ -489,10 +543,7 @@ async function buscarAtividades() {
     }
 
 
-    if (
-        dataFim &&
-        dataFim.value
-    ) {
+    if (dataFim && dataFim.value) {
 
         parametros.append(
             "dataFinal",
@@ -528,21 +579,17 @@ async function buscarAtividades() {
             );
 
 
-        console.log(
-            "Status atividades:",
-            resposta.status
-        );
-
-
         if (!resposta.ok) {
 
             const erroTexto =
                 await resposta.text();
 
+
             console.error(
                 "Erro retornado pela API:",
                 erroTexto
             );
+
 
             throw new Error(
                 `Erro ao buscar atividades: ${resposta.status}`
@@ -561,15 +608,11 @@ async function buscarAtividades() {
         );
 
 
-        /*
-           Todas as atividades começam
-           selecionadas.
-        */
-
         atividadesSelecionadas =
             new Set(
                 atividades.map(
-                    atividade => atividade.id
+                    atividade =>
+                        atividade.id
                 )
             );
 
@@ -630,14 +673,13 @@ function renderizarAtividades() {
     lista.innerHTML = "";
 
 
-    /*
-       Nenhuma atividade
-    */
-
     if (atividades.length === 0) {
 
         if (noResults) {
-            noResults.style.display = "flex";
+
+            noResults.style.display =
+                "flex";
+
         }
 
         return;
@@ -645,12 +687,11 @@ function renderizarAtividades() {
     }
 
 
-    /*
-       Existem atividades
-    */
-
     if (noResults) {
-        noResults.style.display = "none";
+
+        noResults.style.display =
+            "none";
+
     }
 
 
@@ -692,9 +733,7 @@ function renderizarAtividades() {
 
             <div class="activity-content">
 
-
                 <div class="activity-main">
-
 
                     <div class="activity-date">
 
@@ -732,12 +771,10 @@ function renderizarAtividades() {
                             : ""
                     }
 
-
                 </div>
 
 
                 <div class="activity-details">
-
 
                     <span>
 
@@ -774,9 +811,7 @@ function renderizarAtividades() {
 
                     </span>
 
-
                 </div>
-
 
             </div>
 
@@ -911,11 +946,14 @@ function atualizarCheckboxTodas() {
 
     if (atividades.length === 0) {
 
-        checkboxTodas.checked = false;
+        checkboxTodas.checked =
+            false;
 
-        checkboxTodas.indeterminate = false;
+        checkboxTodas.indeterminate =
+            false;
 
         return;
+
     }
 
 
@@ -923,27 +961,29 @@ function atualizarCheckboxTodas() {
         atividadesSelecionadas.size;
 
 
-    if (
-        quantidade === atividades.length
-    ) {
+    if (quantidade === atividades.length) {
 
-        checkboxTodas.checked = true;
+        checkboxTodas.checked =
+            true;
 
-        checkboxTodas.indeterminate = false;
+        checkboxTodas.indeterminate =
+            false;
 
-    } else if (
-        quantidade > 0
-    ) {
+    } else if (quantidade > 0) {
 
-        checkboxTodas.checked = false;
+        checkboxTodas.checked =
+            false;
 
-        checkboxTodas.indeterminate = true;
+        checkboxTodas.indeterminate =
+            true;
 
     } else {
 
-        checkboxTodas.checked = false;
+        checkboxTodas.checked =
+            false;
 
-        checkboxTodas.indeterminate = false;
+        checkboxTodas.indeterminate =
+            false;
 
     }
 
@@ -996,13 +1036,11 @@ function atualizarSelecionadas() {
 
     elemento.textContent =
         `${quantidade} selecionada${
-            quantidade === 1 ? "" : "s"
+            quantidade === 1
+                ? ""
+                : "s"
         }`;
 
-
-    /*
-       Atualiza o resumo inferior
-    */
 
     const resumo =
         document.getElementById(
@@ -1071,28 +1109,51 @@ function configurarGeracao() {
 async function gerarRelatorio(event) {
 
     if (event) {
+
         event.preventDefault();
+
+        event.stopPropagation();
+
     }
 
 
     if (gerandoRelatorio) {
-
-        console.log(
-            "A geração já está em andamento."
-        );
-
         return;
-
     }
 
 
-    /* -----------------------------------------------------
-       TÍTULO
-    ----------------------------------------------------- */
+    /* =====================================================
+       CAMPOS
+    ===================================================== */
 
     const campoTitulo =
         document.getElementById(
             "tituloRelatorio"
+        );
+
+    const campoProfessor =
+        document.getElementById(
+            "professor"
+        );
+
+    const campoTurma =
+        document.getElementById(
+            "turma"
+        );
+
+    const campoCurso =
+        document.getElementById(
+            "curso"
+        );
+
+    const campoInicio =
+        document.getElementById(
+            "dataInicio"
+        );
+
+    const campoFim =
+        document.getElementById(
+            "dataFim"
         );
 
 
@@ -1102,26 +1163,158 @@ async function gerarRelatorio(event) {
             : "";
 
 
+    /* =====================================================
+       VALIDAR TÍTULO
+    ===================================================== */
+
     if (!titulo) {
 
         alert(
-            "Digite um título para o relatório."
+            "Preencha o título do relatório."
         );
-
 
         if (campoTitulo) {
             campoTitulo.focus();
         }
-
 
         return;
 
     }
 
 
-    /* -----------------------------------------------------
-       ATIVIDADES
-    ----------------------------------------------------- */
+    /* =====================================================
+       VALIDAR PROFESSOR
+    ===================================================== */
+
+    if (
+        !campoProfessor ||
+        !campoProfessor.value
+    ) {
+
+        alert(
+            "Selecione um professor."
+        );
+
+        if (campoProfessor) {
+            campoProfessor.focus();
+        }
+
+        return;
+
+    }
+
+
+    /* =====================================================
+       VALIDAR TURMA
+    ===================================================== */
+
+    if (
+        !campoTurma ||
+        !campoTurma.value
+    ) {
+
+        alert(
+            "Selecione uma turma."
+        );
+
+        if (campoTurma) {
+            campoTurma.focus();
+        }
+
+        return;
+
+    }
+
+
+    /* =====================================================
+       VALIDAR CURSO
+    ===================================================== */
+
+    if (
+        !campoCurso ||
+        !campoCurso.value
+    ) {
+
+        alert(
+            "Selecione um curso."
+        );
+
+        if (campoCurso) {
+            campoCurso.focus();
+        }
+
+        return;
+
+    }
+
+
+    /* =====================================================
+       VALIDAR DATA INICIAL
+    ===================================================== */
+
+    if (
+        !campoInicio ||
+        !campoInicio.value
+    ) {
+
+        alert(
+            "Selecione a data inicial."
+        );
+
+        if (campoInicio) {
+            campoInicio.focus();
+        }
+
+        return;
+
+    }
+
+
+    /* =====================================================
+       VALIDAR DATA FINAL
+    ===================================================== */
+
+    if (
+        !campoFim ||
+        !campoFim.value
+    ) {
+
+        alert(
+            "Selecione a data final."
+        );
+
+        if (campoFim) {
+            campoFim.focus();
+        }
+
+        return;
+
+    }
+
+
+    /* =====================================================
+       VALIDAR PERÍODO
+    ===================================================== */
+
+    if (
+        campoInicio.value >
+        campoFim.value
+    ) {
+
+        alert(
+            "A data inicial não pode ser maior que a data final."
+        );
+
+        campoInicio.focus();
+
+        return;
+
+    }
+
+
+    /* =====================================================
+       ATIVIDADES SELECIONADAS
+    ===================================================== */
 
     const idsSelecionados =
         Array.from(
@@ -1142,151 +1335,49 @@ async function gerarRelatorio(event) {
     }
 
 
-    /* -----------------------------------------------------
-       DATAS
-    ----------------------------------------------------- */
-
-    const campoInicio =
-        document.getElementById(
-            "dataInicio"
-        );
-
-
-    const campoFim =
-        document.getElementById(
-            "dataFim"
-        );
-
-
-    let inicio =
-        campoInicio
-            ? campoInicio.value
-            : "";
-
-
-    let fim =
-        campoFim
-            ? campoFim.value
-            : "";
-
-
-    /*
-       Se as datas não forem preenchidas,
-       usamos a menor e a maior data
-       entre as atividades selecionadas.
-    */
-
-    if (!inicio || !fim) {
-
-        const selecionadas =
-            atividades.filter(
-                atividade =>
-                    atividadesSelecionadas.has(
-                        atividade.id
-                    )
-            );
-
-
-        const datas =
-            selecionadas
-                .map(
-                    atividade =>
-                        converterDataParaISO(
-                            atividade.data
-                        )
-                )
-                .filter(
-                    data => data !== null
-                );
-
-
-        if (datas.length > 0) {
-
-            datas.sort();
-
-
-            if (!inicio) {
-
-                inicio =
-                    datas[0];
-
-            }
-
-
-            if (!fim) {
-
-                fim =
-                    datas[datas.length - 1];
-
-            }
-
-        }
-
-    }
-
-
-    const periodoInicio =
-        inicio
-            ? `${inicio}T00:00:00`
-            : "1900-01-01T00:00:00";
-
-
-    const periodoFim =
-        fim
-            ? `${fim}T23:59:59`
-            : "2100-12-31T23:59:59";
-
-
-    /* -----------------------------------------------------
-       FILTROS
-    ----------------------------------------------------- */
-
-    const campoProfessor =
-        document.getElementById(
-            "professor"
-        );
-
-
-    const campoTurma =
-        document.getElementById(
-            "turma"
-        );
-
-
-    const campoCurso =
-        document.getElementById(
-            "curso"
-        );
-
+    /* =====================================================
+       DADOS DOS FILTROS
+    ===================================================== */
 
     const professor =
-        campoProfessor &&
-        campoProfessor.value
-            ? Number(
-                campoProfessor.value
-              )
-            : null;
+        Number(
+            campoProfessor.value
+        );
 
 
     const turma =
-        campoTurma &&
-        campoTurma.value
-            ? Number(
-                campoTurma.value
-              )
-            : null;
+        Number(
+            campoTurma.value
+        );
 
 
     const curso =
-        campoCurso &&
-        campoCurso.value
-            ? campoCurso.value
-            : null;
+        campoCurso.value;
 
 
-    /* -----------------------------------------------------
-       DADOS
-    ----------------------------------------------------- */
+    const inicio =
+        campoInicio.value;
+
+
+    const fim =
+        campoFim.value;
+
+
+    /* =====================================================
+       PERÍODO
+    ===================================================== */
+
+    const periodoInicio =
+        `${inicio}T00:00:00`;
+
+
+    const periodoFim =
+        `${fim}T23:59:59`;
+
+
+    /* =====================================================
+       DADOS PARA API
+    ===================================================== */
 
     const dados = {
 
@@ -1311,16 +1402,11 @@ async function gerarRelatorio(event) {
 
 
     console.log(
-        "========================================"
+        "=========================================="
     );
 
     console.log(
-        "INICIANDO GERAÇÃO"
-    );
-
-    console.log(
-        "IDs selecionados:",
-        idsSelecionados
+        "GERANDO RELATÓRIO..."
     );
 
     console.log(
@@ -1328,14 +1414,10 @@ async function gerarRelatorio(event) {
         dados
     );
 
-    console.log(
-        "========================================"
-    );
 
-
-    /* -----------------------------------------------------
+    /* =====================================================
        BOTÃO
-    ----------------------------------------------------- */
+    ===================================================== */
 
     const botao =
         document.getElementById(
@@ -1351,7 +1433,9 @@ async function gerarRelatorio(event) {
 
     if (botao) {
 
-        botao.disabled = true;
+        botao.disabled =
+            true;
+
 
         botao.innerHTML = `
             <i class="fa-solid fa-spinner fa-spin"></i>
@@ -1361,20 +1445,15 @@ async function gerarRelatorio(event) {
     }
 
 
-    gerandoRelatorio = true;
+    gerandoRelatorio =
+        true;
 
 
-    /* -----------------------------------------------------
+    /* =====================================================
        ENVIAR PARA API
-    ----------------------------------------------------- */
+    ===================================================== */
 
     try {
-
-        console.log(
-            "Enviando POST para:",
-            `${API_BASE}/api/Relatorio/gerar`
-        );
-
 
         const resposta =
             await fetch(
@@ -1387,35 +1466,35 @@ async function gerarRelatorio(event) {
                             "application/json"
                     },
 
-                    credentials: "include",
+                    credentials:
+                        "include",
 
                     body:
-                        JSON.stringify(dados)
+                        JSON.stringify(
+                            dados
+                        )
                 }
             );
 
 
         console.log(
-            "Status HTTP:",
+            "STATUS HTTP:",
             resposta.status
         );
 
-
-        /* -------------------------------------------------
-           LER RESPOSTA
-        ------------------------------------------------- */
 
         const textoResposta =
             await resposta.text();
 
 
         console.log(
-            "Resposta bruta da API:",
+            "RESPOSTA DA API:",
             textoResposta
         );
 
 
-        let resultado = null;
+        let resultado =
+            null;
 
 
         try {
@@ -1424,7 +1503,7 @@ async function gerarRelatorio(event) {
                 textoResposta
                     ? JSON.parse(
                         textoResposta
-                      )
+                    )
                     : null;
 
         } catch (erroJSON) {
@@ -1441,15 +1520,9 @@ async function gerarRelatorio(event) {
         }
 
 
-        console.log(
-            "Resposta interpretada:",
-            resultado
-        );
-
-
-        /* -------------------------------------------------
-           ERRO
-        ------------------------------------------------- */
+        /* =================================================
+           VERIFICAR ERRO
+        ================================================= */
 
         if (!resposta.ok) {
 
@@ -1466,112 +1539,21 @@ async function gerarRelatorio(event) {
         }
 
 
-        /* -------------------------------------------------
+        /* =================================================
            SUCESSO
-        ------------------------------------------------- */
+        ================================================= */
 
         console.log(
-            "RELATÓRIO GERADO COM SUCESSO:",
+            "RELATÓRIO GERADO COM SUCESSO!"
+        );
+
+        console.log(
+            "RESULTADO:",
             resultado
         );
 
 
-        /* -------------------------------------------------
-           PEGAR URL
-        ------------------------------------------------- */
-
-        let urlPdf =
-            resultado?.url;
-
-
-        /*
-           Caso a API não mande a URL,
-           usamos o ID do relatório.
-        */
-
-        if (
-            !urlPdf &&
-            resultado?.id_relatorio
-        ) {
-
-            urlPdf =
-                `${API_BASE}/api/Relatorio/pdf/${resultado.id_relatorio}`;
-
-        }
-
-
-        if (!urlPdf) {
-
-            throw new Error(
-                "O relatório foi gerado, mas a URL do PDF não foi retornada."
-            );
-
-        }
-
-
-        console.log(
-            "URL RECEBIDA DO PDF:",
-            urlPdf
-        );
-
-
-        /*
-           Se vier uma URL relativa,
-           adiciona o endereço da API.
-        */
-
-        if (
-            urlPdf.startsWith("/")
-        ) {
-
-            urlPdf =
-                `${API_BASE}${urlPdf}`;
-
-        }
-
-
-        /*
-           Se vier apenas o caminho do arquivo.
-        */
-
-        else if (
-            !urlPdf.startsWith(
-                "http://"
-            ) &&
-            !urlPdf.startsWith(
-                "https://"
-            )
-        ) {
-
-            urlPdf =
-                `${API_BASE}/${urlPdf}`;
-
-        }
-
-
-        console.log(
-            "URL FINAL DO PDF:",
-            urlPdf
-        );
-
-
-        /* -------------------------------------------------
-           ABRIR PDF
-        ------------------------------------------------- */
-
-        console.log(
-            "ABRINDO PDF..."
-        );
-
-
-        /*
-           Como a URL é absoluta e aponta
-           para o backend, o navegador não
-           tentará abrir no localhost:5500.
-        */
-
-        window.location.href =
-            urlPdf;
+        mostrarMensagemSucesso();
 
 
     } catch (erro) {
@@ -1590,12 +1572,15 @@ async function gerarRelatorio(event) {
 
     } finally {
 
-        gerandoRelatorio = false;
+        gerandoRelatorio =
+            false;
 
 
         if (botao) {
 
-            botao.disabled = false;
+            botao.disabled =
+                false;
+
 
             botao.innerHTML =
                 textoOriginal ||
@@ -1612,92 +1597,19 @@ async function gerarRelatorio(event) {
 
 
 /* =========================================================
-   CONVERTER DATA
+   MENSAGEM DE SUCESSO
 ========================================================= */
 
-function converterDataParaISO(data) {
+function mostrarMensagemSucesso() {
 
-    if (!data) {
-        return null;
-    }
-
-
-    /*
-       yyyy-MM-dd
-    */
-
-    if (
-        /^\d{4}-\d{2}-\d{2}$/.test(data)
-    ) {
-
-        return data;
-
-    }
+    alert(
+        "Relatório gerado com sucesso!\n\n" +
+        "Vá para Relatórios Gerados."
+    );
 
 
-    /*
-       dd/MM/yyyy
-    */
-
-    if (
-        /^\d{2}\/\d{2}\/\d{4}$/.test(data)
-    ) {
-
-        const partes =
-            data.split("/");
-
-
-        const dia =
-            partes[0];
-
-        const mes =
-            partes[1];
-
-        const ano =
-            partes[2];
-
-
-        return `${ano}-${mes}-${dia}`;
-
-    }
-
-
-    /*
-       Tentativa final
-    */
-
-    const objeto =
-        new Date(data);
-
-
-    if (
-        !Number.isNaN(
-            objeto.getTime()
-        )
-    ) {
-
-        const ano =
-            objeto.getFullYear();
-
-
-        const mes =
-            String(
-                objeto.getMonth() + 1
-            ).padStart(2, "0");
-
-
-        const dia =
-            String(
-                objeto.getDate()
-            ).padStart(2, "0");
-
-
-        return `${ano}-${mes}-${dia}`;
-
-    }
-
-
-    return null;
+    window.location.href =
+        "../html/relatoriosGerados.html";
 
 }
 
@@ -1737,22 +1649,27 @@ function escaparHTML(valor) {
 
 
     return String(valor)
+
         .replace(
             /&/g,
             "&amp;"
         )
+
         .replace(
             /</g,
             "&lt;"
         )
+
         .replace(
             />/g,
             "&gt;"
         )
+
         .replace(
             /"/g,
             "&quot;"
         )
+
         .replace(
             /'/g,
             "&#039;"

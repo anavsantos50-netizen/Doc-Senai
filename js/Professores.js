@@ -414,42 +414,37 @@ async function carregarProfessores() {
             await response.json();
 
 
-        professores =
-            dados.map(function (professor) {
+   professores = dados.map(function (professor) {
+    return {
+        id:
+            professor.id_usuario ??
+            professor.idUsuario ??
+            professor.Id_Usuario,
 
-                return {
+        nome:
+            professor.nome ??
+            professor.Nome,
 
-                    id:
-                        professor.id_usuario ??
-                        professor.idUsuario ??
-                        professor.Id_Usuario,
+        email:
+            professor.email ??
+            professor.Email,
 
-                    nome:
-                        professor.nome ??
-                        professor.Nome,
+        status:
+            (professor.ativo ??
+             professor.Ativo ??
+             true)
+                ? "ativo"
+                : "inativo",
 
-                    email:
-                        professor.email ??
-                        professor.Email,
+        curso: "todos",
 
-                    status:
-                        "ativo",
+        registros: 0,
 
-                    curso:
-                        "todos",
+        ultimoRegistro: "-",
 
-                    registros:
-                        0,
-
-                    ultimoRegistro:
-                        "-",
-
-                    turmas:
-                        []
-
-                };
-
-            });
+        turmas: []
+    };
+});
 
 
         await carregarVinculosProfessores();

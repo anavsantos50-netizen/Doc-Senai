@@ -9,7 +9,8 @@ CREATE TABLE Usuarios (
     nome VARCHAR(100),
     email VARCHAR(50),
     senha VARCHAR(50),
-    cargo VARCHAR(50)
+    cargo VARCHAR(50),
+    Ativo BIT NOT NULL DEFAULT 1
 );
 
 CREATE TABLE Turmas (
@@ -41,7 +42,7 @@ CREATE TABLE Relatorios (
     titulo_pdf VARCHAR(100),
     periodo_inicio DATE,
     periodo_fim DATE,
-    data_criacao DATE,
+    data_criacao  DATETIME2,
     descricao VARCHAR(1000),
     fk_Usuario_id_usuario INTEGER
 );

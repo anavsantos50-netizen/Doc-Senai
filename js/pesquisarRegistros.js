@@ -31,18 +31,62 @@ function configurarMenu() {
     const menuMobile =
         document.getElementById("menuMobile");
 
-    const mainNav =
-        document.getElementById("mainNav");
+    const mobileNav =
+        document.getElementById("mobileNav");
 
-    if (!menuMobile || !mainNav) {
+
+    if (!menuMobile || !mobileNav) {
         return;
     }
 
-    menuMobile.addEventListener("click", () => {
 
-        mainNav.classList.toggle("menu-aberto");
+    menuMobile.addEventListener(
+        "click",
+        () => {
 
-    });
+            const aberto =
+                mobileNav.classList.toggle("ativo");
+
+
+            menuMobile.setAttribute(
+                "aria-expanded",
+                aberto ? "true" : "false"
+            );
+
+        }
+    );
+
+
+    // Fecha o menu ao clicar em algum link
+
+    const links =
+        mobileNav.querySelectorAll(
+            ".mobile-nav-link"
+        );
+
+
+    links.forEach(
+        link => {
+
+            link.addEventListener(
+                "click",
+                () => {
+
+                    mobileNav.classList.remove(
+                        "ativo"
+                    );
+
+
+                    menuMobile.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+                }
+            );
+
+        }
+    );
 
 }
 

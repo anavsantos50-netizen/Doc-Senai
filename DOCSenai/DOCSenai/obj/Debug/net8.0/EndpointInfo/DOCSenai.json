@@ -737,6 +737,9 @@
           "cargo": {
             "type": "string",
             "nullable": true
+          },
+          "ativo": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false

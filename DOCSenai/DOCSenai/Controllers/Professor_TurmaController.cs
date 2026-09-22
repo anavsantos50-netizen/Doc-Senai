@@ -30,7 +30,8 @@ namespace DOCSenai.Controllers
                 {
                     id_usuario = u.Id_Usuario,
                     nome = u.Nome,
-                    email = u.Email
+                    email = u.Email,
+                    ativo = u.Ativo
                 })
                 .ToListAsync();
 

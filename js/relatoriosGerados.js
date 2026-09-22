@@ -6,40 +6,86 @@ document.addEventListener("DOMContentLoaded", () => {
        ELEMENTOS
     ========================================================= */
 
-    const totalReports = document.getElementById("totalReports");
-    const monthReports = document.getElementById("monthReports");
-    const totalActivities = document.getElementById("totalActivities");
+    const totalReports =
+        document.getElementById("totalReports");
 
-    const searchInput = document.getElementById("searchInput");
-    const periodFilter = document.getElementById("periodFilter");
-    const courseFilter = document.getElementById("courseFilter");
-    const clearFilters = document.getElementById("clearFilters");
+    const monthReports =
+        document.getElementById("monthReports");
 
-    const resultsCount = document.getElementById("resultsCount");
-    const sortFilter = document.getElementById("sortFilter");
+    const totalActivities =
+        document.getElementById("totalActivities");
 
-    const reportsList = document.getElementById("reportsList");
-    const emptyState = document.getElementById("emptyState");
-    const emptyClear = document.getElementById("emptyClear");
+    const searchInput =
+        document.getElementById("searchInput");
 
-    const reportModal = document.getElementById("reportModal");
-    const modalClose = document.getElementById("modalClose");
-    const modalCloseBottom = document.getElementById("modalCloseBottom");
+    const periodFilter =
+        document.getElementById("periodFilter");
 
-    const modalTitle = document.getElementById("modalTitle");
-    const modalPeriod = document.getElementById("modalPeriod");
-    const modalProfessor = document.getElementById("modalProfessor");
-    const modalClass = document.getElementById("modalClass");
-    const modalCourse = document.getElementById("modalCourse");
-    const modalActivities = document.getElementById("modalActivities");
-    const modalDescription = document.getElementById("modalDescription");
-    const modalDownload = document.getElementById("modalDownload");
+    const courseFilter =
+        document.getElementById("courseFilter");
 
-    const menuMobile = document.getElementById("menuMobile");
-    const mobileNav = document.getElementById("mobileNav");
+    const clearFilters =
+        document.getElementById("clearFilters");
 
-    const btnLogout = document.getElementById("btnLogout");
-    const btnLogoutMobile = document.getElementById("btnLogoutMobile");
+    const resultsCount =
+        document.getElementById("resultsCount");
+
+    const sortFilter =
+        document.getElementById("sortFilter");
+
+    const reportsList =
+        document.getElementById("reportsList");
+
+    const emptyState =
+        document.getElementById("emptyState");
+
+    const emptyClear =
+        document.getElementById("emptyClear");
+
+    const reportModal =
+        document.getElementById("reportModal");
+
+    const modalClose =
+        document.getElementById("modalClose");
+
+    const modalCloseBottom =
+        document.getElementById("modalCloseBottom");
+
+    const modalTitle =
+        document.getElementById("modalTitle");
+
+    const modalPeriod =
+        document.getElementById("modalPeriod");
+
+    const modalProfessor =
+        document.getElementById("modalProfessor");
+
+    const modalClass =
+        document.getElementById("modalClass");
+
+    const modalCourse =
+        document.getElementById("modalCourse");
+
+    const modalActivities =
+        document.getElementById("modalActivities");
+
+    const modalDescription =
+        document.getElementById("modalDescription");
+
+    const modalDownload =
+        document.getElementById("modalDownload");
+
+    const menuMobile =
+        document.getElementById("menuMobile");
+
+    const mobileNav =
+        document.getElementById("mobileNav");
+
+    const btnLogout =
+        document.getElementById("btnLogout");
+
+    const btnLogoutMobile =
+        document.getElementById("btnLogoutMobile");
 
 
     /* =========================================================
@@ -47,6 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ========================================================= */
 
     let relatorios = [];
+
     let relatorioSelecionado = null;
 
 
@@ -73,6 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             );
 
+
             if (response.status === 401) {
 
                 window.location.href =
@@ -81,6 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
+
             if (!response.ok) {
 
                 throw new Error(
@@ -88,10 +137,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 );
             }
 
+
             const texto =
                 await response.text();
 
+
             let dados;
+
 
             try {
 
@@ -104,6 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 );
             }
 
+
             if (!Array.isArray(dados)) {
 
                 throw new Error(
@@ -111,13 +164,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 );
             }
 
+
             relatorios = dados;
+
 
             atualizarResumo();
 
             preencherCursos();
 
+            preencherPeriodos();
+
             renderizarRelatorios();
+
 
         } catch (erro) {
 
@@ -126,9 +184,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 erro
             );
 
+
             reportsList.innerHTML = "";
 
-            emptyState.classList.add("visible");
+
+            emptyState.classList.add(
+                "visible"
+            );
+
 
             resultsCount.textContent =
                 "Erro ao carregar os relatórios";
@@ -145,17 +208,23 @@ document.addEventListener("DOMContentLoaded", () => {
         totalReports.textContent =
             relatorios.length;
 
+
         const agora =
             new Date();
+
 
         const mesAtual =
             agora.getMonth();
 
+
         const anoAtual =
             agora.getFullYear();
 
+
         let quantidadeMes = 0;
+
         let quantidadeAtividades = 0;
+
 
         relatorios.forEach(relatorio => {
 
@@ -163,6 +232,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 converterData(
                     relatorio.data_criacao
                 );
+
 
             if (
                 dataCriacao &&
@@ -173,14 +243,17 @@ document.addEventListener("DOMContentLoaded", () => {
                 quantidadeMes++;
             }
 
+
             quantidadeAtividades +=
                 Number(
                     relatorio.quantidade_atividades || 0
                 );
         });
 
+
         monthReports.textContent =
             quantidadeMes;
+
 
         totalActivities.textContent =
             quantidadeAtividades;
@@ -197,14 +270,12 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
+
         const cursos =
             new Set();
 
-        relatorios.forEach(relatorio => {
 
-            /*
-             * O backend envia "curso".
-             */
+        relatorios.forEach(relatorio => {
 
             if (relatorio.curso) {
 
@@ -213,20 +284,23 @@ document.addEventListener("DOMContentLoaded", () => {
                     .map(curso => curso.trim())
                     .filter(curso => curso)
                     .forEach(curso => {
+
                         cursos.add(curso);
+
                     });
             }
 
-            /*
-             * Também aceita "cursos", caso
-             * o relatório tenha mais de um.
-             */
 
-            if (Array.isArray(relatorio.cursos)) {
+            if (
+                Array.isArray(
+                    relatorio.cursos
+                )
+            ) {
 
                 relatorio.cursos.forEach(curso => {
 
                     if (curso) {
+
                         cursos.add(
                             String(curso).trim()
                         );
@@ -258,13 +332,167 @@ document.addEventListener("DOMContentLoaded", () => {
             const option =
                 document.createElement("option");
 
+
             option.value =
                 curso;
+
 
             option.textContent =
                 curso;
 
+
             courseFilter.appendChild(
+                option
+            );
+        });
+    }
+
+
+    /* =========================================================
+       PREENCHER PERÍODOS
+    ========================================================= */
+
+    function preencherPeriodos() {
+
+        if (!periodFilter) {
+            return;
+        }
+
+
+        const periodos =
+            new Set();
+
+
+        relatorios.forEach(relatorio => {
+
+            adicionarPeriodo(
+                relatorio.periodo_inicio
+            );
+
+            adicionarPeriodo(
+                relatorio.periodo_fim
+            );
+
+            adicionarPeriodo(
+                relatorio.data_criacao
+            );
+        });
+
+
+        function adicionarPeriodo(valor) {
+
+            if (!valor) {
+                return;
+            }
+
+
+            const texto =
+                String(valor).trim();
+
+
+            /*
+             * yyyy-MM-dd
+             * yyyy-MM-ddTHH:mm:ss
+             */
+
+            const iso =
+                texto.match(
+                    /^(\d{4})-(\d{2})-/
+                );
+
+
+            if (iso) {
+
+                periodos.add(
+                    `${iso[1]}-${iso[2]}`
+                );
+
+                return;
+            }
+
+
+            /*
+             * dd/MM/yyyy
+             */
+
+            const brasileira =
+                texto.match(
+                    /^(\d{2})\/(\d{2})\/(\d{4})/
+                );
+
+
+            if (brasileira) {
+
+                periodos.add(
+                    `${brasileira[3]}-${brasileira[2]}`
+                );
+            }
+        }
+
+
+        const periodosOrdenados =
+            [...periodos].sort(
+                (a, b) =>
+                    b.localeCompare(a)
+            );
+
+
+        periodFilter.innerHTML = `
+            <option value="">
+                Todos os períodos
+            </option>
+        `;
+
+
+        periodosOrdenados.forEach(periodo => {
+
+            const partes =
+                periodo.split("-");
+
+
+            const ano =
+                Number(partes[0]);
+
+
+            const mes =
+                Number(partes[1]);
+
+
+            const data =
+                new Date(
+                    ano,
+                    mes - 1,
+                    1
+                );
+
+
+            let nomeMes =
+                data.toLocaleDateString(
+                    "pt-BR",
+                    {
+                        month: "long"
+                    }
+                );
+
+
+            nomeMes =
+                nomeMes.charAt(0).toUpperCase() +
+                nomeMes.slice(1);
+
+
+            const option =
+                document.createElement("option");
+
+
+            option.value =
+                periodo;
+
+
+            option.textContent =
+                `${nomeMes} de ${ano}`;
+
+
+            periodFilter.appendChild(
                 option
             );
         });
@@ -338,7 +566,8 @@ document.addEventListener("DOMContentLoaded", () => {
                         Array.isArray(
                             relatorio.turmas
                         )
-                            ? relatorio.turmas.join(" ")
+                            ? relatorio.turmas
+                                .join(" ")
                                 .toLowerCase()
                             : "";
 
@@ -363,72 +592,21 @@ document.addEventListener("DOMContentLoaded", () => {
             lista =
                 lista.filter(relatorio => {
 
-                    /*
-                     * O select normalmente usa:
-                     *
-                     * 2026-08
-                     * 2026-09
-                     *
-                     * Vamos verificar TODAS as datas
-                     * importantes do relatório.
-                     */
-
-                    const inicio =
-                        converterData(
-                            relatorio.periodo_inicio
-                        );
-
-
-                    const fim =
-                        converterData(
-                            relatorio.periodo_fim
-                        );
-
-
-                    const criacao =
-                        converterData(
-                            relatorio.data_criacao
-                        );
-
-
-                    /*
-                     * Função para verificar
-                     * se uma data pertence ao
-                     * mês selecionado.
-                     */
-
-                    function pertenceAoPeriodo(data) {
-
-                        if (!data) {
-                            return false;
-                        }
-
-                        const ano =
-                            data.getFullYear();
-
-                        const mes =
-                            String(
-                                data.getMonth() + 1
-                            ).padStart(2, "0");
-
-
-                        return (
-                            `${ano}-${mes}` ===
-                            periodo
-                        );
-                    }
-
-
-                    /*
-                     * O relatório aparece quando
-                     * o mês selecionado corresponde
-                     * ao período do relatório.
-                     */
-
                     return (
-                        pertenceAoPeriodo(inicio) ||
-                        pertenceAoPeriodo(fim) ||
-                        pertenceAoPeriodo(criacao)
+                        pertenceAoPeriodo(
+                            relatorio.periodo_inicio,
+                            periodo
+                        ) ||
+
+                        pertenceAoPeriodo(
+                            relatorio.periodo_fim,
+                            periodo
+                        ) ||
+
+                        pertenceAoPeriodo(
+                            relatorio.data_criacao,
+                            periodo
+                        )
                     );
                 });
         }
@@ -443,32 +621,32 @@ document.addEventListener("DOMContentLoaded", () => {
             lista =
                 lista.filter(relatorio => {
 
-                    /*
-                     * Primeiro verifica o campo "curso".
-                     */
-
                     const cursoPrincipal =
                         String(
                             relatorio.curso || ""
                         );
 
 
-                    if (
+                    const cursosDoRelatorio =
                         cursoPrincipal
                             .split(",")
                             .map(c =>
                                 c.trim()
                             )
-                            .includes(curso)
+                            .filter(c =>
+                                c
+                            );
+
+
+                    if (
+                        cursosDoRelatorio.includes(
+                            curso
+                        )
                     ) {
 
                         return true;
                     }
 
-
-                    /*
-                     * Depois verifica "cursos".
-                     */
 
                     if (
                         Array.isArray(
@@ -499,8 +677,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 sortFilter.value;
 
 
+            /* MAIS RECENTES */
+
             if (
-                ordenacao === "recentes"
+                ordenacao === "recent"
             ) {
 
                 lista.sort(
@@ -510,6 +690,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             converterData(
                                 a.data_criacao
                             );
+
 
                         const dataB =
                             converterData(
@@ -526,8 +707,10 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
 
+            /* MAIS ANTIGOS */
+
             else if (
-                ordenacao === "antigos"
+                ordenacao === "oldest"
             ) {
 
                 lista.sort(
@@ -537,6 +720,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             converterData(
                                 a.data_criacao
                             );
+
 
                         const dataB =
                             converterData(
@@ -553,8 +737,10 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
 
+            /* ORDEM ALFABÉTICA */
+
             else if (
-                ordenacao === "az"
+                ordenacao === "title"
             ) {
 
                 lista.sort(
@@ -564,24 +750,6 @@ document.addEventListener("DOMContentLoaded", () => {
                         ).localeCompare(
                             String(
                                 b.titulo || ""
-                            ),
-                            "pt-BR"
-                        )
-                );
-            }
-
-
-            else if (
-                ordenacao === "za"
-            ) {
-
-                lista.sort(
-                    (a, b) =>
-                        String(
-                            b.titulo || ""
-                        ).localeCompare(
-                            String(
-                                a.titulo || ""
                             ),
                             "pt-BR"
                         )
@@ -610,9 +778,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
             reportsList.innerHTML = "";
 
+
             emptyState.classList.add(
                 "visible"
             );
+
 
             return;
         }
@@ -634,6 +804,67 @@ document.addEventListener("DOMContentLoaded", () => {
                         relatorio
                     )
             ).join("");
+    }
+
+
+    /* =========================================================
+       VERIFICAR PERÍODO
+    ========================================================= */
+
+    function pertenceAoPeriodo(
+        valor,
+        periodo
+    ) {
+
+        if (!valor) {
+            return false;
+        }
+
+
+        const texto =
+            String(valor).trim();
+
+
+        /*
+         * yyyy-MM-dd
+         * yyyy-MM-ddTHH:mm:ss
+         */
+
+        const iso =
+            texto.match(
+                /^(\d{4})-(\d{2})-/
+            );
+
+
+        if (iso) {
+
+            return (
+                `${iso[1]}-${iso[2]}` ===
+                periodo
+            );
+        }
+
+
+        /*
+         * dd/MM/yyyy
+         */
+
+        const brasileira =
+            texto.match(
+                /^(\d{2})\/(\d{2})\/(\d{4})/
+            );
+
+
+        if (brasileira) {
+
+            return (
+                `${brasileira[3]}-${brasileira[2]}` ===
+                periodo
+            );
+        }
+
+
+        return false;
     }
 
 
@@ -713,7 +944,9 @@ document.addEventListener("DOMContentLoaded", () => {
             <article class="report-item">
 
                 <div class="report-file-icon">
+
                     <i class="fa-solid fa-file-pdf"></i>
+
                 </div>
 
 
@@ -740,8 +973,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
                         <span class="report-date">
+
                             Criado em
                             ${dataCriacao}
+
                         </span>
 
                     </div>
@@ -757,11 +992,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
                     <span>
+
                         ${
                             quantidade === 1
                                 ? "atividade"
                                 : "atividades"
                         }
+
                     </span>
 
                 </div>
@@ -776,7 +1013,9 @@ document.addEventListener("DOMContentLoaded", () => {
                         data-acao="visualizar"
                         data-id="${id}"
                     >
+
                         <i class="fa-regular fa-eye"></i>
+
                     </button>
 
 
@@ -787,7 +1026,9 @@ document.addEventListener("DOMContentLoaded", () => {
                         data-acao="baixar"
                         data-id="${id}"
                     >
+
                         <i class="fa-solid fa-download"></i>
+
                     </button>
 
                 </div>
@@ -1107,6 +1348,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
 
+        if (sortFilter) {
+
+            sortFilter.value =
+                "recent";
+        }
+
+
         renderizarRelatorios();
     }
 
@@ -1142,8 +1390,17 @@ document.addEventListener("DOMContentLoaded", () => {
             "click",
             () => {
 
-                mobileNav.classList.toggle(
-                    "show"
+                const aberto =
+                    mobileNav.classList.toggle(
+                        "show"
+                    );
+
+
+                menuMobile.setAttribute(
+                    "aria-expanded",
+                    aberto
+                        ? "true"
+                        : "false"
                 );
             }
         );
@@ -1219,46 +1476,40 @@ document.addEventListener("DOMContentLoaded", () => {
             String(valor).trim();
 
 
-        /* -----------------------------------------------------
-           dd/MM/yyyy HH:mm
-        ----------------------------------------------------- */
+        /* =====================================================
+           dd/MM/yyyy HH:mm:ss
+        ===================================================== */
 
         const brasileira =
             texto.match(
-                /^(\d{2})\/(\d{2})\/(\d{4})(?:\s+(\d{2}):(\d{2}))?$/
+                /^(\d{2})\/(\d{2})\/(\d{4})(?:\s+(\d{2}):(\d{2})(?::(\d{2}))?)?$/
             );
 
 
         if (brasileira) {
 
             const dia =
-                Number(
-                    brasileira[1]
-                );
+                Number(brasileira[1]);
 
 
             const mes =
-                Number(
-                    brasileira[2]
-                ) - 1;
+                Number(brasileira[2]) - 1;
 
 
             const ano =
-                Number(
-                    brasileira[3]
-                );
+                Number(brasileira[3]);
 
 
             const hora =
-                Number(
-                    brasileira[4] || 0
-                );
+                Number(brasileira[4] || 0);
 
 
             const minuto =
-                Number(
-                    brasileira[5] || 0
-                );
+                Number(brasileira[5] || 0);
+
+
+            const segundo =
+                Number(brasileira[6] || 0);
 
 
             return new Date(
@@ -1266,63 +1517,83 @@ document.addEventListener("DOMContentLoaded", () => {
                 mes,
                 dia,
                 hora,
-                minuto
+                minuto,
+                segundo
             );
         }
 
 
-        /* -----------------------------------------------------
+        /* =====================================================
+           yyyy-MM-ddTHH:mm:ss
+           IMPORTANTE: antes de yyyy-MM-dd
+        ===================================================== */
+
+        const isoCompleto =
+            texto.match(
+                /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})(?::(\d{2}))?/
+            );
+
+
+        if (isoCompleto) {
+
+            const ano =
+                Number(isoCompleto[1]);
+
+
+            const mes =
+                Number(isoCompleto[2]) - 1;
+
+
+            const dia =
+                Number(isoCompleto[3]);
+
+
+            const hora =
+                Number(isoCompleto[4]);
+
+
+            const minuto =
+                Number(isoCompleto[5]);
+
+
+            const segundo =
+                Number(isoCompleto[6] || 0);
+
+
+            return new Date(
+                ano,
+                mes,
+                dia,
+                hora,
+                minuto,
+                segundo
+            );
+        }
+
+
+        /* =====================================================
            yyyy-MM-dd
-        ----------------------------------------------------- */
+        ===================================================== */
 
         const isoData =
             texto.match(
-                /^(\d{4})-(\d{2})-(\d{2})/
+                /^(\d{4})-(\d{2})-(\d{2})$/
             );
 
 
         if (isoData) {
 
             return new Date(
-                Number(
-                    isoData[1]
-                ),
-                Number(
-                    isoData[2]
-                ) - 1,
-                Number(
-                    isoData[3]
-                )
+                Number(isoData[1]),
+                Number(isoData[2]) - 1,
+                Number(isoData[3])
             );
         }
 
 
-        /* -----------------------------------------------------
-           yyyy-MM-ddTHH:mm:ss
-        ----------------------------------------------------- */
-
-        const isoCompleto =
-            texto.match(
-                /^(\d{4})-(\d{2})-(\d{2})T/
-            );
-
-
-        if (isoCompleto) {
-
-            const data =
-                new Date(texto);
-
-
-            if (
-                !Number.isNaN(
-                    data.getTime()
-                )
-            ) {
-
-                return data;
-            }
-        }
-
+        /* =====================================================
+           FALLBACK
+        ===================================================== */
 
         const data =
             new Date(texto);

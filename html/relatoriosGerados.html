@@ -14,7 +14,7 @@
 
 
     <!-- =====================================================
-         Poppins
+         POPPINS
     ====================================================== -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,7 +32,7 @@
 
 
     <!-- =====================================================
-         Font Awesome
+         FONT AWESOME
     ====================================================== -->
 
     <link
@@ -81,7 +81,9 @@
 
 
 
-            <!-- MENU DESKTOP -->
+            <!-- =================================================
+                 MENU DESKTOP
+            ================================================== -->
 
             <nav
                 class="main-nav"
@@ -95,12 +97,14 @@
                     Início
                 </a>
 
+
                 <a
                     href="pesquisarRegistros.html"
                     class="nav-link"
                 >
                     Pesquisar Registros
                 </a>
+
 
                 <a
                     href="gerarRelatorios.html"
@@ -109,6 +113,7 @@
                     Gerar Relatório
                 </a>
 
+
                 <a
                     href="relatoriosGerados.html"
                     class="nav-link active"
@@ -116,12 +121,14 @@
                     Relatórios Gerados
                 </a>
 
+
                 <a
                     href="professores.html"
                     class="nav-link"
                 >
                     Professores
                 </a>
+
 
                 <a
                     href="perfilSupervisor.html"
@@ -134,7 +141,9 @@
 
 
 
-            <!-- PERFIL -->
+            <!-- =================================================
+                 PERFIL
+            ================================================== -->
 
             <div class="profile-area">
 
@@ -180,7 +189,9 @@
 
 
 
-            <!-- BOTÃO MOBILE -->
+            <!-- =================================================
+                 BOTÃO MOBILE
+            ================================================== -->
 
             <button
                 type="button"
@@ -207,73 +218,58 @@
             id="mobileNav"
         >
 
-            <a href="telaInicialSupervisor.html">
-
-                <i class="fa-solid fa-house"></i>
-
-                <span>
-                    Início
-                </span>
-
-            </a>
+             <a
+        href="telaInicialSupervisor.html"
+        class="mobile-nav-link"
+    >
+        <i class="fa-solid fa-house"></i>
+        Início
+    </a>
 
 
-            <a href="pesquisarRegistros.html">
-
-                <i class="fa-solid fa-magnifying-glass"></i>
-
-                <span>
-                    Pesquisar Registros
-                </span>
-
-            </a>
+    <a
+        href="pesquisarRegistros.html"
+        class="mobile-nav-link"
+    >
+        <i class="fa-solid fa-magnifying-glass"></i>
+        Pesquisar Registros
+    </a>
 
 
-            <a href="gerarRelatorios.html">
-
-                <i class="fa-solid fa-file-circle-plus"></i>
-
-                <span>
-                    Gerar Relatório
-                </span>
-
-            </a>
+    <a
+        href="gerarRelatorios.html"
+        class="mobile-nav-link"
+    >
+        <i class="fa-solid fa-file-pdf"></i>
+        Gerar Relatório
+    </a>
 
 
-            <a
-                href="relatoriosGerados.html"
-                class="active"
-            >
-
-                <i class="fa-solid fa-file-lines"></i>
-
-                <span>
-                    Relatórios Gerados
-                </span>
-
-            </a>
+    <a
+        href="relatoriosGerados.html"
+        class="mobile-nav-link active"
+    >
+        <i class="fa-solid fa-folder-open"></i>
+        Relatórios Gerados
+    </a>
 
 
-            <a href="professores.html">
-
-                <i class="fa-solid fa-chalkboard-user"></i>
-
-                <span>
-                    Professores
-                </span>
-
-            </a>
+    <a
+        href="professores.html"
+        class="mobile-nav-link"
+    >
+        <i class="fa-solid fa-users"></i>
+        Professores
+    </a>
 
 
-            <a href="perfilSupervisor.html">
-
-                <i class="fa-regular fa-user"></i>
-
-                <span>
-                    Meu perfil
-                </span>
-
-            </a>
+    <a
+        href="PerfilSupervisor.html"
+        class="mobile-nav-link"
+    >
+        <i class="fa-regular fa-user"></i>
+        Meu perfil
+    </a>
 
         </nav>
 
@@ -282,7 +278,7 @@
 
 
     <!-- =====================================================
-         CONTEÚDO
+         CONTEÚDO PRINCIPAL
     ====================================================== -->
 
     <main class="main-content">
@@ -298,9 +294,7 @@
 
                 <div>
 
-                    <span class="section-label">
-                        SUPERVISÃO
-                    </span>
+                  
 
 
                     <h1>
@@ -315,18 +309,6 @@
 
                 </div>
 
-
-                <a
-                    href="gerarRelatorios.html"
-                    class="new-report-btn"
-                >
-
-                    <i class="fa-solid fa-plus"></i>
-
-                    Novo relatório
-
-                </a>
-
             </section>
 
 
@@ -337,6 +319,8 @@
 
             <section class="summary-grid">
 
+
+                <!-- TOTAL -->
 
                 <div class="summary-card">
 
@@ -363,6 +347,8 @@
 
 
 
+                <!-- ESTE MÊS -->
+
                 <div class="summary-card">
 
                     <div class="summary-icon orange">
@@ -387,6 +373,8 @@
                 </div>
 
 
+
+                <!-- ATIVIDADES -->
 
                 <div class="summary-card">
 
@@ -423,6 +411,8 @@
             <section class="filters-card">
 
 
+                <!-- BUSCA -->
+
                 <div class="search-wrapper">
 
                     <i class="fa-solid fa-magnifying-glass"></i>
@@ -438,11 +428,14 @@
 
 
 
+                <!-- PERÍODO -->
+
                 <div class="filter-group">
 
                     <label for="periodFilter">
                         Período
                     </label>
+
 
                     <div class="select-wrapper">
 
@@ -454,6 +447,7 @@
 
                         </select>
 
+
                         <i class="fa-solid fa-chevron-down"></i>
 
                     </div>
@@ -462,11 +456,14 @@
 
 
 
+                <!-- CURSO -->
+
                 <div class="filter-group">
 
                     <label for="courseFilter">
                         Curso
                     </label>
+
 
                     <div class="select-wrapper">
 
@@ -478,6 +475,7 @@
 
                         </select>
 
+
                         <i class="fa-solid fa-chevron-down"></i>
 
                     </div>
@@ -485,6 +483,8 @@
                 </div>
 
 
+
+                <!-- LIMPAR -->
 
                 <button
                     type="button"
@@ -509,6 +509,8 @@
             <section class="reports-section">
 
 
+                <!-- CABEÇALHO -->
+
                 <div class="results-header">
 
                     <div>
@@ -516,6 +518,7 @@
                         <h2>
                             Seus relatórios
                         </h2>
+
 
                         <p>
 
@@ -530,11 +533,15 @@
                     </div>
 
 
+
+                    <!-- ORDENAÇÃO -->
+
                     <div class="sort-wrapper">
 
                         <label for="sortFilter">
                             Ordenar:
                         </label>
+
 
                         <select id="sortFilter">
 
@@ -542,9 +549,11 @@
                                 Mais recentes
                             </option>
 
+
                             <option value="oldest">
                                 Mais antigos
                             </option>
+
 
                             <option value="title">
                                 Nome
@@ -558,7 +567,9 @@
 
 
 
-                <!-- LISTA -->
+                <!-- =================================================
+                     LISTA DE RELATÓRIOS
+                ================================================== -->
 
                 <div
                     class="reports-list"
@@ -569,7 +580,9 @@
 
 
 
-                <!-- SEM RESULTADOS -->
+                <!-- =================================================
+                     ESTADO VAZIO
+                ================================================== -->
 
                 <div
                     class="empty-state"
@@ -608,6 +621,26 @@
             </section>
 
 
+
+            <!-- =================================================
+                 NOVO RELATÓRIO
+            ================================================== -->
+
+            <div class="new-report-container">
+
+                <a
+                    href="gerarRelatorios.html"
+                    class="new-report-btn"
+                >
+
+                    <i class="fa-solid fa-plus"></i>
+
+                    Novo relatório
+
+                </a>
+
+            </div>
+
         </div>
 
     </main>
@@ -631,6 +664,8 @@
         >
 
 
+            <!-- FECHAR -->
+
             <button
                 type="button"
                 class="modal-close"
@@ -643,6 +678,10 @@
             </button>
 
 
+
+            <!-- =================================================
+                 CABEÇALHO DO MODAL
+            ================================================== -->
 
             <div class="modal-header">
 
@@ -660,6 +699,7 @@
 
                     <i class="fa-regular fa-calendar"></i>
 
+
                     <span id="modalPeriod">
                         —
                     </span>
@@ -670,14 +710,21 @@
 
 
 
+            <!-- =================================================
+                 INFORMAÇÕES
+            ================================================== -->
+
             <div class="modal-info-grid">
 
+
+                <!-- RESPONSÁVEL -->
 
                 <div class="modal-info-item">
 
                     <span>
                         Responsável
                     </span>
+
 
                     <strong id="modalProfessor">
                         —
@@ -686,11 +733,15 @@
                 </div>
 
 
+
+                <!-- DATA DE CRIAÇÃO -->
+
                 <div class="modal-info-item">
 
                     <span>
                         Data de criação
                     </span>
+
 
                     <strong id="modalClass">
                         —
@@ -699,11 +750,15 @@
                 </div>
 
 
+
+                <!-- CURSO -->
+
                 <div class="modal-info-item">
 
                     <span>
-                        Atividades
+                        Curso
                     </span>
+
 
                     <strong id="modalCourse">
                         —
@@ -712,11 +767,15 @@
                 </div>
 
 
+
+                <!-- ATIVIDADES -->
+
                 <div class="modal-info-item">
 
                     <span>
-                        ID do relatório
+                        Atividades
                     </span>
+
 
                     <strong id="modalActivities">
                         —
@@ -727,6 +786,10 @@
             </div>
 
 
+
+            <!-- =================================================
+                 DESCRIÇÃO
+            ================================================== -->
 
             <div class="modal-section">
 
@@ -747,7 +810,12 @@
 
 
 
+            <!-- =================================================
+                 RODAPÉ
+            ================================================== -->
+
             <div class="modal-footer">
+
 
                 <button
                     type="button"
@@ -758,6 +826,7 @@
                     Fechar
 
                 </button>
+
 
 
                 <button
@@ -785,6 +854,7 @@
     ====================================================== -->
 
     <script src="../js/relatoriosGerados.js"></script>
+
 
 </body>
 

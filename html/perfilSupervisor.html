@@ -2,31 +2,59 @@
 <html lang="pt-BR">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Meu Perfil | DocSenai</title>
 
-    <!-- Poppins -->
+
+    <!-- =====================================================
+         Poppins
+    ====================================================== -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
 
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
         rel="stylesheet"
     >
 
-    <!-- Font Awesome -->
+
+    <!-- =====================================================
+         Font Awesome
+    ====================================================== -->
+
     <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     >
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="../css/perfilSupervisor.css">
+
+    <!-- =====================================================
+         CSS
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="../css/perfilSupervisor.css"
+    >
+
 </head>
 
+
 <body>
+
 
     <!-- =====================================================
          TOPBAR
@@ -36,81 +64,144 @@
 
         <div class="topbar-container">
 
+
             <!-- LOGO -->
-            <a href="telaInicialSupervisor.html" class="logo">
-                <img src="../img/logo.png" alt="DocSenai">
+
+            <a
+                href="telaInicialSupervisor.html"
+                class="logo"
+            >
+
+                <img
+                    src="../img/logo.png"
+                    alt="DocSenai"
+                >
+
             </a>
 
 
-            <!-- MENU DESKTOP -->
-            <nav class="main-nav" id="mainNav">
+            <!-- =================================================
+                 MENU DESKTOP
+            ================================================== -->
 
-                <a href="telaInicialSupervisor.html" class="nav-link">
+            <nav
+                class="main-nav"
+                id="mainNav"
+            >
+
+                <a
+                    href="telaInicialSupervisor.html"
+                    class="nav-link"
+                >
                     Início
                 </a>
 
-                <a href="pesquisarRegistros.html" class="nav-link ">
+
+                <a
+                    href="pesquisarRegistros.html"
+                    class="nav-link"
+                >
                     Pesquisar Registros
                 </a>
 
-                <a href="gerarRelatorios.html" class="nav-link">
+
+                <a
+                    href="gerarRelatorios.html"
+                    class="nav-link"
+                >
                     Gerar Relatório
                 </a>
 
-                <a href="relatoriosGerados.html" class="nav-link">
+
+                <a
+                    href="relatoriosGerados.html"
+                    class="nav-link"
+                >
                     Relatórios Gerados
                 </a>
 
-                <a href="professores.html" class="nav-link ">
+
+                <a
+                    href="professores.html"
+                    class="nav-link"
+                >
                     Professores
                 </a>
 
-                <a href="PerfilSupervisor.html" class="nav-link active">
+
+                <a
+                    href="PerfilSupervisor.html"
+                    class="nav-link active"
+                >
                     Meu perfil
                 </a>
 
             </nav>
 
-            <!-- PERFIL -->
+
+            <!-- =================================================
+                 PERFIL
+            ================================================== -->
+
             <div class="profile-area">
 
-                <a href="PerfilSupervisor.html" class="profile-link">
+
+                <a
+                    href="PerfilSupervisor.html"
+                    class="profile-link"
+                >
 
                     <div class="profile-info">
-                        <strong>Supervisão</strong>
-                        <span>Minha conta</span>
+
+                        <strong>
+                            Supervisão
+                        </strong>
+
+                        <span>
+                            Minha conta
+                        </span>
+
                     </div>
 
+
                     <div class="profile-icon">
+
                         <i class="fa-regular fa-user"></i>
+
                     </div>
 
                 </a>
 
 
                 <!-- SAIR -->
+
                 <button
                     type="button"
                     class="logout-btn"
                     id="btnLogout"
                     title="Sair"
                 >
+
                     <i class="fa-solid fa-right-from-bracket"></i>
+
+                </button>
+
+
+                <!-- MENU MOBILE -->
+
+                <button
+                    type="button"
+                    class="menu-mobile"
+                    id="menuMobile"
+                    aria-label="Abrir menu"
+                    aria-expanded="false"
+                >
+
+                    <i class="fa-solid fa-bars"></i>
+
                 </button>
 
             </div>
-
-
-            <!-- MENU MOBILE -->
-            <button
-                type="button"
-                class="menu-mobile"
-                id="menuMobile"
-                aria-label="Abrir menu"
-                aria-expanded="false"
-            >
-                <i class="fa-solid fa-bars"></i>
-            </button>
 
         </div>
 
@@ -119,31 +210,92 @@
              MENU MOBILE
         ================================================== -->
 
-        <nav class="mobile-nav" id="mobileNav">
+        <nav
+            class="mobile-nav"
+            id="mobileNav"
+        >
 
-            <a href="telaInicialSupervisor.html" class="mobile-nav-link">
+            <a
+                href="telaInicialSupervisor.html"
+                class="mobile-nav-link"
+            >
+
                 <i class="fa-solid fa-house"></i>
-                <span>Início</span>
+
+                <span>
+                    Início
+                </span>
+
             </a>
 
-            <a href="pesquisarRegistros.html" class="mobile-nav-link">
+
+            <a
+                href="pesquisarRegistros.html"
+                class="mobile-nav-link"
+            >
+
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <span>Pesquisar Registros</span>
+
+                <span>
+                    Pesquisar Registros
+                </span>
+
             </a>
 
-            <a href="gerarRelatorios.html" class="mobile-nav-link">
+
+            <a
+                href="gerarRelatorios.html"
+                class="mobile-nav-link"
+            >
+
                 <i class="fa-solid fa-file-circle-plus"></i>
-                <span>Gerar Relatório</span>
+
+                <span>
+                    Gerar Relatório
+                </span>
+
             </a>
 
-            <a href="relatoriosGerados.html" class="mobile-nav-link">
+
+            <a
+                href="relatoriosGerados.html"
+                class="mobile-nav-link"
+            >
+
                 <i class="fa-solid fa-file-lines"></i>
-                <span>Relatórios Gerados</span>
+
+                <span>
+                    Relatórios Gerados
+                </span>
+
             </a>
 
-            <a href="PerfilSupervisor.html" class="mobile-nav-link active">
+
+            <a
+                href="professores.html"
+                class="mobile-nav-link"
+            >
+
+                <i class="fa-solid fa-users"></i>
+
+                <span>
+                    Professores
+                </span>
+
+            </a>
+
+
+            <a
+                href="PerfilSupervisor.html"
+                class="mobile-nav-link active"
+            >
+
                 <i class="fa-regular fa-user"></i>
-                <span>Meu perfil</span>
+
+                <span>
+                    Meu perfil
+                </span>
+
             </a>
 
         </nav>
@@ -159,19 +311,10 @@
 
         <div class="content-container">
 
-            <!-- VOLTAR -->
-            <a href="telaInicialSupervisor.html" class="back-link">
-                <i class="fa-solid fa-arrow-left"></i>
-                Voltar para início
-            </a>
-
 
             <!-- CABEÇALHO -->
-            <div class="page-header">
 
-                <span class="section-label">
-                    CONTA
-                </span>
+            <div class="page-header">
 
                 <h1>
                     Meu perfil
@@ -191,11 +334,17 @@
             <section class="profile-card">
 
 
-                <!-- CABEÇALHO DO PERFIL -->
+                <!-- =================================================
+                     CABEÇALHO DO PERFIL
+                ================================================== -->
+
                 <div class="profile-card-header">
 
+
                     <div class="profile-avatar">
+
                         <i class="fa-regular fa-user"></i>
+
                     </div>
 
 
@@ -221,8 +370,11 @@
                         class="edit-profile-btn"
                         id="btnEditar"
                     >
+
                         <i class="fa-solid fa-pen"></i>
+
                         Editar perfil
+
                     </button>
 
                 </div>
@@ -234,13 +386,18 @@
 
                 <div class="profile-section">
 
+
                     <div class="section-title">
 
                         <div class="section-title-icon">
+
                             <i class="fa-regular fa-id-card"></i>
+
                         </div>
 
+
                         <div>
+
                             <h3>
                                 Informações pessoais
                             </h3>
@@ -248,12 +405,14 @@
                             <p>
                                 Dados cadastrados na sua conta
                             </p>
+
                         </div>
 
                     </div>
 
 
                     <div class="info-grid">
+
 
                         <div class="info-item">
 
@@ -317,13 +476,18 @@
 
                 <div class="profile-section security-section">
 
+
                     <div class="section-title">
 
                         <div class="section-title-icon">
+
                             <i class="fa-solid fa-shield-halved"></i>
+
                         </div>
 
+
                         <div>
+
                             <h3>
                                 Segurança
                             </h3>
@@ -331,6 +495,7 @@
                             <p>
                                 Gerencie a segurança da sua conta
                             </p>
+
                         </div>
 
                     </div>
@@ -338,8 +503,11 @@
 
                     <div class="security-card">
 
+
                         <div class="security-icon">
+
                             <i class="fa-solid fa-lock"></i>
+
                         </div>
 
 
@@ -361,9 +529,11 @@
                             class="change-password-btn"
                             id="btnAlterarSenha"
                         >
+
                             Alterar senha
 
                             <i class="fa-solid fa-chevron-right"></i>
+
                         </button>
 
                     </div>
@@ -411,17 +581,21 @@
 
 
             <!-- FECHAR -->
+
             <button
                 type="button"
                 class="modal-close"
                 id="modalClose"
                 aria-label="Fechar"
             >
+
                 <i class="fa-solid fa-xmark"></i>
+
             </button>
 
 
             <!-- CABEÇALHO -->
+
             <div class="modal-header">
 
                 <span>
@@ -440,10 +614,12 @@
 
 
             <!-- FORMULÁRIO -->
+
             <div class="form-content">
 
 
                 <!-- NOME -->
+
                 <div class="form-group">
 
                     <label for="nome">
@@ -466,6 +642,7 @@
 
 
                 <!-- E-MAIL -->
+
                 <div class="form-group">
 
                     <label for="email">
@@ -488,6 +665,7 @@
 
 
                 <!-- CARGO -->
+
                 <div class="form-group">
 
                     <label for="cargo">
@@ -511,6 +689,7 @@
 
 
                 <!-- NOVA SENHA -->
+
                 <div class="form-group">
 
                     <label for="senha">
@@ -535,7 +714,9 @@
 
 
             <!-- RODAPÉ -->
+
             <div class="modal-footer">
+
 
                 <button
                     type="button"
@@ -551,8 +732,11 @@
                     class="save-btn"
                     id="btnSalvar"
                 >
+
                     <i class="fa-solid fa-check"></i>
+
                     Salvar alterações
+
                 </button>
 
             </div>
@@ -562,7 +746,10 @@
     </div>
 
 
-    <!-- JS -->
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
     <script src="../js/perfilSupervisor.js"></script>
 
 </body>

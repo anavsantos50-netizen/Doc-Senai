@@ -1319,7 +1319,8 @@ body {
     }
 
 
-    .mobile-nav.open {
+    /* CORRIGIDO: antes estava .open */
+    .mobile-nav.ativo {
         display: flex;
     }
 

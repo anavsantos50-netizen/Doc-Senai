@@ -12,19 +12,31 @@
 
     <title>Gerar Relatórios - DOC SENAI</title>
 
-    <!-- Poppins -->
+
+    <!-- =========================================================
+         POPPINS
+    ========================================================== -->
+
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
         rel="stylesheet"
     >
 
-    <!-- Font Awesome -->
+
+    <!-- =========================================================
+         FONT AWESOME
+    ========================================================== -->
+
     <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     >
 
-    <!-- CSS da página -->
+
+    <!-- =========================================================
+         CSS DA PÁGINA
+    ========================================================== -->
+
     <link
         rel="stylesheet"
         href="../css/gerarRelatorios.css"
@@ -45,7 +57,9 @@
         <div class="topbar-container">
 
 
-            <!-- LOGO -->
+            <!-- =================================================
+                 LOGO
+            ================================================== -->
 
             <a
                 href="telaInicialSupervisor.html"
@@ -60,7 +74,9 @@
             </a>
 
 
-            <!-- MENU DESKTOP -->
+            <!-- =================================================
+                 MENU DESKTOP
+            ================================================== -->
 
             <nav class="main-nav">
 
@@ -71,12 +87,14 @@
                     Início
                 </a>
 
+
                 <a
                     href="pesquisarRegistros.html"
                     class="nav-link"
                 >
                     Pesquisar Registros
                 </a>
+
 
                 <a
                     href="gerarRelatorios.html"
@@ -85,12 +103,14 @@
                     Gerar Relatórios
                 </a>
 
+
                 <a
                     href="relatoriosGerados.html"
                     class="nav-link"
                 >
                     Relatórios Gerados
                 </a>
+
 
                 <a
                     href="professores.html"
@@ -102,10 +122,14 @@
             </nav>
 
 
-            <!-- PERFIL / SAIR -->
+            <!-- =================================================
+                 PERFIL / SAIR
+            ================================================== -->
 
             <div class="profile-area">
 
+
+                <!-- PERFIL -->
 
                 <a
                     href="perfilSupervisor.html"
@@ -134,6 +158,8 @@
                 </a>
 
 
+                <!-- SAIR -->
+
                 <button
                     type="button"
                     id="btnLogout"
@@ -146,6 +172,8 @@
                 </button>
 
 
+                <!-- MENU MOBILE -->
+
                 <button
                     type="button"
                     id="menuMobile"
@@ -157,69 +185,100 @@
 
                 </button>
 
-
             </div>
-
 
         </div>
 
 
-        <!-- MENU MOBILE -->
+<!-- =========================================================
+     MENU MOBILE
+========================================================= -->
 
-        <nav
-            id="mobileNav"
-            class="mobile-nav"
-        >
+<nav
+    id="mobileNav"
+    class="mobile-nav"
+>
 
-            <a href="telaInicialSupervisor.html">
-                <i class="fa-solid fa-house"></i>
-                Início
-            </a>
+    <a
+        href="telaInicialSupervisor.html"
+        class="mobile-nav-link"
+    >
 
-            <a href="pesquisarRegistros.html">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                Pesquisar Registros
-            </a>
+        <i class="fa-solid fa-house"></i>
 
-            <a
-                href="gerarRelatorios.html"
-                class="active"
-            >
-                <i class="fa-solid fa-file-pdf"></i>
-                Gerar Relatórios
-            </a>
+        Início
 
-            <a href="relatoriosGerados.html">
-                <i class="fa-solid fa-folder-open"></i>
-                Relatórios Gerados
-            </a>
+    </a>
 
-            <a href="professores.html">
-                <i class="fa-solid fa-users"></i>
-                Professores
-            </a>
 
-            <a href="perfilSupervisor.html">
-                <i class="fa-solid fa-user"></i>
-                Meu Perfil
-            </a>
+    <a
+        href="pesquisarRegistros.html"
+        class="mobile-nav-link"
+    >
 
-            <a
-                href="#"
-                id="btnLogoutMobile"
-            >
-                <i class="fa-solid fa-right-from-bracket"></i>
-                Sair
-            </a>
+        <i class="fa-solid fa-magnifying-glass"></i>
 
-        </nav>
+        Pesquisar Registros
 
-    </header>
+    </a>
+
+
+    <a
+        href="gerarRelatorios.html"
+        class="mobile-nav-link active"
+    >
+
+        <i class="fa-solid fa-file-pdf"></i>
+
+        Gerar Relatórios
+
+    </a>
+
+
+    <a
+        href="relatoriosGerados.html"
+        class="mobile-nav-link"
+    >
+
+        <i class="fa-solid fa-folder-open"></i>
+
+        Relatórios Gerados
+
+    </a>
+
+
+    <a
+        href="professores.html"
+        class="mobile-nav-link"
+    >
+
+        <i class="fa-solid fa-users"></i>
+
+        Professores
+
+    </a>
+
+
+    <a
+        href="perfilSupervisor.html"
+        class="mobile-nav-link"
+    >
+
+        <i class="fa-solid fa-user"></i>
+
+        Meu Perfil
+
+    </a>
+
+
+
+
+</nav>
 
 
 
     <!-- =========================================================
-         CONTEÚDO
+         CONTEÚDO PRINCIPAL
     ========================================================== -->
 
     <main class="main-content">
@@ -233,13 +292,12 @@
 
             <section class="page-header">
 
-                <span class="section-label">
-                    ÁREA DA SUPERVISÃO
-                </span>
+             
 
                 <h1>
                     Gerar relatório
                 </h1>
+
 
                 <p>
                     Selecione as atividades que deseja incluir no relatório.
@@ -250,11 +308,13 @@
 
 
             <!-- =================================================
-                 CONFIGURAÇÕES
+                 CONFIGURAÇÕES DO RELATÓRIO
             ================================================== -->
 
             <section class="report-settings">
 
+
+                <!-- CABEÇALHO DO CARD -->
 
                 <div class="card-heading">
 
@@ -272,24 +332,27 @@
                             Configurações do relatório
                         </h2>
 
+
                         <p>
                             Defina as informações e o período do relatório.
                         </p>
 
                     </div>
 
-
                 </div>
 
 
 
-                <!-- TÍTULO -->
+                <!-- =================================================
+                     TÍTULO
+                ================================================== -->
 
                 <div class="form-group full">
 
                     <label for="tituloRelatorio">
                         Título do relatório
                     </label>
+
 
                     <input
                         type="text"
@@ -302,7 +365,9 @@
 
 
 
-                <!-- FILTROS -->
+                <!-- =================================================
+                     FILTROS
+                ================================================== -->
 
                 <div class="filters-grid">
 
@@ -315,6 +380,7 @@
                             Professor
                         </label>
 
+
                         <div class="select-wrapper">
 
                             <select id="professor">
@@ -324,6 +390,7 @@
                                 </option>
 
                             </select>
+
 
                             <i class="fa-solid fa-chevron-down"></i>
 
@@ -341,6 +408,7 @@
                             Turma
                         </label>
 
+
                         <div class="select-wrapper">
 
                             <select id="turma">
@@ -350,6 +418,7 @@
                                 </option>
 
                             </select>
+
 
                             <i class="fa-solid fa-chevron-down"></i>
 
@@ -367,6 +436,7 @@
                             Curso
                         </label>
 
+
                         <div class="select-wrapper">
 
                             <select id="curso">
@@ -377,12 +447,12 @@
 
                             </select>
 
+
                             <i class="fa-solid fa-chevron-down"></i>
 
                         </div>
 
                     </div>
-
 
                 </div>
 
@@ -399,6 +469,7 @@
 
                         <i class="fa-regular fa-calendar"></i>
 
+
                         <span>
                             Período do relatório
                         </span>
@@ -410,11 +481,14 @@
                     <div class="period-fields">
 
 
+                        <!-- DATA INICIAL -->
+
                         <div class="date-field">
 
                             <label for="dataInicio">
                                 Data inicial
                             </label>
+
 
                             <div class="date-input">
 
@@ -428,16 +502,21 @@
                         </div>
 
 
+                        <!-- SEPARADOR -->
+
                         <span class="period-separator">
                             até
                         </span>
 
+
+                        <!-- DATA FINAL -->
 
                         <div class="date-field">
 
                             <label for="dataFim">
                                 Data final
                             </label>
+
 
                             <div class="date-input">
 
@@ -450,23 +529,24 @@
 
                         </div>
 
-
                     </div>
 
-
                 </div>
-
 
             </section>
 
 
 
-            <!-- =================================================
+            <!-- =========================================================
                  ATIVIDADES
-            ================================================== -->
+            ========================================================== -->
 
             <section class="activities-card">
 
+
+                <!-- =================================================
+                     CABEÇALHO
+                ================================================== -->
 
                 <div class="activities-top">
 
@@ -487,15 +567,17 @@
                                 Atividades disponíveis
                             </h2>
 
+
                             <p>
                                 Selecione os registros que deseja incluir.
                             </p>
 
                         </div>
 
-
                     </div>
 
+
+                    <!-- CONTADOR -->
 
                     <div class="activities-counter">
 
@@ -503,12 +585,12 @@
                             0
                         </strong>
 
+
                         <span>
                             encontradas
                         </span>
 
                     </div>
-
 
                 </div>
 
@@ -528,11 +610,13 @@
                             id="selecionarTodas"
                         >
 
+
                         <span class="custom-checkbox">
 
                             <i class="fa-solid fa-check"></i>
 
                         </span>
+
 
                         <span>
                             Selecionar todas as atividades
@@ -548,7 +632,6 @@
                         0 selecionadas
                     </span>
 
-
                 </div>
 
 
@@ -562,7 +645,10 @@
                     class="activities-list"
                 >
 
-                    <!-- preenchido pelo JavaScript -->
+                    <!--
+                        As atividades serão preenchidas
+                        automaticamente pelo JavaScript.
+                    -->
 
                 </div>
 
@@ -577,15 +663,18 @@
                     class="no-results"
                 >
 
+
                     <div class="no-results-icon">
 
                         <i class="fa-regular fa-folder-open"></i>
 
                     </div>
 
+
                     <strong>
                         Nenhuma atividade encontrada
                     </strong>
+
 
                     <span>
                         Não existem atividades para os filtros selecionados.
@@ -593,14 +682,13 @@
 
                 </div>
 
-
             </section>
 
 
 
-            <!-- =================================================
+            <!-- =========================================================
                  RESUMO
-            ================================================== -->
+            ========================================================== -->
 
             <section class="report-summary">
 
@@ -621,15 +709,18 @@
                             Resumo do relatório
                         </strong>
 
+
                         <span id="summaryText">
                             Nenhuma atividade selecionada.
                         </span>
 
                     </div>
 
-
                 </div>
 
+
+
+                <!-- BOTÃO GERAR -->
 
                 <button
                     type="button"
@@ -643,13 +734,68 @@
 
                 </button>
 
-
             </section>
-
 
         </div>
 
     </main>
+
+
+
+    <!-- =========================================================
+         MODAL DE SUCESSO
+    ========================================================== -->
+
+    <div
+        id="modalSucessoRelatorio"
+        class="modal-sucesso-overlay"
+        aria-hidden="true"
+    >
+
+        <div
+            class="modal-sucesso"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="tituloModalSucesso"
+        >
+
+
+            <!-- ÍCONE -->
+
+            <div class="modal-sucesso-icone">
+
+                <i class="fa-solid fa-check"></i>
+
+            </div>
+
+
+            <!-- TÍTULO -->
+
+            <h2 id="tituloModalSucesso">
+                Relatório gerado!
+            </h2>
+
+
+            <!-- MENSAGEM -->
+
+            <p>
+                O relatório foi gerado com sucesso.
+            </p>
+
+
+            <!-- BOTÃO -->
+
+            <button
+                type="button"
+                id="btnFecharSucesso"
+                class="modal-sucesso-btn"
+            >
+                Continuar
+            </button>
+
+        </div>
+
+    </div>
 
 
 

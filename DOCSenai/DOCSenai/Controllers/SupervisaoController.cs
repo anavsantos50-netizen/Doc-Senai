@@ -58,10 +58,6 @@ namespace DOCSenai.Controllers
         }
 
 
-        // =========================================================
-        // DASHBOARD
-        // =========================================================
-
         [HttpGet("dashboard")]
         public async Task<IActionResult> Dashboard()
         {
@@ -75,6 +71,11 @@ namespace DOCSenai.Controllers
                 });
             }
 
+
+            // ======================================================
+            // USUÁRIO LOGADO
+            // ======================================================
+
             var usuario = await _context.Usuarios
                 .FirstOrDefaultAsync(u =>
                     u.Id_Usuario == verificacao.idUsuario);
@@ -86,6 +87,11 @@ namespace DOCSenai.Controllers
                     mensagem = "Usuário não encontrado."
                 });
             }
+
+
+            // ======================================================
+            // TOTAIS
+            // ======================================================
 
             var totalAtividades =
                 await _context.Atividades.CountAsync();
@@ -101,16 +107,160 @@ namespace DOCSenai.Controllers
             var totalRelatorios =
                 await _context.Relatorios.CountAsync();
 
+
+            // ======================================================
+            // ÚLTIMOS 30 DIAS
+            // ======================================================
+
+            var hoje = DateTime.Today;
+
+            var dataInicio =
+                hoje.AddDays(-29);
+
+            var dataFim =
+                hoje.AddDays(1);
+
+
+            // ======================================================
+            // ATIVIDADES DOS ÚLTIMOS 30 DIAS
+            // ======================================================
+
+            var atividadesUltimos30Dias =
+                await _context.Atividades
+                    .Where(a =>
+                        a.Data_Atividade >= dataInicio &&
+                        a.Data_Atividade < dataFim)
+                    .Select(a => new
+                    {
+                        a.Id_Atividade,
+                        a.Data_Atividade
+                    })
+                    .ToListAsync();
+
+
+            // ======================================================
+            // DADOS DO GRÁFICO
+            // ======================================================
+
+            // ======================================================
+            // DADOS DO GRÁFICO - POR SEMANA
+            // ======================================================
+
+            var grafico = new List<object>();
+
+
+            // ------------------------------------------------------
+            // DIVIDIR OS ÚLTIMOS 30 DIAS EM PERÍODOS DE 7 DIAS
+            // ------------------------------------------------------
+
+            var inicioPeriodo = dataInicio;
+
+            while (inicioPeriodo <= hoje)
+            {
+                var fimPeriodo =
+                    inicioPeriodo.AddDays(6);
+
+
+                // Não ultrapassar o dia atual
+                if (fimPeriodo > hoje)
+                {
+                    fimPeriodo = hoje;
+                }
+
+
+                var quantidade =
+                    atividadesUltimos30Dias.Count(a =>
+                        a.Data_Atividade.Date >= inicioPeriodo.Date &&
+                        a.Data_Atividade.Date <= fimPeriodo.Date
+                    );
+
+
+                grafico.Add(new
+                {
+                    inicio = inicioPeriodo.ToString("dd/MM"),
+
+                    fim = fimPeriodo.ToString("dd/MM"),
+
+                    periodo =
+                        inicioPeriodo.Date == fimPeriodo.Date
+                            ? inicioPeriodo.ToString("dd/MM")
+                            : $"{inicioPeriodo:dd/MM} - {fimPeriodo:dd/MM}",
+
+                    quantidade = quantidade
+                });
+
+
+                inicioPeriodo =
+                    fimPeriodo.AddDays(1);
+            }
+
+
+            // ======================================================
+            // ATIVIDADES RECENTES
+            // ======================================================
+
+            var atividadesRecentes =
+                await (
+                    from atividade in _context.Atividades
+
+                    join professor in _context.Usuarios
+                        on atividade.Fk_Usuario_Id_Usuario
+                        equals professor.Id_Usuario
+
+                    join turma in _context.Turmas
+                        on atividade.Fk_Turma_Id_Turma
+                        equals turma.Id_Turma
+
+                    orderby atividade.Data_Atividade descending
+
+                    select new
+                    {
+                        id = atividade.Id_Atividade,
+
+                        data = atividade.Data_Atividade
+                            .ToString("dd/MM/yyyy"),
+
+                        dia = atividade.Data_Atividade.Day,
+
+                        mes = atividade.Data_Atividade
+                            .ToString("MMM")
+                            .ToUpper(),
+
+                        professor = professor.Nome,
+
+                        turma = turma.Nome_Turma,
+
+                        curso = turma.Curso,
+
+                        descricao =
+                            atividade.Descricao_Atividade
+                    }
+                )
+                .Take(5)
+                .ToListAsync();
+
+
+            // ======================================================
+            // RETORNO
+            // ======================================================
+
             return Ok(new
             {
                 nome = usuario.Nome,
+
                 totalAtividades = totalAtividades,
+
                 totalTurmas = totalTurmas,
+
                 totalProfessores = totalProfessores,
-                totalRelatorios = totalRelatorios
+
+                totalRelatorios = totalRelatorios,
+
+                grafico = grafico,
+
+                atividadesRecentes = atividadesRecentes
             });
         }
-
 
         // =========================================================
         // PROFESSORES PARA O FILTRO
