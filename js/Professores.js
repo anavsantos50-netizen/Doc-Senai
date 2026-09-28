@@ -397,7 +397,11 @@ async function carregarProfessores() {
 
         const response =
             await fetch(
-                `${API_URL}/ProfessorTurma/professores`
+                `${API_URL}/ProfessorTurma/professores`,
+                {
+                    method: "GET",
+                    credentials: "include"
+                }
             );
 
 
@@ -414,41 +418,67 @@ async function carregarProfessores() {
             await response.json();
 
 
-   professores = dados.map(function (professor) {
-    return {
-        id:
-            professor.id_usuario ??
-            professor.idUsuario ??
-            professor.Id_Usuario,
+        professores =
+            dados.map(function (professor) {
 
-        nome:
-            professor.nome ??
-            professor.Nome,
+                return {
 
-        email:
-            professor.email ??
-            professor.Email,
+                    id:
+                        professor.id_usuario ??
+                        professor.idUsuario ??
+                        professor.Id_Usuario,
 
-        status:
-            (professor.ativo ??
-             professor.Ativo ??
-             true)
-                ? "ativo"
-                : "inativo",
+                    nome:
+                        professor.nome ??
+                        professor.Nome,
 
-        curso: "todos",
+                    email:
+                        professor.email ??
+                        professor.Email,
 
-        registros: 0,
+                    status:
+                        (
+                            professor.ativo ??
+                            professor.Ativo ??
+                            true
+                        )
+                            ? "ativo"
+                            : "inativo",
 
-        ultimoRegistro: "-",
+                    curso:
+                        "todos",
 
-        turmas: []
-    };
-});
+                    registros:
+                        0,
 
+                    ultimoRegistro:
+                        "-",
+
+                    turmas:
+                        []
+
+                };
+
+            });
+
+
+        /* =========================================
+           CARREGAR TURMAS
+        ========================================== */
 
         await carregarVinculosProfessores();
 
+
+        /* =========================================
+           CARREGAR REGISTROS
+        ========================================== */
+
+        await carregarRegistrosProfessores();
+
+
+        /* =========================================
+           FINALIZAR
+        ========================================== */
 
         montarFiltroCursos();
 
@@ -459,7 +489,10 @@ async function carregarProfessores() {
 
     } catch (error) {
 
-        console.error(error);
+        console.error(
+            "Erro ao carregar professores:",
+            error
+        );
 
 
         professorsList.innerHTML = "";
@@ -473,22 +506,31 @@ async function carregarProfessores() {
             "block";
 
 
-        emptyState.querySelector(
-            "h3"
-        ).textContent =
-            "Erro ao carregar professores";
+        const tituloErro =
+            emptyState.querySelector("h3");
+
+        const textoErro =
+            emptyState.querySelector("p");
 
 
-        emptyState.querySelector(
-            "p"
-        ).textContent =
-            "Verifique se a API está executando.";
+        if (tituloErro) {
+
+            tituloErro.textContent =
+                "Erro ao carregar professores";
+
+        }
+
+
+        if (textoErro) {
+
+            textoErro.textContent =
+                "Verifique se a API está executando.";
+
+        }
 
     }
 
 }
-
-
 /* =========================================================
    CARREGAR VÍNCULOS
 ========================================================= */
@@ -538,6 +580,221 @@ async function carregarVinculosProfessores() {
 
 }
 
+/* =========================================================
+   CARREGAR REGISTROS DOS PROFESSORES
+========================================================= */
+
+async function carregarRegistrosProfessores() {
+
+    for (
+        const professor
+        of professores
+    ) {
+
+        try {
+
+            const response =
+                await fetch(
+                    `${API_URL}/Supervisao/registros?professor=${professor.id}`,
+                    {
+                        method: "GET",
+                        credentials: "include"
+                    }
+                );
+
+
+            if (!response.ok) {
+
+                console.error(
+                    `Erro ao buscar registros do professor ${professor.id}. Status: ${response.status}`
+                );
+
+                continue;
+
+            }
+
+
+            const dados =
+                await response.json();
+
+
+            /* =========================================
+               QUANTIDADE DE REGISTROS
+            ========================================== */
+
+            if (Array.isArray(dados)) {
+
+                professor.registros =
+                    dados.length;
+
+            } else {
+
+                professor.registros =
+                    0;
+
+            }
+
+
+            /* =========================================
+               ÚLTIMO REGISTRO
+            ========================================== */
+
+            professor.ultimoRegistro =
+                "-";
+
+
+            if (
+                Array.isArray(dados) &&
+                dados.length > 0
+            ) {
+
+                const registrosOrdenados =
+                    [...dados].sort(
+                        function (a, b) {
+
+                            const dataA =
+                                converterDataAtividade(
+                                    a.data
+                                );
+
+                            const dataB =
+                                converterDataAtividade(
+                                    b.data
+                                );
+
+
+                            return (
+                                dataB.getTime() -
+                                dataA.getTime()
+                            );
+
+                        }
+                    );
+
+
+                if (
+                    registrosOrdenados[0] &&
+                    registrosOrdenados[0].data
+                ) {
+
+                    professor.ultimoRegistro =
+                        registrosOrdenados[0].data;
+
+                }
+
+            }
+
+
+            console.log(
+                `Professor: ${professor.nome} | Registros: ${professor.registros} | Último: ${professor.ultimoRegistro}`
+            );
+
+
+        } catch (error) {
+
+            console.error(
+                `Erro ao carregar registros do professor ${professor.id}:`,
+                error
+            );
+
+
+            professor.registros =
+                0;
+
+
+            professor.ultimoRegistro =
+                "-";
+
+        }
+
+    }
+
+}
+/* =========================================================
+   CONVERTER DATA DA ATIVIDADE
+========================================================= */
+
+function converterDataAtividade(data) {
+
+    if (!data) {
+
+        return new Date(0);
+
+    }
+
+
+    /* =========================================
+       DD/MM/YYYY
+    ========================================== */
+
+    if (
+        typeof data === "string" &&
+        data.includes("/")
+    ) {
+
+        const partes =
+            data.split("/");
+
+
+        if (
+            partes.length === 3
+        ) {
+
+            const dia =
+                Number(partes[0]);
+
+            const mes =
+                Number(partes[1]) - 1;
+
+            const ano =
+                Number(partes[2]);
+
+
+            const resultado =
+                new Date(
+                    ano,
+                    mes,
+                    dia
+                );
+
+
+            if (
+                !isNaN(
+                    resultado.getTime()
+                )
+            ) {
+
+                return resultado;
+
+            }
+
+        }
+
+    }
+
+
+    /* =========================================
+       DATA ISO
+    ========================================== */
+
+    const resultado =
+        new Date(data);
+
+
+    if (
+        isNaN(
+            resultado.getTime()
+        )
+    ) {
+
+        return new Date(0);
+
+    }
+
+
+    return resultado;
+
+}
 
 /* =========================================================
    FILTRO DE CURSOS

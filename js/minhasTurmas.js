@@ -27,6 +27,9 @@ const emptyState =
 const emptyClearBtn =
     document.getElementById("emptyClearBtn");
 
+const clearFiltersBtn =
+    document.getElementById("clearFilters");
+
 
 /* =========================================================
    MODAL
@@ -97,9 +100,9 @@ let turmaSelecionada = null;
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    carregarTurmas();
-
     configurarEventos();
+
+    carregarTurmas();
 
 });
 
@@ -110,9 +113,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function configurarEventos() {
 
-    /* -----------------------------------------------------
+
+    /* =====================================================
        BUSCA
-    ----------------------------------------------------- */
+    ===================================================== */
 
     if (searchInput) {
 
@@ -124,9 +128,9 @@ function configurarEventos() {
     }
 
 
-    /* -----------------------------------------------------
+    /* =====================================================
        FILTRO DE CURSO
-    ----------------------------------------------------- */
+    ===================================================== */
 
     if (cursoFilter) {
 
@@ -138,9 +142,19 @@ function configurarEventos() {
     }
 
 
-    /* -----------------------------------------------------
+    /* =====================================================
        LIMPAR FILTROS
-    ----------------------------------------------------- */
+    ===================================================== */
+
+    if (clearFiltersBtn) {
+
+        clearFiltersBtn.addEventListener(
+            "click",
+            limparFiltros
+        );
+
+    }
+
 
     if (emptyClearBtn) {
 
@@ -152,9 +166,9 @@ function configurarEventos() {
     }
 
 
-    /* -----------------------------------------------------
+    /* =====================================================
        FECHAR MODAL
-    ----------------------------------------------------- */
+    ===================================================== */
 
     if (modalClose) {
 
@@ -176,9 +190,9 @@ function configurarEventos() {
     }
 
 
-    /* -----------------------------------------------------
+    /* =====================================================
        CLICAR FORA DO MODAL
-    ----------------------------------------------------- */
+    ===================================================== */
 
     if (classModal) {
 
@@ -200,9 +214,9 @@ function configurarEventos() {
     }
 
 
-    /* -----------------------------------------------------
+    /* =====================================================
        TECLA ESC
-    ----------------------------------------------------- */
+    ===================================================== */
 
     document.addEventListener(
         "keydown",
@@ -220,9 +234,9 @@ function configurarEventos() {
     );
 
 
-    /* -----------------------------------------------------
+    /* =====================================================
        BOTÕES DOS CARDS
-    ----------------------------------------------------- */
+    ===================================================== */
 
     if (classesGrid) {
 
@@ -264,14 +278,11 @@ function configurarEventos() {
     }
 
 
-    /* -----------------------------------------------------
+    /* =====================================================
        MENU MOBILE
-    ----------------------------------------------------- */
+    ===================================================== */
 
-    if (
-        mobileMenuBtn &&
-        mobileNav
-    ) {
+    if (mobileMenuBtn && mobileNav) {
 
         mobileMenuBtn.addEventListener(
             "click",
@@ -279,15 +290,41 @@ function configurarEventos() {
 
                 const aberto =
                     mobileNav.classList.toggle(
-                        "active"
+                        "ativo"
                     );
 
 
                 mobileMenuBtn.setAttribute(
                     "aria-expanded",
-                    aberto
-                        ? "true"
-                        : "false"
+                    aberto ? "true" : "false"
+                );
+
+            }
+        );
+
+
+        const links =
+            mobileNav.querySelectorAll("a");
+
+
+        links.forEach(
+            link => {
+
+                link.addEventListener(
+                    "click",
+                    () => {
+
+                        mobileNav.classList.remove(
+                            "ativo"
+                        );
+
+
+                        mobileMenuBtn.setAttribute(
+                            "aria-expanded",
+                            "false"
+                        );
+
+                    }
                 );
 
             }
@@ -296,9 +333,9 @@ function configurarEventos() {
     }
 
 
-    /* -----------------------------------------------------
+    /* =====================================================
        LOGOUT
-    ----------------------------------------------------- */
+    ===================================================== */
 
     if (btnLogout) {
 
@@ -330,9 +367,9 @@ async function carregarTurmas() {
             );
 
 
-        /* -------------------------------------------------
+        /* =================================================
            SESSÃO EXPIRADA
-        ------------------------------------------------- */
+        ================================================= */
 
         if (
             resposta.status === 401
@@ -410,7 +447,7 @@ async function carregarTurmas() {
         if (resultsCount) {
 
             resultsCount.textContent =
-                "0";
+                "0 turmas encontradas";
 
         }
 
@@ -537,8 +574,7 @@ function renderizarTurmas() {
 
                 const correspondeCurso =
                     !cursoSelecionado ||
-                    curso ===
-                    cursoSelecionado;
+                    curso === cursoSelecionado;
 
 
                 return (
@@ -550,21 +586,25 @@ function renderizarTurmas() {
         );
 
 
-    /* -----------------------------------------------------
+    /* =====================================================
        CONTADOR
-    ----------------------------------------------------- */
+    ===================================================== */
 
     if (resultsCount) {
 
         resultsCount.textContent =
-            resultado.length;
+            `${resultado.length} ${
+                resultado.length === 1
+                    ? "turma encontrada"
+                    : "turmas encontradas"
+            }`;
 
     }
 
 
-    /* -----------------------------------------------------
+    /* =====================================================
        ESTADO VAZIO
-    ----------------------------------------------------- */
+    ===================================================== */
 
     if (
         resultado.length === 0
@@ -595,9 +635,9 @@ function renderizarTurmas() {
     }
 
 
-    /* -----------------------------------------------------
+    /* =====================================================
        CARDS
-    ----------------------------------------------------- */
+    ===================================================== */
 
     classesGrid.innerHTML =
         resultado
@@ -677,7 +717,9 @@ function criarCardTurma(
                     </div>
 
                     <span class="class-icon">
+
                         <i class="fa-solid fa-users"></i>
+
                     </span>
 
                 </div>
@@ -686,18 +728,29 @@ function criarCardTurma(
                 <div class="class-info">
 
                     <span>
+
                         <i class="fa-solid fa-graduation-cap"></i>
+
                         ${escaparHTML(curso)}
+
                     </span>
 
+
                     <span>
+
                         <i class="fa-regular fa-calendar"></i>
+
                         ${escaparHTML(periodo)}
+
                     </span>
 
+
                     <span>
+
                         <i class="fa-regular fa-clock"></i>
+
                         ${escaparHTML(turno)}
+
                     </span>
 
                 </div>
@@ -724,8 +777,7 @@ function criarCardTurma(
                         type="button"
                         class="class-detail-btn"
                         data-action="detalhes"
-                        data-id="${id}"
-                    >
+                        data-id="${id}">
 
                         <i class="fa-regular fa-eye"></i>
 
@@ -778,9 +830,9 @@ async function abrirDetalhes(
         turma;
 
 
-    /* -----------------------------------------------------
+    /* =====================================================
        DADOS DA TURMA
-    ----------------------------------------------------- */
+    ===================================================== */
 
     const nome =
         turma.nome_turma ??
@@ -844,9 +896,9 @@ async function abrirDetalhes(
     }
 
 
-    /* -----------------------------------------------------
+    /* =====================================================
        ATIVIDADES
-    ----------------------------------------------------- */
+    ===================================================== */
 
     let atividadesDaTurma =
         obterAtividadesDaTurma(
@@ -854,10 +906,9 @@ async function abrirDetalhes(
         );
 
 
-    /* -----------------------------------------------------
-       SE O OBJETO NÃO TROUXER AS ATIVIDADES,
-       BUSCA AS ATIVIDADES DO PROFESSOR
-    ----------------------------------------------------- */
+    /* =====================================================
+       BUSCAR ATIVIDADES DO PROFESSOR
+    ===================================================== */
 
     if (
         atividadesDaTurma.length === 0
@@ -913,9 +964,9 @@ async function abrirDetalhes(
     );
 
 
-    /* -----------------------------------------------------
+    /* =====================================================
        ABRIR MODAL
-    ----------------------------------------------------- */
+    ===================================================== */
 
     if (classModal) {
 
@@ -1074,8 +1125,8 @@ function renderizarAtividadesModal(
 
         if (modalActivities) {
 
-            modalActivities.style.display =
-                "block";
+            modalActivities.textContent =
+                "0";
 
         }
 
@@ -1111,8 +1162,8 @@ function renderizarAtividadesModal(
 
     if (modalActivities) {
 
-        modalActivities.style.display =
-            "block";
+        modalActivities.textContent =
+            ordenadas.length;
 
     }
 
@@ -1502,11 +1553,18 @@ function escaparHTML(
 
 function logout() {
 
-    sessionStorage.clear();
+    const confirmar =
+        confirm(
+            "Deseja realmente sair?"
+        );
 
-    localStorage.clear();
+
+    if (!confirmar) {
+        return;
+    }
+
 
     window.location.href =
-        "login.html";
+        "Login.html";
 
 }

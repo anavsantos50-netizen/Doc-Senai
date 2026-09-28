@@ -7,6 +7,10 @@
 
     <title>Minhas Turmas | DocSenai</title>
 
+    <!-- =====================================================
+         FONTES
+    ====================================================== -->
+
     <!-- Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,9 +26,12 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="../css/minhasTurmas.css">
+
 </head>
 
+
 <body>
+
 
     <!-- =====================================================
          CABEÇALHO
@@ -34,9 +41,14 @@
 
         <div class="topbar-container">
 
-            <!-- LOGO -->
 
-            <a href="telaInicialProfessor.html" class="logo">
+            <!-- =================================================
+                 LOGO
+            ================================================== -->
+
+            <a
+                href="telaInicialProfessor.html"
+                class="logo">
 
                 <img
                     src="../img/logo.png"
@@ -45,55 +57,74 @@
             </a>
 
 
-            <!-- MENU -->
+            <!-- =================================================
+                 MENU DESKTOP
+            ================================================== -->
 
-             <nav class="main-nav" id="mainNav">
+            <nav
+                class="main-nav"
+                id="mainNav">
+
 
                 <a
                     href="telaInicialProfessor.html"
-                    class="nav-link "
-                >
+                    class="nav-link">
+
                     Início
+
                 </a>
-                   <a
+
+
+                <a
                     href="registrarAtividade.html"
-                    class="nav-link"
-                >
-                   Registrar Atividades
+                    class="nav-link">
+
+                    Registrar Atividades
+
                 </a>
+
 
                 <a
                     href="minhasAtividades.html"
-                    class="nav-link"
-                >
-                  Minhas Atividades
+                    class="nav-link">
+
+                    Minhas Atividades
+
                 </a>
+
 
                 <a
                     href="minhasTurmas.html"
-                    class="nav-link active"
-                >
+                    class="nav-link active">
+
                     Turmas
+
                 </a>
+
 
                 <a
                     href="perfilProfessor.html"
-                    class="nav-link"
-                >
+                    class="nav-link">
+
                     Meu perfil
+
                 </a>
+
 
             </nav>
 
 
-
-            <!-- PERFIL -->
+            <!-- =================================================
+                 PERFIL
+            ================================================== -->
 
             <div class="profile-area">
+
 
                 <a
                     href="perfilProfessor.html"
                     class="profile-link">
+
 
                     <div class="profile-info">
 
@@ -114,39 +145,128 @@
 
                     </div>
 
+
                 </a>
 
 
-                <!-- SAIR -->
+                <!-- =================================================
+                     SAIR
+                ================================================== -->
 
                 <button
                     type="button"
                     class="logout-btn"
                     id="btnLogout"
-                    title="Sair">
+                    title="Sair"
+                    aria-label="Sair">
 
                     <i class="fa-solid fa-right-from-bracket"></i>
 
                 </button>
 
+
             </div>
 
 
-            <!-- MENU MOBILE -->
+            <!-- =================================================
+                 BOTÃO MENU MOBILE
+            ================================================== -->
 
             <button
                 type="button"
                 class="menu-mobile"
-                id="menuMobile"
-                aria-label="Abrir menu">
+                id="mobileMenuBtn"
+                aria-label="Abrir menu"
+                aria-expanded="false">
 
                 <i class="fa-solid fa-bars"></i>
 
             </button>
 
+
         </div>
 
     </header>
+
+
+    <!-- =====================================================
+         MENU MOBILE
+    ====================================================== -->
+
+    <nav
+        class="mobile-nav"
+        id="mobileNav">
+
+
+        <a href="telaInicialProfessor.html">
+
+            <i class="fa-solid fa-house"></i>
+
+            <span>
+                Início
+            </span>
+
+        </a>
+
+
+        <a href="registrarAtividade.html">
+
+            <i class="fa-solid fa-clipboard-list"></i>
+
+            <span>
+                Registrar Atividades
+            </span>
+
+        </a>
+
+
+        <a href="minhasAtividades.html">
+
+            <i class="fa-solid fa-list-check"></i>
+
+            <span>
+                Minhas Atividades
+            </span>
+
+        </a>
+
+
+        <a
+            href="minhasTurmas.html"
+            class="active">
+
+            <i class="fa-solid fa-users"></i>
+
+            <span>
+                Turmas
+            </span>
+
+        </a>
+
+
+        <a href="perfilProfessor.html">
+
+            <i class="fa-regular fa-user"></i>
+
+            <span>
+                Meu perfil
+            </span>
+
+        </a>
+
+
+        <a href="Login.html">
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+
+            <span>
+                Sair
+            </span>
+
+        </a>
+
+
+    </nav>
 
 
     <!-- =====================================================
@@ -156,19 +276,6 @@
     <main class="main-content">
 
         <div class="content-container">
-
-
-            <!-- VOLTAR -->
-
-            <a
-                href="telaInicialProfessor.html"
-                class="back-link">
-
-                <i class="fa-solid fa-arrow-left"></i>
-
-                Voltar para o início
-
-            </a>
 
 
             <!-- =================================================
@@ -183,9 +290,11 @@
                         MINHAS TURMAS
                     </span>
 
+
                     <h1>
                         Turmas
                     </h1>
+
 
                     <p>
                         Consulte as turmas vinculadas ao seu perfil
@@ -204,11 +313,14 @@
             <section class="filters-card">
 
 
-                <!-- BUSCA -->
+                <!-- =================================================
+                     BUSCA
+                ================================================== -->
 
                 <div class="search-box">
 
                     <i class="fa-solid fa-magnifying-glass"></i>
+
 
                     <input
                         type="text"
@@ -216,43 +328,58 @@
                         placeholder="Buscar turma ou curso..."
                         autocomplete="off">
 
+
                 </div>
 
 
-                <!-- FILTROS -->
+                <!-- =================================================
+                     FILTROS
+                ================================================== -->
 
                 <div class="filter-row">
 
+
                     <div class="filter-item">
+
 
                         <label for="cursoFilter">
                             Curso
                         </label>
 
-                     <select id="cursoFilter">
 
-    <option value="todos">
-        Todos os cursos
-    </option>
+                        <select id="cursoFilter">
 
-</select>
+                            <option value="">
+                                Todos os cursos
+                            </option>
+
                         </select>
+
 
                     </div>
 
+
+                    <!-- =================================================
+                         LIMPAR FILTROS
+                    ================================================== -->
 
                     <button
                         type="button"
                         class="clear-filter"
                         id="clearFilters">
 
+
                         <i class="fa-solid fa-filter-circle-xmark"></i>
+
 
                         Limpar filtros
 
+
                     </button>
 
+
                 </div>
+
 
             </section>
 
@@ -263,17 +390,22 @@
 
             <div class="results-header">
 
+
                 <div class="results-info">
 
+
                     <strong id="resultsCount">
-                        3 turmas encontradas
+                        0 turmas encontradas
                     </strong>
+
 
                     <span>
                         Turmas vinculadas ao seu perfil
                     </span>
 
+
                 </div>
+
 
             </div>
 
@@ -286,7 +418,10 @@
                 class="classes-grid"
                 id="classesGrid">
 
-                <!-- Cards inseridos pelo JavaScript -->
+                <!--
+                    Os cards das turmas
+                    serão inseridos pelo JavaScript.
+                -->
 
             </section>
 
@@ -300,20 +435,24 @@
                 id="emptyState"
                 style="display: none;">
 
+
                 <div class="empty-icon">
 
                     <i class="fa-solid fa-users-slash"></i>
 
                 </div>
 
+
                 <h2>
                     Nenhuma turma encontrada
                 </h2>
+
 
                 <p>
                     Não encontramos nenhuma turma com os
                     filtros selecionados.
                 </p>
+
 
                 <button
                     type="button"
@@ -323,7 +462,9 @@
 
                 </button>
 
+
             </section>
+
 
         </div>
 
@@ -338,10 +479,13 @@
         class="modal-overlay"
         id="classModal">
 
+
         <div class="class-modal">
 
 
-            <!-- FECHAR -->
+            <!-- =================================================
+                 BOTÃO FECHAR
+            ================================================== -->
 
             <button
                 type="button"
@@ -354,38 +498,51 @@
             </button>
 
 
-            <!-- CABEÇALHO -->
+            <!-- =================================================
+                 CABEÇALHO DO MODAL
+            ================================================== -->
 
             <div class="modal-header">
+
 
                 <span class="modal-label">
                     DETALHES DA TURMA
                 </span>
 
+
                 <h2 id="modalTitle">
                     -
                 </h2>
+
 
                 <p id="modalCourse">
                     -
                 </p>
 
+
             </div>
 
 
-            <!-- CONTEÚDO -->
+            <!-- =================================================
+                 CONTEÚDO DO MODAL
+            ================================================== -->
 
             <div class="modal-content">
 
 
-                <!-- INFORMAÇÕES -->
+                <!-- =================================================
+                     INFORMAÇÕES
+                ================================================== -->
 
                 <div class="class-info-grid">
 
 
-                    <!-- CURSO -->
+                    <!-- =================================================
+                         CURSO
+                    ================================================== -->
 
                     <div class="class-info-item">
+
 
                         <div class="info-icon">
 
@@ -393,11 +550,13 @@
 
                         </div>
 
+
                         <div>
 
                             <span>
                                 Curso
                             </span>
+
 
                             <strong id="modalCourseInfo">
                                 -
@@ -405,12 +564,16 @@
 
                         </div>
 
+
                     </div>
 
 
-                    <!-- PERÍODO -->
+                    <!-- =================================================
+                         PERÍODO
+                    ================================================== -->
 
                     <div class="class-info-item">
+
 
                         <div class="info-icon">
 
@@ -418,11 +581,13 @@
 
                         </div>
 
+
                         <div>
 
                             <span>
                                 Período
                             </span>
+
 
                             <strong id="modalPeriod">
                                 -
@@ -430,12 +595,16 @@
 
                         </div>
 
+
                     </div>
 
 
-                    <!-- TURNO -->
+                    <!-- =================================================
+                         TURNO
+                    ================================================== -->
 
                     <div class="class-info-item">
+
 
                         <div class="info-icon">
 
@@ -443,11 +612,13 @@
 
                         </div>
 
+
                         <div>
 
                             <span>
                                 Turno
                             </span>
+
 
                             <strong id="modalShift">
                                 -
@@ -455,12 +626,16 @@
 
                         </div>
 
+
                     </div>
 
 
-                    <!-- ATIVIDADES -->
+                    <!-- =================================================
+                         ATIVIDADES
+                    ================================================== -->
 
                     <div class="class-info-item">
+
 
                         <div class="info-icon">
 
@@ -468,11 +643,13 @@
 
                         </div>
 
+
                         <div>
 
                             <span>
                                 Atividades
                             </span>
+
 
                             <strong id="modalActivities">
                                 -
@@ -480,18 +657,22 @@
 
                         </div>
 
+
                     </div>
+
 
                 </div>
 
 
                 <!-- =================================================
-                     ATIVIDADES
+                     ATIVIDADES REGISTRADAS
                 ================================================== -->
 
                 <div class="activities-section">
 
+
                     <div class="activities-header">
+
 
                         <h3>
 
@@ -501,6 +682,7 @@
 
                         </h3>
 
+
                     </div>
 
 
@@ -508,11 +690,16 @@
                         class="activities-list"
                         id="modalActivitiesList">
 
-                        <!-- Atividades inseridas pelo JS -->
+                        <!--
+                            Atividades inseridas
+                            pelo JavaScript.
+                        -->
 
                     </div>
 
+
                 </div>
+
 
             </div>
 
@@ -523,13 +710,17 @@
 
             <div class="modal-footer">
 
+
                 <a
                     href="registrarAtividade.html"
                     class="modal-register-btn">
 
+
                     <i class="fa-solid fa-plus"></i>
 
+
                     Registrar atividade
+
 
                 </a>
 
@@ -543,16 +734,21 @@
 
                 </button>
 
+
             </div>
+
 
         </div>
 
     </div>
 
 
-    <!-- JAVASCRIPT -->
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
 
     <script src="../js/minhasTurmas.js"></script>
+
 
 </body>
 

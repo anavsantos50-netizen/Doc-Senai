@@ -39,7 +39,6 @@ select {
 
 /* =====================================================
    TOPBAR
-   PADRÃO DA TELA INICIAL
 ===================================================== */
 
 .topbar {
@@ -138,7 +137,7 @@ select {
 
     white-space: nowrap;
 
-    transition: 0.25s ease;
+    transition: .25s ease;
 }
 
 .nav-link:hover {
@@ -152,13 +151,13 @@ select {
 
     font-weight: 600;
 
-    box-shadow: 0 4px 10px rgba(25, 46, 117, .15);
+    box-shadow:
+        0 4px 10px rgba(25, 46, 117, .15);
 }
 
 
 /* =====================================================
    PERFIL
-   PADRÃO DA TELA INICIAL
 ===================================================== */
 
 .profile-area {
@@ -195,8 +194,6 @@ select {
 
     font-size: 14px;
     font-weight: 700;
-
-    transition: .2s ease;
 }
 
 .profile-info span {
@@ -221,16 +218,10 @@ select {
     background: #EEF1F8;
 
     color: #192E75;
-
-    transition: .2s ease;
 }
 
 .profile-icon i {
     font-size: 17px;
-}
-
-.profile-link:hover .profile-info strong {
-    color: #192E75;
 }
 
 .profile-link:hover .profile-icon {
@@ -251,8 +242,6 @@ select {
     display: flex;
     align-items: center;
     justify-content: center;
-
-    margin: 0;
 
     border: 1px solid #DDDDDD;
 
@@ -304,12 +293,6 @@ select {
 
     align-items: center;
     justify-content: center;
-
-    transition: .2s ease;
-}
-
-.menu-mobile:hover {
-    background: #F5F6FA;
 }
 
 
@@ -359,7 +342,7 @@ select {
 
 
 /* =====================================================
-   CABEÇALHO DA PÁGINA
+   CABEÇALHO
 ===================================================== */
 
 .page-header {
@@ -388,8 +371,6 @@ select {
     font-weight: 700;
 
     line-height: 1.2;
-
-    letter-spacing: -.7px;
 }
 
 .page-header p {
@@ -418,7 +399,8 @@ select {
 
     border-radius: 16px;
 
-    box-shadow: 0 8px 25px rgba(25, 46, 117, .07);
+    box-shadow:
+        0 8px 25px rgba(25, 46, 117, .07);
 }
 
 
@@ -440,8 +422,6 @@ select {
     border: 1px solid #E4E6ED;
 
     border-radius: 10px;
-
-    transition: .2s ease;
 }
 
 .search-box:focus-within {
@@ -478,7 +458,7 @@ select {
 
 
 /* =====================================================
-   LINHA DOS FILTROS
+   FILTROS
 ===================================================== */
 
 .filter-row {
@@ -645,6 +625,50 @@ select {
 
 
 /* =====================================================
+   CONTEÚDO DO CARD
+===================================================== */
+
+.class-card-content {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    flex: 1;
+}
+
+.class-card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 15px;
+}
+
+.class-label {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: #192E75;
+
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.class-card h2 {
+    margin: 0;
+
+    color: #192E75;
+
+    font-size: 18px;
+    font-weight: 600;
+
+    line-height: 1.35;
+}
+
+
+/* =====================================================
    ÍCONE DA TURMA
 ===================================================== */
 
@@ -652,7 +676,7 @@ select {
     width: 54px;
     height: 54px;
 
-    margin-bottom: 18px;
+    flex-shrink: 0;
 
     display: flex;
     align-items: center;
@@ -669,62 +693,35 @@ select {
 
 
 /* =====================================================
-   NOME DA TURMA
-===================================================== */
-
-.class-card h2 {
-    margin-bottom: 6px;
-
-    color: #192E75;
-
-    font-size: 18px;
-    font-weight: 600;
-
-    line-height: 1.35;
-}
-
-.class-course {
-    margin-bottom: 18px;
-
-    color: #777777;
-
-    font-size: 12px;
-
-    line-height: 1.5;
-}
-
-
-/* =====================================================
    INFORMAÇÕES DA TURMA
 ===================================================== */
 
-.class-details {
-    margin-bottom: 18px;
-    padding-top: 15px;
+.class-info {
+    margin-top: 22px;
 
     display: flex;
     flex-direction: column;
 
-    gap: 10px;
-
-    border-top: 1px solid #EEEEEE;
+    gap: 9px;
 }
 
-.class-detail {
+.class-info span {
     display: flex;
     align-items: center;
 
-    gap: 9px;
+    gap: 7px;
 
-    color: #666666;
+    color: #192E75;
 
     font-size: 12px;
+
+    line-height: 1.4;
 }
 
-.class-detail i {
-    width: 16px;
+.class-info i {
+    width: 17px;
 
-    color: #EA632C;
+    color: #192E75;
 
     text-align: center;
 }
@@ -736,6 +733,7 @@ select {
 
 .class-card-footer {
     margin-top: auto;
+    padding-top: 18px;
 
     display: flex;
     align-items: center;
@@ -744,50 +742,73 @@ select {
     gap: 12px;
 }
 
-.activity-badge {
-    display: inline-flex;
-    align-items: center;
-
-    gap: 5px;
-
-    padding: 7px 10px;
-
-    border-radius: 7px;
-
-    background: #F3F4F8;
-
-    color: #666666;
-
-    font-size: 11px;
-    font-weight: 500;
-}
-
-.activity-badge i {
-    color: #192E75;
-}
-
-.view-class-btn {
+.activity-total {
     display: inline-flex;
     align-items: center;
 
     gap: 6px;
 
-    border: none;
+    color: #192E75;
 
-    background: transparent;
+    font-size: 12px;
+}
+
+.activity-total i {
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   BOTÃO DETALHES
+===================================================== */
+
+.class-detail-btn {
+    min-height: 38px;
+
+    padding: 8px 14px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    border: 1px solid #192E75;
+
+    border-radius: 8px;
+
+    background: #FFFFFF;
 
     color: #192E75;
+
+    font-family: 'Poppins', sans-serif;
 
     font-size: 12px;
     font-weight: 600;
 
     cursor: pointer;
 
-    transition: .2s ease;
+    transition:
+        background-color .2s ease,
+        border-color .2s ease,
+        color .2s ease,
+        transform .2s ease;
 }
 
-.view-class-btn:hover {
-    color: #EA632C;
+.class-detail-btn i {
+    font-size: 12px;
+}
+
+.class-detail-btn:hover {
+    background: #192E75;
+
+    border-color: #192E75;
+
+    color: #FFFFFF;
+}
+
+.class-detail-btn:active {
+    transform: scale(.97);
 }
 
 
@@ -805,9 +826,6 @@ select {
     border: 1px solid #E4E6ED;
 
     border-radius: 16px;
-
-    box-shadow:
-        0 5px 18px rgba(25, 46, 117, .035);
 }
 
 .empty-icon {
@@ -875,6 +893,7 @@ select {
     padding: 25px;
 
     display: none;
+
     align-items: center;
     justify-content: center;
 
@@ -892,6 +911,7 @@ select {
 .class-modal {
     width: 100%;
     max-width: 760px;
+
     max-height: 90vh;
 
     position: relative;
@@ -1089,83 +1109,180 @@ select {
 
 .activities-list {
     display: flex;
+
     flex-direction: column;
 
-    gap: 9px;
+    gap: 10px;
+
+    width: 100%;
 }
 
-.modal-activity {
-    padding: 12px 13px;
+
+/* =====================================================
+   ITEM DA ATIVIDADE
+===================================================== */
+
+.modal-activity-item {
+    width: 100%;
+
+    padding: 16px 18px;
 
     display: flex;
-    align-items: center;
 
-    gap: 12px;
-
-    border: 1px solid #EEEEEE;
-
-    border-radius: 10px;
-}
-
-.modal-activity-date {
-    width: 44px;
-    height: 44px;
-
-    flex-shrink: 0;
-
-    display: flex;
     flex-direction: column;
 
+    gap: 8px;
+
+    background: #FFFFFF;
+
+    border: 1px solid #E4E6ED;
+
+    border-radius: 12px;
+
+    transition: .2s ease;
+}
+
+.modal-activity-item:hover {
+    border-color: #D4D9E8;
+
+    box-shadow:
+        0 5px 15px rgba(25, 46, 117, .06);
+}
+
+
+/* =====================================================
+   DATA DA ATIVIDADE
+===================================================== */
+
+.modal-activity-item .modal-activity-date {
+    width: auto;
+    height: auto;
+
+    padding: 0;
+
+    display: flex;
+
+    flex-direction: row;
+
     align-items: center;
-    justify-content: center;
 
-    border-radius: 9px;
+    gap: 7px;
 
-    background: #EEF1FB;
+    background: transparent;
 
     color: #192E75;
-}
 
-.modal-activity-date strong {
-    font-size: 15px;
-
-    line-height: 1;
-}
-
-.modal-activity-date span {
-    margin-top: 3px;
-
-    font-size: 7px;
-    font-weight: 600;
-}
-
-.modal-activity-info {
-    min-width: 0;
-
-    flex: 1;
-}
-
-.modal-activity-info strong {
-    display: block;
-
-    margin-bottom: 3px;
-
-    overflow: hidden;
-
-    color: #333333;
+    border-radius: 0;
 
     font-size: 12px;
-    font-weight: 600;
 
-    white-space: nowrap;
-
-    text-overflow: ellipsis;
+    font-weight: 500;
 }
 
-.modal-activity-info span {
-    color: #888888;
+.modal-activity-item .modal-activity-date i {
+    color: #192E75;
 
-    font-size: 9px;
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   DESCRIÇÃO DA ATIVIDADE
+===================================================== */
+
+.modal-activity-item h4 {
+    margin: 0;
+
+    color: #192E75;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    line-height: 1.45;
+}
+
+
+/* =====================================================
+   OBSERVAÇÃO
+===================================================== */
+
+.modal-activity-item p {
+    margin: 0;
+
+    color: #777777;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
+
+/* =====================================================
+   FOTOS
+===================================================== */
+
+.modal-activity-photos {
+    width: fit-content;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    color: #192E75;
+
+    font-size: 11px;
+
+    font-weight: 500;
+}
+
+.modal-activity-photos i {
+    color: #192E75;
+
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   ATIVIDADE VAZIA
+===================================================== */
+
+.modal-empty {
+    padding: 30px 20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    text-align: center;
+
+    border: 1px dashed #DDE1EB;
+
+    border-radius: 12px;
+
+    background: #F8F9FC;
+
+    color: #777777;
+}
+
+.modal-empty i {
+    color: #192E75;
+
+    font-size: 25px;
+}
+
+.modal-empty p {
+    margin: 0;
+
+    font-size: 12px;
 }
 
 
@@ -1177,7 +1294,9 @@ select {
     padding: 17px 32px;
 
     display: flex;
+
     align-items: center;
+
     justify-content: flex-end;
 
     gap: 10px;
@@ -1189,6 +1308,7 @@ select {
     padding: 10px 16px;
 
     display: inline-flex;
+
     align-items: center;
     justify-content: center;
 
@@ -1203,6 +1323,7 @@ select {
     text-decoration: none;
 
     font-size: 11px;
+
     font-weight: 600;
 
     transition: .2s ease;
@@ -1224,9 +1345,12 @@ select {
     color: #666666;
 
     font-size: 11px;
+
     font-weight: 600;
 
     cursor: pointer;
+
+    transition: .2s ease;
 }
 
 .modal-close-btn:hover {
@@ -1238,7 +1362,6 @@ select {
 
 /* =====================================================
    DESKTOP GRANDE
-   PADRÃO DA TELA INICIAL
 ===================================================== */
 
 @media (min-width: 1500px) {
@@ -1279,7 +1402,6 @@ select {
 
 /* =====================================================
    TABLET
-   PADRÃO DA TELA INICIAL
 ===================================================== */
 
 @media (max-width: 1050px) {
@@ -1355,18 +1477,13 @@ select {
     }
 
 
-    /* ==========================================
-       BOTÃO MENU
-    ========================================== */
+    /* =================================================
+       MENU MOBILE
+    ================================================= */
 
     .menu-mobile {
         display: flex;
     }
-
-
-    /* ==========================================
-       MENU MOBILE
-    ========================================== */
 
     .main-nav {
         display: none;
@@ -1383,6 +1500,7 @@ select {
         right: 0;
 
         width: 100%;
+
         max-width: none;
 
         transform: none;
@@ -1411,41 +1529,20 @@ select {
 
     .main-nav.open .nav-link {
         width: 100%;
+
         height: 48px;
-
-        display: flex;
-
-        align-items: center;
 
         justify-content: flex-start;
 
         padding: 0 15px;
 
-        border-radius: 8px;
-
-        color: #727B91;
-
         font-size: 14px;
     }
 
-    .main-nav.open .nav-link:hover {
-        color: #192E75;
 
-        background: #F5F6FA;
-    }
-
-    .main-nav.open .nav-link.active {
-        color: #FFFFFF;
-
-        background: #192E75;
-
-        box-shadow: none;
-    }
-
-
-    /* ==========================================
+    /* =================================================
        CONTEÚDO
-    ========================================== */
+    ================================================= */
 
     .main-content {
         padding: 35px 0 55px;
@@ -1456,18 +1553,18 @@ select {
     }
 
 
-    /* ==========================================
+    /* =================================================
        TURMAS
-    ========================================== */
+    ================================================= */
 
     .classes-grid {
         grid-template-columns: 1fr;
     }
 
 
-    /* ==========================================
+    /* =================================================
        FILTROS
-    ========================================== */
+    ================================================= */
 
     .filter-row {
         flex-direction: column;
@@ -1521,9 +1618,9 @@ select {
     }
 
 
-    /* ==========================================
+    /* =================================================
        VOLTAR
-    ========================================== */
+    ================================================= */
 
     .back-link {
         margin-bottom: 20px;
@@ -1532,9 +1629,9 @@ select {
     }
 
 
-    /* ==========================================
+    /* =================================================
        CABEÇALHO
-    ========================================== */
+    ================================================= */
 
     .page-header {
         margin-bottom: 25px;
@@ -1553,9 +1650,9 @@ select {
     }
 
 
-    /* ==========================================
+    /* =================================================
        FILTROS
-    ========================================== */
+    ================================================= */
 
     .filters-card {
         padding: 17px;
@@ -1571,9 +1668,9 @@ select {
     }
 
 
-    /* ==========================================
+    /* =================================================
        CARDS
-    ========================================== */
+    ================================================= */
 
     .class-card {
         min-height: 250px;
@@ -1585,18 +1682,26 @@ select {
         font-size: 17px;
     }
 
-    .class-course {
+    .class-info span {
         font-size: 11px;
     }
 
-    .class-detail {
+    .activity-total {
+        font-size: 11px;
+    }
+
+    .class-detail-btn {
+        min-height: 36px;
+
+        padding: 7px 12px;
+
         font-size: 11px;
     }
 
 
-    /* ==========================================
+    /* =================================================
        MODAL
-    ========================================== */
+    ================================================= */
 
     .modal-overlay {
         padding: 12px;
@@ -1620,6 +1725,18 @@ select {
 
     .class-info-grid {
         grid-template-columns: 1fr;
+    }
+
+    .modal-activity-item {
+        padding: 14px;
+    }
+
+    .modal-activity-item h4 {
+        font-size: 13px;
+    }
+
+    .modal-activity-item p {
+        font-size: 11px;
     }
 
     .modal-footer {
@@ -1664,49 +1781,4 @@ select {
     .modal-header h2 {
         font-size: 19px;
     }
-}
-/* =========================================================
-   BOTÃO DOS CARDS DE TURMA
-========================================================= */
-
-.class-card-button {
-    width: 100%;
-    min-height: 42px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-
-    padding: 10px 16px;
-
-    border: 1px solid #192E75;
-    border-radius: 8px;
-
-    background: #192E75;
-    color: #FFFFFF;
-
-    font-family: 'Poppins', sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-
-    cursor: pointer;
-
-    transition:
-        background-color 0.2s ease,
-        border-color 0.2s ease,
-        transform 0.2s ease;
-}
-
-.class-card-button i {
-    font-size: 13px;
-}
-
-.class-card-button:hover {
-    background: #EA632C;
-    border-color: #EA632C;
-}
-
-.class-card-button:active {
-    transform: scale(0.98);
 }

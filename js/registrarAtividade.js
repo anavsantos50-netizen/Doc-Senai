@@ -211,14 +211,41 @@ function configurarEventos() {
        LOGOUT
     ----------------------------------------------------- */
 
-    if (btnLogout) {
 
-        btnLogout.addEventListener(
-            "click",
-            fazerLogout
-        );
+   
+ if (btnLogout) {
+
+        btnLogout.addEventListener("click", async () => {
+
+            const confirmar =
+                confirm("Deseja realmente sair?");
+
+            if (!confirmar) {
+                return;
+            }
+
+            try {
+
+                /*
+                 * Por enquanto apenas voltamos para o login.
+                 * Depois podemos criar o endpoint de logout
+                 * para destruir a sessão no backend.
+                 */
+
+                window.location.href = "Login.html";
+
+            } catch (erro) {
+
+                console.error(
+                    "Erro ao sair:",
+                    erro
+                );
+
+                window.location.href =
+                    "Login.html";
+            }
+        });
     }
-
 
     /* -----------------------------------------------------
        BOTÃO DE SUCESSO

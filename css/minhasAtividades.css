@@ -2004,3 +2004,136 @@ select {
         height: 160px;
     }
 }
+/* =========================================================
+   MENU MOBILE
+========================================================= */
+
+.mobile-nav {
+    display: none;
+}
+
+
+/* =========================================================
+   TABLET / CELULAR
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .mobile-menu-btn {
+        display: flex;
+
+        width: 40px;
+        height: 40px;
+
+        margin-left: 10px;
+
+        align-items: center;
+        justify-content: center;
+
+        border: 1px solid #E5E7ED;
+
+        border-radius: 9px;
+
+        background: #FFFFFF;
+
+        color: #192E75;
+
+        font-size: 17px;
+
+        cursor: pointer;
+    }
+
+
+    .mobile-nav {
+        display: none;
+
+        position: absolute;
+
+        top: 82px;
+
+        left: 0;
+        right: 0;
+
+        width: 100%;
+
+        padding: 12px 5%;
+
+        flex-direction: column;
+
+        gap: 5px;
+
+        background: #FFFFFF;
+
+        border-top: 1px solid #E9ECF2;
+
+        box-shadow:
+            0 12px 25px rgba(25, 46, 117, 0.08);
+
+        z-index: 99;
+    }
+
+
+    /* É AQUI QUE O JAVASCRIPT ENTRA */
+
+    .mobile-nav.active {
+        display: flex;
+    }
+
+
+    .mobile-nav a {
+        width: 100%;
+
+        min-height: 48px;
+
+        padding: 0 15px;
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 12px;
+
+        border-radius: 9px;
+
+        color: #59627A;
+
+        text-decoration: none;
+
+        font-size: 14px;
+
+        font-weight: 500;
+
+        transition: 0.2s ease;
+    }
+
+
+    .mobile-nav a i {
+        width: 20px;
+
+        color: #192E75;
+
+        font-size: 15px;
+
+        text-align: center;
+    }
+
+
+    .mobile-nav a:hover {
+        background: #F5F6FA;
+
+        color: #192E75;
+    }
+
+
+    .mobile-nav a.active {
+        background: #192E75;
+
+        color: #FFFFFF;
+    }
+
+
+    .mobile-nav a.active i {
+        color: #FFFFFF;
+    }
+
+}

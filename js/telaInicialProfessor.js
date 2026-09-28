@@ -346,7 +346,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
 
                 window.location.href =
-                    `visualizarAtividade.html?id=${id}`;
+                    `minhasAtividades.html?id=${id}`;
             });
         });
     }
@@ -355,36 +355,72 @@ document.addEventListener("DOMContentLoaded", () => {
     // MENU MOBILE
     // =========================================================
 
-    if (menuMobile && mainNav) {
 
-        menuMobile.addEventListener("click", () => {
 
-            const aberto =
-                mainNav.classList.toggle("show");
+
+if (menuMobile && mainNav) {
+
+    menuMobile.addEventListener("click", () => {
+
+        mainNav.classList.toggle("open");
+
+        const icon =
+            menuMobile.querySelector("i");
+
+        if (!icon) return;
+
+
+        if (mainNav.classList.contains("open")) {
+
+            icon.classList.remove("fa-bars");
+            icon.classList.add("fa-xmark");
 
             menuMobile.setAttribute(
-                "aria-expanded",
-                aberto ? "true" : "false"
+                "aria-label",
+                "Fechar menu"
+            );
+
+        } else {
+
+            icon.classList.remove("fa-xmark");
+            icon.classList.add("fa-bars");
+
+            menuMobile.setAttribute(
+                "aria-label",
+                "Abrir menu"
+            );
+        }
+    });
+
+
+    /* Fecha o menu ao clicar em um link */
+
+    const menuLinks =
+        mainNav.querySelectorAll(".nav-link");
+
+
+    menuLinks.forEach(link => {
+
+        link.addEventListener("click", () => {
+
+            mainNav.classList.remove("open");
+
+            const icon =
+                menuMobile.querySelector("i");
+
+            if (icon) {
+
+                icon.classList.remove("fa-xmark");
+                icon.classList.add("fa-bars");
+            }
+
+            menuMobile.setAttribute(
+                "aria-label",
+                "Abrir menu"
             );
         });
-
-        const links =
-            mainNav.querySelectorAll(".nav-link");
-
-        links.forEach(link => {
-
-            link.addEventListener("click", () => {
-
-                mainNav.classList.remove("show");
-
-                menuMobile.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-            });
-        });
-    }
-
+    });
+}
     // =========================================================
     // LOGOUT
     // =========================================================

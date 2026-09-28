@@ -16,7 +16,7 @@ body {
     width: 100%;
     min-height: 100vh;
 
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif !important;
 
     background: #F6F7FB;
 
@@ -25,7 +25,19 @@ body {
 
 
 /* =========================================================
-   TOPBAR — PADRÃO PERFIL SUPERVISOR
+   FONTE PADRÃO
+========================================================= */
+
+button,
+input,
+select,
+textarea {
+    font-family: 'Poppins', sans-serif !important;
+}
+
+
+/* =========================================================
+   TOPBAR
 ========================================================= */
 
 .topbar {
@@ -84,7 +96,7 @@ body {
 
 
 /* =========================================================
-   MENU DESKTOP — PADRÃO PERFIL
+   MENU DESKTOP
 ========================================================= */
 
 .main-nav {
@@ -125,6 +137,8 @@ body {
 
     text-decoration: none;
 
+    font-family: 'Poppins', sans-serif !important;
+
     font-size: 13px;
     font-weight: 500;
 
@@ -153,7 +167,7 @@ body {
 
 
 /* =========================================================
-   PERFIL DO TOPO — PADRÃO PERFIL
+   PERFIL DO TOPO
 ========================================================= */
 
 .profile-area {
@@ -193,6 +207,8 @@ body {
 .profile-info strong {
     color: #192E75;
 
+    font-family: 'Poppins', sans-serif !important;
+
     font-size: 14px;
     font-weight: 700;
 }
@@ -200,6 +216,8 @@ body {
 
 .profile-info span {
     color: #777777;
+
+    font-family: 'Poppins', sans-serif !important;
 
     font-size: 12px;
     font-weight: 500;
@@ -222,6 +240,8 @@ body {
 
     color: #192E75;
 
+    text-decoration: none;
+
     transition: 0.2s ease;
 }
 
@@ -231,13 +251,14 @@ body {
 }
 
 
-.profile-link:hover .profile-icon {
+.profile-link:hover .profile-icon,
+.profile-icon:hover {
     background: #E5E9F7;
 }
 
 
 /* =========================================================
-   BOTÃO SAIR — PADRÃO PERFIL
+   BOTÃO SAIR
 ========================================================= */
 
 .btn-sair,
@@ -261,6 +282,8 @@ body {
 
     color: #192E75;
 
+    font-family: 'Poppins', sans-serif !important;
+
     font-size: 15px;
 
     cursor: pointer;
@@ -280,7 +303,7 @@ body {
 
 
 /* =========================================================
-   BOTÃO MENU MOBILE — PADRÃO PERFIL
+   MENU MOBILE
 ========================================================= */
 
 .menu-mobile {
@@ -308,17 +331,13 @@ body {
 }
 
 
-/* =========================================================
-   MENU MOBILE
-========================================================= */
-
 .mobile-nav {
     display: none;
 }
 
 
 /* =========================================================
-   PÁGINA — PADRÃO PERFIL
+   PÁGINA
 ========================================================= */
 
 .pagina {
@@ -332,7 +351,7 @@ body {
 
 
 /* =========================================================
-   CABEÇALHO DA PÁGINA — PADRÃO PERFIL
+   CABEÇALHO
 ========================================================= */
 
 .pagina-cabecalho {
@@ -347,6 +366,8 @@ body {
 
     color: #EA632C;
 
+    font-family: 'Poppins', sans-serif !important;
+
     font-size: 11px;
     font-weight: 700;
 
@@ -356,6 +377,8 @@ body {
 
 .pagina-cabecalho h1 {
     color: #192E75;
+
+    font-family: 'Poppins', sans-serif !important;
 
     font-size: 38px;
     font-weight: 700;
@@ -372,6 +395,8 @@ body {
     margin-top: 9px;
 
     color: #777F91;
+
+    font-family: 'Poppins', sans-serif !important;
 
     font-size: 15px;
     font-weight: 400;
@@ -438,6 +463,8 @@ body {
 .filtros-titulo h2 {
     color: #192E75;
 
+    font-family: 'Poppins', sans-serif !important;
+
     font-size: 16px;
 
     font-weight: 700;
@@ -448,6 +475,8 @@ body {
 
 .filtros-titulo p {
     color: #7A8292;
+
+    font-family: 'Poppins', sans-serif !important;
 
     font-size: 11px;
 }
@@ -477,6 +506,8 @@ body {
 .campo label {
     color: #192E75;
 
+    font-family: 'Poppins', sans-serif !important;
+
     font-size: 11px;
 
     font-weight: 600;
@@ -497,6 +528,8 @@ body {
     background: #FFFFFF;
 
     color: #4D5366;
+
+    font-family: 'Poppins', sans-serif !important;
 
     font-size: 12px;
 
@@ -542,6 +575,8 @@ body {
     gap: 8px;
 
     border-radius: 9px;
+
+    font-family: 'Poppins', sans-serif !important;
 
     font-size: 11px;
 
@@ -608,6 +643,8 @@ body {
 .resultados-cabecalho h2 {
     color: #192E75;
 
+    font-family: 'Poppins', sans-serif !important;
+
     font-size: 22px;
 
     font-weight: 700;
@@ -625,6 +662,8 @@ body {
 
     padding: 7px 13px;
 
+    font-family: 'Poppins', sans-serif !important;
+
     font-size: 11px;
 
     font-weight: 500;
@@ -632,7 +671,7 @@ body {
 
 
 /* =========================================================
-   CARD DA ATIVIDADE
+   CARDS DAS ATIVIDADES
 ========================================================= */
 
 .atividade-card {
@@ -694,6 +733,8 @@ body {
 .atividade-data .dia {
     color: #192E75;
 
+    font-family: 'Poppins', sans-serif !important;
+
     font-size: 24px;
 
     line-height: 1;
@@ -706,6 +747,8 @@ body {
     margin-top: 5px;
 
     color: #EA632C;
+
+    font-family: 'Poppins', sans-serif !important;
 
     font-size: 10px;
 
@@ -743,6 +786,8 @@ body {
 
     color: #7B8194;
 
+    font-family: 'Poppins', sans-serif !important;
+
     font-size: 11px;
 }
 
@@ -760,6 +805,8 @@ body {
 .atividade-info h3 {
     color: #192E75;
 
+    font-family: 'Poppins', sans-serif !important;
+
     font-size: 16px;
 
     font-weight: 600;
@@ -770,6 +817,8 @@ body {
 
 .atividade-info > p {
     color: #7B8194;
+
+    font-family: 'Poppins', sans-serif !important;
 
     font-size: 12px;
 
@@ -807,6 +856,8 @@ body {
 
     color: #858B9E;
 
+    font-family: 'Poppins', sans-serif !important;
+
     font-size: 10px;
 }
 
@@ -840,6 +891,8 @@ body {
     background: #FFFFFF;
 
     color: #192E75;
+
+    font-family: 'Poppins', sans-serif !important;
 
     font-size: 11px;
 
@@ -907,10 +960,6 @@ body {
 }
 
 
-/* =========================================================
-   CAIXA DO MODAL
-========================================================= */
-
 .modal-detalhes {
     position: relative;
 
@@ -965,6 +1014,8 @@ body {
 
     color: #192E75;
 
+    font-family: 'Poppins', sans-serif !important;
+
     font-size: 18px;
 
     cursor: pointer;
@@ -983,7 +1034,7 @@ body {
 
 
 /* =========================================================
-   CABEÇALHO MODAL
+   CABEÇALHO DO MODAL
 ========================================================= */
 
 .modal-cabecalho {
@@ -1021,6 +1072,8 @@ body {
 .modal-cabecalho h2 {
     color: #192E75;
 
+    font-family: 'Poppins', sans-serif !important;
+
     font-size: 24px;
 
     font-weight: 700;
@@ -1031,6 +1084,8 @@ body {
     margin-top: 4px;
 
     color: #7B8194;
+
+    font-family: 'Poppins', sans-serif !important;
 
     font-size: 13px;
 }
@@ -1067,6 +1122,8 @@ body {
 
     color: #7B8194;
 
+    font-family: 'Poppins', sans-serif !important;
+
     font-size: 11px;
 
     font-weight: 500;
@@ -1078,6 +1135,8 @@ body {
 
     color: #192E75;
 
+    font-family: 'Poppins', sans-serif !important;
+
     font-size: 14px;
 
     font-weight: 600;
@@ -1088,6 +1147,8 @@ body {
     margin: 0;
 
     color: #3E4354;
+
+    font-family: 'Poppins', sans-serif !important;
 
     font-size: 13px;
 
@@ -1131,6 +1192,8 @@ body {
     background: #FFFFFF;
 
     color: #8A90A2;
+
+    font-family: 'Poppins', sans-serif !important;
 }
 
 
@@ -1146,12 +1209,14 @@ body {
 
     color: #8A90A2;
 
+    font-family: 'Poppins', sans-serif !important;
+
     font-size: 10px;
 }
 
 
 /* =========================================================
-   DESKTOP GRANDE — PADRÃO PERFIL
+   DESKTOP GRANDE
 ========================================================= */
 
 @media (min-width: 1500px) {
@@ -1197,7 +1262,7 @@ body {
 
 
 /* =========================================================
-   TABLET — PADRÃO PERFIL
+   TABLET
 ========================================================= */
 
 @media (max-width: 1100px) {
@@ -1233,7 +1298,7 @@ body {
 
 
 /* =========================================================
-   TABLET / MOBILE — PADRÃO PERFIL
+   TABLET / MOBILE
 ========================================================= */
 
 @media (max-width: 800px) {
@@ -1319,7 +1384,6 @@ body {
     }
 
 
-    /* CORRIGIDO: antes estava .open */
     .mobile-nav.ativo {
         display: flex;
     }
@@ -1341,6 +1405,8 @@ body {
         color: #727B91;
 
         text-decoration: none;
+
+        font-family: 'Poppins', sans-serif !important;
 
         font-size: 13px;
         font-weight: 500;
@@ -1490,7 +1556,7 @@ body {
 
 
 /* =========================================================
-   CELULAR — PADRÃO PERFIL
+   CELULAR
 ========================================================= */
 
 @media (max-width: 550px) {
@@ -1669,7 +1735,7 @@ body {
 
 
 /* =========================================================
-   CELULAR PEQUENO — PADRÃO PERFIL
+   CELULAR PEQUENO
 ========================================================= */
 
 @media (max-width: 380px) {

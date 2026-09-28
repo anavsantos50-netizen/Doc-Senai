@@ -387,35 +387,53 @@ function configurarEventos() {
     }
 
 
-    /* MENU MOBILE */
+   /* =========================================================
+   MENU MOBILE
+========================================================= */
 
-    if (
-        mobileMenuBtn &&
-        mobileNav
-    ) {
+const mobileMenuBtn =
+    document.getElementById("mobileMenuBtn");
 
-        mobileMenuBtn.addEventListener(
-            "click",
-            () => {
-
-                const aberto =
-                    mobileNav.classList.toggle(
-                        "active"
-                    );
+const mobileNav =
+    document.getElementById("mobileNav");
 
 
-                mobileMenuBtn.setAttribute(
-                    "aria-expanded",
-                    aberto
-                        ? "true"
-                        : "false"
-                );
+if (mobileMenuBtn && mobileNav) {
 
-            }
+    mobileMenuBtn.addEventListener("click", () => {
+
+        const aberto =
+            mobileNav.classList.toggle("active");
+
+        mobileMenuBtn.setAttribute(
+            "aria-expanded",
+            aberto ? "true" : "false"
         );
 
-    }
+    });
 
+
+    /* Fecha o menu quando clicar em uma opção */
+
+    const links =
+        mobileNav.querySelectorAll("a");
+
+    links.forEach(link => {
+
+        link.addEventListener("click", () => {
+
+            mobileNav.classList.remove("active");
+
+            mobileMenuBtn.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+        });
+
+    });
+
+}
 
     /* LOGOUT */
 
@@ -966,35 +984,25 @@ function criarCardAtividade(
                 </p>
 
 
-                <div class="activity-actions">
+              <div class="activity-actions">
 
-                    <button
-                        type="button"
-                        class="activity-view-btn"
-                        data-action="visualizar"
-                        data-id="${atividade.id}"
-                    >
+    <button
+        type="button"
+        class="activity-action"
+        title="Visualizar atividade"
+    >
+        <i class="fa-regular fa-eye"></i>
+    </button>
 
-                        <i class="fa-regular fa-eye"></i>
+    <button
+        type="button"
+        class="activity-action delete"
+        title="Excluir atividade"
+    >
+        <i class="fa-solid fa-trash"></i>
+    </button>
 
-                        Visualizar
-
-                    </button>
-
-
-                    <button
-                        type="button"
-                        class="activity-delete-btn"
-                        data-action="excluir"
-                        data-id="${atividade.id}"
-                    >
-
-                        <i class="fa-regular fa-trash-can"></i>
-
-                        Excluir
-
-                    </button>
-
+</div>
                 </div>
 
             </div>
@@ -1889,11 +1897,90 @@ function escaparHTML(
 
 function logout() {
 
-    sessionStorage.clear();
+    const confirmar = confirm(
+        "Deseja realmente sair da página?"
+    );
 
+    if (!confirmar) {
+        return;
+    }
+
+    sessionStorage.clear();
     localStorage.clear();
 
-    window.location.href =
-        "login.html";
+    window.location.href = "login.html";
+}
+/* =====================================================
+   MENU MOBILE
+===================================================== */
 
+const menuMobile =
+    document.getElementById("menuMobile");
+
+const mainNav =
+    document.getElementById("mainNav");
+
+
+if (menuMobile && mainNav) {
+
+    menuMobile.addEventListener("click", () => {
+
+        mainNav.classList.toggle("open");
+
+        const icon =
+            menuMobile.querySelector("i");
+
+        if (!icon) return;
+
+
+        if (mainNav.classList.contains("open")) {
+
+            icon.classList.remove("fa-bars");
+            icon.classList.add("fa-xmark");
+
+            menuMobile.setAttribute(
+                "aria-label",
+                "Fechar menu"
+            );
+
+        } else {
+
+            icon.classList.remove("fa-xmark");
+            icon.classList.add("fa-bars");
+
+            menuMobile.setAttribute(
+                "aria-label",
+                "Abrir menu"
+            );
+        }
+    });
+
+
+    /* Fecha o menu ao clicar em um link */
+
+    const menuLinks =
+        mainNav.querySelectorAll(".nav-link");
+
+
+    menuLinks.forEach(link => {
+
+        link.addEventListener("click", () => {
+
+            mainNav.classList.remove("open");
+
+            const icon =
+                menuMobile.querySelector("i");
+
+            if (icon) {
+
+                icon.classList.remove("fa-xmark");
+                icon.classList.add("fa-bars");
+            }
+
+            menuMobile.setAttribute(
+                "aria-label",
+                "Abrir menu"
+            );
+        });
+    });
 }

@@ -71,9 +71,7 @@ function configurarMenu() {
 
 
     const links =
-        mobileNav.querySelectorAll(
-            "a"
-        );
+        mobileNav.querySelectorAll("a");
 
 
     links.forEach(link => {
@@ -749,13 +747,11 @@ function renderizarAtividades() {
 
 
                     <h3>
-
                         ${escaparHTML(
                             primeiraLinha(
                                 atividade.descricao || ""
                             )
                         )}
-
                     </h3>
 
 
@@ -854,11 +850,15 @@ function configurarCheckboxes() {
 
                 if (checkbox.checked) {
 
-                    atividadesSelecionadas.add(id);
+                    atividadesSelecionadas.add(
+                        id
+                    );
 
                 } else {
 
-                    atividadesSelecionadas.delete(id);
+                    atividadesSelecionadas.delete(
+                        id
+                    );
 
                 }
 
@@ -1091,6 +1091,7 @@ function configurarGeracao() {
         );
 
         return;
+
     }
 
 
@@ -1173,9 +1174,11 @@ async function gerarRelatorio(event) {
             "Preencha o título do relatório."
         );
 
+
         if (campoTitulo) {
             campoTitulo.focus();
         }
+
 
         return;
 
@@ -1195,9 +1198,11 @@ async function gerarRelatorio(event) {
             "Selecione um professor."
         );
 
+
         if (campoProfessor) {
             campoProfessor.focus();
         }
+
 
         return;
 
@@ -1217,9 +1222,11 @@ async function gerarRelatorio(event) {
             "Selecione uma turma."
         );
 
+
         if (campoTurma) {
             campoTurma.focus();
         }
+
 
         return;
 
@@ -1239,9 +1246,11 @@ async function gerarRelatorio(event) {
             "Selecione um curso."
         );
 
+
         if (campoCurso) {
             campoCurso.focus();
         }
+
 
         return;
 
@@ -1261,9 +1270,11 @@ async function gerarRelatorio(event) {
             "Selecione a data inicial."
         );
 
+
         if (campoInicio) {
             campoInicio.focus();
         }
+
 
         return;
 
@@ -1283,9 +1294,11 @@ async function gerarRelatorio(event) {
             "Selecione a data final."
         );
 
+
         if (campoFim) {
             campoFim.focus();
         }
+
 
         return;
 
@@ -1305,7 +1318,9 @@ async function gerarRelatorio(event) {
             "A data inicial não pode ser maior que a data final."
         );
 
+
         campoInicio.focus();
+
 
         return;
 
@@ -1329,6 +1344,7 @@ async function gerarRelatorio(event) {
         alert(
             "Selecione pelo menos uma atividade."
         );
+
 
         return;
 
@@ -1513,6 +1529,7 @@ async function gerarRelatorio(event) {
                 erroJSON
             );
 
+
             throw new Error(
                 "A API retornou uma resposta inválida."
             );
@@ -1546,6 +1563,7 @@ async function gerarRelatorio(event) {
         console.log(
             "RELATÓRIO GERADO COM SUCESSO!"
         );
+
 
         console.log(
             "RESULTADO:",
