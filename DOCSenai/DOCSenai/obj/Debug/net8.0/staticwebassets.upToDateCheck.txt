@@ -42,3 +42,9 @@ wwwroot\relatorios\relatorio_24_20260922093439490.pdf
 wwwroot\relatorios\relatorio_25_20260922093516376.pdf
 wwwroot\relatorios\relatorio_26_20260922094926163.pdf
 wwwroot\relatorios\relatorio_27_20260922100314650.pdf
+wwwroot\relatorios\relatorio_28_20260922101516596.pdf
+wwwroot\relatorios\relatorio_29_20260922101524878.pdf
+wwwroot\relatorios\relatorio_30_20260922101906830.pdf
+wwwroot\relatorios\relatorio_31_20260922102106254.pdf
+wwwroot\relatorios\relatorio_32_20260922102222693.pdf
+wwwroot\relatorios\relatorio_33_20260922102553318.pdf
