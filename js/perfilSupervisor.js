@@ -601,6 +601,31 @@ async function salvarPerfil() {
 
 async function sairDaConta() {
 
+    /* ---------------------------------------------
+       CONFIRMAR SAÍDA
+    --------------------------------------------- */
+
+    const confirmar =
+        confirm(
+            "Deseja realmente sair?"
+        );
+
+
+    /* ---------------------------------------------
+       CANCELAR
+    --------------------------------------------- */
+
+    if (!confirmar) {
+
+        return;
+
+    }
+
+
+    /* ---------------------------------------------
+       REALIZAR LOGOUT
+    --------------------------------------------- */
+
     try {
 
         await fetch(

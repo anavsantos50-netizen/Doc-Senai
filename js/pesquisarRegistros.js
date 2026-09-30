@@ -997,8 +997,7 @@ function configurarSair() {
 
             const confirmar =
                 confirm(
-                    "Tem certeza que deseja sair do sistema?"
-                );
+"Deseja sair da sua conta?"                );
 
 
             if (!confirmar) {

@@ -17,11 +17,6 @@ namespace DOCSenai.Controllers
             _context = context;
         }
 
-
-        /* =====================================================
-           LOGIN
-        ===================================================== */
-
         [HttpPost("login")]
         public IActionResult Login(Usuario usuario)
         {
@@ -31,7 +26,6 @@ namespace DOCSenai.Controllers
                     u.Senha.Equals(usuario.Senha))
                 .ToList();
 
-
             if (usuarioBanco.Count == 0)
             {
                 return Unauthorized(
@@ -39,14 +33,12 @@ namespace DOCSenai.Controllers
                 );
             }
 
-
             HttpContext.Session.SetString(
                 "IdLogado",
                 usuarioBanco[0]
                     .Id_Usuario
                     .ToString()
             );
-
 
             Response.Cookies.Append(
                 "IdLogado",
@@ -60,8 +52,6 @@ namespace DOCSenai.Controllers
                     SameSite = SameSiteMode.None
                 }
             );
-
-
             return Ok(
                 usuarioBanco[0]
                     .Cargo

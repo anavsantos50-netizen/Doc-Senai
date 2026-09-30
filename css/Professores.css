@@ -2029,32 +2029,36 @@ body {
     }
 
 
-    .mobile-nav.open {
-        display: flex;
+   .mobile-nav {
+    display: none;
 
-        position: absolute;
+    position: fixed;
 
-        top: 70px;
-        left: 0;
-        right: 0;
+    top: 70px;
+    left: 0;
 
-        width: 100%;
+    width: 100%;
 
-        padding: 12px 5%;
+    padding: 12px 5%;
 
-        flex-direction: column;
+    flex-direction: column;
 
-        gap: 5px;
+    gap: 5px;
 
-        background: #FFFFFF;
+    background: #FFFFFF;
 
-        border-top: 1px solid #E9ECF2;
+    border-top: 1px solid #E9ECF2;
 
-        box-shadow:
-            0 12px 25px rgba(0, 0, 0, .07);
+    box-shadow:
+        0 12px 25px rgba(0, 0, 0, .07);
 
-        z-index: 999;
-    }
+    z-index: 999;
+}
+
+
+.mobile-nav.ativo {
+    display: flex;
+}
 
 
     .mobile-nav-link {
@@ -2247,10 +2251,9 @@ body {
         height: 38px;
     }
 
-
-    .mobile-nav.open {
-        top: 66px;
-    }
+.mobile-nav {
+    top: 66px;
+}
 
 
     .main-content {

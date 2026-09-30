@@ -14,6 +14,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Controllers\FotoController.cs" />
+    <Compile Remove="Controllers\Relatorio_AtividadeController.cs" />
+    <Compile Remove="Controllers\TurmaController.cs" />
     <Compile Remove="wwwroot.cs" />
   </ItemGroup>
 

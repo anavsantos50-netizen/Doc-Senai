@@ -49,3 +49,6 @@ wwwroot\relatorios\relatorio_31_20260922102106254.pdf
 wwwroot\relatorios\relatorio_32_20260922102222693.pdf
 wwwroot\relatorios\relatorio_33_20260922102553318.pdf
 wwwroot\relatorios\relatorio_4_20260923074609601.pdf
+wwwroot\uploads\9c390c0e-6238-44de-ba1e-716118a3587c.png
+wwwroot\relatorios\relatorio_4_20260928084253031.pdf
+wwwroot\relatorios\relatorio_5_20260928100252438.pdf

@@ -898,18 +898,28 @@ if (btnSair) {
 
     btnSair.addEventListener(
         "click",
-        async () => {
+        () => {
 
             const confirmar =
                 confirm(
-                    "Tem certeza que deseja sair do sistema?"
+                    "Deseja realmente sair?"
                 );
 
 
+            // --------------------------------------------------
+            // CANCELAR
+            // --------------------------------------------------
+
             if (!confirmar) {
+
                 return;
+
             }
 
+
+            // --------------------------------------------------
+            // CONFIRMAR SAÍDA
+            // --------------------------------------------------
 
             window.location.href =
                 "login.html";
@@ -918,7 +928,6 @@ if (btnSair) {
     );
 
 }
-
 
 
 // ======================================================

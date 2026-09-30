@@ -1477,67 +1477,137 @@ select {
     }
 
 
-    /* =================================================
-       MENU MOBILE
-    ================================================= */
+ /* =================================================
+   MENU MOBILE
+================================================= */
 
-    .menu-mobile {
-        display: flex;
-    }
+.menu-mobile {
+    display: flex;
 
-    .main-nav {
-        display: none;
-    }
+    width: 40px;
+    height: 40px;
 
-    .main-nav.open {
-        display: flex;
+    margin-left: 10px;
 
-        position: absolute;
+    align-items: center;
+    justify-content: center;
 
-        top: 70px;
+    border: 1px solid #E5E7ED;
 
-        left: 0;
-        right: 0;
+    border-radius: 9px;
 
-        width: 100%;
+    background: #FFFFFF;
 
-        max-width: none;
+    color: #192E75;
 
-        transform: none;
+    font-size: 17px;
 
-        padding: 12px 5%;
+    cursor: pointer;
 
-        flex-direction: column;
+    transition: .2s ease;
 
-        align-items: stretch;
+    z-index: 1001;
+}
 
-        gap: 5px;
+.menu-mobile:hover {
+    background: #F5F6FA;
+}
 
-        background: #FFFFFF;
 
-        border: none;
+/* =================================================
+   MENU MOBILE ABERTO
+================================================= */
 
-        border-bottom: 1px solid #E9ECF2;
+.mobile-nav {
+    display: none;
 
-        border-radius: 0;
+    position: fixed;
 
-        box-shadow:
-            0 12px 25px rgba(0, 0, 0, .07);
+    top: 70px;
+    left: 0;
 
-        z-index: 999;
-    }
+    width: 100%;
 
-    .main-nav.open .nav-link {
-        width: 100%;
+    padding: 12px 5%;
 
-        height: 48px;
+    flex-direction: column;
 
-        justify-content: flex-start;
+    gap: 5px;
 
-        padding: 0 15px;
+    background: #FFFFFF;
 
-        font-size: 14px;
-    }
+    border-bottom: 1px solid #E9ECF2;
+
+    box-shadow:
+        0 12px 25px rgba(0, 0, 0, .07);
+
+    z-index: 999;
+}
+
+.mobile-nav.ativo {
+    display: flex;
+}
+
+
+/* =================================================
+   LINKS DO MENU MOBILE
+================================================= */
+
+.mobile-nav a {
+    width: 100%;
+    min-height: 48px;
+
+    padding: 0 15px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    border-radius: 9px;
+
+    color: #727B91;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    transition: .2s ease;
+}
+
+.mobile-nav a i {
+    width: 20px;
+
+    color: #192E75;
+
+    text-align: center;
+
+    font-size: 15px;
+}
+
+.mobile-nav a:hover {
+    background: #F5F6FA;
+
+    color: #192E75;
+}
+
+
+/* =================================================
+   LINK ATIVO
+================================================= */
+
+.mobile-nav a.active {
+    background: #192E75;
+
+    color: #FFFFFF;
+
+    font-weight: 600;
+}
+
+.mobile-nav a.active i {
+    color: #FFFFFF;
+}
 
 
     /* =================================================
@@ -1605,9 +1675,9 @@ select {
         height: 38px;
     }
 
-    .main-nav.open {
-        top: 66px;
-    }
+  .mobile-nav {
+    top: 66px;
+}
 
     .main-content {
         padding: 30px 0 45px;
@@ -1780,5 +1850,141 @@ select {
 
     .modal-header h2 {
         font-size: 19px;
+    }
+}
+/* =========================================================
+   CORREÇÃO DEFINITIVA DO MENU MOBILE
+========================================================= */
+
+/* Menu mobile fica escondido por padrão */
+.mobile-nav {
+    display: none !important;
+}
+
+
+/* Quando o JavaScript adicionar "ativo", aparece */
+.mobile-nav.ativo {
+    display: flex !important;
+
+    position: fixed;
+
+    top: 82px;
+    left: 0;
+
+    width: 100%;
+
+    padding: 12px 5%;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+    background: #FFFFFF;
+
+    border-bottom: 1px solid #E9ECF2;
+
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.07);
+
+    z-index: 9999;
+}
+
+
+/* Links */
+.mobile-nav a {
+    width: 100%;
+    min-height: 48px;
+
+    padding: 0 15px;
+
+    display: flex !important;
+    align-items: center;
+
+    gap: 12px;
+
+    border-radius: 9px;
+
+    color: #727B91;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    transition: all 0.2s ease;
+}
+
+
+/* Ícones */
+.mobile-nav a i {
+    width: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #192E75;
+
+    font-size: 15px;
+}
+
+
+/* Hover */
+.mobile-nav a:hover {
+    background: #F5F6FA;
+
+    color: #192E75;
+}
+
+
+/* Link ativo */
+.mobile-nav a.active {
+    background: #192E75;
+
+    color: #FFFFFF;
+
+    font-weight: 600;
+}
+
+
+/* Ícone do link ativo */
+.mobile-nav a.active i {
+    color: #FFFFFF;
+}
+
+
+/* =========================================================
+   TABLET / CELULAR
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .main-nav {
+        display: none !important;
+    }
+
+    .menu-mobile {
+        display: flex !important;
+    }
+
+    .mobile-nav.ativo {
+        top: 70px;
+    }
+}
+
+
+/* =========================================================
+   CELULAR
+========================================================= */
+
+@media (max-width: 550px) {
+
+    .mobile-nav.ativo {
+        top: 66px;
+    }
+
+    .mobile-nav a {
+        min-height: 46px;
+
+        font-size: 13px;
     }
 }

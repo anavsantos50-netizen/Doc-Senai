@@ -98,6 +98,7 @@ function configurarMenu() {
 }
 
 
+
 /* =========================================================
    LOGOUT
 ========================================================= */
@@ -117,6 +118,25 @@ function configurarLogout() {
             event.preventDefault();
         }
 
+
+        /* =====================================================
+           CONFIRMAÇÃO
+        ===================================================== */
+
+        const confirmar = confirm(
+            "Deseja sair da sua conta?"
+        );
+
+
+        /* Se clicar em Cancelar */
+        if (!confirmar) {
+            return;
+        }
+
+
+        /* =====================================================
+           REALIZAR LOGOUT
+        ===================================================== */
 
         try {
 
@@ -145,6 +165,10 @@ function configurarLogout() {
     }
 
 
+    /* =====================================================
+       BOTÃO DE LOGOUT DESKTOP
+    ===================================================== */
+
     if (btnLogout) {
 
         btnLogout.addEventListener(
@@ -154,6 +178,10 @@ function configurarLogout() {
 
     }
 
+
+    /* =====================================================
+       BOTÃO DE LOGOUT MOBILE
+    ===================================================== */
 
     if (btnLogoutMobile) {
 
@@ -165,7 +193,6 @@ function configurarLogout() {
     }
 
 }
-
 
 /* =========================================================
    FILTROS

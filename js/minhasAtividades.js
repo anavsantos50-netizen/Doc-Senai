@@ -137,6 +137,8 @@ document.addEventListener(
 
         configurarEventos();
 
+        configurarMenuMobile();
+
     }
 );
 
@@ -147,7 +149,9 @@ document.addEventListener(
 
 function configurarEventos() {
 
-    /* BUSCA */
+    /* =====================================================
+       BUSCA
+    ===================================================== */
 
     if (searchInput) {
 
@@ -159,7 +163,9 @@ function configurarEventos() {
     }
 
 
-    /* FILTRO TURMA */
+    /* =====================================================
+       FILTRO TURMA
+    ===================================================== */
 
     if (turmaFilter) {
 
@@ -171,7 +177,9 @@ function configurarEventos() {
     }
 
 
-    /* FILTRO PERÍODO */
+    /* =====================================================
+       FILTRO PERÍODO
+    ===================================================== */
 
     if (periodoFilter) {
 
@@ -183,7 +191,9 @@ function configurarEventos() {
     }
 
 
-    /* ORDENAÇÃO */
+    /* =====================================================
+       ORDENAÇÃO
+    ===================================================== */
 
     if (sortFilter) {
 
@@ -195,7 +205,9 @@ function configurarEventos() {
     }
 
 
-    /* LIMPAR FILTROS */
+    /* =====================================================
+       LIMPAR FILTROS
+    ===================================================== */
 
     if (clearFilters) {
 
@@ -217,7 +229,9 @@ function configurarEventos() {
     }
 
 
-    /* FECHAR MODAL */
+    /* =====================================================
+       FECHAR MODAL
+    ===================================================== */
 
     if (modalClose) {
 
@@ -239,7 +253,9 @@ function configurarEventos() {
     }
 
 
-    /* EDITAR */
+    /* =====================================================
+       EDITAR
+    ===================================================== */
 
     if (modalEdit) {
 
@@ -251,7 +267,9 @@ function configurarEventos() {
     }
 
 
-    /* CONFIRMAR EXCLUSÃO */
+    /* =====================================================
+       CONFIRMAR EXCLUSÃO
+    ===================================================== */
 
     if (confirmDelete) {
 
@@ -263,7 +281,9 @@ function configurarEventos() {
     }
 
 
-    /* CANCELAR EXCLUSÃO */
+    /* =====================================================
+       CANCELAR EXCLUSÃO
+    ===================================================== */
 
     if (cancelDelete) {
 
@@ -275,7 +295,9 @@ function configurarEventos() {
     }
 
 
-    /* CLICAR FORA DO MODAL */
+    /* =====================================================
+       CLICAR FORA DO MODAL
+    ===================================================== */
 
     if (activityModal) {
 
@@ -319,7 +341,9 @@ function configurarEventos() {
     }
 
 
-    /* ESC */
+    /* =====================================================
+       ESC
+    ===================================================== */
 
     document.addEventListener(
         "keydown",
@@ -368,14 +392,24 @@ function configurarEventos() {
                     botao.dataset.action;
 
 
-                if (action === "visualizar") {
+                /* VISUALIZAR */
+
+                if (
+                    action ===
+                    "visualizar"
+                ) {
 
                     abrirModal(id);
 
                 }
 
 
-                if (action === "excluir") {
+                /* EXCLUIR */
+
+                if (
+                    action ===
+                    "excluir"
+                ) {
 
                     abrirConfirmacao(id);
 
@@ -387,55 +421,9 @@ function configurarEventos() {
     }
 
 
-   /* =========================================================
-   MENU MOBILE
-========================================================= */
-
-const mobileMenuBtn =
-    document.getElementById("mobileMenuBtn");
-
-const mobileNav =
-    document.getElementById("mobileNav");
-
-
-if (mobileMenuBtn && mobileNav) {
-
-    mobileMenuBtn.addEventListener("click", () => {
-
-        const aberto =
-            mobileNav.classList.toggle("active");
-
-        mobileMenuBtn.setAttribute(
-            "aria-expanded",
-            aberto ? "true" : "false"
-        );
-
-    });
-
-
-    /* Fecha o menu quando clicar em uma opção */
-
-    const links =
-        mobileNav.querySelectorAll("a");
-
-    links.forEach(link => {
-
-        link.addEventListener("click", () => {
-
-            mobileNav.classList.remove("active");
-
-            mobileMenuBtn.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-
-        });
-
-    });
-
-}
-
-    /* LOGOUT */
+    /* =====================================================
+       LOGOUT
+    ===================================================== */
 
     if (btnLogout) {
 
@@ -445,6 +433,153 @@ if (mobileMenuBtn && mobileNav) {
         );
 
     }
+
+}
+
+
+/* =========================================================
+   MENU MOBILE
+========================================================= */
+
+function configurarMenuMobile() {
+
+    if (
+        !mobileMenuBtn ||
+        !mobileNav
+    ) {
+
+        return;
+
+    }
+
+
+    /* =====================================================
+       ABRIR / FECHAR MENU
+    ===================================================== */
+
+    mobileMenuBtn.addEventListener(
+        "click",
+        () => {
+
+            const aberto =
+                mobileNav.classList.toggle(
+                    "active"
+                );
+
+
+            mobileMenuBtn.setAttribute(
+                "aria-expanded",
+                aberto
+                    ? "true"
+                    : "false"
+            );
+
+
+            const icon =
+                mobileMenuBtn.querySelector(
+                    "i"
+                );
+
+
+            if (!icon) {
+                return;
+            }
+
+
+            if (aberto) {
+
+                icon.classList.remove(
+                    "fa-bars"
+                );
+
+                icon.classList.add(
+                    "fa-xmark"
+                );
+
+                mobileMenuBtn.setAttribute(
+                    "aria-label",
+                    "Fechar menu"
+                );
+
+            }
+            else {
+
+                icon.classList.remove(
+                    "fa-xmark"
+                );
+
+                icon.classList.add(
+                    "fa-bars"
+                );
+
+                mobileMenuBtn.setAttribute(
+                    "aria-label",
+                    "Abrir menu"
+                );
+
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       FECHAR AO CLICAR EM UM LINK
+    ===================================================== */
+
+    const links =
+        mobileNav.querySelectorAll(
+            "a"
+        );
+
+
+    links.forEach(
+        link => {
+
+            link.addEventListener(
+                "click",
+                () => {
+
+                    mobileNav.classList.remove(
+                        "active"
+                    );
+
+
+                    mobileMenuBtn.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+
+                    const icon =
+                        mobileMenuBtn.querySelector(
+                            "i"
+                        );
+
+
+                    if (icon) {
+
+                        icon.classList.remove(
+                            "fa-xmark"
+                        );
+
+                        icon.classList.add(
+                            "fa-bars"
+                        );
+
+                    }
+
+
+                    mobileMenuBtn.setAttribute(
+                        "aria-label",
+                        "Abrir menu"
+                    );
+
+                }
+            );
+
+        }
+    );
 
 }
 
@@ -467,9 +602,14 @@ async function carregarAtividades() {
             );
 
 
-        /* SESSÃO */
+        /* =================================================
+           SESSÃO
+        ================================================= */
 
-        if (resposta.status === 401) {
+        if (
+            resposta.status ===
+            401
+        ) {
 
             alert(
                 "Sua sessão expirou. Faça login novamente."
@@ -483,6 +623,10 @@ async function carregarAtividades() {
         }
 
 
+        /* =================================================
+           ERRO
+        ================================================= */
+
         if (!resposta.ok) {
 
             throw new Error(
@@ -491,6 +635,10 @@ async function carregarAtividades() {
 
         }
 
+
+        /* =================================================
+           DADOS
+        ================================================= */
 
         atividades =
             await resposta.json();
@@ -532,7 +680,10 @@ async function carregarAtividades() {
 
 
         if (resultsCount) {
-            resultsCount.textContent = "0";
+
+            resultsCount.textContent =
+                "0";
+
         }
 
     }
@@ -806,7 +957,9 @@ function renderizarAtividades() {
     );
 
 
-    /* CONTADOR */
+    /* =====================================================
+       CONTADOR
+    ===================================================== */
 
     if (resultsCount) {
 
@@ -816,7 +969,9 @@ function renderizarAtividades() {
     }
 
 
-    /* ESTADO VAZIO */
+    /* =====================================================
+       ESTADO VAZIO
+    ===================================================== */
 
     if (
         resultado.length ===
@@ -825,6 +980,7 @@ function renderizarAtividades() {
 
         activitiesList.innerHTML =
             "";
+
 
         if (emptyState) {
 
@@ -846,7 +1002,9 @@ function renderizarAtividades() {
     }
 
 
-    /* CARDS */
+    /* =====================================================
+       CARDS
+    ===================================================== */
 
     activitiesList.innerHTML =
         resultado
@@ -984,25 +1142,43 @@ function criarCardAtividade(
                 </p>
 
 
-              <div class="activity-actions">
+                <!-- =================================================
+                     AÇÕES
+                ================================================== -->
 
-    <button
-        type="button"
-        class="activity-action"
-        title="Visualizar atividade"
-    >
-        <i class="fa-regular fa-eye"></i>
-    </button>
+                <div class="activity-actions">
 
-    <button
-        type="button"
-        class="activity-action delete"
-        title="Excluir atividade"
-    >
-        <i class="fa-solid fa-trash"></i>
-    </button>
+                    <!-- VISUALIZAR -->
 
-</div>
+                    <button
+                        type="button"
+                        class="activity-action"
+                        data-action="visualizar"
+                        data-id="${atividade.id}"
+                        title="Visualizar atividade"
+                        aria-label="Visualizar atividade"
+                    >
+
+                        <i class="fa-regular fa-eye"></i>
+
+                    </button>
+
+
+                    <!-- EXCLUIR -->
+
+                    <button
+                        type="button"
+                        class="activity-action delete"
+                        data-action="excluir"
+                        data-id="${atividade.id}"
+                        title="Excluir atividade"
+                        aria-label="Excluir atividade"
+                    >
+
+                        <i class="fa-solid fa-trash"></i>
+
+                    </button>
+
                 </div>
 
             </div>
@@ -1031,9 +1207,14 @@ async function abrirModal(id) {
             );
 
 
-        /* SESSÃO */
+        /* =================================================
+           SESSÃO
+        ================================================= */
 
-        if (resposta.status === 401) {
+        if (
+            resposta.status ===
+            401
+        ) {
 
             alert(
                 "Sua sessão expirou. Faça login novamente."
@@ -1046,6 +1227,10 @@ async function abrirModal(id) {
 
         }
 
+
+        /* =================================================
+           NÃO ENCONTRADA
+        ================================================= */
 
         if (
             resposta.status ===
@@ -1061,6 +1246,10 @@ async function abrirModal(id) {
         }
 
 
+        /* =================================================
+           ERRO
+        ================================================= */
+
         if (!resposta.ok) {
 
             throw new Error(
@@ -1074,27 +1263,9 @@ async function abrirModal(id) {
             await resposta.json();
 
 
-        /*
-         * IMPORTANTE:
-         *
-         * O endpoint /{id} retorna:
-         *
-         * fk_turma_id_turma
-         * data_atividade
-         * descricao_atividade
-         * observacao
-         * fotos
-         *
-         * Já o endpoint /minhas retorna:
-         *
-         * turma
-         * periodo
-         * data
-         * descricao
-         *
-         * Então juntamos os dois objetos aqui.
-         */
-
+        /* =================================================
+           ATIVIDADE DA LISTAGEM
+        ================================================= */
 
         const atividadeLista =
             atividades.find(
@@ -1105,6 +1276,10 @@ async function abrirModal(id) {
             );
 
 
+        /* =================================================
+           MONTAR ATIVIDADE SELECIONADA
+        ================================================= */
+
         atividadeSelecionada = {
 
             id:
@@ -1112,23 +1287,20 @@ async function abrirModal(id) {
                 id,
 
 
-            /* DADOS DO ENDPOINT DE DETALHE */
+            /* DADOS DO DETALHE */
 
             fk_turma_id_turma:
                 detalhe.fk_turma_id_turma,
 
-
             data_atividade:
                 detalhe.data_atividade,
-
 
             descricao_atividade:
                 detalhe.descricao_atividade,
 
-
             observacao:
-                detalhe.observacao || "",
-
+                detalhe.observacao ||
+                "",
 
             fotos:
                 Array.isArray(
@@ -1177,10 +1349,18 @@ async function abrirModal(id) {
         };
 
 
+        /* =================================================
+           PREENCHER MODAL
+        ================================================= */
+
         preencherModal(
             atividadeSelecionada
         );
 
+
+        /* =================================================
+           ABRIR MODAL
+        ================================================= */
 
         if (activityModal) {
 
@@ -1356,6 +1536,10 @@ function preencherModal(
         "";
 
 
+    /* =====================================================
+       SEM FOTOS
+    ===================================================== */
+
     if (
         fotos.length ===
         0
@@ -1425,12 +1609,6 @@ function preencherModal(
                 "activity-photo";
 
 
-            /*
-             * Se uma foto antiga não existir
-             * fisicamente no servidor, não quebra
-             * o restante do modal.
-             */
-
             imagem.onerror =
                 () => {
 
@@ -1482,6 +1660,11 @@ function editarAtividade() {
 
 function abrirConfirmacao(id) {
 
+    if (!id) {
+        return;
+    }
+
+
     atividadeParaExcluir =
         id;
 
@@ -1519,6 +1702,10 @@ async function excluirAtividade() {
         atividadeParaExcluir;
 
 
+    /* =====================================================
+       DESABILITAR BOTÃO
+    ===================================================== */
+
     if (confirmDelete) {
 
         confirmDelete.disabled =
@@ -1545,7 +1732,9 @@ async function excluirAtividade() {
             );
 
 
-        /* SESSÃO */
+        /* =================================================
+           SESSÃO
+        ================================================= */
 
         if (
             resposta.status ===
@@ -1564,12 +1753,20 @@ async function excluirAtividade() {
         }
 
 
+        /* =================================================
+           RESPOSTA
+        ================================================= */
+
         const dados =
             await resposta.json()
                 .catch(
                     () => ({})
                 );
 
+
+        /* =================================================
+           ERRO
+        ================================================= */
 
         if (!resposta.ok) {
 
@@ -1582,7 +1779,7 @@ async function excluirAtividade() {
 
 
         /* =================================================
-           REMOVER DA LISTA LOCAL
+           REMOVER DA LISTA
         ================================================= */
 
         atividades =
@@ -1594,10 +1791,25 @@ async function excluirAtividade() {
             );
 
 
+        /* =================================================
+           FECHAR CONFIRMAÇÃO
+        ================================================= */
+
         fecharConfirmacao();
+
+
+        /* =================================================
+           ATUALIZAR TELA
+        ================================================= */
+
+        preencherFiltros();
 
         renderizarAtividades();
 
+
+        /* =================================================
+           MENSAGEM
+        ================================================= */
 
         alert(
             dados.mensagem ||
@@ -1749,6 +1961,10 @@ function converterData(
     }
 
 
+    /* =====================================================
+       DD/MM/YYYY
+    ===================================================== */
+
     if (
         typeof data ===
         "string" &&
@@ -1777,6 +1993,10 @@ function converterData(
 
     }
 
+
+    /* =====================================================
+       ISO
+    ===================================================== */
 
     const dataObj =
         new Date(data);
@@ -1811,7 +2031,9 @@ function formatarData(
     }
 
 
-    /* DATA DD/MM/YYYY */
+    /* =====================================================
+       DD/MM/YYYY
+    ===================================================== */
 
     if (
         typeof data ===
@@ -1824,7 +2046,9 @@ function formatarData(
     }
 
 
-    /* DATA ISO */
+    /* =====================================================
+       ISO
+    ===================================================== */
 
     const dataObj =
         new Date(data);
@@ -1897,90 +2121,23 @@ function escaparHTML(
 
 function logout() {
 
-    const confirmar = confirm(
-        "Deseja realmente sair da página?"
-    );
+    const confirmar =
+        confirm(
+            "Deseja realmente sair da página?"
+        );
+
 
     if (!confirmar) {
         return;
     }
 
+
     sessionStorage.clear();
+
     localStorage.clear();
 
-    window.location.href = "login.html";
-}
-/* =====================================================
-   MENU MOBILE
-===================================================== */
 
-const menuMobile =
-    document.getElementById("menuMobile");
+    window.location.href =
+        "login.html";
 
-const mainNav =
-    document.getElementById("mainNav");
-
-
-if (menuMobile && mainNav) {
-
-    menuMobile.addEventListener("click", () => {
-
-        mainNav.classList.toggle("open");
-
-        const icon =
-            menuMobile.querySelector("i");
-
-        if (!icon) return;
-
-
-        if (mainNav.classList.contains("open")) {
-
-            icon.classList.remove("fa-bars");
-            icon.classList.add("fa-xmark");
-
-            menuMobile.setAttribute(
-                "aria-label",
-                "Fechar menu"
-            );
-
-        } else {
-
-            icon.classList.remove("fa-xmark");
-            icon.classList.add("fa-bars");
-
-            menuMobile.setAttribute(
-                "aria-label",
-                "Abrir menu"
-            );
-        }
-    });
-
-
-    /* Fecha o menu ao clicar em um link */
-
-    const menuLinks =
-        mainNav.querySelectorAll(".nav-link");
-
-
-    menuLinks.forEach(link => {
-
-        link.addEventListener("click", () => {
-
-            mainNav.classList.remove("open");
-
-            const icon =
-                menuMobile.querySelector("i");
-
-            if (icon) {
-
-                icon.classList.remove("fa-xmark");
-                icon.classList.add("fa-bars");
-            }
-
-            menuMobile.setAttribute(
-                "aria-label",
-                "Abrir menu"
-            );
-        });
-    });
 }

@@ -34,27 +34,18 @@ if (menuMobile && mobileNav) {
         "click",
         function () {
 
-            mobileNav.classList.toggle(
-                "open"
-            );
-
-
             const aberto =
-                mobileNav.classList.contains(
-                    "open"
-                );
+                mobileNav.classList.toggle("ativo");
 
 
             menuMobile.setAttribute(
                 "aria-expanded",
-                aberto
+                aberto ? "true" : "false"
             );
 
 
             const icon =
-                menuMobile.querySelector(
-                    "i"
-                );
+                menuMobile.querySelector("i");
 
 
             if (icon) {
@@ -82,6 +73,55 @@ if (menuMobile && mobileNav) {
                 }
 
             }
+
+        }
+    );
+
+
+    /* =========================================
+       FECHAR AO CLICAR EM UM LINK
+    ========================================== */
+
+    const links =
+        mobileNav.querySelectorAll("a");
+
+
+    links.forEach(
+        function (link) {
+
+            link.addEventListener(
+                "click",
+                function () {
+
+                    mobileNav.classList.remove(
+                        "ativo"
+                    );
+
+
+                    menuMobile.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+
+                    const icon =
+                        menuMobile.querySelector("i");
+
+
+                    if (icon) {
+
+                        icon.classList.remove(
+                            "fa-xmark"
+                        );
+
+                        icon.classList.add(
+                            "fa-bars"
+                        );
+
+                    }
+
+                }
+            );
 
         }
     );
@@ -2731,25 +2771,53 @@ if (professorsList) {
 ========================================================= */
 
 const logoutBtn =
-    document.getElementById(
-        "logoutBtn"
-    );
+    document.getElementById("logoutBtn");
 
 
 if (logoutBtn) {
 
     logoutBtn.addEventListener(
         "click",
-        function () {
+        async function () {
 
-            window.location.href =
-                "../index.html";
+            const confirmar = confirm(
+                "Deseja realmente sair?"
+            );
+
+
+            if (!confirmar) {
+                return;
+            }
+
+
+            try {
+
+                await fetch(
+                    "https://localhost:7082/Usuario/logout",
+                    {
+                        method: "POST",
+                        credentials: "include"
+                    }
+                );
+
+            } catch (error) {
+
+                console.error(
+                    "Erro ao fazer logout:",
+                    error
+                );
+
+            } finally {
+
+                window.location.href =
+                    "Login.html";
+
+            }
 
         }
     );
 
 }
-
 
 /* =========================================================
    ATUALIZAR RESUMO

@@ -745,11 +745,6 @@ namespace DOCSenai.Controllers
                         page.DefaultTextStyle(
                             x => x.FontSize(10));
 
-
-                        // -----------------------------------------
-                        // CABEÇALHO
-                        // -----------------------------------------
-
                         page.Header()
                             .Column(column =>
                             {
@@ -896,8 +891,6 @@ namespace DOCSenai.Controllers
                                     .FontSize(13)
                                     .Bold()
                                     .FontColor("#192E75");
-
-
                                 foreach (
                                     var item in dadosAtividades)
                                 {
@@ -917,8 +910,6 @@ namespace DOCSenai.Controllers
                                                     .FontSize(10)
                                                     .Bold()
                                                     .FontColor("#EA632C");
-
-
                                                 atividadeColumn.Item()
                                                     .PaddingTop(4)
                                                     .Text(
@@ -926,8 +917,6 @@ namespace DOCSenai.Controllers
                                                     .FontSize(11)
                                                     .Bold()
                                                     .FontColor("#192E75");
-
-
                                                 atividadeColumn.Item()
                                                     .PaddingTop(3)
                                                     .Text(
@@ -935,15 +924,11 @@ namespace DOCSenai.Controllers
                                                         $"{item.Curso}")
                                                     .FontSize(9)
                                                     .FontColor("#666666");
-
-
                                                 atividadeColumn.Item()
                                                     .PaddingTop(8)
                                                     .Text(
                                                         item.Descricao)
                                                     .FontSize(10);
-
-
                                                 if (
                                                     !string.IsNullOrWhiteSpace(
                                                         item.Observacao))
@@ -961,19 +946,12 @@ namespace DOCSenai.Controllers
                                             });
                                 }
                             });
-
-
-                        // -----------------------------------------
-                        // RODAPÉ
-                        // -----------------------------------------
-
                         page.Footer()
                             .AlignCenter()
                             .Text(text =>
                             {
                                 text.Span(
                                     "DOC SENAI • Relatório de atividades • ");
-
                                 text.CurrentPageNumber();
                             });
                     });

@@ -278,60 +278,95 @@ function configurarEventos() {
     }
 
 
-    /* =====================================================
-       MENU MOBILE
-    ===================================================== */
+   /* =====================================================
+   MENU MOBILE
+===================================================== */
 
-    if (mobileMenuBtn && mobileNav) {
+if (mobileMenuBtn && mobileNav) {
 
-        mobileMenuBtn.addEventListener(
-            "click",
-            () => {
+    mobileMenuBtn.addEventListener(
+        "click",
+        () => {
 
-                const aberto =
-                    mobileNav.classList.toggle(
+            const aberto =
+                mobileNav.classList.toggle(
+                    "ativo"
+                );
+
+
+            mobileMenuBtn.setAttribute(
+                "aria-expanded",
+                aberto ? "true" : "false"
+            );
+
+
+            const icone =
+                mobileMenuBtn.querySelector("i");
+
+
+            if (icone) {
+
+                icone.classList.toggle(
+                    "fa-bars",
+                    !aberto
+                );
+
+                icone.classList.toggle(
+                    "fa-xmark",
+                    aberto
+                );
+
+            }
+
+        }
+    );
+
+
+    const links =
+        mobileNav.querySelectorAll("a");
+
+
+    links.forEach(
+        link => {
+
+            link.addEventListener(
+                "click",
+                () => {
+
+                    mobileNav.classList.remove(
                         "ativo"
                     );
 
 
-                mobileMenuBtn.setAttribute(
-                    "aria-expanded",
-                    aberto ? "true" : "false"
-                );
-
-            }
-        );
+                    mobileMenuBtn.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
 
 
-        const links =
-            mobileNav.querySelectorAll("a");
+                    const icone =
+                        mobileMenuBtn.querySelector("i");
 
 
-        links.forEach(
-            link => {
+                    if (icone) {
 
-                link.addEventListener(
-                    "click",
-                    () => {
-
-                        mobileNav.classList.remove(
-                            "ativo"
+                        icone.classList.remove(
+                            "fa-xmark"
                         );
 
-
-                        mobileMenuBtn.setAttribute(
-                            "aria-expanded",
-                            "false"
+                        icone.classList.add(
+                            "fa-bars"
                         );
 
                     }
-                );
 
-            }
-        );
+                }
+            );
 
-    }
+        }
+    );
 
+}
 
     /* =====================================================
        LOGOUT

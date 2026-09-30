@@ -1381,80 +1381,147 @@ document.addEventListener("DOMContentLoaded", () => {
        MENU MOBILE
     ========================================================= */
 
-    if (
-        menuMobile &&
-        mobileNav
-    ) {
+ function configurarMenu() {
 
-        menuMobile.addEventListener(
-            "click",
-            () => {
-
-                const aberto =
-                    mobileNav.classList.toggle(
-                        "show"
-                    );
-
-
-                menuMobile.setAttribute(
-                    "aria-expanded",
-                    aberto
-                        ? "true"
-                        : "false"
-                );
-            }
-        );
+    if (!menuMobile || !mobileNav) {
+        return;
     }
 
 
+    menuMobile.addEventListener(
+        "click",
+        () => {
+
+            const aberto =
+                mobileNav.classList.toggle("ativo");
+
+
+            menuMobile.setAttribute(
+                "aria-expanded",
+                aberto ? "true" : "false"
+            );
+
+        }
+    );
+
+
+    // Fecha o menu ao clicar em algum link
+
+    const links =
+        mobileNav.querySelectorAll(
+            ".mobile-nav-link"
+        );
+
+
+    links.forEach(
+        link => {
+
+            link.addEventListener(
+                "click",
+                () => {
+
+                    mobileNav.classList.remove(
+                        "ativo"
+                    );
+
+
+                    menuMobile.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+                }
+            );
+
+        }
+    );
+
+}
+configurarMenu();
     /* =========================================================
        LOGOUT
     ========================================================= */
 
-    async function fazerLogout() {
+   async function fazerLogout(event) {
 
-        try {
-
-            await fetch(
-                `${API_BASE}/Usuario/logout`,
-                {
-                    method: "POST",
-                    credentials: "include"
-                }
-            );
-
-        } catch (erro) {
-
-            console.error(
-                "Erro ao fazer logout:",
-                erro
-            );
-
-        } finally {
-
-            window.location.href =
-                "../html/login.html";
-        }
+    /* Impede o link de redirecionar imediatamente */
+    if (event) {
+        event.preventDefault();
     }
 
 
-    if (btnLogout) {
+    /* =====================================================
+       CONFIRMAÇÃO
+    ===================================================== */
 
-        btnLogout.addEventListener(
-            "click",
-            fazerLogout
+    const confirmar = confirm(
+         "Deseja sair da sua conta?" 
+    );
+
+
+    /* Usuário clicou em Cancelar */
+    if (!confirmar) {
+        return;
+    }
+
+
+    /* =====================================================
+       REALIZAR LOGOUT
+    ===================================================== */
+
+    try {
+
+        await fetch(
+            `${API_BASE}/Usuario/logout`,
+            {
+                method: "POST",
+                credentials: "include"
+            }
         );
-    }
 
+    } catch (erro) {
 
-    if (btnLogoutMobile) {
-
-        btnLogoutMobile.addEventListener(
-            "click",
-            fazerLogout
+        console.error(
+            "Erro ao fazer logout:",
+            erro
         );
+
+    } finally {
+
+        window.location.href =
+            "../html/login.html";
+
     }
 
+}
+
+
+/* =========================================================
+   LOGOUT DESKTOP
+========================================================= */
+
+if (btnLogout) {
+
+    btnLogout.addEventListener(
+        "click",
+        fazerLogout
+    );
+
+}
+
+
+/* =========================================================
+   LOGOUT MOBILE
+========================================================= */
+
+if (btnLogoutMobile) {
+
+    btnLogoutMobile.addEventListener(
+        "click",
+        fazerLogout
+    );
+
+}
 
     /* =========================================================
        CONVERTER DATA
