@@ -577,9 +577,7 @@ namespace DOCSenai.Controllers
                 }
 
 
-                // ---------------------------------------------
-                // CRIAR ATIVIDADE
-                // ---------------------------------------------
+                
 
                 var atividade =
                     new Atividade

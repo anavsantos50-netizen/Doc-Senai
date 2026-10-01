@@ -729,11 +729,6 @@ namespace DOCSenai.Controllers
                         pastaRelatorios,
                         nomeArquivo);
 
-
-                // =================================================
-                // GERAR PDF
-                // =================================================
-
                 Document.Create(document =>
                 {
                     document.Page(page =>
@@ -781,16 +776,11 @@ namespace DOCSenai.Controllers
                                     .LineColor("#D9DFEB");
                             });
 
-
-                        // -----------------------------------------
-                        // CONTEÚDO
-                        // -----------------------------------------
-
                         page.Content()
                             .PaddingTop(20)
                             .Column(column =>
                             {
-                                // RESUMO
+                                
 
                                 column.Item()
                                     .Background("#F5F6FA")

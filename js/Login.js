@@ -28,6 +28,7 @@ function login(event) {
             cargo: ""
         })
     })
+    
     .then(response => {
         console.log("Status:", response.status);
 

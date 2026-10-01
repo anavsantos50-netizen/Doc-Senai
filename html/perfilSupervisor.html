@@ -21,7 +21,7 @@
 
     <link
         rel="preconnect"
-        href="https://fonts.gstatic.com"
+        href="https://fonts.googleapis.com"
         crossorigin
     >
 
@@ -687,36 +687,12 @@
 
                 </div>
 
-
-                <!-- NOVA SENHA -->
-
-                <div class="form-group">
-
-                    <label for="senha">
-                        Nova senha
-                    </label>
-
-                    <div class="input-box">
-
-                        <i class="fa-solid fa-lock"></i>
-
-                        <input
-                            type="password"
-                            id="senha"
-                            placeholder="Digite uma nova senha"
-                        >
-
-                    </div>
-
-                </div>
-
             </div>
 
 
             <!-- RODAPÉ -->
 
             <div class="modal-footer">
-
 
                 <button
                     type="button"
@@ -736,6 +712,138 @@
                     <i class="fa-solid fa-check"></i>
 
                     Salvar alterações
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         MODAL ALTERAR SENHA
+    ====================================================== -->
+
+    <div
+        class="modal-overlay"
+        id="passwordModal"
+    >
+
+        <div class="profile-modal">
+
+
+            <!-- FECHAR -->
+
+            <button
+                type="button"
+                class="modal-close"
+                id="passwordModalClose"
+                aria-label="Fechar"
+            >
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+
+            <!-- CABEÇALHO -->
+
+            <div class="modal-header">
+
+                <span>
+                    SEGURANÇA
+                </span>
+
+                <h2>
+                    Alterar senha
+                </h2>
+
+                <p>
+                    Atualize sua senha para manter sua conta protegida.
+                </p>
+
+            </div>
+
+
+            <!-- FORMULÁRIO -->
+
+            <div class="form-content">
+
+
+                <!-- SENHA ATUAL -->
+
+                <div class="form-group">
+
+                    <label for="senhaAtual">
+                        Senha atual
+                    </label>
+
+                    <div class="input-box">
+
+                        <i class="fa-solid fa-lock"></i>
+
+                        <input
+                            type="password"
+                            id="senhaAtual"
+                            placeholder="Digite sua senha atual"
+                            maxlength="8"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- NOVA SENHA -->
+
+                <div class="form-group">
+
+                    <label for="novaSenha">
+                        Nova senha
+                    </label>
+
+                    <div class="input-box">
+
+                        <i class="fa-solid fa-lock"></i>
+
+                        <input
+                            type="password"
+                            id="novaSenha"
+                            placeholder="Digite sua nova senha"
+                            maxlength="8"
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- RODAPÉ -->
+
+            <div class="modal-footer">
+
+                <button
+                    type="button"
+                    class="cancel-btn"
+                    id="btnCancelarSenha"
+                >
+                    Cancelar
+                </button>
+
+
+                <button
+                    type="button"
+                    class="save-btn"
+                    id="btnSalvarSenha"
+                >
+
+                    <i class="fa-solid fa-check"></i>
+
+                    Alterar senha
 
                 </button>
 

@@ -12,6 +12,9 @@ const API_BASE = "https://localhost:7082";
 const profileModal =
     document.getElementById("profileModal");
 
+const passwordModal =
+    document.getElementById("passwordModal");
+
 const btnEditar =
     document.getElementById("btnEditar");
 
@@ -21,11 +24,20 @@ const btnAlterarSenha =
 const modalClose =
     document.getElementById("modalClose");
 
+const passwordModalClose =
+    document.getElementById("passwordModalClose");
+
 const btnCancelar =
     document.getElementById("btnCancelar");
 
+const btnCancelarSenha =
+    document.getElementById("btnCancelarSenha");
+
 const btnSalvar =
     document.getElementById("btnSalvar");
+
+const btnSalvarSenha =
+    document.getElementById("btnSalvarSenha");
 
 const btnLogout =
     document.getElementById("btnLogout");
@@ -68,8 +80,16 @@ const inputEmail =
 const inputCargo =
     document.getElementById("cargo");
 
-const inputSenha =
-    document.getElementById("senha");
+
+/* =========================================================
+   CAMPOS DA SENHA
+========================================================= */
+
+const inputSenhaAtual =
+    document.getElementById("senhaAtual");
+
+const inputNovaSenha =
+    document.getElementById("novaSenha");
 
 
 /* =========================================================
@@ -226,10 +246,10 @@ async function carregarPerfil() {
 
 
 /* =========================================================
-   ABRIR MODAL
+   ABRIR MODAL DE EDITAR PERFIL
 ========================================================= */
 
-function abrirModal() {
+function abrirModalPerfil() {
 
     if (!profileModal) {
         return;
@@ -237,13 +257,6 @@ function abrirModal() {
 
 
     profileModal.classList.add("show");
-
-
-    if (inputSenha) {
-
-        inputSenha.value = "";
-
-    }
 
 
     if (inputNome) {
@@ -256,10 +269,10 @@ function abrirModal() {
 
 
 /* =========================================================
-   FECHAR MODAL
+   FECHAR MODAL DE EDITAR PERFIL
 ========================================================= */
 
-function fecharModal() {
+function fecharModalPerfil() {
 
     if (!profileModal) {
         return;
@@ -268,10 +281,70 @@ function fecharModal() {
 
     profileModal.classList.remove("show");
 
+}
 
-    if (inputSenha) {
 
-        inputSenha.value = "";
+/* =========================================================
+   ABRIR MODAL DE ALTERAR SENHA
+========================================================= */
+
+function abrirModalSenha() {
+
+    if (!passwordModal) {
+        return;
+    }
+
+
+    passwordModal.classList.add("show");
+
+
+    if (inputSenhaAtual) {
+
+        inputSenhaAtual.value = "";
+
+    }
+
+
+    if (inputNovaSenha) {
+
+        inputNovaSenha.value = "";
+
+    }
+
+
+    if (inputSenhaAtual) {
+
+        inputSenhaAtual.focus();
+
+    }
+
+}
+
+
+/* =========================================================
+   FECHAR MODAL DE ALTERAR SENHA
+========================================================= */
+
+function fecharModalSenha() {
+
+    if (!passwordModal) {
+        return;
+    }
+
+
+    passwordModal.classList.remove("show");
+
+
+    if (inputSenhaAtual) {
+
+        inputSenhaAtual.value = "";
+
+    }
+
+
+    if (inputNovaSenha) {
+
+        inputNovaSenha.value = "";
 
     }
 
@@ -300,11 +373,6 @@ async function salvarPerfil() {
 
     const email =
         inputEmail.value.trim();
-
-    const senha =
-        inputSenha
-            ? inputSenha.value.trim()
-            : "";
 
 
     /* ---------------------------------------------
@@ -442,73 +510,6 @@ async function salvarPerfil() {
 
 
         /* =============================================
-           ALTERAR SENHA
-           SOMENTE SE PREENCHIDA
-        ============================================= */
-
-        if (senha) {
-
-            const respostaSenha =
-                await fetch(
-                    `${API_BASE}/Usuario/senha`,
-                    {
-                        method: "PUT",
-
-                        headers: {
-                            "Content-Type":
-                                "application/json"
-                        },
-
-                        credentials: "include",
-
-                        body: JSON.stringify({
-                            senha: senha
-                        })
-                    }
-                );
-
-
-            /* -----------------------------------------
-               SESSÃO EXPIRADA
-            ----------------------------------------- */
-
-            if (
-                respostaSenha.status === 401
-            ) {
-
-                alert(
-                    "Sua sessão expirou. Faça login novamente."
-                );
-
-                window.location.href =
-                    "login.html";
-
-                return;
-            }
-
-
-            const resultadoSenha =
-                await respostaSenha.json();
-
-
-            /* -----------------------------------------
-               ERRO AO ALTERAR SENHA
-            ----------------------------------------- */
-
-            if (!respostaSenha.ok) {
-
-                alert(
-                    resultadoSenha.mensagem ||
-                    "Não foi possível alterar a senha."
-                );
-
-                return;
-            }
-
-        }
-
-
-        /* =============================================
            ATUALIZAR A TELA
         ============================================= */
 
@@ -545,21 +546,10 @@ async function salvarPerfil() {
 
 
         /* =============================================
-           LIMPAR SENHA
-        ============================================= */
-
-        if (inputSenha) {
-
-            inputSenha.value = "";
-
-        }
-
-
-        /* =============================================
            FECHAR MODAL
         ============================================= */
 
-        fecharModal();
+        fecharModalPerfil();
 
 
         /* =============================================
@@ -588,6 +578,190 @@ async function salvarPerfil() {
         btnSalvar.disabled = false;
 
         btnSalvar.innerHTML =
+            textoOriginal;
+
+    }
+
+}
+
+
+/* =========================================================
+   ALTERAR SENHA
+========================================================= */
+
+async function alterarSenha() {
+
+    if (
+        !inputSenhaAtual ||
+        !inputNovaSenha ||
+        !btnSalvarSenha
+    ) {
+
+        return;
+
+    }
+
+
+    const senhaAtual =
+        inputSenhaAtual.value.trim();
+
+    const novaSenha =
+        inputNovaSenha.value.trim();
+
+
+    /* ---------------------------------------------
+       VALIDAR CAMPOS
+    --------------------------------------------- */
+
+    if (!senhaAtual || !novaSenha) {
+
+        alert(
+            "Preencha a senha atual e a nova senha."
+        );
+
+        return;
+    }
+
+
+    /* ---------------------------------------------
+       VALIDAR NOVA SENHA
+    --------------------------------------------- */
+
+    if (novaSenha.length !== 8) {
+
+        alert(
+            "A nova senha deve ter exatamente 8 caracteres."
+        );
+
+        inputNovaSenha.focus();
+
+        return;
+    }
+
+
+    /* ---------------------------------------------
+       BOTÃO
+    --------------------------------------------- */
+
+    const textoOriginal =
+        btnSalvarSenha.innerHTML;
+
+
+    btnSalvarSenha.disabled = true;
+
+    btnSalvarSenha.innerHTML =
+        '<i class="fa-solid fa-spinner fa-spin"></i> Alterando...';
+
+
+    try {
+
+
+        /* =============================================
+           ALTERAR SENHA
+        ============================================= */
+
+        const respostaSenha =
+            await fetch(
+                `${API_BASE}/Usuario/senha`,
+                {
+                    method: "PUT",
+
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    credentials: "include",
+
+                    body: JSON.stringify({
+                        senhaAtual: senhaAtual,
+                        novaSenha: novaSenha
+                    })
+                }
+            );
+
+
+        /* ---------------------------------------------
+           SESSÃO EXPIRADA
+        --------------------------------------------- */
+
+        if (
+            respostaSenha.status === 401
+        ) {
+
+            alert(
+                "Sua sessão expirou. Faça login novamente."
+            );
+
+            window.location.href =
+                "login.html";
+
+            return;
+        }
+
+
+        const resultadoSenha =
+            await respostaSenha.json();
+
+
+        /* ---------------------------------------------
+           ERRO
+        --------------------------------------------- */
+
+        if (!respostaSenha.ok) {
+
+            alert(
+                resultadoSenha.mensagem ||
+                "Não foi possível alterar a senha."
+            );
+
+            return;
+        }
+
+
+        /* ---------------------------------------------
+           LIMPAR CAMPOS
+        --------------------------------------------- */
+
+        inputSenhaAtual.value = "";
+
+        inputNovaSenha.value = "";
+
+
+        /* ---------------------------------------------
+           FECHAR MODAL
+        --------------------------------------------- */
+
+        fecharModalSenha();
+
+
+        /* ---------------------------------------------
+           MENSAGEM
+        --------------------------------------------- */
+
+        alert(
+            resultadoSenha.mensagem ||
+            "Senha alterada com sucesso."
+        );
+
+
+    } catch (erro) {
+
+        console.error(
+            "Erro ao alterar senha:",
+            erro
+        );
+
+        alert(
+            "Não foi possível alterar a senha."
+        );
+
+
+    } finally {
+
+        btnSalvarSenha.disabled = false;
+
+        btnSalvarSenha.innerHTML =
             textoOriginal;
 
     }
@@ -664,7 +838,7 @@ if (btnEditar) {
 
     btnEditar.addEventListener(
         "click",
-        abrirModal
+        abrirModalPerfil
     );
 
 }
@@ -676,43 +850,79 @@ if (btnAlterarSenha) {
 
     btnAlterarSenha.addEventListener(
         "click",
-        abrirModal
+        abrirModalSenha
     );
 
 }
 
 
-/* FECHAR PELO X */
+/* FECHAR MODAL DE PERFIL PELO X */
 
 if (modalClose) {
 
     modalClose.addEventListener(
         "click",
-        fecharModal
+        fecharModalPerfil
     );
 
 }
 
 
-/* CANCELAR */
+/* FECHAR MODAL DE SENHA PELO X */
+
+if (passwordModalClose) {
+
+    passwordModalClose.addEventListener(
+        "click",
+        fecharModalSenha
+    );
+
+}
+
+
+/* CANCELAR PERFIL */
 
 if (btnCancelar) {
 
     btnCancelar.addEventListener(
         "click",
-        fecharModal
+        fecharModalPerfil
     );
 
 }
 
 
-/* SALVAR */
+/* CANCELAR SENHA */
+
+if (btnCancelarSenha) {
+
+    btnCancelarSenha.addEventListener(
+        "click",
+        fecharModalSenha
+    );
+
+}
+
+
+/* SALVAR PERFIL */
 
 if (btnSalvar) {
 
     btnSalvar.addEventListener(
         "click",
         salvarPerfil
+    );
+
+}
+
+
+/* SALVAR SENHA */
+
+if (btnSalvarSenha) {
+
+    btnSalvarSenha.addEventListener(
+        "click",
+        alterarSenha
     );
 
 }
@@ -746,6 +956,9 @@ if (btnSair) {
    FECHAR MODAL CLICANDO FORA
 ========================================================= */
 
+
+/* MODAL DE PERFIL */
+
 if (profileModal) {
 
     profileModal.addEventListener(
@@ -756,7 +969,29 @@ if (profileModal) {
                 evento.target === profileModal
             ) {
 
-                fecharModal();
+                fecharModalPerfil();
+
+            }
+
+        }
+    );
+
+}
+
+
+/* MODAL DE SENHA */
+
+if (passwordModal) {
+
+    passwordModal.addEventListener(
+        "click",
+        function (evento) {
+
+            if (
+                evento.target === passwordModal
+            ) {
+
+                fecharModalSenha();
 
             }
 
@@ -775,12 +1010,30 @@ document.addEventListener(
     function (evento) {
 
         if (
-            evento.key === "Escape" &&
+            evento.key !== "Escape"
+        ) {
+
+            return;
+
+        }
+
+
+        if (
             profileModal &&
             profileModal.classList.contains("show")
         ) {
 
-            fecharModal();
+            fecharModalPerfil();
+
+        }
+
+
+        if (
+            passwordModal &&
+            passwordModal.classList.contains("show")
+        ) {
+
+            fecharModalSenha();
 
         }
 
