@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DOCSenai")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a5a4100d75c3227c7ba6b764c57c9d0b864904ab")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dcc74eeadb0a572b2401f55417da574a447cbb74")]
 [assembly: System.Reflection.AssemblyProductAttribute("DOCSenai")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DOCSenai")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

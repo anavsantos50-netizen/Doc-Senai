@@ -53,3 +53,10 @@ wwwroot\uploads\9c390c0e-6238-44de-ba1e-716118a3587c.png
 wwwroot\relatorios\relatorio_4_20260928084253031.pdf
 wwwroot\relatorios\relatorio_5_20260928100252438.pdf
 wwwroot\uploads\4380e89e-ecc2-4608-9366-2559a0c1fb93.png
+wwwroot\uploads\6eb62fed-2998-4390-836d-31a8daee9a79.png
+wwwroot\uploads\d5768181-de45-420e-b4cc-5a4df8ca8b50.png
+wwwroot\uploads\1471e373-ab6f-4958-921c-3ead0927eb19.png
+wwwroot\uploads\653ddf24-6d6a-4958-909d-5da4941784e2.png
+wwwroot\uploads\dd6771e8-5911-4753-b25a-b6850c13a868.png
+wwwroot\relatorios\relatorio_4_20261001093205475.pdf
+wwwroot\relatorios\relatorio_5_20261001093246951.pdf
