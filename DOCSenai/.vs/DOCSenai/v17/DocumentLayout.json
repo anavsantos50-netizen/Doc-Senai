@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|e:\\ana vit\u00F3ria\\docsenai\\doc-senai\\docsenai\\docsenai\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|solutionrelative:docsenai\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|e:\\ana vit\u00F3ria\\docsenai\\doc-senai\\docsenai\\docsenai\\controllers\\atividadecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|solutionrelative:docsenai\\controllers\\atividadecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|e:\\ana vit\u00F3ria\\docsenai\\doc-senai\\docsenai\\docsenai\\controllers\\supervisaocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|solutionrelative:docsenai\\controllers\\supervisaocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|e:\\ana vit\u00F3ria\\docsenai\\doc-senai\\docsenai\\docsenai\\controllers\\relatoriocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|solutionrelative:docsenai\\controllers\\relatoriocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|e:\\ana vit\u00F3ria\\docsenai\\doc-senai\\docsenai\\docsenai\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|solutionrelative:docsenai\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|e:\\ana vit\u00F3ria\\docsenai\\doc-senai\\docsenai\\docsenai\\controllers\\supervisaocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|solutionrelative:docsenai\\controllers\\supervisaocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{64C193D3-F6A3-4F2D-9455-BCE8C501FE2A}|DOCSenai\\DOCSenai.csproj|e:\\ana vit\u00F3ria\\docsenai\\doc-senai\\docsenai\\docsenai\\controllers\\professor_turmacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -90,23 +90,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "AtividadeController.cs",
               "DocumentMoniker": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\Controllers\\AtividadeController.cs",
               "RelativeDocumentMoniker": "DOCSenai\\Controllers\\AtividadeController.cs",
               "ToolTip": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\Controllers\\AtividadeController.cs",
               "RelativeToolTip": "DOCSenai\\Controllers\\AtividadeController.cs",
-              "ViewState": "AgIAAIsCAAAAAAAAAAAQwLYCAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAFQEAAAAAAAAAAAcwGsEAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-22T10:58:19.346Z"
+              "WhenOpened": "2026-09-22T10:58:19.346Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "SupervisaoController.cs",
               "DocumentMoniker": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\Controllers\\SupervisaoController.cs",
               "RelativeDocumentMoniker": "DOCSenai\\Controllers\\SupervisaoController.cs",
@@ -118,7 +119,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "UsuarioController.cs",
               "DocumentMoniker": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\Controllers\\UsuarioController.cs",
               "RelativeDocumentMoniker": "DOCSenai\\Controllers\\UsuarioController.cs",
@@ -131,15 +132,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "RelatorioController.cs",
               "DocumentMoniker": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\Controllers\\RelatorioController.cs",
               "RelativeDocumentMoniker": "DOCSenai\\Controllers\\RelatorioController.cs",
               "ToolTip": "E:\\Ana Vit\u00F3ria\\DOCSenai\\Doc-Senai\\DOCSenai\\DOCSenai\\Controllers\\RelatorioController.cs",
               "RelativeToolTip": "DOCSenai\\Controllers\\RelatorioController.cs",
-              "ViewState": "AgIAAMIEAAAAAAAAAAAAAOwCAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAAKAEAAAAAAAAAAAwwMMEAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-14T11:29:51.971Z"
+              "WhenOpened": "2026-09-14T11:29:51.971Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",

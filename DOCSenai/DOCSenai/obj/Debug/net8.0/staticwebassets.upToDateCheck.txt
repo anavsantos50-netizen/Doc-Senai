@@ -60,3 +60,6 @@ wwwroot\uploads\653ddf24-6d6a-4958-909d-5da4941784e2.png
 wwwroot\uploads\dd6771e8-5911-4753-b25a-b6850c13a868.png
 wwwroot\relatorios\relatorio_4_20261001093205475.pdf
 wwwroot\relatorios\relatorio_5_20261001093246951.pdf
+wwwroot\relatorios\relatorio_6_20261002080537917.pdf
+wwwroot\relatorios\relatorio_7_20261002080600656.pdf
+wwwroot\relatorios\relatorio_8_20261002080735343.pdf
